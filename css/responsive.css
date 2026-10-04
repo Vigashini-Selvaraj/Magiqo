@@ -1,5 +1,9 @@
 /* Mobile First & Responsive Adjustments */
 
+.mobile-only-link {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .hero h1 { font-size: 3.5rem; }
   
@@ -9,6 +13,26 @@
 
   .packages-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  /* Common Grid Overrides */
+  .hero-container, .contact-layout, .article-container, .featured-story, .why-interactive-container, .team-grid {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+  
+  .hero-container {
+    gap: 2rem !important;
+    padding: 2rem 0 !important;
+  }
+  
+  [style*="grid-template-columns: 1fr 1fr"], 
+  [style*="grid-template-columns: repeat(2"], 
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -61,11 +85,6 @@
   .mobile-only-link {
     display: block !important;
   }
-}
-
-.mobile-only-link {
-  display: none;
-}
 
   /* Footer */
   .footer-grid {
@@ -119,39 +138,7 @@
   .final-cta h2 {
     font-size: 2.5rem;
   }
-}
 
-@media (max-width: 425px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .steps-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .newsletter-form {
-    flex-direction: column;
-  }
-}
-
-/* Global Mobile Resets & Fixes */
-@media (max-width: 992px) {
-  /* Common Grid Overrides */
-  .hero-container, .contact-layout, .article-container, .featured-story, .why-interactive-container, .team-grid {
-    grid-template-columns: 1fr !important;
-    flex-direction: column !important;
-  }
-  
-  [style*="grid-template-columns: 1fr 1fr"], 
-  [style*="grid-template-columns: repeat(2"], 
-  [style*="grid-template-columns: repeat(3"],
-  [style*="grid-template-columns: repeat(4"] {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-@media (max-width: 768px) {
   /* Catch-all for grids with auto-fit max constraints */
   [style*="grid-template-columns: repeat(auto-fit"] {
     grid-template-columns: 1fr !important;
@@ -170,11 +157,12 @@
   .form-row { grid-template-columns: 1fr !important; }
   .hero-text-content { text-align: center !important; margin: 0 auto; }
   .hero-buttons { flex-direction: column !important; justify-content: center !important; align-items: center !important; }
-  .hero-buttons .btn { width: 80%; max-width: 280px; text-align: center; padding: 0.75rem 1rem !important; font-size: 1rem !important; }
+  .hero-buttons .btn { width: 80%; max-width: 280px; text-align: center; padding: 0.75rem 1rem !important; font-size: 1rem !important; margin: 0 auto; }
   
   .hero-animation { 
-    transform: scale(0.8) !important; 
-    margin-left: -10% !important; 
+    transform: scale(0.9) !important; 
+    transform-origin: center center;
+    margin: 0 auto !important; 
   }
   
   .capture-smile-wrapper { margin-top: 1rem !important; }
@@ -183,7 +171,25 @@
 
 @media (max-width: 480px) {
   .hero-animation { 
-    transform: scale(0.6) !important; 
-    margin-left: -20% !important; 
+    margin: -50px auto -150px auto !important;
+  }
+  
+  .hero-stage {
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 425px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
   }
 }
