@@ -1,0 +1,189 @@
+/* Mobile First & Responsive Adjustments */
+
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 3.5rem; }
+  
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .hamburger {
+    display: flex;
+  }
+  
+  .d-none-mobile {
+    display: none !important;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: var(--color-surface);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem 2rem 4rem 2rem;
+    gap: 0;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+  }
+
+  [dir="rtl"] .nav-links {
+    left: auto;
+    right: -100%;
+    transition: right 0.3s ease;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+
+  [dir="rtl"] .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links a {
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-only-link {
+    display: block !important;
+  }
+}
+
+.mobile-only-link {
+  display: none;
+}
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* Hero */
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.1rem; }
+  .hero-buttons {
+    flex-direction: column;
+  }
+  .magician-container {
+    right: auto;
+    left: 50%;
+    margin-left: -165px; /* Half of 330px width */
+  }
+
+  .kids-container {
+    left: 50%;
+    margin-left: -125px; /* Half of 250px width */
+  }
+
+  .animated-booking-text {
+    left: 50% !important;
+    margin-left: -110px; /* Half of 220px width */
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Packages */
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .package-card.popular {
+    transform: none;
+  }
+
+  /* Final CTA */
+  .final-cta h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+
+/* Global Mobile Resets & Fixes */
+@media (max-width: 992px) {
+  /* Common Grid Overrides */
+  .hero-container, .contact-layout, .article-container, .featured-story, .why-interactive-container, .team-grid {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+  
+  [style*="grid-template-columns: 1fr 1fr"], 
+  [style*="grid-template-columns: repeat(2"], 
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Catch-all for grids with auto-fit max constraints */
+  [style*="grid-template-columns: repeat(auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Make all main grid classes 1 column on mobile */
+  .cat-grid, .steps-container, .packages-grid, .review-grid, .stars-grid, .exp-grid, .step-grid, .action-grid, .events-grid, .help-grid-modern, .blog-grid, .related-grid, .gallery-grid, .process-container, .inspiration-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Font Scaling */
+  h1 { font-size: 2.5rem !important; }
+  h2, .section-title { font-size: 2rem !important; }
+  
+  /* Specific Fixes */
+  .form-row { grid-template-columns: 1fr !important; }
+  .hero-text-content { text-align: center !important; margin: 0 auto; }
+  .hero-buttons { flex-direction: column !important; justify-content: center !important; align-items: center !important; }
+  .hero-buttons .btn { width: 80%; max-width: 280px; text-align: center; padding: 0.75rem 1rem !important; font-size: 1rem !important; }
+  
+  .hero-animation { 
+    transform: scale(0.8) !important; 
+    margin-left: -10% !important; 
+  }
+  
+  .capture-smile-wrapper { margin-top: 1rem !important; }
+  .upload-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-animation { 
+    transform: scale(0.6) !important; 
+    margin-left: -20% !important; 
+  }
+}

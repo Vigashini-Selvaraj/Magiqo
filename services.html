@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGIQO - Our Services</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    body {
+      background-color: var(--color-bg);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .section-pad {
+      padding: 6rem 0;
+    }
+
+    .sec-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .sec-title h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 1rem;
+      background: var(--gradient-heading);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .sec-title p {
+      color: var(--color-text-light);
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* 1. Redesigned Hero Section */
+    .service-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--color-surface);
+      padding-top: 120px;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+    .hero-container {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text-side {
+      flex: 1;
+      max-width: 600px;
+    }
+    .hero-text-side h1 {
+      font-family: var(--font-magic);
+      font-size: clamp(3rem, 5vw, 5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      background: var(--gradient-heading);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-text-side p {
+      font-size: 1.25rem;
+      color: var(--color-text-light);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+    .hero-image-side {
+      flex: 1;
+      position: relative;
+    }
+    .hero-image-side img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      border: 10px solid white;
+      transform: rotate(2deg);
+      transition: transform 0.5s ease;
+    }
+    .hero-image-side:hover img {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--color-primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-pill);
+      font-weight: bold;
+      font-size: 1.25rem;
+      box-shadow: 0 10px 30px rgba(218, 47, 95, 0.3);
+    }
+
+    /* Filters Bar */
+    .filters-bar {
+      background: var(--color-surface);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--color-border);
+    }
+    .search-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 1rem 1.5rem;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: 1rem;
+      color: var(--color-text);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .search-input:focus {
+      border-color: var(--color-primary);
+    }
+    .filter-select {
+      padding: 1rem 1.5rem;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: 1rem;
+      color: var(--color-text);
+      outline: none;
+      cursor: pointer;
+      background: white;
+      min-width: 150px;
+    }
+    .style-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .style-pill {
+      padding: 0.5rem 1.25rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+      transition: all 0.2s;
+    }
+    .style-pill.active, .style-pill:hover {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+
+    /* 2. Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      border: 1px solid var(--color-border);
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(46, 25, 167, 0.15);
+      border-color: var(--color-primary);
+    }
+    .service-img-wrap {
+      height: 200px;
+      overflow: hidden;
+    }
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-img-wrap img {
+      transform: scale(1.1);
+    }
+    .service-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .service-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    .service-card:hover .service-info h3 {
+      color: var(--color-primary);
+    }
+    .service-info p {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .service-btn {
+      color: var(--color-primary);
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 3. Discover the Experience (Zigzag Layout) */
+    .zigzag-row {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      transition: transform 0.5s ease;
+    }
+    .zigzag-row:hover { transform: translateY(-5px); }
+    .zigzag-row:nth-child(even) { flex-direction: row-reverse; }
+    .zigzag-img {
+      flex: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .zigzag-img img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: transform 0.7s;
+    }
+    .zigzag-row:hover .zigzag-img img { transform: scale(1.05); }
+    .zigzag-text {
+      flex: 1;
+      padding: 2rem;
+    }
+    .zigzag-text h3 {
+      font-family: var(--font-magic);
+      font-size: 2.25rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+    .zigzag-icon {
+      width: 50px; height: 50px;
+      background: var(--color-supporting);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+    }
+    .zigzag-icon svg { width: 24px; height: 24px; fill: currentColor; }
+
+    /* 4. Signature Packages (Redesigned Dark Premium) */
+    .pricing-wrapper {
+      background: var(--color-surface);
+      padding: 6rem 0;
+      color: var(--color-text);
+    }
+    .pricing-wrapper .sec-title h2 {
+      background: var(--gradient-heading);
+      -webkit-background-clip: text;
+    }
+    .pricing-wrapper .sec-title p { color: var(--color-text-light); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .pricing-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      position: relative;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px var(--color-shadow); }
+    .pricing-card.featured {
+      background: rgba(210, 75, 118, 0.05);
+      border: 2px solid var(--color-primary);
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(210, 75, 118, 0.2);
+    }
+    .pricing-card.featured:hover { transform: scale(1.05) translateY(-10px); }
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -16px; left: 50%; transform: translateX(-50%);
+      background: var(--gradient-heading); color: white;
+      padding: 0.5rem 2rem; border-radius: var(--radius-pill);
+      font-weight: bold; font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3);
+    }
+    .price-title { font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .price-amount { font-size: 3.5rem; font-weight: 800; color: var(--color-accent); margin-bottom: 0.5rem; line-height: 1; }
+    .price-duration { color: var(--color-text-light); margin-bottom: 2rem; font-weight: bold; font-size: 1.1rem; }
+    .price-features { list-style: none; margin-bottom: 2.5rem; text-align: left; }
+    .price-features li { padding: 0.85rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text); display: flex; align-items: flex-start; gap: 0.75rem; }
+    .price-features li svg { width: 20px; height: 20px; fill: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
+
+    /* 5. Occasions (Image Overlay Reveal) */
+    .occ-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .occ-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 400px;
+      cursor: pointer;
+    }
+    .occ-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .occ-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      padding: 2rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .occ-card:hover img { transform: scale(1.1); }
+    .occ-card:hover .occ-overlay { opacity: 1; }
+    .occ-overlay h4 { font-family: var(--font-magic); font-size: 2.5rem; margin-bottom: 1rem; transform: translateY(20px); transition: transform 0.4s ease; }
+    .occ-card:hover .occ-overlay h4 { transform: translateY(0); }
+    .occ-overlay p { opacity: 0; transition: opacity 0.4s 0.2s; font-size: 1.2rem; color: #f0f0f0; line-height: 1.6; }
+    .occ-card:hover .occ-overlay p { opacity: 1; }
+
+    /* 6. Why Choose Us (Flex Accordion) */
+    .accordion-container {
+      display: flex;
+      gap: 1rem;
+      height: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+    .acc-item {
+      flex: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      transition: flex 0.5s ease-in-out;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      cursor: pointer;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+    .acc-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      transition: background 0.3s;
+    }
+    .acc-item:hover .acc-overlay { background: rgba(0,0,0,0.4); } /* Keep it dark instead of pink */
+    .acc-item:hover { flex: 3; border-color: var(--color-primary); }
+    .acc-content {
+      position: absolute;
+      bottom: 2rem; left: 2rem; right: 2rem;
+      z-index: 2;
+    }
+    .acc-content h4 { font-family: var(--font-heading); font-size: 1.8rem; font-weight: bold; color: white !important; -webkit-text-fill-color: white !important; background: none !important; white-space: nowrap; margin-bottom: 0.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+    .acc-item:hover .acc-content h4 { white-space: normal; }
+    .acc-content p {
+      opacity: 0;
+      color: white;
+      transition: opacity 0.3s;
+      width: 100%;
+    }
+    .acc-item:hover .acc-content p { opacity: 1; transition-delay: 0.2s; }
+
+    /* 8. CTA */
+    .cta-section {
+      background: #D24B76;
+      padding: 6rem 0;
+      text-align: center;
+      color: white;
+    }
+    .cta-section h2 { color: white !important; -webkit-text-fill-color: white !important; background: none !important; font-size: 4rem; }
+    .btn-animated { transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .btn-animated:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+    @media (max-width: 992px) {
+      .hero-container { flex-direction: column; text-align: center; }
+      .hero-floating-badge { left: 50%; transform: translateX(-50%); bottom: -20px; }
+      .pricing-card.featured { transform: scale(1); }
+      .pricing-card.featured:hover { transform: translateY(-5px); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="navbar"></div>
+
+  <!-- 1. Hero Section (Redesigned) -->
+  <section class="service-hero">
+    <div class="container hero-container">
+      <div class="hero-text-side">
+        <h1><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Unforgettable</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Magic Awaits.</span></h1>
+        <p>From mesmerizing stage illusionists to joyful mascots, discover the perfect entertainment to make your child's celebration truly extraordinary.</p>
+        <a href="#explore" class="btn btn-primary" style="padding: 1.25rem 3rem; font-size: 1.125rem;">Explore All Services</a>
+      </div>
+      <div class="hero-image-side">
+        <img src="assets/images/service_hero.jpg" alt="Magical Entertainment">
+        <div class="hero-floating-badge">20+ Premium Experiences</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Explore Our Entertainment (20 Services + Filter/Search) -->
+  <section id="explore" class="section-pad" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Explore</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Our Entertainment</span></h2>
+        <p>Browse our extensive roster of magical services. Search, filter, or sort to find the perfect fit.</p>
+      </div>
+      
+      <!-- Filters and Search -->
+      <div class="filters-bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for magicians, clowns, princesses...">
+        
+        <div class="style-filters">
+          <button class="style-pill active" data-filter="all">All</button>
+          <button class="style-pill" data-filter="magic">Magic</button>
+          <button class="style-pill" data-filter="characters">Characters</button>
+          <button class="style-pill" data-filter="activities">Activities</button>
+        </div>
+
+        <select id="sortSelect" class="filter-select">
+          <option value="default">Sort by: Default</option>
+          <option value="az">A - Z</option>
+          <option value="za">Z - A</option>
+        </select>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <!-- 20 Services -->
+        <a href="service_detail.html" class="service-card" data-title="Grand Stage Magician" data-category="magic">
+          <div class="service-img-wrap"><img src="assets/images/hero_magician_1790831867453.jpg" alt="Stage Magician"></div>
+          <div class="service-info">
+            <h3>Grand Stage Magician</h3>
+            <p>A full 45-minute stage illusion show.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Friendly Mascots" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/service_mascot.jpg" alt="Party Mascot"></div>
+          <div class="service-info">
+            <h3>Friendly Mascots</h3>
+            <p>Huggable, joyful character appearances.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Royal Princess Visit" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/princess_party_1790842645232.jpg" alt="Royal Princess"></div>
+          <div class="service-info">
+            <h3>Royal Princess Visit</h3>
+            <p>Sing-alongs and royal coronations.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Action Superhero" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Superhero"></div>
+          <div class="service-info">
+            <h3>Action Superhero</h3>
+            <p>Superhero training and action games.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Classic Clown" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/clown_party_1790842566084.jpg" alt="Classic Clown"></div>
+          <div class="service-info">
+            <h3>Classic Clown</h3>
+            <p>Slapstick comedy and endless laughs.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Face Painting Pro" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/gallery_smile_1.jpg" alt="Face Painting"></div>
+          <div class="service-info">
+            <h3>Face Painting Pro</h3>
+            <p>Transforming faces into art.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Balloon Twisting" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/about_kids_birthday.jpg" alt="Balloon Twisting"></div>
+          <div class="service-info">
+            <h3>Balloon Twisting</h3>
+            <p>Swords, dogs, and crazy hats!</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Interactive Puppet Show" data-category="magic">
+          <div class="service-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Puppet Show"></div>
+          <div class="service-info">
+            <h3>Interactive Puppet Show</h3>
+            <p>Engaging stories for toddlers.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Close-Up Magician" data-category="magic">
+          <div class="service-img-wrap"><img src="assets/images/magician_portrait_1790843004983.jpg" alt="Close-up Magic"></div>
+          <div class="service-info">
+            <h3>Close-Up Magician</h3>
+            <p>Strolling magic for older kids.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="High-Energy Party Host" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Party Host"></div>
+          <div class="service-info">
+            <h3>High-Energy Party Host</h3>
+            <p>Running games and keeping energy high.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Magic Workshop" data-category="magic">
+          <div class="service-img-wrap"><img src="assets/images/gallery_smile_2.jpg" alt="Magic Workshop"></div>
+          <div class="service-info">
+            <h3>Magic Workshop</h3>
+            <p>Teaching kids their first magic tricks.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Enchanted Storyteller" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/about_mission.jpg" alt="Storytelling"></div>
+          <div class="service-info">
+            <h3>Enchanted Storyteller</h3>
+            <p>Immersive tales and adventures.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Master Illusionist" data-category="magic">
+          <div class="service-img-wrap"><img src="assets/images/about_art_of_magic.jpg" alt="Illusionist"></div>
+          <div class="service-info">
+            <h3>Master Illusionist</h3>
+            <p>Levitation and grand spectacles.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Fairy Godmother" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/princess_portrait_1790843055244.jpg" alt="Fairy Godmother"></div>
+          <div class="service-info">
+            <h3>Fairy Godmother</h3>
+            <p>Granting wishes and spreading dust.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Comedy Juggler" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/founder_mark.jpg" alt="Juggler"></div>
+          <div class="service-info">
+            <h3>Comedy Juggler</h3>
+            <p>Balls, clubs, and hilarious drops.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Glitter Tattoos" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/gallery_smile_1.jpg" alt="Glitter Tattoos"></div>
+          <div class="service-info">
+            <h3>Glitter Tattoos</h3>
+            <p>Sparkly waterproof body art.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Giant Bubble Show" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/hero_magician_1790831867453.jpg" alt="Bubble Show"></div>
+          <div class="service-info">
+            <h3>Giant Bubble Show</h3>
+            <p>Putting kids inside giant bubbles!</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Kids Party DJ" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Kids DJ"></div>
+          <div class="service-info">
+            <h3>Kids Party DJ</h3>
+            <p>Music, dancing, and freeze dance.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Space Warrior Training" data-category="characters">
+          <div class="service-img-wrap"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Jedi Training"></div>
+          <div class="service-info">
+            <h3>Space Warrior Training</h3>
+            <p>Learn the ways of the force.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+        <a href="service_detail.html" class="service-card" data-title="Animal Encounters" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/service_mascot.jpg" alt="Petting Zoo"></div>
+          <div class="service-info">
+            <h3>Animal Encounters</h3>
+            <p>Meet friendly cute animals.</p>
+            <span class="service-btn">View Details →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Discover the Experience (Redesigned Zigzag) -->
+  <section class="section-pad" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Discover</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">the Experience</span></h2>
+        <p>What makes a MAGIQO performance truly unique.</p>
+      </div>
+      
+      <div class="zigzag-row">
+        <div class="zigzag-img"><img src="assets/images/gallery_smile_1.jpg" alt="Interactive"></div>
+        <div class="zigzag-text">
+          <div class="zigzag-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>100% Interactive</h3>
+          <p style="font-size: 1.125rem; color: var(--color-text-light); line-height: 1.8;">We don't just perform for the children; we perform WITH them. Every child gets a chance to participate, laugh, and be a part of the magical unfolding story.</p>
+        </div>
+      </div>
+      
+      <div class="zigzag-row">
+        <div class="zigzag-img"><img src="assets/images/princess_portrait_1790843055244.jpg" alt="Premium Quality"></div>
+        <div class="zigzag-text">
+          <div class="zigzag-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm1-11h-2v3H8v2h3v3h2v-3h3v-2h-3V8z"/></svg>
+          </div>
+          <h3>Premium Quality</h3>
+          <p style="font-size: 1.125rem; color: var(--color-text-light); line-height: 1.8;">Our characters look like they stepped right out of a movie set. No cheap wigs or low-quality fabrics—only museum-quality costumes and props.</p>
+        </div>
+      </div>
+
+      <div class="zigzag-row">
+        <div class="zigzag-img"><img src="assets/images/about_mission.jpg" alt="Stress Free"></div>
+        <div class="zigzag-text">
+          <div class="zigzag-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+          </div>
+          <h3>Stress-Free Parents</h3>
+          <p style="font-size: 1.125rem; color: var(--color-text-light); line-height: 1.8;">We handle the entertainment from start to finish, so you can actually sit back, enjoy a conversation, and watch your child have the time of their life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Signature Packages (Redesigned Dark Premium) -->
+  <section class="pricing-wrapper">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Our</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Signature Packages</span></h2>
+        <p>Curated bundles for the perfect celebration length.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3 class="price-title">The Spark</h3>
+          <div class="price-amount">$199</div>
+          <div class="price-duration">45 Minutes</div>
+          <ul class="price-features">
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 1 Professional Entertainer</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Interactive Magic Show</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Happy Birthday Ceremony</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Photo Opportunities</li>
+          </ul>
+          <a href="booking.html" class="btn btn-outline" style="width: 100%; padding: 1rem; border-color: var(--color-primary); color: var(--color-text);">Book The Spark</a>
+        </div>
+        
+        <div class="pricing-card featured">
+          <h3 class="price-title">The Magic</h3>
+          <div class="price-amount">$299</div>
+          <div class="price-duration">90 Minutes</div>
+          <ul class="price-features">
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 1 Professional Entertainer</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Interactive Magic Show</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Balloon Twisting</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Party Games & Music</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Special Gift Box</li>
+          </ul>
+          <a href="booking.html" class="btn btn-primary" style="width: 100%; padding: 1rem;">Book The Magic</a>
+        </div>
+        
+        <div class="pricing-card">
+          <h3 class="price-title">The Spectacle</h3>
+          <div class="price-amount">$499</div>
+          <div class="price-duration">2 Hours</div>
+          <ul class="price-features">
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 2 Professional Entertainers</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Grand Magic Show & Face Paint</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Balloon Twisting & Games</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Mini Disco Setup</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Premium Gift Box</li>
+          </ul>
+          <a href="booking.html" class="btn btn-outline" style="width: 100%; padding: 1rem; border-color: var(--color-primary); color: var(--color-text);">Book The Spectacle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 & 6 Combined: Occasions & Why Choose Us (Redesigned) -->
+  <section class="section-pad" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Perfect For</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Every Occasion</span></h2>
+        <p>Hover to discover how we make every event special.</p>
+      </div>
+      <div class="occ-grid" style="margin-bottom: 5rem;">
+        <div class="occ-card">
+          <img src="assets/images/about_kids_birthday.jpg" alt="Birthdays">
+          <div class="occ-overlay">
+            <h4>Birthdays</h4>
+            <p>Making them the absolute star of the day with customized themes and personalized magic.</p>
+          </div>
+        </div>
+        <div class="occ-card">
+          <img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Schools">
+          <div class="occ-overlay">
+            <h4>School Events</h4>
+            <p>Large scale fun that engages full classrooms and assemblies safely and reliably.</p>
+          </div>
+        </div>
+        <div class="occ-card">
+          <img src="assets/images/about_mission.jpg" alt="Corporate">
+          <div class="occ-overlay">
+            <h4>Family Gatherings</h4>
+            <p>Keeping the little ones fully entertained with high-energy games while adults relax.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-title" style="margin-top: 6rem;">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Why Families</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Choose Us</span></h2>
+        <p>Hover over the cards below to see why we're the best.</p>
+      </div>
+      
+      <div class="accordion-container">
+        <div class="acc-item" style="background-image: url('assets/images/gallery_smile_1.jpg');">
+          <div class="acc-overlay"></div>
+          <div class="acc-content">
+            <h4>Vetted & Safe</h4>
+            <p>Fully background checked professionals, giving you complete peace of mind when we arrive at your door.</p>
+          </div>
+        </div>
+        <div class="acc-item" style="background-image: url('assets/images/superhero_party_1790842695325.jpg');">
+          <div class="acc-overlay"></div>
+          <div class="acc-content">
+            <h4>Highly Reliable</h4>
+            <p>We never cancel. We always show up on time, fully prepared, and ready to perform at our absolute best.</p>
+          </div>
+        </div>
+        <div class="acc-item" style="background-image: url('assets/images/princess_party_1790842645232.jpg');">
+          <div class="acc-overlay"></div>
+          <div class="acc-content">
+            <h4>Pure Joy</h4>
+            <p>Over 10,000 5-star reviews from happy parents across the country who trusted us with their memories.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Let the Magic Begin (CTA - Color from home2) -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <div class="sec-title" style="margin-bottom: 2rem;">
+        <h2 style="color: white !important; -webkit-text-fill-color: white !important; background: none !important;">Let the Magic Begin</h2>
+      </div>
+      <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.6; color: rgba(255,255,255,0.9);">
+        Secure your child's favorite entertainer before our calendar fills up completely. Let's create an unforgettable celebration together.
+      </p>
+      <a href="packages.html" class="btn btn-animated" style="background: white; color: #da2f5f; padding: 1.25rem 4rem; font-size: 1.25rem; font-weight: bold; border-radius: var(--radius-pill); text-decoration: none; display: inline-block;">Book Your Party Now</a>
+    </div>
+  </section>
+
+  <!-- Dynamic Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Search, Sort, and Filter Logic for Services Grid
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const sortSelect = document.getElementById('sortSelect');
+      const filterBtns = document.querySelectorAll('.style-pill');
+      const grid = document.getElementById('servicesGrid');
+      
+      // Convert NodeList to Array to easily sort
+      let cards = Array.from(grid.getElementsByClassName('service-card'));
+      let currentFilter = 'all';
+
+      function updateGrid() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const sortValue = sortSelect.value;
+        
+        // 1. Filter
+        let visibleCards = cards.filter(card => {
+          const title = card.getAttribute('data-title').toLowerCase();
+          const category = card.getAttribute('data-category');
+          const matchesSearch = title.includes(searchTerm);
+          const matchesCategory = currentFilter === 'all' || category === currentFilter;
+          return matchesSearch && matchesCategory;
+        });
+
+        // 2. Sort
+        if (sortValue === 'az') {
+          visibleCards.sort((a, b) => a.getAttribute('data-title').localeCompare(b.getAttribute('data-title')));
+        } else if (sortValue === 'za') {
+          visibleCards.sort((a, b) => b.getAttribute('data-title').localeCompare(a.getAttribute('data-title')));
+        } else {
+          // Default: restore original order of visible cards based on DOM position
+          // To do this perfectly, we sort by their original index in `cards` array
+          visibleCards.sort((a, b) => cards.indexOf(a) - cards.indexOf(b));
+        }
+
+        // 3. Render
+        grid.innerHTML = '';
+        if (visibleCards.length === 0) {
+          grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding: 2rem; color: var(--color-text-light);">No magical services found matching your search.</p>';
+        } else {
+          visibleCards.forEach(card => {
+            // Need to remove inline display style if it was hidden previously
+            card.style.display = 'block'; 
+            grid.appendChild(card);
+          });
+        }
+      }
+
+      // Event Listeners
+      searchInput.addEventListener('input', updateGrid);
+      sortSelect.addEventListener('change', updateGrid);
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          e.target.classList.add('active');
+          currentFilter = e.target.getAttribute('data-filter');
+          updateGrid();
+        });
+      });
+
+      // Pass details to service_detail.html via URL params
+      grid.addEventListener('click', (e) => {
+        const card = e.target.closest('.service-card');
+        if (card) {
+          e.preventDefault();
+          const title = encodeURIComponent(card.getAttribute('data-title'));
+          const img = encodeURIComponent(card.querySelector('img').getAttribute('src'));
+          window.location.href = `service_detail.html?title=${title}&img=${img}`;
+        }
+      });
+    });
+  </script>
+
+  <!-- Framer Motion (Motion One for Vanilla JS) -->
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Initial Opacity Setup
+      const fadeElements = document.querySelectorAll('.sec-title, .page-header h1, .page-header p, .hero-text-side, .hero-image-side, .zigzag-img, .zigzag-text');
+      fadeElements.forEach(el => el.style.opacity = '0');
+
+      const grids = document.querySelectorAll('#servicesGrid, .pricing-grid, .occ-grid, .accordion-container, div[style*="display: grid"]');
+      grids.forEach(grid => Array.from(grid.children).forEach(child => child.style.opacity = '0'));
+
+      // 2. Animations on Scroll
+      
+      // Hero Section
+      inView(".service-hero", () => {
+        const text = document.querySelector(".hero-text-side");
+        const img = document.querySelector(".hero-image-side");
+        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+        if(img) animate(img, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+      });
+
+      // Header Elements & Section Titles
+      document.querySelectorAll(".page-header, .sec-title").forEach(title => {
+        inView(title, () => animate(title, { opacity: [0, 1], y: [50, 0] }, { duration: 0.8, easing: "ease-out" }));
+      });
+
+      // Zigzag Layout
+      document.querySelectorAll(".zigzag-row").forEach((layout, idx) => {
+        const image = layout.querySelector('.zigzag-img');
+        const text = layout.querySelector('.zigzag-text');
+        if (image && text) {
+          inView(layout, () => {
+            // Alternate sides based on index
+            const imgFrom = idx % 2 === 0 ? -100 : 100;
+            const textFrom = idx % 2 === 0 ? 100 : -100;
+            animate(image, { opacity: [0, 1], x: [imgFrom, 0] }, { duration: 0.8, easing: "ease-out" });
+            animate(text, { opacity: [0, 1], x: [textFrom, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+          });
+        }
+      });
+
+      // Grids (Left/Right pop-up)
+      grids.forEach(grid => {
+        inView(grid, () => {
+          const children = Array.from(grid.children).filter(child => child.style.display !== 'none');
+          children.forEach((child, index) => {
+            let xOffset = 0; let yOffset = 50;
+            if (children.length > 1) {
+              if (index % 3 === 0) { xOffset = -100; yOffset = 0; } 
+              else if (index % 3 === 2) { xOffset = 100; yOffset = 0; }
+            }
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
+          });
+        });
+      });
+      
+      // CTA Section
+      inView(".cta-section", ({ target }) => {
+        const container = target.querySelector(".container");
+        if(container) animate(container, { opacity: [0, 1], y: [50, 0] }, { duration: 0.8 });
+      });
+
+      // Hook into the sorting/filtering so it re-animates smoothly
+      const searchInput = document.getElementById('searchInput');
+      const sortSelect = document.getElementById('sortSelect');
+      const filterBtns = document.querySelectorAll('.style-pill');
+      
+      const triggerAnimation = () => {
+        const grid = document.getElementById('servicesGrid');
+        if(!grid) return;
+        const children = Array.from(grid.children).filter(child => child.style.display !== 'none');
+        children.forEach((child, index) => {
+            child.style.opacity = '0';
+            let xOffset = 0; let yOffset = 50;
+            if (children.length > 1) {
+              if (index % 3 === 0) { xOffset = -100; yOffset = 0; } 
+              else if (index % 3 === 2) { xOffset = 100; yOffset = 0; }
+            }
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.5, easing: "ease-out", delay: 0.05 * index });
+        });
+      };
+      
+      if(searchInput) searchInput.addEventListener('input', () => setTimeout(triggerAnimation, 50));
+      if(sortSelect) sortSelect.addEventListener('change', () => setTimeout(triggerAnimation, 50));
+      if(filterBtns) filterBtns.forEach(btn => btn.addEventListener('click', () => setTimeout(triggerAnimation, 50)));
+    });
+  </script>
+</body>
+</html>

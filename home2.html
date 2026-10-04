@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGIQO - Premium Party Experience</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    /* Absolute Clean, Uniform Styling for Home 2 */
+    
+    body {
+      background-color: var(--color-bg);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Uniform Grid System */
+    .responsive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      width: 100%;
+    }
+
+    /* Uniform Section Layouts */
+    .section-pad {
+      padding: 6rem 0;
+    }
+    .sec-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .sec-title h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+    .sec-title p {
+      color: var(--color-text-light);
+      font-size: 1.125rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* 1. Hero Section - Redesigned with Overlap UI */
+    .hero-h2 {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg) 40%, var(--color-surface) 40%, var(--color-surface) 100%);
+      padding-top: 120px;
+      padding-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text-side {
+      flex: 1;
+      max-width: 550px;
+    }
+    .hero-title {
+      font-family: var(--font-magic);
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .hero-desc {
+      font-size: 1.125rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Hero Booking UI Box */
+    .hero-booking-ui {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 10;
+    }
+    .hero-booking-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .hero-booking-input {
+      flex: 1;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text);
+      outline: none;
+      background: var(--color-bg);
+      transition: border-color 0.3s;
+    }
+    .hero-booking-input:focus {
+      border-color: var(--color-primary);
+    }
+    .hero-booking-ui .btn {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.125rem;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .hero-anim-side {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+    }
+    .hero-main-img {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      box-shadow: 0 20px 50px var(--color-shadow);
+      border: 10px solid white;
+      object-fit: cover;
+      height: 600px;
+      animation: morph 8s ease-in-out infinite;
+    }
+    @keyframes morph {
+      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+      100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    }
+
+    /* Star Cards (Theme Aware) */
+    .star-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px var(--color-shadow);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .star-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 100px;
+      background: var(--color-supporting);
+      z-index: 0;
+      opacity: 0.5;
+    }
+    .star-card:hover {
+      transform: translateY(-8px);
+    }
+    .star-img-wrap {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid var(--color-surface);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .star-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .star-card h3 {
+      font-family: var(--font-magic);
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+      position: relative; z-index: 1;
+    }
+    .star-role {
+      color: var(--color-primary);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+      letter-spacing: 1px;
+    }
+    .star-desc {
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    /* Experience Cards */
+    .exp-card {
+      position: relative;
+      height: 400px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 15px 35px var(--color-shadow);
+      cursor: pointer;
+    }
+    .exp-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .exp-card:hover img {
+      transform: scale(1.05);
+    }
+    .exp-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 8, 20, 0.95) 0%, rgba(15, 8, 20, 0) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+    .exp-overlay h3 {
+      font-family: var(--font-magic);
+      font-size: 2.25rem;
+      color: white !important;
+      -webkit-text-fill-color: white !important;
+      background: none !important;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Modals for Experience Cards */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-box {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+      border: 1px solid var(--color-border);
+    }
+    .modal-overlay.active .modal-box {
+      transform: translateY(0);
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+    }
+    .modal-title { font-family: var(--font-magic); font-size: 2rem; margin-bottom: 1rem; }
+    .modal-list { list-style: none; padding: 0; margin-bottom: 2rem; color: var(--color-text); line-height: 1.8; font-size: 1.1rem; }
+    .modal-list li::before { content: '✓'; color: var(--color-primary); margin-right: 10px; font-weight: bold; }
+
+    /* 4. How the Magic Happens (Redesigned Step Flow) */
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .step-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-magic);
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 10px 20px var(--color-shadow);
+    }
+    .step-card h3 {
+      font-family: var(--font-magic);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .step-card p {
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* Happy Little Moments (Testimonials Redesign) */
+    .testimonial-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      text-align: center;
+      box-shadow: 0 10px 30px var(--color-shadow);
+      border: 1px solid var(--color-border);
+      position: relative;
+    }
+    .quote-icon {
+      font-family: var(--font-magic);
+      font-size: 5rem;
+      color: var(--color-supporting);
+      position: absolute;
+      top: 10px;
+      left: 30px;
+      line-height: 1;
+      opacity: 0.5;
+    }
+    .testi-stars {
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+    .testi-stars svg {
+      width: 24px;
+      height: 24px;
+      fill: #D24B76;
+    }
+    .testi-text {
+      color: var(--color-text);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .testi-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    /* Check Party Date (Form Redesign) */
+    .booking-form-box {
+      background: var(--color-surface);
+      padding: 3.5rem;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 20px 50px var(--color-shadow);
+      border: 1px solid var(--color-border);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .form-group {
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+      font-weight: 600;
+    }
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background: var(--color-bg);
+      color: var(--color-text);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-control:focus {
+      border-color: var(--color-primary);
+    }
+    .assurance-note {
+      text-align: center;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* A Little Extra Magic */
+    .magic-extra-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s;
+    }
+    .magic-extra-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px var(--color-shadow);
+    }
+    .extra-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 4px solid var(--color-supporting);
+    }
+
+    /* FAQ Accordion (Larger Font) */
+    .faq-item {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      box-shadow: 0 5px 15px var(--color-shadow);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+    .faq-header {
+      padding: 1.75rem;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.25rem; /* Increased size */
+      color: var(--color-text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-content {
+      padding: 0 1.75rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    .faq-item.active .faq-content {
+      padding-bottom: 1.75rem;
+      max-height: 300px;
+    }
+    .faq-item.active .faq-header {
+      color: var(--color-primary);
+    }
+
+    /* Visual Memories Marquee */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 2rem 0;
+      background: var(--color-bg);
+      margin-bottom: 0;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 2rem;
+      animation: scrollMarquee 25s linear infinite;
+    }
+    .marquee-img {
+      width: 350px; /* Increased size */
+      height: 250px; /* Increased size */
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Final CTA (Orange Background) */
+    .cta-section {
+      background: var(--color-accent); /* Requested Orange */
+      padding: 6rem 0;
+      text-align: center;
+      color: white !important;
+    }
+    .cta-section h2 {
+      color: white !important;
+      -webkit-text-fill-color: white !important;
+      background: none !important;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.9) !important;
+    }
+    .cta-section .btn {
+      background: white;
+      color: var(--color-accent);
+    }
+    .cta-section .btn:hover {
+      background: var(--color-surface);
+      transform: scale(1.05);
+    }
+
+    /* Availability Results Styling */
+    .availability-results {
+      margin-top: 3rem;
+      display: none;
+    }
+    .availability-results.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @media (max-width: 992px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-anim-side {
+        width: 100%;
+        margin-top: 2rem;
+      }
+      .chain-container { flex-direction: column; gap: 1rem; }
+      .chain-container::before { display: none; }
+      .chain-list { grid-template-columns: 1fr; }
+    }
+  
+    /* Flip Card CSS */
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px;
+      height: 280px;
+      margin-bottom: 2rem;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      transform-origin: center center;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg) translateZ(0);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 20px var(--color-shadow);
+      margin: 0;
+    }
+    .flip-card-front {
+      background-color: var(--color-surface);
+      color: var(--color-text);
+      background-size: cover;
+      background-position: center;
+      z-index: 2;
+    }
+    /* Add an overlay to the front so text is readable over the image */
+    .flip-card-front::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      border-radius: var(--radius-lg);
+      z-index: 1;
+    }
+    .flip-card-front > * {
+      position: relative;
+      z-index: 2;
+    }
+    .flip-card-back {
+      background: #8e44ad;
+      color: white;
+      transform: rotateY(180deg);
+    }
+    .flip-card-back p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+</style>
+</head>
+
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="navbar"></div>
+
+  <!-- 1. Magical Welcome Hero (Redesigned with UI) -->
+  <section class="hero-h2">
+    <div class="container hero-container">
+      <div class="hero-text-side">
+        <h1 class="hero-title"><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Make Their</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Day Magical</span></h1>
+        <p class="hero-desc">
+          Professional entertainers, premium activities, and unforgettable joy straight to your door. Book instantly and make their day magical.
+        </p>
+        
+        <!-- Quick Booking UI inside Hero -->
+        <div class="hero-booking-ui">
+          <div style="font-family: var(--font-magic); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text);">Quick Booking</div>
+          <div class="hero-booking-row">
+            <input type="date" class="hero-booking-input" title="Date">
+            <select class="hero-booking-input" title="Time">
+              <option>10:00 AM</option>
+              <option>01:00 PM</option>
+              <option>04:00 PM</option>
+            </select>
+          </div>
+          <div class="hero-booking-row">
+            <input type="text" class="hero-booking-input" placeholder="Zip Code or Location">
+          </div>
+          <div class="hero-booking-row">
+            <select class="hero-booking-input" title="Duration">
+              <option>1 Hour Performance - $199</option>
+              <option>1.5 Hours Premium - $275</option>
+              <option>2 Hours Ultimate - $350</option>
+            </select>
+          </div>
+          <a href="packages.html" class="btn btn-primary" style="background: #3895c8; border-color: #3895c8; color: white;">Book Now</a>
+        </div>
+      </div>
+      
+      <!-- Right Side Generated Image -->
+      <div class="hero-anim-side">
+        <img src="assets/images/hero_baby_magician.jpg" class="hero-main-img" alt="Toddler watching magician in amazement">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Meet Our Magical Stars -->
+  <section class="section-pad" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Meet Our</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Magical Stars</span></h2>
+        <p>Showcasing professional magicians, princesses, and heroes dedicated to making your day special.</p>
+      </div>
+      
+      <div class="responsive-grid">
+        <div class="star-card">
+          <div class="star-img-wrap">
+            <img src="assets/images/magician_portrait_1790843004983.jpg" alt="Magician">
+          </div>
+          <h3>Elias</h3>
+          <p class="star-role">Master Magician</p>
+          <p class="star-desc">Mind-bending stage magic and interactive illusions that captivate all ages.</p>
+          <a href="entertainer_detail.html?id=elias" class="btn btn-outline" style="width: 100%;">View Profile</a>
+        </div>
+        
+        <div class="star-card">
+          <div class="star-img-wrap">
+            <img src="assets/images/princess_portrait_1790843055244.jpg" alt="Princess">
+          </div>
+          <h3>Mia</h3>
+          <p class="star-role">Fairytale Princess</p>
+          <p class="star-desc">Beautiful singing, storytelling, and elegant royal coronation ceremonies.</p>
+          <a href="entertainer_detail.html?id=mia" class="btn btn-outline" style="width: 100%;">View Profile</a>
+        </div>
+        
+        <div class="star-card">
+          <div class="star-img-wrap">
+            <img src="assets/images/clown_party_1790842566084.jpg" alt="Clown">
+          </div>
+          <h3>Barnaby</h3>
+          <p class="star-role">Comedy & Balloons</p>
+          <p class="star-desc">High-energy juggling, incredible balloon art, and endless hearty laughs.</p>
+          <a href="entertainer_detail.html?id=barnaby" class="btn btn-outline" style="width: 100%;">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Choose Your Magic Experience -->
+  <section class="section-pad" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Choose Your</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Experience</span></h2>
+        <p>Explore tailored entertainment categories for every age and interest. Click to learn more.</p>
+      </div>
+      
+      <div class="responsive-grid">
+        <div class="exp-card" onclick="openModal('magicModal')">
+          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Magic Shows">
+          <div class="exp-overlay">
+            <h3>Stage Magic</h3>
+            <p style="margin: 0; opacity: 0.9; color: white;">Click to view details</p>
+          </div>
+        </div>
+        <div class="exp-card" onclick="openModal('princessModal')">
+          <img src="assets/images/princess_party_1790842645232.jpg" alt="Princess Parties">
+          <div class="exp-overlay">
+            <h3>Royal Visits</h3>
+            <p style="margin: 0; opacity: 0.9; color: white;">Click to view details</p>
+          </div>
+        </div>
+        <div class="exp-card" onclick="openModal('heroModal')">
+          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Action Games">
+          <div class="exp-overlay">
+            <h3>Action Heroes</h3>
+            <p style="margin: 0; opacity: 0.9; color: white;">Click to view details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals for Experiences -->
+  <div class="modal-overlay" id="magicModal" onclick="closeModal(event, 'magicModal')">
+    <div class="modal-box">
+      <span class="modal-close" onclick="document.getElementById('magicModal').classList.remove('active')">&times;</span>
+      <h3 class="modal-title">Stage Magic</h3>
+      <p style="color: var(--color-text-light); margin-bottom: 1.5rem; font-size: 1.1rem;">Prepare to be amazed! Our master magicians deliver a jaw-dropping performance tailored to your child's age group.</p>
+      <ul class="modal-list">
+        <li>Duration: 45 - 60 Minutes</li>
+        <li>Interactive Illusions & Mind Reading</li>
+        <li>Special Levitation Trick for the Birthday Child</li>
+        <li>Comedy and Audience Participation</li>
+      </ul>
+      <button class="btn btn-primary" style="width:100%; padding: 1rem; font-size: 1.1rem; background: #3895c8; border-color: #3895c8; color: white;" onclick="window.location.href='packages.html'">Book This Theme</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="princessModal" onclick="closeModal(event, 'princessModal')">
+    <div class="modal-box">
+      <span class="modal-close" onclick="document.getElementById('princessModal').classList.remove('active')">&times;</span>
+      <h3 class="modal-title">Royal Visits</h3>
+      <p style="color: var(--color-text-light); margin-bottom: 1.5rem; font-size: 1.1rem;">A magical fairytale brought to life. Our princesses sing, tell stories, and make every guest feel like royalty.</p>
+      <ul class="modal-list">
+        <li>Duration: 60 - 90 Minutes</li>
+        <li>Live Singing & Storytelling</li>
+        <li>Royal Coronation Ceremony</li>
+        <li>Themed Face Painting</li>
+      </ul>
+      <button class="btn btn-primary" style="width:100%; padding: 1rem; font-size: 1.1rem; background: #3895c8; border-color: #3895c8; color: white;" onclick="window.location.href='packages.html'">Book This Theme</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="heroModal" onclick="closeModal(event, 'heroModal')">
+    <div class="modal-box">
+      <span class="modal-close" onclick="document.getElementById('heroModal').classList.remove('active')">&times;</span>
+      <h3 class="modal-title">Action Heroes</h3>
+      <p style="color: var(--color-text-light); margin-bottom: 1.5rem; font-size: 1.1rem;">Action-packed fun! Your child's favorite superhero will lead them through exciting games and training.</p>
+      <ul class="modal-list">
+        <li>Duration: 60 Minutes</li>
+        <li>Superhero Training Course</li>
+        <li>Energetic Party Games</li>
+        <li>Heroic Photo Opportunities</li>
+      </ul>
+      <button class="btn btn-primary" style="width:100%; padding: 1rem; font-size: 1.1rem; background: #3895c8; border-color: #3895c8; color: white;" onclick="window.location.href='packages.html'">Book This Theme</button>
+    </div>
+  </div>
+
+  <!-- 4. How the Magic Happens (Redesigned Cards) -->
+  <section class="section-pad" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">How the</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Magic Happens</span></h2>
+        <p>Follow our simple, seamless booking process to create the perfect party.</p>
+      </div>
+      
+      <div class="steps-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('assets/images/magic_show_party_1790842468826.jpg');">
+              <div class="step-number" style="background: var(--color-primary); color: white; border: none;">1</div>
+              <h3 style="color: white; -webkit-text-fill-color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Discover</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3 style="color: white; -webkit-text-fill-color: white; margin-bottom: 1rem;">Discover</h3>
+              <p>Browse our carefully vetted roster and select your child's absolute favorite entertainer based on age and theme.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('assets/images/clown_party_1790842566084.jpg');">
+              <div class="step-number" style="background: var(--color-primary); color: white; border: none;">2</div>
+              <h3 style="color: white; -webkit-text-fill-color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Customize</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3 style="color: white; -webkit-text-fill-color: white; margin-bottom: 1rem;">Customize</h3>
+              <p>Choose your preferred date, precise duration, and select any special magical add-ons like decorations or gifts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front" style="background-image: url('assets/images/superhero_party_1790842695325.jpg');">
+              <div class="step-number" style="background: var(--color-primary); color: white; border: none;">3</div>
+              <h3 style="color: white; -webkit-text-fill-color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Celebrate</h3>
+            </div>
+            <div class="flip-card-back">
+              <h3 style="color: white; -webkit-text-fill-color: white; margin-bottom: 1rem;">Celebrate</h3>
+              <p>Sit back and relax. Our professionals arrive fully prepared, on time, and ready to deliver an amazing experience.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Check Your Party Date (Detailed Form with JS) -->
+  <section class="section-pad" style="background: var(--color-surface);">
+    <div class="container text-center">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Check Your</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Party Date</span></h2>
+        <p>Tell us about your upcoming party, and we'll show you exactly who's available to bring the magic.</p>
+      </div>
+      <div class="booking-form-box">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Party Date</label>
+            <input type="date" class="form-control" id="check-date">
+          </div>
+          <div class="form-group">
+            <label>Preferred Theme</label>
+            <select class="form-control" id="check-theme">
+              <option value="">Select Theme...</option>
+              <option value="magic">Stage Magic</option>
+              <option value="princess">Royal Princess</option>
+              <option value="hero">Action Heroes</option>
+              <option value="clown">Clowns & Comedy</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Duration / Package</label>
+            <select class="form-control" id="check-duration">
+              <option value="">Select Package...</option>
+              <option>60 Minutes (Standard)</option>
+              <option>90 Minutes (Premium)</option>
+              <option>2 Hours (Ultimate)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Start Time</label>
+            <select class="form-control" id="check-time">
+              <option value="">Select Time...</option>
+              <option>Morning (10 AM - 12 PM)</option>
+              <option>Afternoon (1 PM - 4 PM)</option>
+              <option>Evening (5 PM - 8 PM)</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="padding: 1.25rem 4rem; font-size: 1.25rem; margin-top: 1rem;" onclick="checkAvailability()">Check Availability Now</button>
+        <div class="assurance-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          No commitment required to check availability. 100% secure.
+        </div>
+      </div>
+      
+      <!-- Availability Results Container -->
+      <div class="availability-results" id="availability-results">
+        <h3 style="font-family: var(--font-magic); font-size: 2rem; margin-bottom: 2rem;">Available Entertainers for Your Date</h3>
+        <div class="responsive-grid" id="entertainer-results">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Happy Little Moments (Centered Testimonials) -->
+  <section class="section-pad" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Happy Little</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Moments</span></h2>
+        <p>Real birthday party experiences from our wonderful parents.</p>
+      </div>
+      <div class="responsive-grid">
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="testi-stars">
+            <svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg>
+          </div>
+          <p class="testi-text">"Elias the Magician was absolutely phenomenal. The kids were completely mesmerized for the entire hour. Best birthday party ever!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SM</div>
+            <div style="text-align: left;">
+              <div style="font-weight: bold; color: var(--color-text); font-size: 1.1rem;">Sarah M.</div>
+              <div style="font-size: 0.9rem; color: var(--color-text-light);">Mother of 7-year-old</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="testi-stars">
+            <svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg>
+          </div>
+          <p class="testi-text">"Princess Mia made my daughter feel like actual royalty. The singing, storytelling, and face painting were completely top-notch!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: var(--color-secondary);">JD</div>
+            <div style="text-align: left;">
+              <div style="font-weight: bold; color: var(--color-text); font-size: 1.1rem;">James D.</div>
+              <div style="font-size: 0.9rem; color: var(--color-text-light);">Father of 5-year-old</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="testi-stars">
+            <svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg><svg><use href="#star-icon"></use></svg>
+          </div>
+          <p class="testi-text">"Barnaby the clown was hilarious! He kept 20 kids entertained and laughing non-stop. Highly recommend for any energetic party."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background: var(--color-accent);">AL</div>
+            <div style="text-align: left;">
+              <div style="font-weight: bold; color: var(--color-text); font-size: 1.1rem;">Amanda L.</div>
+              <div style="font-size: 0.9rem; color: var(--color-text-light);">Mother of 6-year-old</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. A Little Extra Magic (Better Cards) -->
+  <section class="section-pad" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">A Little</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Extra Magic</span></h2>
+        <p>Make your party perfect with our premium add-on services.</p>
+      </div>
+      <div class="responsive-grid">
+        <div class="magic-extra-card">
+          <img src="assets/images/blog_party_ideas_1790831919409.jpg" class="extra-img" alt="Decorations">
+          <h3 style="font-family: var(--font-magic); font-size: 1.75rem; margin-bottom: 0.5rem;">Custom Decorations</h3>
+          <p style="color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6;">Themed balloon arches, beautiful banners, and fully styled backdrops for amazing photos.</p>
+        </div>
+        <div class="magic-extra-card">
+          <img src="assets/images/princess_party_1790842645232.jpg" class="extra-img" alt="Return Gifts">
+          <h3 style="font-family: var(--font-magic); font-size: 1.75rem; margin-bottom: 0.5rem;">Return Gifts</h3>
+          <p style="color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6;">Curated magic kits, princess wands, and premium goody bags ready to hand out to guests.</p>
+        </div>
+        <div class="magic-extra-card">
+          <img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="extra-img" alt="Photography">
+          <h3 style="font-family: var(--font-magic); font-size: 1.75rem; margin-bottom: 0.5rem;">Event Photography</h3>
+          <p style="color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6;">Professional event photographers to capture every smile, so you can enjoy the moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQs (Larger Font) -->
+  <section class="section-pad" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Frequently Asked</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Questions</span></h2>
+        <p>Everything you need to know about booking with us.</p>
+      </div>
+      
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-header">How far in advance should I book? <span style="color: var(--color-primary); font-size: 1.5rem;">+</span></div>
+        <div class="faq-content">We recommend booking at least 3-4 weeks in advance, especially for weekend dates, as our entertainers' schedules fill up quickly.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-header">Do you provide decorations? <span style="color: var(--color-primary); font-size: 1.5rem;">+</span></div>
+        <div class="faq-content">Yes! You can add custom balloon arches and backdrops to any package during the checkout process as a premium add-on.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-header">Are your entertainers background-checked? <span style="color: var(--color-primary); font-size: 1.5rem;">+</span></div>
+        <div class="faq-content">Absolutely. Every single entertainer on our roster undergoes a strict vetting process and comprehensive background check for your peace of mind.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Visual Memories (Larger Marquee) -->
+  <section style="background: var(--color-bg); padding-top: 4rem;">
+    <div class="container">
+      <div class="sec-title" style="margin-bottom: 2rem;">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Visual</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Memories</span></h2>
+        <p>Take a peek at the joy we've brought to previous celebrations.</p>
+      </div>
+    </div>
+    
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/blog_party_ideas_1790831919409.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/princess_party_1790842645232.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/superhero_party_1790842695325.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/magic_show_party_1790842468826.jpg" class="marquee-img" alt="Gallery">
+        
+        <img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/blog_party_ideas_1790831919409.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/princess_party_1790842645232.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/superhero_party_1790842695325.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/magic_show_party_1790842468826.jpg" class="marquee-img" alt="Gallery">
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Let the Magic Begin (Premium Background CTA) -->
+  <section class="royal-cta" style="padding: 8rem 0; text-align: center; background: #D24B76; position: relative; overflow: hidden;">
+    <style>
+      .royal-cta::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at center, rgba(229, 193, 88, 0.15) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .royal-btn-gold {
+        background: #E5C158;
+        color: #1F1033;
+        padding: 1.25rem 4rem;
+        font-size: 1.25rem;
+        font-weight: 800;
+        border-radius: var(--radius-pill);
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        border: 2px solid #E5C158;
+        box-shadow: 0 10px 20px rgba(229, 193, 88, 0.3);
+      }
+      .royal-btn-gold:hover {
+        background: transparent;
+        color: #E5C158;
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(229, 193, 88, 0.4);
+      }
+    </style>
+    <div class="container text-center">
+      <div class="sec-title" style="margin-bottom: 2rem;">
+        <h2 style="background: none !important; -webkit-text-fill-color: #FFFFFF !important; color: #FFFFFF !important; text-shadow: 0 4px 15px rgba(255, 255, 255, 0.4); font-family: var(--font-magic); font-size: clamp(3rem, 5vw, 4.5rem); position: relative; z-index: 2;">Let the Magic Begin</h2>
+      </div>
+      <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.6; color: rgba(255, 255, 255, 0.9) !important; position: relative; z-index: 2;">
+        Secure your child's favorite entertainer before our calendar fills up completely. Let's create an unforgettable celebration together.
+      </p>
+        <a href="packages.html" class="btn btn-animated" style="background: white; color: var(--color-primary); padding: 1.25rem 4rem; font-size: 1.25rem; font-weight: bold; border-radius: var(--radius-pill); text-decoration: none; display: inline-block;">Book Your Party Now</a>
+    </div>
+  </section>
+
+  <!-- Dynamic Footer -->
+  <div id="footer"></div>
+
+  <!-- Hidden SVG Sprite for Stars -->
+  <svg style="display: none;">
+    <symbol id="star-icon" viewBox="0 0 24 24">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+    </symbol>
+  </svg>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Modal Logic
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(e, id) {
+      if (e.target.id === id) {
+        document.getElementById(id).classList.remove('active');
+      }
+    }
+
+    // Check Availability Logic
+    const entertainersDB = {
+      magic: [
+        { name: "Elias", role: "Master Magician", img: "assets/images/magician_portrait_1790843004983.jpg" },
+        { name: "The Great Zander", role: "Illusionist", img: "assets/images/premium_magician_1790833776545.jpg" },
+        { name: "Mystic Marcus", role: "Stage Magician", img: "assets/images/hero_magician_1790831867453.jpg" }
+      ],
+      princess: [
+        { name: "Princess Mia", role: "Fairytale Princess", img: "assets/images/princess_portrait_1790843055244.jpg" },
+        { name: "Queen Elsa", role: "Snow Queen", img: "assets/images/princess_party_1790842645232.jpg" },
+        { name: "Cinderella", role: "Classic Princess", img: "assets/images/cute_kids_clapping_1790833571210.jpg" }
+      ],
+      hero: [
+        { name: "Spider Hero", role: "Acrobatic Hero", img: "assets/images/superhero_party_1790842695325.jpg" },
+        { name: "Captain America", role: "Avenger Hero", img: "assets/images/blog_party_ideas_1790831919409.jpg" },
+        { name: "Bat Hero", role: "Dark Knight", img: "assets/images/magic_show_party_1790842468826.jpg" }
+      ],
+      clown: [
+        { name: "Barnaby", role: "Comedy & Balloons", img: "assets/images/clown_party_1790842566084.jpg" },
+        { name: "Chuckles", role: "Juggler Clown", img: "assets/images/magician_on_horse_1790834451320.jpg" },
+        { name: "Happy Face", role: "Face Painter", img: "assets/images/cute_kids_clapping_1790833571210.jpg" }
+      ]
+    };
+
+    function checkAvailability() {
+      const theme = document.getElementById('check-theme').value;
+      const resultsContainer = document.getElementById('availability-results');
+      const grid = document.getElementById('entertainer-results');
+      
+      if (!theme) {
+        alert("Please select a Preferred Theme to check availability.");
+        return;
+      }
+      
+      grid.innerHTML = '';
+      const list = entertainersDB[theme] || entertainersDB.magic;
+      
+      list.forEach(ent => {
+        grid.innerHTML += `
+          <div class="star-card">
+            <div class="star-img-wrap">
+              <img src="${ent.img}" alt="${ent.name}">
+            </div>
+            <h3>${ent.name}</h3>
+            <p class="star-role">${ent.role}</p>
+            <p class="star-desc">Available for your selected date and time.</p>
+            <a href="packages.html" class="btn btn-outline" style="width: 100%; border-color: #3895c8; color: #3895c8;">Book Now</a>
+          </div>
+        `;
+      });
+      
+      resultsContainer.classList.add('active');
+      
+      // Scroll to results smoothly
+      setTimeout(() => {
+        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  </script>
+
+  <!-- Framer Motion (Motion One for Vanilla JS) -->
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set initial opacity to 0 to prevent flash before animation
+      const hiddenElements = document.querySelectorAll('.hero-text-side, .hero-anim-side, .sec-title, .booking-form-box, .marquee-container, .royal-cta .container, .star-card, .exp-card, .flip-card, .testimonial-card, .magic-extra-card, .faq-item');
+      hiddenElements.forEach(el => {
+        el.style.opacity = '0';
+      });
+
+      // 1. Hero Section - Left / Right
+      inView(".hero-container", () => {
+        animate(".hero-text-side", { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+        animate(".hero-anim-side", { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+      });
+
+      // Section Titles - Fade Up
+      document.querySelectorAll(".sec-title").forEach(title => {
+        inView(title, () => {
+          animate(title, { opacity: [0, 1], y: [50, 0] }, { duration: 0.8, easing: "ease-out" });
+        });
+      });
+
+      // Grids with side items coming from left/right
+      const grids = document.querySelectorAll(".responsive-grid, .steps-container");
+      grids.forEach(grid => {
+        inView(grid, () => {
+          const children = Array.from(grid.children);
+          children.forEach((child, index) => {
+            if (child.id === 'entertainer-results') return; // Skip dynamic container if needed
+            
+            let xOffset = 0;
+            let yOffset = 50;
+            
+            // If it's a grid, animate first child from left, last child from right, others from bottom
+            if (children.length > 1) {
+              if (index === 0) {
+                xOffset = -100;
+                yOffset = 0;
+              } else if (index === children.length - 1) {
+                xOffset = 100;
+                yOffset = 0;
+              }
+            }
+            
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { 
+              duration: 0.8, 
+              easing: "ease-out",
+              delay: 0.1 * index
+            });
+          });
+        });
+      });
+
+      // Form - Scale and Fade in
+      inView(".booking-form-box", ({ target }) => {
+        animate(target, { opacity: [0, 1], scale: [0.95, 1] }, { duration: 0.8, easing: "ease-out" });
+      });
+
+      // FAQs - Fade in from left
+      document.querySelectorAll(".faq-item").forEach((item, index) => {
+        inView(item, () => {
+          animate(item, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.6, delay: 0.1, easing: "ease-out" });
+        });
+      });
+
+      // Marquee - Fade in
+      inView(".marquee-container", ({ target }) => {
+        animate(target, { opacity: [0, 1] }, { duration: 1 });
+      });
+
+      // Final CTA
+      inView(".royal-cta", ({ target }) => {
+        animate(target.querySelector(".container"), { opacity: [0, 1], y: [50, 0] }, { duration: 0.8 });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Hero Section */
+    .faq-hero {
+      padding: 160px 0 80px;
+      background-color: var(--color-bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-family: var(--font-magic);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .faq-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+    }
+    .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none; }
+    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; background: none; }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 0;
+      background: var(--color-surface);
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      border-color: var(--color-primary);
+      box-shadow: 0 5px 15px var(--color-shadow);
+    }
+    
+    .faq-question {
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text);
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: var(--color-primary);
+    }
+    .faq-question i {
+      color: var(--color-primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-question {
+      color: var(--color-primary);
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background: var(--color-surface);
+      padding: 0 25px;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px; /* arbitrary max height large enough to fit content */
+      padding: 0 25px 25px;
+      border-top: 1px solid var(--color-border);
+    }
+    .faq-answer p {
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin: 0;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Hero Section -->
+  <section class="faq-hero">
+    <div class="container">
+      <h1><span class="text-pink">Frequently Asked</span> <span class="text-blue">Questions</span></h1>
+      <p>Got questions? We've got answers. Find out everything you need to know about booking the perfect magical celebration with Magiqo.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-container">
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            How far in advance should I book an entertainer?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We recommend booking at least 3 to 4 weeks in advance to ensure availability, especially for weekend parties. However, if you have a last-minute request, please reach out to us and we'll do our best to accommodate you!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Are your entertainers background checked?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Safety and peace of mind are our top priorities. Every single one of our entertainers undergoes a rigorous background check, professional reference verification, and specialized training before they ever join the Magiqo team.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens if I need to cancel or reschedule?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We understand that life happens! You can reschedule your booking for free up to 7 days before the event. Cancellations made 14 days prior to the event are fully refundable. Please refer to our Pricing Policies page for more detailed information.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you provide the decorations and food?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our primary focus is providing world-class entertainment, interactive games, and magical performances. While we don't provide catering or full venue decoration, our entertainers do come equipped with all the props and materials needed for their specific show.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I customize the entertainment package?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We love creating bespoke experiences. If you have a specific theme, character, or activity in mind that isn't listed in our standard packages, just let us know during the booking process and we'll weave the magic to make it happen.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        questionBtn.addEventListener('click', () => {
+          // Close other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+            }
+          });
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,707 @@
+contact_updated_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Hero Section */
+    .contact-hero {
+      padding: 160px 0 80px;
+      background-color: var(--color-bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-family: var(--font-magic);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .contact-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+    }
+    .hero-bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--color-primary);
+      opacity: 0.1;
+      animation: float 6s infinite ease-in-out;
+    }
+    .hero-bubble-1 { width: 100px; height: 100px; top: 120px; left: 10%; }
+    .hero-bubble-2 { width: 150px; height: 150px; bottom: 20px; right: 10%; background: #3895c8; animation-delay: 2s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Common Section Styles */
+    .section-title {
+      font-family: var(--font-magic);
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      text-align: center;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto 50px;
+      font-size: 1.15rem;
+    }
+    
+    .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none; }
+    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; background: none; }
+
+    /* Contact Cards */
+    .contact-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+    .contact-card {
+      background: var(--color-surface);
+      padding: 40px 30px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px var(--color-shadow);
+      border-color: #3895c8;
+    }
+    .contact-card i {
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+    .contact-card:hover i { transform: scale(1.1); color: #3895c8; }
+    .contact-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+    .contact-card p {
+      color: var(--color-text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Layout for Form & Map */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 100px;
+      align-items: stretch;
+    }
+
+    /* Form */
+    .contact-form-box {
+      background: var(--color-surface);
+      padding: 50px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px var(--color-shadow);
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--color-text);
+      font-size: 0.95rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #3895c8;
+      box-shadow: 0 0 0 4px rgba(56, 149, 200, 0.15);
+      background: var(--color-surface);
+    }
+    textarea.form-control { resize: vertical; min-height: 150px; }
+
+    /* Map */
+    .map-container {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px var(--color-shadow);
+      height: 100%;
+      min-height: 400px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Event Types Cards */
+    .events-section { padding: 100px 0; background: var(--color-bg); }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+    }
+    .event-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      z-index: 1;
+    }
+    .event-card:hover img { transform: scale(1.1); }
+    .event-card h3 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      z-index: 2;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+    }
+
+    /* REDESIGNED: How We Can Help (No Cards) */
+    .help-section { padding: 120px 0; background: var(--color-surface); }
+    .help-list {
+      max-width: 900px;
+      margin: 0 auto;
+      border-left: 3px solid var(--color-primary);
+      padding-left: 40px;
+    }
+    .help-item {
+      position: relative;
+      margin-bottom: 50px;
+    }
+    .help-item:last-child { margin-bottom: 0; }
+    .help-item::before {
+      content: '';
+      position: absolute;
+      left: -48.5px;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 5px var(--color-surface);
+    }
+    .help-item h4 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .help-item h4 i { color: #3895c8; font-size: 1.5rem; }
+    .help-item p {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* REDESIGNED: Why Choose Magiqo (Innovative Graphic Layout) */
+    .why-section { padding: 120px 0; background: var(--color-bg); }
+    .why-interactive-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .why-image-side {
+      flex: 1;
+      position: relative;
+    }
+    .why-main-img {
+      width: 100%;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      border: 8px solid var(--color-surface);
+      box-shadow: 0 20px 50px var(--color-shadow);
+      animation: morph 8s ease-in-out infinite;
+    }
+    .why-features-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .why-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px var(--color-shadow);
+      transition: transform 0.3s;
+      border-left: 4px solid transparent;
+    }
+    .why-feature:hover {
+      transform: translateX(-10px);
+      border-left-color: var(--color-primary);
+    }
+    .why-feature i {
+      font-size: 2rem;
+      color: #3895c8;
+      background: rgba(56, 149, 200, 0.1);
+      padding: 15px;
+      border-radius: 50%;
+    }
+    .why-feature-text h4 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 5px; color: var(--color-text); }
+    .why-feature-text p { color: var(--color-text-light); font-size: 0.95rem; line-height: 1.5; }
+
+    /* Meet Our Experts */
+    .team-section { padding: 100px 0; background: var(--color-surface); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .team-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .team-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px var(--color-shadow); }
+    .team-img { width: 100%; height: 350px; object-fit: cover; border-bottom: 3px solid var(--color-primary); }
+    .team-info { padding: 25px; }
+    .team-info h4 { font-family: var(--font-magic); font-size: 1.8rem; color: var(--color-text); margin-bottom: 5px; }
+    .team-info span { color: #3895c8; font-weight: bold; font-size: 1rem; display: block; margin-bottom: 15px; }
+    .team-info p { color: var(--color-text-light); font-size: 0.95rem; line-height: 1.5; }
+
+    /* REDESIGNED FAQs */
+    .faq-section { max-width: 900px; margin: 100px auto; padding: 0 20px; }
+    .faq-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px var(--color-shadow);
+    }
+    .faq-question {
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--color-text);
+      font-family: var(--font-heading);
+    }
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      color: var(--color-text-light);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .faq-item.active { border-color: var(--color-primary); }
+    .faq-item.active .faq-answer {
+      padding: 0 25px 25px;
+      max-height: 300px;
+    }
+    .faq-item.active .fa-chevron-down {
+      transform: rotate(180deg);
+      color: var(--color-primary);
+    }
+
+    /* Social / Insta Gallery */
+    .social-section { padding: 80px 0 120px; text-align: center; overflow: hidden; background: var(--color-bg); }
+    .insta-grid {
+      display: flex;
+      gap: 15px;
+      margin-top: 50px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .insta-item {
+      width: 250px; height: 250px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .insta-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .insta-item::after {
+      content: '\\f16d';
+      font-family: 'Font Awesome 6 Brands';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .insta-item:hover img { transform: scale(1.1); }
+    .insta-item:hover::after { opacity: 1; }
+    
+    @media (max-width: 992px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .map-container { min-height: 350px; }
+      .why-interactive-container { flex-direction: column; }
+    }
+    @media (max-width: 768px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-box { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="contact-hero">
+      <div class="hero-bubble hero-bubble-1"></div>
+      <div class="hero-bubble hero-bubble-2"></div>
+      <div class="container reveal">
+        <h1><span class="text-pink">Let's Make Your</span> <br><span class="text-blue">Celebration Magical</span></h1>
+        <p>Whether you have a question about packages, need custom event planning, or just want to say hi, we're here to help.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      
+      <!-- 2. CONTACT INFO CARDS -->
+      <div class="contact-cards-container reveal">
+        <div class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <h3>Call Us</h3>
+          <p>+1 (555) 123-4567<br>Mon-Sat: 9AM - 7PM</p>
+        </div>
+        <div class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <h3>Email Us</h3>
+          <p>hello@magiqo.com<br>Support 24/7</p>
+        </div>
+        <div class="contact-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <h3>Visit Us</h3>
+          <p>123 Magic Boulevard<br>Wonderland City, NY 10001</p>
+        </div>
+      </div>
+
+      <!-- 3. FORM & 8. MAP -->
+      <div class="contact-layout reveal">
+        <div class="contact-form-box">
+          <h3 style="font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 30px;">Send a Message</h3>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-control" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="(555) 000-0000" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Event Date</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Event Type</label>
+              <select class="form-control">
+                <option>Birthday Party</option>
+                <option>School Event</option>
+                <option>Wedding/Baby Shower</option>
+                <option>Corporate Family Day</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Your Message</label>
+              <textarea class="form-control" placeholder="Tell us about your magical ideas..." required></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.2rem; margin-top: 15px;">Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+          </form>
+        </div>
+        
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.2528000654!2d-74.1448301594916!3d40.69766374865766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CHOOSE YOUR EVENT -->
+    <section class="events-section reveal">
+      <div class="container">
+        <h2 class="section-title"><span class="text-pink">Perfect For</span> <span class="text-blue">Every Occasion</span></h2>
+        <div class="events-grid">
+          <div class="event-card">
+            <img src="assets/images/about_kids_birthday.jpg" alt="Birthdays">
+            <h3>Birthdays</h3>
+          </div>
+          <div class="event-card">
+            <img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Weddings">
+            <h3>Weddings</h3>
+          </div>
+          <div class="event-card">
+            <img src="assets/images/princess_party_1790842645232.jpg" alt="Baby Showers">
+            <h3>Baby Showers</h3>
+          </div>
+          <div class="event-card">
+            <img src="assets/images/magic_show_party_1790842468826.jpg" alt="School Events">
+            <h3>School Events</h3>
+          </div>
+          <div class="event-card">
+            <img src="assets/images/superhero_party_1790842695325.jpg" alt="Other">
+            <h3>Other Events</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HOW WE CAN HELP (Redesigned from Cards to Clean List) -->
+    <section class="help-section reveal">
+      <div class="container">
+        <h2 class="section-title"><span class="text-pink">How We</span> <span class="text-blue">Can Help</span></h2>
+        <div class="help-list">
+          <div class="help-item">
+            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Entertainer Bookings</h4>
+            <p>Looking for a specific magician, clown, or princess? We match you with the perfect premium talent for your child's age group and interests.</p>
+          </div>
+          <div class="help-item">
+            <h4><i class="fa-solid fa-box-open"></i> Package Enquiries</h4>
+            <p>Need help understanding what's included in our tiered experiences? We can walk you through the details to find the best fit for your budget.</p>
+          </div>
+          <div class="help-item">
+            <h4><i class="fa-solid fa-palette"></i> Custom Themes</h4>
+            <p>Have a unique vision? Our decorators and planners can bring any imagination to life with custom props, backgrounds, and costumes.</p>
+          </div>
+          <div class="help-item">
+            <h4><i class="fa-solid fa-calendar-star"></i> Full Event Planning</h4>
+            <p>Sit back and relax. Let our expert event coordinators handle everything from invitations to catering and cleanup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WHY CONTACT MAGIQO (Redesigned to Interactive Layout) -->
+    <section class="why-section reveal">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: 60px;"><span class="text-pink">Why Choose</span> <span class="text-blue">Magiqo?</span></h2>
+        <div class="why-interactive-container">
+          <div class="why-features-side">
+            <div class="why-feature">
+              <i class="fa-solid fa-user-group"></i>
+              <div class="why-feature-text">
+                <h4>Personalized Planning</h4>
+                <p>Every child is unique, and so is every party we plan. We listen closely to your specific needs.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <i class="fa-solid fa-star"></i>
+              <div class="why-feature-text">
+                <h4>Tailored Entertainment</h4>
+                <p>We don't do cookie-cutter shows. Our entertainers adapt their acts to fit your crowd.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <i class="fa-solid fa-lightbulb"></i>
+              <div class="why-feature-text">
+                <h4>Creative Themes</h4>
+                <p>From deep jungles to royal castles, our props and costumes are incredibly high quality.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <i class="fa-solid fa-headset"></i>
+              <div class="why-feature-text">
+                <h4>24/7 Booking Support</h4>
+                <p>Last minute changes? Extra guests? Our support team is always just a phone call away.</p>
+              </div>
+            </div>
+          </div>
+          <div class="why-image-side">
+            <img src="assets/images/hero_magician_1790831867453.jpg" class="why-main-img" alt="Magician performing">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MEET OUR EVENT EXPERTS (Fixed Images) -->
+    <section class="team-section reveal">
+      <div class="container">
+        <h2 class="section-title"><span class="text-pink">Meet Our</span> <span class="text-blue">Event Experts</span></h2>
+        <p class="section-desc">The magical minds behind the scenes ensuring your celebration is absolutely flawless.</p>
+        
+        <div class="team-grid">
+          <div class="team-card">
+            <!-- Used emily_girl_smile.jpg for Sarah -->
+            <img src="assets/images/emily_girl_smile.jpg" class="team-img" alt="Sarah">
+            <div class="team-info">
+              <h4>Sarah Jenkins</h4>
+              <span>Lead Event Coordinator</span>
+              <p>Sarah has planned over 500 children's parties and knows exactly how to keep the chaos organized.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <!-- Used magician_portrait for Elias -->
+            <img src="assets/images/magician_portrait_1790843004983.jpg" class="team-img" alt="Elias">
+            <div class="team-info">
+              <h4>Elias Thorne</h4>
+              <span>Head of Entertainment</span>
+              <p>As our senior magician, Elias vets and trains every single performer who wears a Magiqo badge.</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <!-- Used founder_mark for James to fix the "boy image doesn't suit" issue -->
+            <img src="assets/images/founder_mark.jpg" class="team-img" alt="James">
+            <div class="team-info">
+              <h4>James Wright</h4>
+              <span>Creative Director</span>
+              <p>James designs all our custom themes, ensuring the decorations and props look breathtaking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQs (Added JS logic via classes) -->
+    <section class="faq-section reveal">
+      <h2 class="section-title"><span class="text-pink">Answers to Your</span> <span class="text-blue">Questions</span></h2>
+      <div class="faq-item">
+        <div class="faq-question">
+          How far in advance should I contact you? <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We recommend reaching out at least 4-6 weeks before your desired event date to ensure the best entertainer availability.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Can I customize a standard package? <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely! Just fill out the form above with your custom requests and our planning team will send a tailored quote.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          Are there cancellation fees? <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>You can cancel for free up to 7 days before the event. Any cancellations within 7 days are subject to a non-refundable deposit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. SOCIAL MEDIA (Changed Heading) -->
+    <section class="social-section reveal">
+      <div class="container">
+        <!-- New better heading -->
+        <h2 style="font-family: var(--font-magic); font-size: 3.5rem; margin-bottom: 15px; color: var(--color-primary);">Follow The Magic <span style="color: #3895c8;">Online</span></h2>
+        <p style="color: var(--color-text-light); font-size: 1.15rem;">Discover our latest events, themes, and happy moments on Instagram!</p>
+        
+        <div class="insta-grid">
+          <a href="#" class="insta-item"><img src="assets/images/hero_magician_1790831867453.jpg" alt="Insta 1"></a>
+          <a href="#" class="insta-item"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Insta 2"></a>
+          <a href="#" class="insta-item"><img src="assets/images/princess_party_1790842645232.jpg" alt="Insta 3"></a>
+          <a href="#" class="insta-item"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Insta 4"></a>
+          <a href="#" class="insta-item"><img src="assets/images/about_kids_birthday.jpg" alt="Insta 5"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA completely removed as requested -->
+
+  </main>
+
+  <!-- 12. FOOTER -->
+  <div id="footer"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // FAQ Accordion Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+          question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            // Close all others
+            faqItems.forEach(i => i.classList.remove('active'));
+            // Open clicked if it wasn't active
+            if (!isActive) {
+              item.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+"""
+
+with open('c:/Users/vigas/Desktop/magiqo/contact.html', 'w', encoding='utf-8') as f:
+    f.write(contact_updated_html)
+
+print("Redesigned contact.html based on detailed feedback!")

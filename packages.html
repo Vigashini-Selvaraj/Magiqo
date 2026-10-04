@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Party Packages | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Custom Packages Styles using strict Magiqo variables */
+
+    /* Step Cards Redesign */
+    .step-card {
+      padding: 0 !important;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover {
+      transform: translateY(-10px);
+    }
+    .step-img-wrap {
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+    }
+    .step-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .step-card:hover .step-img-wrap img {
+      transform: scale(1.1);
+    }
+    .step-card h3 {
+      margin: 15px 20px 10px;
+      font-size: 1.5rem;
+    }
+    .step-card p {
+      margin: 0 20px 25px;
+      font-size: 0.95rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .step-card .step-number {
+      position: absolute;
+      top: 120px;
+      right: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Modal Styling */
+    .step-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .step-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .step-modal-content {
+      background: var(--color-surface);
+      width: 90%;
+      max-width: 500px;
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .step-modal-overlay.active .step-modal-content {
+      transform: translateY(0);
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+    }
+    .step-modal-title {
+      font-family: var(--font-magic);
+      font-size: 2rem;
+      background: linear-gradient(90deg, var(--color-primary), #3895c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .step-modal-desc {
+      color: var(--color-text);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .step-modal-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 1.05rem;
+    }
+    .step-modal-btn:hover {
+      background: #3895c8;
+      color: white;
+    }
+
+    .choose-package-btn:hover {
+      background: #3895c8 !important;
+      color: white !important;
+      transform: translateY(-3px);
+    }
+
+    .packages-hero {
+      padding: 160px 0 80px;
+      background-color: var(--color-bg);
+      position: relative;
+    }
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .hero-text-side { flex: 1; max-width: 600px; text-align: left; }
+    .hero-img-side { flex: 1; display: flex; justify-content: flex-end; }
+    
+    .hero-main-img {
+      width: 100%; max-width: 550px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      border: 8px solid var(--color-surface);
+      box-shadow: 0 20px 40px var(--color-shadow);
+      object-fit: cover; height: 500px;
+      animation: morph 8s ease-in-out infinite;
+    }
+    @keyframes morph {
+      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+      100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    }
+
+    .packages-hero h1 {
+      font-size: clamp(3.5rem, 5vw, 5rem);
+      font-family: var(--font-magic);
+      line-height: 1.1;
+      margin: 0 0 30px 0;
+    }
+    .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none; }
+    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; background: none; }
+    
+    .packages-hero p {
+      max-width: 650px;
+      margin: 0 0 30px 0;
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+    
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 50px 0;
+    }
+    .filter-btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      font-family: var(--font-body);
+      font-size: 1rem;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 14px rgba(210, 75, 118, 0.3);
+    }
+    
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      padding-bottom: 80px;
+    }
+    .package-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px var(--color-shadow);
+      border-color: var(--color-primary);
+    }
+    .package-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+    .package-content {
+      padding: 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .package-content h3 {
+      font-family: var(--font-magic);
+      font-size: 1.8rem;
+      color: #3895c8;
+      margin-bottom: 10px;
+      -webkit-text-fill-color: initial;
+      background: none;
+    }
+    .package-content p {
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .package-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+      font-family: var(--font-heading);
+    }
+    .package-features {
+      list-style: none;
+      margin-bottom: 25px;
+      padding: 0;
+    }
+    .package-features li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #3895c8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .package-features li i {
+      color: #3895c8;
+      font-size: 1.1rem;
+    }
+    
+    .section-title {
+      font-family: var(--font-magic);
+      font-size: 3rem;
+      text-align: center;
+      margin-top: 5rem;
+      margin-bottom: 20px;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+    
+    .compare-table-wrapper {
+      
+      margin: 40px 0 100px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+    .compare-table th, .compare-table td {
+      padding: 25px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .compare-table th {
+      font-family: var(--font-magic);
+      font-size: 1.4rem;
+      color: var(--color-text);
+      background: rgba(0,0,0,0.02);
+      -webkit-text-fill-color: initial;
+    }
+    [data-theme="dark"] .compare-table th { background: rgba(255,255,255,0.02); }
+    .compare-table th:first-child, .compare-table td:first-child {
+      text-align: left;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .compare-table i.fa-check { color: var(--color-primary); font-size: 1.2rem; }
+    .compare-table i.fa-xmark { color: var(--color-text-light); opacity: 0.3; font-size: 1.2rem; }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin: 50px 0 100px;
+    }
+    .step-card {
+      text-align: left;
+      padding: 40px 30px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px var(--color-shadow);
+      border-color: #3895c8;
+    }
+    .step-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #3895c8;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 20px rgba(56, 149, 200, 0.3);
+    }
+    .step-card h3 {
+      font-family: var(--font-magic);
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--color-text);
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+    .step-card p {
+      color: var(--color-text-light);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    .cta-section {
+      text-align: center;
+      padding: 100px 20px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-primary);
+      margin-bottom: 100px;
+      box-shadow: 0 20px 50px rgba(210, 75, 118, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(210, 75, 118, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-family: var(--font-magic);
+      font-size: 3.5rem;
+      margin-bottom: 25px;
+      position: relative;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+    .cta-desc {
+      color: var(--color-text);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      position: relative;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* FAQs */
+    .faq-section {
+      max-width: 900px;
+      margin: 80px auto 120px;
+      padding: 0 20px;
+    }
+    .faq-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover {
+      border-color: var(--color-primary);
+    }
+    .faq-question {
+      padding: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--color-text);
+    }
+    .faq-answer {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      color: var(--color-text-light);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      padding: 0 25px 25px;
+      max-height: 300px;
+    }
+    .faq-item.active .fa-chevron-down {
+      transform: rotate(180deg);
+      color: var(--color-primary);
+    }
+    
+    @media (max-width: 768px) {
+      .packages-hero .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .packages-hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="packages-hero">
+      <div class="container hero-container reveal">
+        <div class="hero-text-side">
+          <h1><span class="text-pink">A little magic.</span><br><span class="text-blue">A lot of joy.</span></h1>
+          <p>From joyful birthdays to extraordinary celebrations, discover experiences designed to make every little moment unforgettable.</p>
+          <div class="hero-actions">
+            <a href="#packages" class="btn btn-primary" style="padding: 15px 30px; font-size: 1.1rem;">Explore Packages</a>
+          </div>
+        </div>
+        <div class="hero-img-side">
+          <img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Magical Party" class="hero-main-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES GRID -->
+    <section id="packages" class="container">
+      <h2 class="section-title reveal"><span class="text-pink">Packages made for</span> <span class="text-blue">your wow moments</span></h2>
+      
+      <div class="filter-container reveal">
+        <button class="filter-btn active" data-filter="all">All Packages</button>
+        <button class="filter-btn" data-filter="birthday">Birthdays</button>
+        <button class="filter-btn" data-filter="school">School Events</button>
+        <button class="filter-btn" data-filter="theme">Themed Parties</button>
+      </div>
+
+      <div class="packages-grid">
+        <!-- Package 1 -->
+        <div class="package-card reveal" data-category="birthday">
+          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Sparkle Party" class="package-img">
+          <div class="package-content">
+            <h3>Sparkle Party</h3>
+            <p>Perfect for birthdays! Includes games, music, and joyful entertainment that kids absolutely love.</p>
+            <div class="package-price">$99 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
+            <ul class="package-features">
+              <li><i class="fa-solid fa-clock"></i> 1 hour of entertainment</li>
+              <li><i class="fa-solid fa-user"></i> 1 Professional Entertainer</li>
+              <li><i class="fa-solid fa-gamepad"></i> Interactive Games & Fun</li>
+            </ul>
+            <a href="booking.html?package=sparkle-party" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="package-card reveal" data-category="birthday theme">
+          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Magic Adventure" class="package-img">
+          <div class="package-content">
+            <h3>Magic Adventure</h3>
+            <p>Captivating performances and interactive fun designed to amaze larger celebrations and parties.</p>
+            <div class="package-price">$149 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
+            <ul class="package-features">
+              <li><i class="fa-solid fa-clock"></i> 1.5 hours of entertainment</li>
+              <li><i class="fa-solid fa-wand-magic-sparkles"></i> Spectacular Magic Show</li>
+              <li><i class="fa-solid fa-camera"></i> Meet & Greet Moments</li>
+            </ul>
+            <a href="booking.html?package=magic-adventure" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="package-card reveal" data-category="theme">
+          <img src="assets/images/princess_party_1790842645232.jpg" alt="Fantasy World" class="package-img">
+          <div class="package-content">
+            <h3>Fantasy World</h3>
+            <p>Story-inspired play and themed activities that transport kids straight into a magical fantasy world.</p>
+            <div class="package-price">$199 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
+            <ul class="package-features">
+              <li><i class="fa-solid fa-clock"></i> 2 hours of entertainment</li>
+              <li><i class="fa-solid fa-crown"></i> Custom Themed Activities</li>
+              <li><i class="fa-solid fa-music"></i> Interactive Story & Music</li>
+            </ul>
+            <a href="booking.html?package=fantasy-world" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Package 4 -->
+        <div class="package-card reveal" data-category="school">
+          <img src="assets/images/about_kids_birthday.jpg" alt="Little Explorers" class="package-img">
+          <div class="package-content">
+            <h3>Little Explorers</h3>
+            <p>Exciting group activities, team games, and challenges perfectly suited for school events and big crowds.</p>
+            <div class="package-price">$249 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
+            <ul class="package-features">
+              <li><i class="fa-solid fa-clock"></i> 2.5 hours of entertainment</li>
+              <li><i class="fa-solid fa-users"></i> 2 Professional Entertainers</li>
+              <li><i class="fa-solid fa-puzzle-piece"></i> Exciting Team Challenges</li>
+            </ul>
+            <a href="booking.html?package=little-explorers" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Package 5 -->
+        <div class="package-card reveal" data-category="theme">
+          <img src="assets/images/james_boy_smile.jpg" alt="Joyful Moments" class="package-img">
+          <div class="package-content">
+            <h3>Joyful Moments</h3>
+            <p>An intimate experience for smaller gatherings focused on personal interaction and close-up magic.</p>
+            <div class="package-price">$129 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
+            <ul class="package-features">
+              <li><i class="fa-solid fa-clock"></i> 1 hour of entertainment</li>
+              <li><i class="fa-solid fa-wand-sparkles"></i> Close-up Magic</li>
+              <li><i class="fa-solid fa-gift"></i> Custom Keepsake</li>
+            </ul>
+            <a href="booking.html?package=joyful-moments" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+          </div>
+        </div>
+
+        <!-- Package 6 -->
+        <div class="package-card reveal" data-category="birthday school">
+          <img src="assets/images/hero_magician_1790831867453.jpg" alt="Ultimate Celebration" class="package-img">
+          <div class="package-content">
+            <h3>Ultimate Celebration</h3>
+            <p>The premium package that includes everything. Perfect for huge parties, with massive stage performances.</p>
+            <div class="package-price">$349 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
+            <ul class="package-features">
+              <li><i class="fa-solid fa-clock"></i> 3 hours of entertainment</li>
+              <li><i class="fa-solid fa-users"></i> 3 Professional Entertainers</li>
+              <li><i class="fa-solid fa-star"></i> Full Stage Magic Show</li>
+            </ul>
+            <a href="booking.html?package=ultimate-celebration" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="container">
+      <h2 class="section-title reveal"><span class="text-pink">Compare</span> <span class="text-blue">the experiences</span></h2>
+      <p class="reveal" style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto;">Review our carefully crafted packages side-by-side to find the perfect magical experience for your upcoming celebration.</p>
+      
+      
+      <style>
+        .modern-compare-container {
+          
+          padding-bottom: 2rem;
+          margin-top: 3rem;
+        }
+        .modern-compare-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+        }
+        .compare-column {
+          flex: 1;
+          background: var(--color-surface);
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+          display: flex;
+          flex-direction: column;
+          border-top: 4px solid var(--color-primary);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .compare-column:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .compare-img {
+          width: 100%;
+          height: 120px;
+          object-fit: cover;
+        }
+        .compare-header {
+          padding: 1.5rem 1rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .compare-header h3 {
+          font-family: var(--font-magic);
+          font-size: 1.4rem;
+          color: #3895c8;
+          margin-bottom: 0.5rem;
+        }
+        .compare-price {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--color-primary);
+        }
+        .compare-features {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          flex-grow: 1;
+        }
+        .compare-features li {
+          padding: 1rem;
+          text-align: center;
+          border-bottom: 1px solid rgba(0,0,0,0.03);
+          font-size: 0.9rem;
+          color: var(--color-text);
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          align-items: center;
+        }
+        .compare-features li:last-child {
+          border-bottom: none;
+        }
+        .compare-features li span {
+          color: var(--color-text-light);
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+        .check-icon { color: var(--color-primary); font-size: 1.1rem; }
+        .x-icon { color: rgba(0,0,0,0.15); font-size: 1.1rem; }
+      </style>
+
+      <div class="modern-compare-container reveal">
+        <div class="modern-compare-grid">
+          <!-- Sparkle Party -->
+          <div class="compare-column">
+            <img src="assets/images/magic_show_party_1790842468826.jpg" class="compare-img" alt="Sparkle Party">
+            <div class="compare-header">
+              <h3>Sparkle Party</h3>
+              <div class="compare-price">$99</div>
+            </div>
+            <ul class="compare-features">
+              <li><span>Duration</span> 1 hour</li>
+              <li><span>Entertainers</span> 1</li>
+              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Themed activities</span> <i class="fa-solid fa-xmark x-icon"></i></li>
+              <li><span>Meet & Greet</span> <i class="fa-solid fa-xmark x-icon"></i></li>
+            </ul>
+          </div>
+          
+          <!-- Magic Adventure -->
+          <div class="compare-column" style="border-top-color: #3895c8; box-shadow: 0 15px 35px rgba(56,149,200,0.15);">
+            <img src="assets/images/superhero_party_1790842695325.jpg" class="compare-img" alt="Magic Adventure">
+            <div class="compare-header">
+              <h3 style="color: var(--color-primary);">Magic Adventure</h3>
+              <div class="compare-price" style="color: #3895c8;">$149</div>
+            </div>
+            <ul class="compare-features">
+              <li><span>Duration</span> 1.5 hours</li>
+              <li><span>Entertainers</span> 1</li>
+              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
+              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
+              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
+              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
+            </ul>
+          </div>
+          
+          <!-- Fantasy World -->
+          <div class="compare-column">
+            <img src="assets/images/princess_party_1790842645232.jpg" class="compare-img" alt="Fantasy World">
+            <div class="compare-header">
+              <h3>Fantasy World</h3>
+              <div class="compare-price">$199</div>
+            </div>
+            <ul class="compare-features">
+              <li><span>Duration</span> 2 hours</li>
+              <li><span>Entertainers</span> 1-2</li>
+              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon"></i></li>
+            </ul>
+          </div>
+          
+          <!-- Little Explorers -->
+          <div class="compare-column">
+            <img src="assets/images/about_kids_birthday.jpg" class="compare-img" alt="Little Explorers">
+            <div class="compare-header">
+              <h3>Little Explorers</h3>
+              <div class="compare-price">$249</div>
+            </div>
+            <ul class="compare-features">
+              <li><span>Duration</span> 2.5 hours</li>
+              <li><span>Entertainers</span> 2</li>
+              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon"></i></li>
+            </ul>
+          </div>
+          
+          <!-- Joyful Moments -->
+          <div class="compare-column">
+            <img src="assets/images/james_boy_smile.jpg" class="compare-img" alt="Joyful Moments">
+            <div class="compare-header">
+              <h3>Joyful Moments</h3>
+              <div class="compare-price">$129</div>
+            </div>
+            <ul class="compare-features">
+              <li><span>Duration</span> 1 hour</li>
+              <li><span>Entertainers</span> 1</li>
+              <li><span>Interactive games</span> <i class="fa-solid fa-xmark x-icon"></i></li>
+              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
+              <li><span>Themed activities</span> <i class="fa-solid fa-xmark x-icon"></i></li>
+              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon"></i></li>
+            </ul>
+          </div>
+          
+          <!-- Ultimate Celebration -->
+          <div class="compare-column" style="border-top-color: #f5a623;">
+            <img src="assets/images/hero_magician_1790831867453.jpg" class="compare-img" alt="Ultimate Celebration">
+            <div class="compare-header">
+              <h3 style="color: #f5a623;">Ultimate Celeb</h3>
+              <div class="compare-price">$349</div>
+            </div>
+            <ul class="compare-features">
+              <li><span>Duration</span> 3 hours</li>
+              <li><span>Entertainers</span> 3</li>
+              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
+              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
+              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
+              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="container">
+      <h2 class="section-title reveal"><span class="text-pink">How</span> <span class="text-blue">booking works</span></h2>
+      <p class="reveal" style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto;">Plan your celebration with our simple 4-step process, from choosing your magical experience to confirming the final details.</p>
+      
+      <div class="steps-grid">
+        <div class="step-card reveal clickable-step" data-step="1">
+          <div class="step-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Pick a Package"></div>
+          <div class="step-number">1</div>
+          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pick a Package</h3>
+          <p>Explore our crafted experiences and pick the perfect magic package for your event.</p>
+        </div>
+        <div class="step-card reveal clickable-step" data-step="2">
+          <div class="step-img-wrap"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Select Entertainer"></div>
+          <div class="step-number">2</div>
+          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Select Entertainer</h3>
+          <p>Tell us who you want to invite! Choose the entertainer or character for your child.</p>
+        </div>
+        <div class="step-card reveal clickable-step" data-step="3">
+          <div class="step-img-wrap"><img src="assets/images/about_kids_birthday.jpg" alt="Share Details"></div>
+          <div class="step-number">3</div>
+          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Share Details</h3>
+          <p>Fill out our simple form with your date, location, and any special requests you have.</p>
+        </div>
+        <div class="step-card reveal clickable-step" data-step="4">
+          <div class="step-img-wrap"><img src="assets/images/james_boy_smile.jpg" alt="Confirm"></div>
+          <div class="step-number">4</div>
+          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Confirm</h3>
+          <p>Review your booking and submit. We will verify and lock in your special date!</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FAQs -->
+    <section class="faq-section reveal">
+      <h2 class="section-title"><span class="text-pink">Frequently</span> <span class="text-blue">Asked Questions</span></h2>
+      <div style="margin-top: 40px;">
+        <div class="faq-item">
+          <div class="faq-question">
+            Are the displayed package prices final? <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>The prices shown are sample starting prices for our standard packages. The final cost may vary slightly depending on your exact location, the specific entertainer you choose, and any optional add-ons you select during the booking process.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            How early should I book a package? <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We highly recommend booking at least 3-4 weeks in advance, especially for weekend events or holidays, as our most popular entertainers' schedules fill up quickly. Booking early gives you maximum flexibility for your preferred date and time.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            Can packages be customized for unique events? <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! All our packages serve as a magical foundation. When you proceed to the booking page, you will find a "Customize Your Experience" section where you can add special requests, extra entertainers, or unique themes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="container">
+      <div class="cta-section reveal">
+        <h2><span class="text-pink">Let's make</span> <span class="text-blue">a little magic happen</span></h2>
+        <p class="cta-desc">Choose an experience, find your entertainer, and start planning a celebration filled with laughter, wonder, and unforgettable moments.</p>
+        <a href="booking.html" class="btn btn-primary" style="position: relative; padding: 20px 50px; font-size: 1.35rem; box-shadow: 0 10px 30px rgba(210, 75, 118, 0.4); text-transform: uppercase; letter-spacing: 1px;">Plan Your Celebration <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Package filtering logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const packageCards = document.querySelectorAll('.package-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          const filterValue = btn.getAttribute('data-filter');
+          
+          packageCards.forEach(card => {
+            if (filterValue === 'all') {
+              card.style.display = 'flex';
+            } else {
+              if (card.getAttribute('data-category').includes(filterValue)) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- STEP MODAL -->
+  <div class="step-modal-overlay" id="stepModal">
+    <div class="step-modal-content">
+      <div class="close-modal" id="closeStepModal"><i class="fa-solid fa-xmark"></i></div>
+      <h3 class="step-modal-title" id="modalTitle">Title</h3>
+      <p class="step-modal-desc" id="modalDesc">Desc</p>
+      <button class="step-modal-btn" id="modalNextBtn">Next Step <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("stepModal");
+      const closeBtn = document.getElementById("closeStepModal");
+      const titleEl = document.getElementById("modalTitle");
+      const descEl = document.getElementById("modalDesc");
+      const nextBtn = document.getElementById("modalNextBtn");
+      
+      const stepData = {
+        1: { title: "Pick a Package", desc: "Explore our crafted experiences in real-time. Review the pricing, features, and durations. Select the package that perfectly aligns with your event's scale and theme directly from this page.", next: 2 },
+        2: { title: "Select Entertainer", desc: "Tell us exactly who you want to invite! You'll be asked to pick the type of entertainer (Magician, Princess, Clown, etc.) and you can even request specific performers by name when checking out.", next: 3 },
+        3: { title: "Share Details", desc: "Fill out the comprehensive booking form. We'll need the date, specific venue location (indoor/outdoor), expected guest count, and any unique requests so we can prepare deeply for your event.", next: 4 },
+        4: { title: "Confirm", desc: "Review all your magical details in the summary pane and finalize your booking request. Our team will verify availability and send you a secure confirmation link to lock in your date.", next: null }
+      };
+
+      let currentStep = 1;
+
+      function openModal(stepNum) {
+        const data = stepData[stepNum];
+        if(!data) return;
+        currentStep = stepNum;
+        titleEl.textContent = data.title;
+        descEl.textContent = data.desc;
+        if(data.next) {
+          nextBtn.innerHTML = 'Next Step <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>';
+        } else {
+          nextBtn.innerHTML = 'Close';
+        }
+        modal.classList.add("active");
+      }
+
+      document.querySelectorAll(".clickable-step").forEach(card => {
+        card.addEventListener("click", () => {
+          openModal(parseInt(card.getAttribute("data-step")));
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+
+      modal.addEventListener("click", (e) => {
+        if(e.target === modal) modal.classList.remove("active");
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if(stepData[currentStep].next) {
+          openModal(stepData[currentStep].next);
+        } else {
+          modal.classList.remove("active");
+        }
+      });
+    });
+  </script>
+
+  <!-- Framer Motion (Motion One for Vanilla JS) -->
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Clean up old CSS-based scroll reveal to prevent conflicts
+      const oldReveals = document.querySelectorAll(".reveal");
+      oldReveals.forEach(el => {
+        el.classList.remove("reveal");
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.transition = 'none';
+      });
+
+      // 2. Initial Opacity Setup
+      const fadeElements = document.querySelectorAll('.hero-text-side, .hero-img-side, .section-title, p[style*="text-align: center"], .filter-container, .faq-item, .cta-section h2, .cta-desc');
+      fadeElements.forEach(el => el.style.opacity = '0');
+
+      const grids = document.querySelectorAll('.packages-grid, .modern-compare-grid, .steps-grid');
+      grids.forEach(grid => {
+        Array.from(grid.children).forEach(child => child.style.opacity = '0');
+      });
+
+      // 3. Animations on Scroll
+      
+      // Hero Section
+      inView(".packages-hero", () => {
+        const text = document.querySelector(".hero-text-side");
+        const img = document.querySelector(".hero-img-side");
+        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+        if(img) animate(img, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+      });
+
+      // Section Titles & Text blocks
+      document.querySelectorAll(".section-title, p[style*='text-align: center'], .filter-container, .cta-section h2, .cta-desc").forEach(el => {
+        inView(el, () => animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out" }));
+      });
+
+      // FAQs
+      document.querySelectorAll(".faq-item").forEach((item, index) => {
+        inView(item, () => animate(item, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.6, easing: "ease-out", delay: 0.1 * index }));
+      });
+
+      // Component Grids (Packages, Compare, Steps)
+      grids.forEach(grid => {
+        inView(grid, () => {
+          const children = Array.from(grid.children).filter(c => c.style.display !== 'none');
+          children.forEach((child, index) => {
+            let xOffset = 0; let yOffset = 50;
+            // Left, bottom, right slide-ins
+            if (children.length > 1) {
+              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
+              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
+            }
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
+          });
+        });
+      });
+
+      // Filter Re-animation hook for package cards
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const triggerAnimation = () => {
+        const grid = document.querySelector('.packages-grid');
+        if(!grid) return;
+        const children = Array.from(grid.children).filter(child => child.style.display !== 'none');
+        children.forEach((child, index) => {
+            child.style.opacity = '0';
+            let xOffset = 0; let yOffset = 50;
+            if (children.length > 1) {
+              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
+              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
+            }
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.5, easing: "ease-out", delay: 0.05 * index });
+        });
+      };
+      
+      if(filterBtns) {
+        filterBtns.forEach(btn => btn.addEventListener('click', () => setTimeout(triggerAnimation, 50)));
+      }
+    });
+  </script>
+</body>
+</html>

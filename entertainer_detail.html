@@ -1,0 +1,2020 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elias - Master Magician | Magiqo</title>
+  <meta name="description" content="Discover Elias, a master magician available for birthdays, celebrations and special events with Magiqo.">
+
+  <meta name="theme-color" content="#fff9fc">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    
+    :root {
+      --ed-pink: var(--color-primary);
+      --ed-pink-dark: var(--color-primary-hover);
+      --ed-blue: #3895c8;
+      --ed-purple: #3895c8;
+      --ed-bg: var(--color-bg);
+      --ed-soft: var(--color-surface);
+      --ed-text: var(--color-text);
+      --ed-muted: var(--color-text-light);
+      --ed-border: var(--color-border);
+      --ed-shadow: 0 20px 55px var(--color-shadow);
+      --ed-heading: var(--font-heading);
+      --ed-body: var(--font-body);
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--ed-body);
+      color: var(--ed-text);
+      background: var(--color-bg);
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .ed-container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .ed-eyebrow {
+      display: inline-block;
+      color: var(--ed-pink-dark);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .ed-section-heading {
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .ed-section-heading h2,
+    .ed-about-content h2,
+    .ed-events-content h2,
+    .ed-booking-copy h2,
+    .ed-final-cta h2 {
+      font-family: var(--ed-heading);
+      color: var(--ed-text);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.08;
+      font-weight: 600;
+      margin: 0 0 1.3rem;
+    }
+
+    .ed-section-heading h2 {
+      font-size: clamp(2.3rem, 4vw, 3.5rem);
+    }
+
+    .ed-about-content h2 span,
+    .ed-events-content h2 span,
+    .ed-final-cta h2 span {
+      display: block;
+      color: var(--ed-pink);
+    }
+
+    .ed-section-heading p,
+    .ed-about-content p,
+    .ed-events-content p {
+      color: var(--ed-muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .ed-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 27px;
+      border-radius: 50px;
+      background: var(--ed-purple);
+      color: white;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      transition: .3s ease;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .ed-btn:hover {
+      background: var(--ed-pink-dark);
+      color: white !important;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(217, 87, 145, .22);
+    }
+
+    /* HERO */
+
+    .ent-detail-hero {
+      position: relative;
+      min-height: 750px;
+      display: flex;
+      align-items: center;
+      padding: 145px 0 90px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 20%, rgba(210, 75, 118, 0.1), transparent 30%),
+        radial-gradient(circle at 90% 75%, rgba(56, 149, 200, 0.1), transparent 35%),
+        var(--color-bg);
+    }
+
+    .ent-detail-hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(241,123,172,.22);
+      top: -210px;
+      right: 10%;
+    }
+
+    .ent-detail-hero::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px solid rgba(117,191,242,.32);
+      bottom: -130px;
+      left: 4%;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .profile-image-wrap::before {
+      content: "";
+      position: absolute;
+      width: 88%;
+      height: 88%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(241,123,172,.25), rgba(117,191,242,.3));
+      filter: blur(2px);
+      transform: rotate(-10deg);
+    }
+
+    .profile-image-frame {
+      position: relative;
+      width: min(100%, 490px);
+      height: 520px;
+      border: 10px solid white;
+      border-radius: 42% 58% 54% 46% / 39% 40% 60% 61%;
+      overflow: hidden;
+      box-shadow: 0 25px 65px rgba(73,53,107,.18);
+      animation: profileFloat 6s ease-in-out infinite;
+    }
+
+    .profile-image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes profileFloat {
+      0%, 100% {
+        transform: translateY(0);
+        border-radius: 42% 58% 54% 46% / 39% 40% 60% 61%;
+      }
+      50% {
+        transform: translateY(-12px);
+        border-radius: 50% 50% 43% 57% / 46% 38% 62% 54%;
+      }
+    }
+
+    .hero-floating-note {
+      position: absolute;
+      bottom: 35px;
+      left: -5px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--color-surface);
+      border-radius: 18px;
+      padding: 14px 18px;
+      box-shadow: var(--ed-shadow);
+      animation: noteFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes noteFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-note-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 14px;
+      color: var(--ed-purple);
+      background: linear-gradient(135deg, #ffe2ef, #e5f5ff);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .hero-floating-note strong,
+    .hero-floating-note span {
+      display: block;
+    }
+
+    .hero-floating-note strong {
+      font-size: .85rem;
+      color: var(--color-text);
+    }
+
+    .hero-floating-note span {
+      font-size: .7rem;
+      color: var(--color-text-light);
+      margin-top: 3px;
+    }
+
+    .profile-info {
+      max-width: 590px;
+    }
+
+    .profile-info .ed-eyebrow {
+      padding: 9px 15px;
+      border-radius: 50px;
+      background: rgba(241,123,172,.12);
+    }
+
+    .profile-info h1 {
+      font-family: var(--font-magic);
+      font-size: clamp(3.6rem, 6vw, 5.8rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--ed-purple);
+      margin: 0 0 14px;
+    }
+
+    .profile-specialty {
+      color: var(--ed-pink-dark);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.4rem;
+    }
+
+    .profile-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: white;
+      padding: 10px 16px;
+      border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(73,53,107,.08);
+      color: var(--ed-text);
+      font-size: .83rem;
+      font-weight: 700;
+      margin-bottom: 1.6rem;
+    }
+
+    .profile-rating .stars {
+      color: #f5a623;
+      letter-spacing: 2px;
+      font-size: 1rem;
+    }
+
+    .profile-info > p {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: var(--ed-muted);
+      margin: 0 0 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-secondary {
+      color: var(--ed-purple);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 14px 10px;
+    }
+
+    .hero-secondary:hover {
+      color: var(--ed-pink-dark);
+    }
+
+    /* ABOUT */
+
+    .ed-about {
+      padding: 110px 0;
+      background: #fff;
+    }
+
+    .ed-about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 7rem;
+      align-items: center;
+    }
+
+    .ed-about-visual {
+      position: relative;
+      padding: 20px;
+    }
+
+    .ed-image-main {
+      position: relative;
+      overflow: hidden;
+      border-radius: 35px 35px 35px 100px;
+      box-shadow: 0 30px 70px rgba(73,53,107,.14);
+    }
+
+    .ed-image-main img {
+      width: 100%;
+      height: 570px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .ed-floating-card {
+      position: absolute;
+      right: -15px;
+      bottom: 10px;
+      background: white;
+      padding: 1.4rem 1.7rem;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+      display: flex;
+      flex-direction: column;
+      min-width: 180px;
+    }
+
+    .ed-floating-number {
+      color: var(--ed-pink);
+      font-family: var(--ed-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .ed-floating-label {
+      color: var(--ed-muted);
+      font-size: .75rem;
+      margin-top: 7px;
+    }
+
+    .ed-about-content .ed-lead {
+      color: var(--ed-text);
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .ed-info-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .ed-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .ed-info-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(241,123,172,.15), rgba(117,191,242,.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ed-info-icon svg {
+      width: 23px;
+      height: 23px;
+      fill: var(--ed-purple);
+    }
+
+    .ed-info-item strong,
+    .ed-info-item span {
+      display: block;
+    }
+
+    .ed-info-item strong {
+      color: var(--ed-text);
+      margin-bottom: 3px;
+    }
+
+    .ed-info-item span {
+      color: var(--ed-muted);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+
+    /* SERVICES */
+
+    .ed-services {
+      padding: 110px 0;
+      background: var(--ed-bg);
+    }
+
+    .ed-service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .ed-service-card {
+      position: relative;
+      padding: 2.5rem;
+      background: white;
+      border: 1px solid var(--ed-border);
+      border-radius: 25px;
+      overflow: hidden;
+      transition: .35s ease;
+    }
+
+    .ed-service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 55px rgba(73,53,107,.1);
+    }
+
+    .ed-service-featured {
+      background: linear-gradient(145deg, #fff, #fff3f8);
+      border-color: rgba(241,123,172,.3);
+    }
+
+    .ed-service-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.7rem;
+      color: rgba(73,53,107,.12);
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+
+    .ed-service-icon {
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(241,123,172,.15), rgba(117,191,242,.15));
+      margin-bottom: 2rem;
+    }
+
+    .ed-service-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: var(--ed-purple);
+    }
+
+    .ed-service-card h3 {
+      color: var(--ed-text);
+      font-family: var(--ed-heading);
+      font-size: 1.5rem;
+      margin: 0 0 1rem;
+    }
+
+    .ed-service-card p {
+      color: var(--ed-muted);
+      line-height: 1.75;
+      margin: 0 0 1.8rem;
+    }
+
+    .ed-service-link {
+      color: var(--ed-pink-dark);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    /* GALLERY */
+
+    .ed-gallery {
+      padding: 110px 0;
+      background: #fff;
+    }
+
+    .ed-gallery-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .ed-gallery-heading h2 {
+      font-family: var(--ed-heading);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      color: var(--ed-text);
+      margin: 0;
+    }
+
+    .ed-gallery-heading p {
+      max-width: 400px;
+      color: var(--ed-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .ed-gallery-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .8fr;
+      grid-template-rows: 270px 270px;
+      gap: 15px;
+    }
+
+    .ed-gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--ed-soft);
+    }
+
+    .ed-gallery-large {
+      grid-row: span 2;
+    }
+
+    .ed-gallery-wide {
+      grid-column: span 2;
+    }
+
+    .ed-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+
+    .ed-gallery-item:hover img {
+      transform: scale(1.07);
+    }
+
+    .ed-gallery-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 2rem 1.5rem 1.3rem;
+      color: white;
+      background: linear-gradient(transparent, rgba(20,15,30,.7));
+    }
+
+    .ed-gallery-overlay span {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* STATS */
+
+    .ed-stats {
+      padding: 5rem 0;
+      background: var(--ed-purple);
+    }
+
+    .ed-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ed-stat {
+      text-align: center;
+      padding: 1.5rem;
+      border-right: 1px solid rgba(255,255,255,.15);
+    }
+
+    .ed-stat:last-child {
+      border-right: none;
+    }
+
+    .ed-stat strong {
+      display: block;
+      color: white;
+      font-family: var(--ed-heading);
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: .7rem;
+    }
+
+    .ed-stat span {
+      color: rgba(255,255,255,.7);
+      font-size: .8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* BOOKING PROCESS */
+
+    .ed-process {
+      padding: 110px 0;
+      background: var(--ed-soft);
+    }
+
+    .ed-process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      position: relative;
+      align-items: stretch;
+    }
+
+    .ed-process-item {
+      position: relative;
+      padding: 2rem 1rem;
+    }
+
+    .ed-process-number {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      color: var(--ed-pink-dark);
+      border: 1px solid rgba(241,123,172,.3);
+      font-weight: 700;
+      margin-bottom: 1.7rem;
+    }
+
+    .ed-process-line {
+      position: absolute;
+      top: 30px;
+      left: 75px;
+      right: -25px;
+      height: 1px;
+      background: rgba(73,53,107,.12);
+    }
+
+    .ed-process-item:last-child .ed-process-line {
+      display: none;
+    }
+
+    .ed-process-item h3 {
+      color: var(--ed-text);
+      font-family: var(--ed-heading);
+      font-size: 1.2rem;
+      margin: 0 0 .8rem;
+    }
+
+    .ed-process-item p {
+      color: var(--ed-muted);
+      line-height: 1.7;
+      font-size: .95rem;
+      margin: 0;
+    }
+
+    /* REVIEWS */
+
+    .ed-reviews {
+      padding: 110px 0;
+      background: white;
+    }
+
+    .ed-review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .ed-review-card {
+      background: var(--color-surface);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--ed-shadow);
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ed-review-highlight {
+      background: linear-gradient(145deg, #fff1f7, #eef8ff);
+      transform: translateY(-15px);
+    }
+
+    .ed-review-stars {
+      color: #f5a623;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    .ed-review-card > p {
+      color: var(--ed-text);
+      line-height: 1.8;
+      font-size: 1rem;
+      margin: 0 0 2rem;
+    }
+
+    .ed-review-author {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .ed-review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--ed-purple);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .ed-review-author strong,
+    .ed-review-author span {
+      display: block;
+    }
+
+    .ed-review-author strong {
+      color: var(--ed-text);
+      font-size: .9rem;
+    }
+
+    .ed-review-author span {
+      color: var(--ed-muted);
+      font-size: .75rem;
+      margin-top: 3px;
+    }
+
+    /* EVENT TYPES */
+
+    .ed-events {
+      padding: 110px 0;
+      background: var(--ed-bg);
+    }
+
+    .ed-events-grid {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .ed-event-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .ed-event-tags span {
+      padding: 10px 17px;
+      border-radius: 50px;
+      background: white;
+      border: 1px solid rgba(73,53,107,.1);
+      color: var(--ed-purple);
+      font-size: .8rem;
+    }
+
+    .ed-events-visual {
+      min-height: 420px;
+      border-radius: 40px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(241,123,172,.9), transparent 35%),
+        linear-gradient(135deg, #75bff2, #49356b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+
+    .ed-event-card {
+      background: var(--color-surface);
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--ed-shadow);
+      border-top: 5px solid var(--ed-pink);
+      transition: .4s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .ed-event-small {
+      display: block;
+      color: var(--ed-pink-dark);
+      font-size: .7rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .ed-event-card strong {
+      display: block;
+      color: var(--ed-text);
+      font-family: var(--ed-heading);
+      font-size: 2.2rem;
+      line-height: 1.1;
+    }
+
+    .ed-event-card-line {
+      width: 55px;
+      height: 3px;
+      background: var(--ed-pink);
+      margin: 2rem 0;
+    }
+
+    .ed-event-card > span:last-child {
+      color: var(--ed-muted);
+      font-size: .8rem;
+      line-height: 1.6;
+    }
+
+    /* BOOKING CTA */
+
+    .ed-booking-info {
+      padding: 100px 0;
+      background: white;
+    }
+
+    .ed-booking-box {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr auto;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem;
+      border-radius: 35px;
+      background: linear-gradient(135deg, #fff0f6, #edf8ff);
+    }
+
+    .ed-booking-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    .ed-booking-copy p {
+      color: var(--ed-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .ed-booking-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ed-booking-detail {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(73,53,107,.1);
+    }
+
+    .ed-booking-detail span,
+    .ed-booking-detail strong {
+      display: block;
+    }
+
+    .ed-booking-detail span {
+      color: var(--ed-muted);
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .ed-booking-detail strong {
+      color: var(--ed-text);
+      font-size: .95rem;
+    }
+
+    .ed-book-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-decoration: none;
+      background: var(--ed-purple);
+      color: white;
+      padding: 1.1rem 1.7rem;
+      border-radius: 50px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: .3s ease;
+    }
+
+    .ed-book-button:hover {
+      background: var(--ed-pink-dark);
+      transform: translateY(-3px);
+    }
+
+    /* FINAL CTA */
+
+    .ed-final-cta {
+      position: relative;
+      overflow: hidden;
+      padding: 115px 0;
+      text-align: center;
+      background: var(--ed-purple);
+    }
+
+    .ed-final-cta .ed-eyebrow {
+      color: #ffb3d1;
+    }
+
+    .ed-final-cta h2 {
+      color: white;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .ed-final-cta h2 span {
+      color: #ff9fc6;
+    }
+
+    .ed-final-cta p {
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.8;
+    }
+
+    .ed-final-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-decoration: none;
+      background: white;
+      color: var(--ed-purple);
+      padding: 15px 27px;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .ed-final-button:hover {
+      background: var(--ed-pink);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .ed-final-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: .25;
+      pointer-events: none;
+    }
+
+    .ed-shape-one {
+      width: 350px;
+      height: 350px;
+      background: var(--ed-pink);
+      top: -180px;
+      left: -100px;
+    }
+
+    .ed-shape-two {
+      width: 300px;
+      height: 300px;
+      background: var(--ed-blue);
+      right: -100px;
+      bottom: -150px;
+    }
+
+    /* REVEAL ANIMATION */
+
+    .ed-reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .ed-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RTL */
+
+    [dir="rtl"] .ed-service-number {
+      right: auto;
+      left: 1.7rem;
+    }
+
+    [dir="rtl"] .ed-floating-card {
+      right: auto;
+      left: -15px;
+    }
+
+    [dir="rtl"] .hero-floating-note {
+      left: auto;
+      right: -5px;
+    }
+
+    [dir="rtl"] .ed-process-line {
+      left: -25px;
+      right: 75px;
+    }
+
+    [dir="rtl"] .ed-stat {
+      border-right: none;
+      border-left: 1px solid rgba(255,255,255,.15);
+    }
+
+    [dir="rtl"] .ed-stat:last-child {
+      border-left: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .profile-layout {
+        gap: 3rem;
+      }
+
+      .profile-image-frame {
+        height: 440px;
+      }
+
+      .ed-about-grid,
+      .ed-events-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .ed-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ed-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ed-stat:nth-child(2) {
+        border-right: none;
+      }
+
+      [dir="rtl"] .ed-stat:nth-child(2) {
+        border-left: none;
+      }
+
+      .ed-process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      position: relative;
+      align-items: stretch;
+    }
+
+      .ed-review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ed-review-highlight {
+        transform: none;
+      }
+
+      .ed-booking-box {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ed-book-button {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .ed-container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .ent-detail-hero {
+        min-height: auto;
+        padding: 120px 0 75px;
+      }
+
+      .profile-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .profile-image-frame {
+        width: min(100%, 400px);
+        height: 420px;
+      }
+
+      .hero-floating-note {
+        left: 0;
+        bottom: 20px;
+      }
+
+      [dir="rtl"] .hero-floating-note {
+        right: 0;
+      }
+
+      .profile-info {
+        max-width: 100%;
+      }
+
+      .profile-info h1 {
+      font-family: var(--font-magic);
+      font-size: clamp(3.6rem, 6vw, 5.8rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--ed-purple);
+      margin-top: 1.5rem;
+      }
+
+      .ed-gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 230px 180px 180px;
+      }
+
+      .ed-gallery-large {
+        grid-column: span 2;
+        grid-row: auto;
+      }
+
+      .ed-gallery-wide {
+        grid-column: span 2;
+      }
+
+      .ed-stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+      }
+
+      .ed-stat:nth-child(2) {
+        border-bottom: 1px solid rgba(255,255,255,.15);
+      }
+
+      .ed-stat:nth-child(3),
+      .ed-stat:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .ed-process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      position: relative;
+      align-items: stretch;
+    }
+
+      .ed-process-line {
+        display: none;
+      }
+
+      .ed-booking-box {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2rem;
+      }
+
+      .ed-book-button {
+        width: 100%;
+      }
+
+      .ed-events-visual {
+        min-height: 320px;
+        padding: 1.5rem;
+      }
+
+      .ed-event-card {
+      background: var(--color-surface);
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--ed-shadow);
+      border-top: 5px solid var(--ed-pink);
+      transition: .4s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+      .ed-final-cta {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .profile-image-frame {
+        height: 350px;
+      }
+
+      .hero-floating-note {
+        padding: 10px 12px;
+      }
+
+      .profile-rating {
+        font-size: .75rem;
+      }
+
+      .ed-gallery-grid {
+        grid-template-rows: 210px 150px 150px;
+      }
+
+      .ed-stat strong {
+        font-size: 2.7rem;
+      }
+
+      .ed-stat span {
+        font-size: .65rem;
+        letter-spacing: 1px;
+      }
+
+      .ed-review-card {
+      background: var(--color-surface);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--ed-shadow);
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .ed-reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  
+    /* REDESIGNED SECTIONS CSS */
+    .ed-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .ed-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    
+    .ed-section { padding: 100px 0; background: var(--color-surface); }
+    .ed-section.alt-bg { background: var(--color-bg); }
+    
+    .ed-eyebrow { display: inline-block; color: var(--color-primary); font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    
+    .ed-heading { font-family: var(--font-magic, 'Berkshire Swash'); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: normal; color: var(--color-text); }
+    .ed-heading span.pink-text { color: var(--color-primary) !important; -webkit-text-fill-color: var(--color-primary) !important; background: none !important; }
+    .ed-heading span.blue-text { color: #3895c8 !important; -webkit-text-fill-color: #3895c8 !important; background: none !important; }
+    
+    /* Service Cards */
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .service-card { background: var(--color-surface); padding: 3rem 2rem; border-radius: 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid #3895c8; transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; overflow: hidden; }
+    .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-top-color: var(--color-primary); }
+    .service-card .icon { width: 80px; height: 80px; background: rgba(56, 149, 200, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: background 0.4s; }
+    .service-card:hover .icon { background: rgba(218, 47, 95, 0.1); }
+    .service-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); }
+    .service-card p { color: var(--color-text-light); line-height: 1.7; font-size: 1.05rem; }
+    
+    /* Process Animation */
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 4rem; position: relative; }
+    .process-item { text-align: center; position: relative; z-index: 2; padding: 2rem 1rem; background: var(--color-surface); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+    .process-num { width: 60px; height: 60px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: -40px auto 1.5rem; box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3); }
+    .process-item h3 { font-size: 1.25rem; font-family: var(--font-heading); margin-bottom: 0.5rem; }
+    .process-item p { color: var(--color-text-light); font-size: 0.95rem; line-height: 1.6; }
+    
+    /* Stats */
+    .stat-wrap { background: linear-gradient(135deg, var(--color-primary), #B7245C); border-radius: 30px; padding: 4rem 2rem; color: white; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; box-shadow: 0 20px 40px rgba(218, 47, 95, 0.2); }
+    .stat-box strong { display: block; font-family: var(--font-magic); font-size: 4rem; line-height: 1; margin-bottom: 0.5rem; font-weight: normal; }
+    .stat-box span { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; opacity: 0.9; }
+    
+    /* Reviews */
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .review-card { background: var(--color-surface); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+    .review-stars { color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem; letter-spacing: 2px; }
+    .review-card p { font-size: 1.1rem; line-height: 1.7; color: var(--color-text); margin-bottom: 1.5rem; font-style: italic; }
+    .reviewer-info { display: flex; align-items: center; gap: 1rem; }
+    .reviewer-avatar { width: 50px; height: 50px; background: #3895c8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
+    .reviewer-info strong { display: block; color: var(--color-text); }
+    .reviewer-info span { font-size: 0.85rem; color: var(--color-text-light); }
+    
+    /* Event Tags */
+    .event-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+    .event-tags span { padding: 0.8rem 1.5rem; background: white; border: 2px solid #3895c8; border-radius: 50px; color: #3895c8; font-weight: bold; font-size: 0.95rem; transition: all 0.3s; }
+    .event-tags span:hover { background: #3895c8; color: white; transform: translateY(-3px); }
+    
+    /* CTA */
+    .cta-blue-btn { background: #3895c8; color: white; padding: 1.25rem 3rem; font-size: 1.2rem; font-weight: bold; border-radius: 50px; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 10px 20px rgba(56, 149, 200, 0.3); }
+    .cta-blue-btn:hover { background: #26749e; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(56, 149, 200, 0.4); color: white; }
+    
+    .final-cta-box { background: white; border: 4px solid var(--color-bg); padding: 5rem 3rem; border-radius: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+
+</style>
+</head>
+
+<body>
+
+  <!-- DYNAMIC NAVBAR -->
+  <div id="navbar"></div>
+
+  <!-- 1. ENTERTAINER HERO -->
+  <section class="ent-detail-hero">
+    <div class="ed-container profile-layout">
+
+      <div class="profile-image-wrap">
+        <div class="profile-image-frame">
+          <img
+            id="ent-img"
+            src="assets/images/magician_portrait_1790843004983.jpg"
+            alt="Elias the magician"
+          >
+        </div>
+
+        <div class="hero-floating-note">
+          <div class="hero-note-icon">
+            <svg viewBox="0 0 24 24" style="width: 20px; fill: var(--color-primary);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <strong>Made for memorable moments</strong>
+            <span>Entertainment for your celebration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-info">
+        <span class="ed-eyebrow">MEET YOUR ENTERTAINER</span>
+
+        <h1 id="ent-name">Elias</h1>
+
+        <div class="profile-specialty" id="ent-title">
+          Master Magician &amp; Illusionist
+        </div>
+
+        <div class="profile-rating">
+          <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+          <span>5.0/5 · 120+ Reviews</span>
+        </div>
+
+        <p id="ent-description">
+          Bring the wonder of true magic to your child's special day.
+          Elias blends mind-bending illusions, playful comedy and
+          interactive performances to create an experience for
+          children and families.
+        </p>
+
+        <div class="hero-actions">
+          <a href="booking.html?id=elias" id="hero-book-btn" class="ed-btn">
+            Check Availability <span aria-hidden="true">→</span>
+          </a>
+
+          <a href="#ent-about" class="hero-secondary">
+            Discover the Experience ↓
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  
+  <!-- 2. ABOUT THE ENTERTAINER -->
+  <section class="ed-section alt-bg ed-reveal" id="ent-about">
+    <div class="ed-container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        
+        <div>
+          <span class="ed-eyebrow">Meet The Entertainer</span>
+          <h2 class="ed-heading">
+            <span class="pink-text">Creating moments</span><br>
+            <span class="blue-text">people remember.</span>
+          </h2>
+          <p style="font-size: 1.25rem; color: var(--color-text); line-height: 1.8; margin-bottom: 1.5rem;">
+            Elias brings energy, personality, and unforgettable entertainment to every celebration. His performances are meticulously designed to keep children completely engaged while giving parents a chance to sit back and actually enjoy the party.
+          </p>
+          <p style="font-size: 1.1rem; color: var(--color-text-light); line-height: 1.7;">
+            From highly interactive magical illusions to hilarious physical comedy, every single appearance is carefully tailored to the specific audience, venue, and vibe of your celebration.
+          </p>
+        </div>
+        
+        <div style="position: relative; padding: 2rem;">
+           <img src="assets/images/magician_portrait_1790843004983.jpg" alt="Elias Performing" style="width: 100%; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); border: 8px solid white;">
+           <div style="position: absolute; bottom: -10px; right: 0px; background: var(--color-primary); color: white; padding: 1.5rem 2rem; border-radius: 20px; box-shadow: 0 15px 30px rgba(218, 47, 95, 0.3); text-align: center;">
+              <div style="font-family: var(--font-magic); font-size: 2.5rem; line-height: 1;">10+</div>
+              <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; margin-top: 5px;">Years of Magic</div>
+           </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVICES / EXPERIENCES -->
+  <section class="ed-section ed-reveal">
+    <div class="ed-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="ed-eyebrow">The Experience</span>
+        <h2 class="ed-heading">
+          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">What you</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">can book</span>
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.6;">
+          Choose the performance style that perfectly matches the energy of your celebration. Each experience is fully adaptable.
+        </p>
+      </div>
+      
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="icon">
+             <svg viewBox="0 0 24 24" style="width:35px; fill:#3895c8;"><path d="M12 3 3 8l9 5 7-3.89V15h2V8z"/><path d="M5 11v5c0 2 3.13 5 7 5s7-3 7-5v-5l-7 4z"/></svg>
+          </div>
+          <h3>Interactive Show</h3>
+          <p>A lively, high-energy performance where the children become the actual stars of the magic, not just spectators.</p>
+        </div>
+        
+        <div class="service-card" style="border-top-color: var(--color-primary); box-shadow: 0 15px 35px rgba(218,47,95,0.08);">
+          <div class="icon" style="background: rgba(218, 47, 95, 0.1);">
+             <svg viewBox="0 0 24 24" style="width:35px; fill:var(--color-primary);"><path d="m12 2 2.4 6.1L21 10.5l-5.2 4.1L17 21l-5-3.3L7 21l1.2-6.4L3 10.5l6.6-2.4z"/></svg>
+          </div>
+          <h3>Signature Performance</h3>
+          <p>A complete, breathtaking entertainment experience built around grand illusions and the personality of your celebration.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="icon">
+             <svg viewBox="0 0 24 24" style="width:35px; fill:#3895c8;"><path d="M12 2a5 5 0 0 0-5 5c0 3.5 5 8 5 8s5-4.5 5-8a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"/><path d="M5 16c-2 1-3 2.5-3 4 0 2 4.5 2 10 2s10 0 10-2c0-1.5-1-3-3-4"/></svg>
+          </div>
+          <h3>Meet & Memories</h3>
+          <p>Finish the experience with dedicated time for personal interactions, autographs, and memorable photo opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GALLERY -->
+  <section class="ed-section alt-bg ed-reveal">
+    <div class="ed-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <span class="ed-eyebrow">Moments In Action</span>
+        <h2 class="ed-heading">
+          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">See the</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">magic unfold</span>
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--color-text-light);">A genuine glimpse into the energy, excitement, and pure joy that happens behind every single performance.</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3;">
+           <img src="assets/images/magic_show_party_1790842468826.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3;">
+           <img src="assets/images/about_art_of_magic.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3;">
+           <img src="assets/images/gallery_smile_1.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. STATS -->
+  <section class="ed-section ed-reveal">
+    <div class="ed-container">
+      <div class="stat-wrap">
+        <div class="stat-box">
+          <strong>10+</strong>
+          <span>Years Experience</span>
+        </div>
+        <div class="stat-box">
+          <strong>500+</strong>
+          <span>Events Completed</span>
+        </div>
+        <div class="stat-box">
+          <strong>5.0</strong>
+          <span>Average Rating</span>
+        </div>
+        <div class="stat-box">
+          <strong>120+</strong>
+          <span>Happy Reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PROCESS -->
+  <section class="ed-section alt-bg ed-reveal">
+    <div class="ed-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="ed-eyebrow">How It Works</span>
+        <h2 class="ed-heading">
+          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">From booking</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">to celebration</span>
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--color-text-light);">We keep the entire process simple and stress-free so you can focus entirely on enjoying your child's special day.</p>
+      </div>
+      
+      <div class="process-grid">
+        <div style="position: absolute; top: 30px; left: 10%; right: 10%; height: 4px; background: rgba(56, 149, 200, 0.2); z-index: 1;"></div>
+        
+        <div class="process-item" style="animation-delay: 0.1s;">
+          <div class="process-num">1</div>
+          <h3>Tell us about it</h3>
+          <p>Share your date, location, event type, and the kind of experience you are dreaming of.</p>
+        </div>
+        <div class="process-item" style="animation-delay: 0.3s;">
+          <div class="process-num" style="background: #3895c8; box-shadow: 0 5px 15px rgba(56,149,200,0.3);">2</div>
+          <h3>Choose experience</h3>
+          <p>Select the package and performance style that perfectly suits your celebration's needs.</p>
+        </div>
+        <div class="process-item" style="animation-delay: 0.5s;">
+          <div class="process-num" style="background: #ff9800; box-shadow: 0 5px 15px rgba(255,152,0,0.3);">3</div>
+          <h3>Confirm booking</h3>
+          <p>Review the details securely, complete payment, and receive your instant confirmation.</p>
+        </div>
+        <div class="process-item" style="animation-delay: 0.7s;">
+          <div class="process-num">4</div>
+          <h3>Enjoy the moment</h3>
+          <p>Your entertainer arrives fully prepared to turn your party into a magical, memorable experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. REVIEWS -->
+  <section class="ed-section ed-reveal">
+    <div class="ed-container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="ed-eyebrow">Real Experiences</span>
+        <h2 class="ed-heading">
+          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">What families</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">are saying</span>
+        </h2>
+      </div>
+      
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"The children were completely engaged from the beginning. The performance made the birthday feel incredibly special. Elias is a true professional!"</p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">A</div>
+            <div>
+              <strong>Ananya R.</strong>
+              <span>Birthday Celebration</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" style="border: 2px solid var(--color-primary); transform: translateY(-15px); box-shadow: 0 20px 40px rgba(218,47,95,0.08);">
+          <div class="review-stars">★★★★★</div>
+          <p>"Everything felt effortless. The performance was fun, interactive, and perfectly suited to the children. We will absolutely be booking again next year!"</p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar" style="background: var(--color-primary);">K</div>
+            <div>
+              <strong>Karthik M.</strong>
+              <span>Family Event</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"A wonderful experience from booking to the final photo. The kids are still talking about the magic show. Thank you for making it so easy!"</p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar" style="background: #ff9800;">S</div>
+            <div>
+              <strong>Sneha P.</strong>
+              <span>Birthday Party</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. EVENTS -->
+  <section class="ed-section alt-bg ed-reveal">
+    <div class="ed-container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        
+        <div>
+          <span class="ed-eyebrow">Made for your moment</span>
+          <h2 class="ed-heading">
+            <span class="blue-text">One entertainer.</span><br>
+            <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">So many</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">celebrations</span>
+          </h2>
+          <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 2rem;">
+            Whether you're planning an intimate living room birthday or a massive community celebration in a hall, the experience is fully adapted to fit your unique event perfectly.
+          </p>
+          <div class="event-tags">
+            <span>Birthday Parties</span>
+            <span>Family Gatherings</span>
+            <span>School Events</span>
+            <span>Festivals</span>
+            <span>Private Events</span>
+          </div>
+        </div>
+        
+        <div style="background: var(--color-surface); padding: 3rem; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-left: 8px solid #3895c8; position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+           <div style="position: absolute; top: -20px; right: 20px; background: #ff9800; color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: rotate(5deg);">100% Adaptable</div>
+           <h3 style="font-family: var(--font-heading); font-size: 2rem; color: var(--color-text); margin-bottom: 1.5rem;">Designed around your celebration.</h3>
+           <ul style="list-style: none; padding: 0; margin: 0; font-size: 1.1rem; color: var(--color-text-light);">
+             <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><span style="color: #3895c8; font-size: 1.5rem;">✓</span> Tailored to the exact age group</li>
+             <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><span style="color: #3895c8; font-size: 1.5rem;">✓</span> Adjustable for any venue size</li>
+             <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><span style="color: #3895c8; font-size: 1.5rem;">✓</span> Flexible performance duration</li>
+           </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Footer -->
+
+
+  <!-- DYNAMIC FOOTER -->
+  <div id="footer"></div>
+
+
+  <!-- SCRIPTS -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    /* ENTERTAINER DATA */
+
+    const entertainerData = {
+      "elias": {
+        name: "Elias",
+        title: "Master Magician & Illusionist",
+        img: "assets/images/magician_portrait_1790843004983.jpg",
+        description:
+          "Bring the wonder of true magic to your child's special day. Elias blends mind-bending illusions, playful comedy and interactive performances to create an experience for children and families."
+      },
+
+      "lily": {
+        name: "Lily",
+        title: "Princess Performer",
+        img: "assets/images/princess_portrait_1790843055244.jpg",
+        description:
+          "Make your celebration feel like a fairytale with Lily. Her character-led appearances bring imaginative play, warm interactions and memorable moments to special events."
+      },
+
+      "barnaby": {
+        name: "Barnaby",
+        title: "Classic Clown",
+        img: "assets/images/clown_party_1790842566084.jpg",
+        description:
+          "Barnaby brings playful comedy, lively interactions and cheerful entertainment to celebrations, creating a welcoming experience for children and families."
+      },
+
+      "sarah": {
+        name: "Sarah",
+        title: "Face Painter",
+        img: "assets/images/gallery_smile_1.jpg",
+        description:
+          "Sarah adds colour and creativity to special events with imaginative face painting designed to make every young guest feel part of the celebration."
+      },
+
+      "rex": {
+        name: "Rex",
+        title: "Mascot Actor",
+        img: "assets/images/service_mascot.jpg",
+        description:
+          "Rex brings a character to life with playful appearances, interactive moments and photo opportunities for guests at family celebrations."
+      },
+
+      "david": {
+        name: "David",
+        title: "Stage Illusionist",
+        img: "assets/images/hero_magician_1790831867453.jpg",
+        description:
+          "David creates a sense of wonder through stage illusions and audience interaction, bringing a distinctive performance to special events."
+      },
+
+      "jojo": {
+        name: "Jojo",
+        title: "Comedy & Acrobatics",
+        img: "assets/images/founder_mark.jpg",
+        description:
+          "Jojo combines comedy and energetic movement to create a lively entertainment experience for audiences at family events and celebrations."
+      },
+
+      "captain_ray": {
+        name: "Captain Ray",
+        title: "Superhero Performer",
+        img: "assets/images/superhero_party_1790842695325.jpg",
+        description:
+          "Captain Ray brings imaginative superhero adventures to celebrations through character interactions, playful activities and memorable photo moments."
+      },
+
+      "emma": {
+        name: "Emma",
+        title: "Puppeteer",
+        img: "assets/images/magic_show_party_1790842468826.jpg",
+        description:
+          "Emma creates engaging storytelling experiences through puppetry, character voices and interactive moments for young audiences."
+      },
+
+      "chloe": {
+        name: "Chloe",
+        title: "Balloon Artist",
+        img: "assets/images/about_kids_birthday.jpg",
+        description:
+          "Chloe brings colour and creativity to events through balloon artistry, adding playful details and keepsake moments to celebrations."
+      },
+
+      "arthur": {
+        name: "Arthur",
+        title: "Mentalist",
+        img: "assets/images/about_art_of_magic.jpg",
+        description:
+          "Arthur delivers a thought-provoking performance with audience participation and surprising moments designed to spark curiosity."
+      },
+
+      "bella": {
+        name: "Bella",
+        title: "Fairy Godmother",
+        img: "assets/images/princess_party_1790842645232.jpg",
+        description:
+          "Bella adds a fairytale touch to special celebrations with character interactions, imaginative storytelling and photo opportunities."
+      },
+
+      "tommy": {
+        name: "Tommy",
+        title: "Slapstick Clown",
+        img: "assets/images/cute_kids_clapping_1790833571210.jpg",
+        description:
+          "Tommy brings playful humour and expressive comedy to family events, creating light-hearted entertainment for children and adults."
+      },
+
+      "dj_spark": {
+        name: "DJ Spark",
+        title: "Kids Party DJ",
+        img: "assets/images/blog_party_ideas_1790831919409.jpg",
+        description:
+          "DJ Spark brings music and interactive party energy to celebrations, helping guests enjoy a lively atmosphere."
+      },
+
+      "elena": {
+        name: "Elena",
+        title: "Storyteller",
+        img: "assets/images/about_mission.jpg",
+        description:
+          "Elena brings stories to life through expressive storytelling, audience participation and imaginative journeys for young guests."
+      },
+
+      "giggles": {
+        name: "Giggles",
+        title: "Face Painting Clown",
+        img: "assets/images/clown_party_1790842566084.jpg",
+        description:
+          "Giggles combines colourful face painting with playful character interactions to add a creative touch to family celebrations."
+      },
+
+      "steve": {
+        name: "Steve",
+        title: "Dino Mascot",
+        img: "assets/images/service_mascot.jpg",
+        description:
+          "Steve brings a dinosaur character to life with playful appearances and photo opportunities for children and families."
+      },
+
+      "mia": {
+        name: "Mia",
+        title: "Glitter Tattoos",
+        img: "assets/images/james_boy_smile.jpg",
+        description:
+          "Mia adds sparkle to events with creative glitter tattoo designs and fun activity moments for young guests."
+      },
+
+      "the_great_z": {
+        name: "The Great Z",
+        title: "Close-up Magician",
+        img: "assets/images/magician_portrait_1790843004983.jpg",
+        description:
+          "The Great Z brings close-up magic and surprising interactive moments to celebrations, creating a personal performance for guests."
+      },
+
+      "aurora": {
+        name: "Aurora",
+        title: "Ice Princess",
+        img: "assets/images/princess_portrait_1790843055244.jpg",
+        description:
+          "Aurora brings a winter-inspired fairytale character to celebrations through imaginative interactions, storytelling and memorable moments."
+      }
+    };
+
+
+    /* DYNAMIC PROFILE */
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const requestedId = (params.get("id") || "elias").toLowerCase();
+
+      const id = Object.prototype.hasOwnProperty.call(
+        entertainerData,
+        requestedId
+      ) ? requestedId : "elias";
+
+      const data = entertainerData[id];
+
+      const nameEl = document.getElementById("ent-name");
+      const titleEl = document.getElementById("ent-title");
+      const imageEl = document.getElementById("ent-img");
+      const aboutImageEl = document.getElementById("about-ent-img");
+      const descriptionEl = document.getElementById("ent-description");
+      const bookingNameEl = document.getElementById("booking-entertainer-name");
+
+      if (nameEl) nameEl.textContent = data.name;
+      if (titleEl) titleEl.textContent = data.title;
+
+      if (imageEl) {
+        imageEl.src = data.img;
+        imageEl.alt = data.name + " - " + data.title;
+      }
+
+      if (aboutImageEl) {
+        aboutImageEl.src = data.img;
+        aboutImageEl.alt = data.name + " performing";
+      }
+
+      if (descriptionEl) {
+        descriptionEl.textContent = data.description;
+      }
+
+      if (bookingNameEl) {
+        bookingNameEl.textContent = data.name;
+      }
+
+      document.title = data.name + " - " + data.title + " | Magiqo";
+
+      const bookingUrl = "booking.html?id=" + encodeURIComponent(id);
+
+      ["hero-book-btn", "ent-book-btn", "final-book-btn"].forEach((buttonId) => {
+        const button = document.getElementById(buttonId);
+        if (button) button.href = bookingUrl;
+      });
+    });
+
+
+    /* SCROLL REVEAL (Replaced with Motion One) */
+  </script>
+
+  <!-- Framer Motion (Motion One for Vanilla JS) -->
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Clean up old CSS-based scroll reveal to prevent conflicts
+      const oldReveals = document.querySelectorAll(".ed-reveal");
+      oldReveals.forEach(el => {
+        el.classList.remove("ed-reveal");
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.transition = 'none';
+      });
+
+      // 2. Initial Opacity Setup for new animations
+      // Select the specific text blocks and profile items
+      const fadeElements = document.querySelectorAll('.ed-heading, .ed-eyebrow, .profile-image-wrap, .profile-text');
+      fadeElements.forEach(el => el.style.opacity = '0');
+
+      // Setup About Section Grid children
+      const aboutGrid = document.querySelector('#ent-about > div > div');
+      if (aboutGrid) {
+         Array.from(aboutGrid.children).forEach(child => child.style.opacity = '0');
+      }
+
+      // Setup component grids
+      const grids = document.querySelectorAll('.service-grid, .stat-wrap, .process-grid, .review-grid, div[style*="grid-template-columns: repeat(auto-fit"]');
+      grids.forEach(grid => {
+        Array.from(grid.children).forEach(child => child.style.opacity = '0');
+      });
+
+      // 3. Animations on Scroll
+      
+      // Hero Section (Profile Layout)
+      inView(".ent-detail-hero", () => {
+        const img = document.querySelector(".profile-image-wrap");
+        const text = document.querySelector(".profile-text");
+        if(img) animate(img, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+        if(text) animate(text, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+      });
+
+      // General Headings
+      document.querySelectorAll(".ed-heading, .ed-eyebrow").forEach(heading => {
+        inView(heading, () => animate(heading, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out" }));
+      });
+
+      // About Section Split Layout
+      if (aboutGrid) {
+        inView(aboutGrid, () => {
+          const children = Array.from(aboutGrid.children);
+          if(children.length >= 2) {
+             animate(children[0], { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+             animate(children[1], { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+          }
+        });
+      }
+
+      // Component Grids (Services, Stats, Process, Gallery, Reviews)
+      grids.forEach(grid => {
+        inView(grid, () => {
+          const children = Array.from(grid.children);
+          children.forEach((child, index) => {
+            let xOffset = 0; let yOffset = 50;
+            // Alternating left and right for outer items
+            if (children.length > 2) {
+              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
+              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
+            }
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
+          });
+        });
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      
+      const entertainers = {
+        elias: {
+          name: "Elias the Magician",
+          title: "Master Magician & Illusionist",
+          img: "assets/images/magician_portrait_1790843004983.jpg"
+        },
+        max: {
+          name: "Max the Action Hero",
+          title: "Superhero Performer",
+          img: "https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=600&auto=format&fit=crop"
+        },
+        mia: {
+          name: "Princess Mia",
+          title: "Royal Princess Performer",
+          img: "assets/images/princess_portrait_1790843055244.jpg"
+        }
+      };
+      
+      if (id && entertainers[id]) {
+        const ent = entertainers[id];
+        const nameEl = document.getElementById('ent-name');
+        const titleEl = document.getElementById('ent-title');
+        const imgEl = document.getElementById('ent-img');
+        
+        if (nameEl) nameEl.textContent = ent.name;
+        if (titleEl) titleEl.textContent = ent.title;
+        if (imgEl) {
+          imgEl.src = ent.img;
+          imgEl.alt = ent.name;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

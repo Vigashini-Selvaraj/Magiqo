@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGIQO - Service Details</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    body {
+      background: var(--color-bg) !important;
+      background-color: var(--color-bg) !important;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .section-pad {
+      padding: 6rem 0;
+    }
+
+    .sec-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .sec-title h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 1rem;
+      background: var(--gradient-heading);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sec-title p {
+      color: var(--color-text-light);
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* 1. Detail Hero (Redesigned Split Layout) */
+    .detail-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 4rem;
+      background: var(--color-surface);
+      overflow: hidden;
+    }
+
+    .hero-container {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-family: var(--font-magic);
+      font-size: clamp(3rem, 5vw, 5rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      background: var(--gradient-heading);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+    }
+
+    .hero-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      margin-top: 2rem;
+    }
+
+    .hero-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+
+    .hero-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-text-light);
+    }
+
+    .hero-img-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img-wrapper img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 50px rgba(218, 47, 95, 0.2);
+      border: 8px solid white;
+      transform: rotate(3deg);
+      transition: transform 0.5s;
+    }
+
+    .hero-img-wrapper:hover img {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    /* 2 & 3. Meet the Experience / What Makes it Magical */
+    .split-section {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    .split-text {
+      flex: 1;
+    }
+
+    .split-text h2 {
+      font-family: var(--font-magic);
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .split-text p {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .magical-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+    }
+
+    .magical-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .magical-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-surface);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .magical-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* 4. The Show Unfolds (Vertical Timeline) */
+    .timeline-container {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 6rem;
+      padding: 2rem 0;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--color-primary);
+      transform: translateX(-50%);
+      opacity: 0.2;
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 50%;
+      position: relative;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: 50%;
+    }
+
+    .timeline-content {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateY(-5px);
+      border-color: var(--color-primary);
+    }
+
+    .timeline-content::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 2rem;
+      width: 40px;
+      height: 40px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+      box-shadow: 0 0 0 8px var(--color-bg);
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -65px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -65px;
+    }
+
+    .timeline-content h4 {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* 5. What's Included Grid (Images Redesign) */
+    .included-wrapper {
+      padding: 6rem 0;
+      margin-bottom: 6rem;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .included-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 350px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--color-border);
+    }
+
+    .included-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .included-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .included-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      padding: 2rem;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .included-overlay h5 {
+      font-size: 1.8rem;
+      font-family: var(--font-magic);
+      color: white !important;
+      margin: 0;
+      -webkit-text-fill-color: white !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    /* 6. Perfect For Little Celebr (Interactive Grid) */
+    .perfect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 6rem;
+    }
+
+    .perfect-card {
+      background: var(--color-surface); border: 2px dashed var(--color-border); border-radius: var(--radius-lg);
+      padding: 2.5rem; text-align: center; transition: all 0.3s;
+    }
+    .perfect-card:hover { border-color: var(--color-primary); background: var(--color-primary); color: white; transform: scale(1.05); }
+    .perfect-card h3 { font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.5rem; transition: color 0.3s; }
+    .perfect-card:hover h3 { color: #F6C344; }
+    .perfect-card p { font-size: 1.1rem; font-weight: bold; color: var(--color-text-light); transition: color 0.3s; }
+    .perfect-card:hover p { color: white; }
+
+    /* 7. Meet Performer */
+    .performer-box {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      border: 1px solid var(--color-border);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .performer-img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .performer-info {
+      padding: 3rem;
+      flex: 1;
+    }
+
+    /* 8. Choose Package (Pricing) */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+      justify-content: center;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+
+    .pricing-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--color-border);
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(to bottom, var(--color-surface), var(--color-bg));
+      border: 2px solid var(--color-primary);
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(218, 47, 95, 0.15);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-5px);
+    }
+
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-heading);
+      color: white;
+      padding: 0.5rem 2rem;
+      border-radius: var(--radius-pill);
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3);
+    }
+
+    .price-title {
+      font-family: var(--font-magic);
+      font-size: 2.5rem;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .price-duration {
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .price-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+      text-align: left;
+      padding: 0;
+    }
+
+    .price-features li {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .price-features li svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* 9. Gallery */
+    .masonry-gallery {
+      columns: 3;
+      column-gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .masonry-item {
+      margin-bottom: 1.5rem;
+      break-inside: avoid;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* 10. Booking Form CTA */
+    .booking-cta {
+      background: #D24B76;
+      padding: 5rem;
+      border-radius: var(--radius-lg);
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      color: white;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .booking-text {
+      flex: 1;
+    }
+
+    .booking-text h2 {
+      font-family: var(--font-magic);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white !important;
+      -webkit-text-fill-color: white !important;
+      background: none !important;
+    }
+
+    .booking-form {
+      flex: 1;
+      background: var(--color-surface);
+      padding: 3rem;
+      border-radius: var(--radius-lg);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+      font-weight: bold;
+    }
+
+    .form-control {
+      background: var(--color-bg);
+      color: var(--color-text);
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-card {
+        width: 100%;
+      }
+
+      .split-section {
+        flex-direction: column;
+      }
+
+      .performer-box {
+        flex-direction: column;
+      }
+
+      .performer-img {
+        width: 100%;
+      }
+
+      .booking-cta {
+        flex-direction: column;
+        padding: 3rem 2rem;
+      }
+
+      .masonry-gallery {
+        columns: 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .masonry-gallery {
+        columns: 1;
+      }
+    }
+    .modal-availability { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 9999; }
+    .modal-availability.active { display: flex; }
+    .modal-avail-content { background: var(--color-surface); padding: 3rem; border-radius: var(--radius-lg); text-align: center; max-width: 400px; box-shadow: 0 20px 40px var(--color-shadow); border: 1px solid var(--color-border); }
+    .modal-avail-content h3 { font-family: var(--font-magic); color: var(--color-primary); font-size: 2.2rem; margin-bottom: 1rem; }
+  </style>
+</head>
+
+<body>
+  <!-- Dynamic Navbar -->
+  <div id="navbar"></div>
+
+  <!-- 1. Detail Hero (Redesigned) -->
+  <section class="detail-hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1 class="hero-title" id="dynamicHeroTitle"><span
+            style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Magical</span> <span
+            style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Experience</span></h1>
+        <p class="hero-subtitle">Step into a world of wonder. Our premium entertainment brings imagination to life,
+          creating memories that will last long after the final curtain call.</p>
+        <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+          <span
+            style="background: var(--color-surface); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 0.9rem; border: 1px solid var(--color-primary); color: var(--color-primary);">From
+            $199</span>
+          <span
+            style="background: var(--color-surface); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 0.9rem; border: 1px solid var(--color-accent); color: var(--color-accent);">45
+            - 120 Mins</span>
+        </div>
+        <div class="hero-card">
+          <h4>Ready to book?</h4>
+          <p>Check availability for this specific entertainment package before dates fill up.</p>
+          <a href="#booking" class="btn btn-primary" style="width: 100%;">Check Availability</a>
+        </div>
+      </div>
+      <div class="hero-img-wrapper">
+        <img src="assets/images/service_hero.jpg" id="dynamicHeroImg" alt="Service Image">
+      </div>
+    </div>
+  </section>
+
+  <div class="container section-pad">
+
+    <!-- 2 & 3. Meet the Experience / What Makes It Magical -->
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
+      <h2 style="font-family: var(--font-magic); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem; background: var(--gradient-heading); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Meet the Experience</h2>
+      <p style="font-size: 1.25rem; color: var(--color-text); line-height: 1.8; margin-bottom: 1rem;">This isn't just a performance; it's an immersive journey. We tailor every single moment to match the energy of the crowd, ensuring that both children and adults are completely captivated from start to finish.</p>
+      <p style="font-size: 1.15rem; color: var(--color-primary); font-weight: bold;">Expect high-energy interactions, stunning visuals, and moments of pure astonishment.</p>
+    </div>
+
+    <div class="sec-title">
+      <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">What Makes It</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Magical?</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-bottom: 7rem;">
+      <div style="text-align: center; padding: 2.5rem; background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--color-border); transition: transform 0.3s;">
+        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+          <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: white;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h4 style="font-size: 1.4rem; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-heading);">Star of the Show</h4>
+        <p style="color: var(--color-text-light); line-height: 1.6;">The birthday child is integrated into the climax of the performance, making them feel truly special.</p>
+      </div>
+      <div style="text-align: center; padding: 2.5rem; background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--color-border); transition: transform 0.3s;">
+        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+          <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: white;"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+        </div>
+        <h4 style="font-size: 1.4rem; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-heading);">Fully Immersive</h4>
+        <p style="color: var(--color-text-light); line-height: 1.6;">We bring our own professional sound systems, backdrops, and lighting for a complete experience.</p>
+      </div>
+      <div style="text-align: center; padding: 2.5rem; background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--color-border); transition: transform 0.3s;">
+        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+          <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: white;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        <h4 style="font-size: 1.4rem; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-heading);">Adaptable Flow</h4>
+        <p style="color: var(--color-text-light); line-height: 1.6;">We read the room and seamlessly adjust the pacing to keep everyone constantly engaged.</p>
+      </div>
+    </div>
+
+    <!-- 4. The Show Unfolds (Redesigned Timeline) -->
+    <div class="sec-title">
+      <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">The</span> <span
+          style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Show Unfolds</span></h2>
+      <p>Here is exactly how the entertainment flows from arrival to goodbye.</p>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline-item">
+        <div class="timeline-content" data-step="1">
+          <h4>The Grand Entrance</h4>
+          <p>We arrive 15 minutes early to set up. Once ready, we make a spectacular, high-energy entrance to grab the
+            kids' attention instantly.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content" data-step="2">
+          <h4>The Main Performance</h4>
+          <p>The core show begins! Jam-packed with interactive elements, comedy, and visual spectacles tailored to the
+            specific age group.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content" data-step="3">
+          <h4>Happy Birthday Ceremony</h4>
+          <p>We lead the singing of Happy Birthday, bringing the child up to the front for a special crowning or magical
+            presentation.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content" data-step="4">
+          <h4>Photos & Farewells</h4>
+          <p>Dedicated time for parents to take photos with the entertainer before a magical goodbye.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. What's Included (Dark Glowing Redesign) -->
+    <div class="included-wrapper">
+      <div class="sec-title">
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">What's</span>
+          <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Included</span></h2>
+        <p>Everything we provide to ensure the perfect show.</p>
+      </div>
+      <div class="included-grid">
+        <div class="included-card">
+          <img src="assets/images/theme_music.jpg" alt="Theme Music">
+          <div class="included-overlay">
+            <h5>Themed Music</h5>
+          </div>
+        </div>
+        <div class="included-card">
+          <img src="assets/images/props_and_gears.jpg" alt="Props & Gear">
+          <div class="included-overlay">
+            <h5>Props & Gear</h5>
+          </div>
+        </div>
+        <div class="included-card">
+          <img src="assets/images/photo_backdrops.jpg" alt="Photo Backdrops">
+          <div class="included-overlay">
+            <h5>Photo Backdrops</h5>
+          </div>
+        </div>
+        <div class="included-card">
+          <img src="assets/images/pa_system_setup.jpg" alt="PA System">
+          <div class="included-overlay">
+            <h5>PA System</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- 6. Perfect For Little Celebrations (Redesigned Grid) -->
+  <div class="sec-title">
+    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Perfect For</span>
+      <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Little Celebrations</span></h2>
+    <p>This specific experience is tailored to ensure the best possible engagement.</p>
+  </div>
+  <div class="perfect-grid">
+    <div class="perfect-card">
+      <h3>3 - 10</h3>
+      <p>Recommended Age</p>
+    </div>
+    <div class="perfect-card">
+      <h3>Up to 30</h3>
+      <p>Kids Entertained</p>
+    </div>
+    <div class="perfect-card">
+      <h3>Anywhere</h3>
+      <p>Indoor / Outdoor</p>
+    </div>
+    <div class="perfect-card">
+      <h3>15 Min</h3>
+      <p>Setup Time Needed</p>
+    </div>
+  </div>
+
+  <!-- 7. Meet Your Performer -->
+  <div class="sec-title">
+    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Meet</span> <span
+        style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Your Performer</span></h2>
+  </div>
+  <div class="performer-box" style="margin-bottom: 6rem;">
+    <img src="assets/images/founder_mark.jpg" alt="Performer" class="performer-img">
+    <div class="performer-info">
+      <h3
+        style="font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">
+        Mark "The Magic"</h3>
+      <p style="font-weight: bold; color: var(--color-accent); margin-bottom: 1.5rem;">Lead Entertainer • 10+ Years
+        Experience</p>
+      <p style="color: var(--color-text-light); line-height: 1.8; margin-bottom: 2rem;">
+        Mark has performed at over 2,000 children's parties. His background in improvisational theater and close-up
+        illusion makes him one of the most sought-after children's entertainers in the state. He specializes in
+        high-energy engagement and making every child feel special.
+      </p>
+      <div style="display: flex; gap: 2rem;">
+        <div>
+          <div style="font-size: 2rem; font-weight: 900; color: var(--color-text);">4.9/5</div>
+          <div style="color: var(--color-text-light); font-size: 0.9rem;">Average Rating</div>
+        </div>
+        <div>
+          <div style="font-size: 2rem; font-weight: 900; color: var(--color-text);">1,200+</div>
+          <div style="color: var(--color-text-light); font-size: 0.9rem;">Parties Hosted</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Choose Your Package -->
+  <div class="sec-title" id="packages">
+    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Choose</span> <span
+        style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Your Package</span></h2>
+    <p>Select the perfect duration and feature set for this specific experience.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3 class="price-title">The Spark</h3>
+      <div class="price-amount">$199</div>
+      <div class="price-duration">45 Minutes</div>
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> 1 Professional Entertainer</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Core Performance</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Happy Birthday Ceremony</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Photo Opportunities</li>
+      </ul>
+      <a href="#booking" class="btn btn-outline" style="width: 100%; padding: 1rem;">Select The Spark</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <h3 class="price-title" style="color: var(--color-primary);">The Magic</h3>
+      <div class="price-amount">$299</div>
+      <div class="price-duration">90 Minutes</div>
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Extended Performance</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Balloon Twisting</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Party Games & Music</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Special Gift Box</li>
+      </ul>
+      <a href="#booking" class="btn btn-primary" style="width: 100%; padding: 1rem;">Select The Magic</a>
+    </div>
+
+    <div class="pricing-card">
+      <h3 class="price-title">The Spectacle</h3>
+      <div class="price-amount">$499</div>
+      <div class="price-duration">2 Hours</div>
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> 2 Professional Entertainers</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Grand Performance & Face Paint</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Mini Disco Setup</li>
+        <li><svg viewBox="0 0 24 24">
+            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+          </svg> Premium Gift Box</li>
+      </ul>
+      <a href="#booking" class="btn btn-outline" style="width: 100%; padding: 1rem;">Select The Spectacle</a>
+    </div>
+  </div>
+
+  <!-- 9. Moments of Magic (Gallery) -->
+  <div class="sec-title">
+    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Moments</span> <span
+        style="color: #3895c8; -webkit-text-fill-color: #3895c8;">of Magic</span></h2>
+    <p>Glimpses into the joy we bring.</p>
+  </div>
+  <div class="masonry-gallery">
+    <div class="masonry-item"><img src="assets/images/gallery_smile_1.jpg" alt="Gallery"></div>
+    <div class="masonry-item"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Gallery"></div>
+    <div class="masonry-item"><img src="assets/images/gallery_smile_2.jpg" alt="Gallery"></div>
+    <div class="masonry-item"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Gallery"></div>
+    <div class="masonry-item"><img src="assets/images/about_kids_birthday.jpg" alt="Gallery"></div>
+    <div class="masonry-item"><img src="assets/images/princess_party_1790842645232.jpg" alt="Gallery"></div>
+  </div>
+
+  <!-- 10. Booking CTA -->
+  <div id="booking" class="booking-cta">
+    <div class="booking-text">
+      <h2 style="color: white !important; -webkit-text-fill-color: white !important; background: none !important;">Ready to Make Memories?</h2>
+      <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.9;">Secure your preferred date now. Fill out the quick
+        form and our team will get back to you within 24 hours to finalize your magical celebration.</p>
+    </div>
+    <div class="booking-form">
+      <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-text);">
+        Check Availability</h4>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" class="form-control" placeholder="Jane Doe">
+      </div>
+      <div class="form-group">
+        <label>Party Date</label>
+        <input type="date" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Package Preference</label>
+        <select class="form-control">
+          <option>The Spark (45 Mins)</option>
+          <option>The Magic (90 Mins)</option>
+          <option>The Spectacle (2 Hours)</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.1rem;" onclick="document.getElementById('submitModal').classList.add('active')">Submit Request</button>
+    </div>
+  </div>
+  </div>
+
+  <!-- Submit Modal -->
+  <div class="modal-availability" id="submitModal" onclick="if(event.target===this) this.classList.remove('active')">
+    <div class="modal-avail-content" style="position: relative;">
+      <button onclick="document.getElementById('submitModal').classList.remove('active')" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-text);">&times;</button>
+      <h3>Request Submitted!</h3>
+      <p style="font-size: 1.1rem; margin: 1rem 0 2rem; color: var(--color-text);">Your booking request has been securely sent. Want to learn more about the talent?</p>
+      <a id="modalEntertainerBtn" href="entertainer_detail.html" class="btn btn-primary" style="background: var(--gradient-heading); border: none; width: 100%; padding: 1rem; font-size: 1.1rem; border-radius: var(--radius-pill);">View Entertainer Details</a>
+    </div>
+  </div>
+
+  <!-- Dynamic Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Parse URL parameters passed from services.html
+      const params = new URLSearchParams(window.location.search);
+      const title = params.get('title');
+      const imgSrc = params.get('img');
+
+      // Update the Hero Section if data exists
+      if (title) {
+        document.getElementById('dynamicHeroTitle').textContent = title;
+        document.title = "MAGIQO - " + title;
+      }
+      if (imgSrc) {
+        document.getElementById('dynamicHeroImg').src = imgSrc;
+      }
+
+      const modalBtn = document.getElementById('modalEntertainerBtn');
+      if (title && modalBtn) {
+        const serviceToEntertainerMap = {
+          "Grand Stage Magician": { name: "Elias", id: "elias" },
+          "Friendly Mascots": { name: "Rex", id: "rex" },
+          "Royal Princess Visit": { name: "Lily", id: "lily" },
+          "Action Superhero": { name: "Captain Ray", id: "captain_ray" },
+          "Classic Clown": { name: "Barnaby", id: "barnaby" },
+          "Face Painting Pro": { name: "Sarah", id: "sarah" },
+          "Close-Up Magician": { name: "David", id: "david" },
+          "Balloon Twisting": { name: "Chloe", id: "chloe" },
+          "Interactive Puppet Show": { name: "Giggles", id: "giggles" },
+          "High-Energy Party Host": { name: "Steve", id: "steve" }
+        };
+        
+        if (serviceToEntertainerMap[title]) {
+            const ent = serviceToEntertainerMap[title];
+            modalBtn.textContent = "View " + ent.name + " Details";
+            modalBtn.href = "entertainer_detail.html?id=" + ent.id;
+        } else {
+            modalBtn.textContent = "View " + title + " Entertainer";
+            modalBtn.href = "entertainer_detail.html";
+        }
+      }
+    });
+  </script>
+
+  <!-- Framer Motion (Motion One for Vanilla JS) -->
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Initial Opacity Setup
+      const fadeElements = document.querySelectorAll('.sec-title, .hero-text, .hero-img-wrapper, .split-text, .performer-img, .performer-info, .booking-text, .booking-form');
+      fadeElements.forEach(el => el.style.opacity = '0');
+
+      const grids = document.querySelectorAll('.included-grid, .perfect-grid, .pricing-grid, .masonry-gallery, .timeline-container');
+      grids.forEach(grid => {
+        Array.from(grid.children).forEach(child => {
+          if(child.tagName !== 'STYLE' && child.tagName !== 'SCRIPT') {
+            child.style.opacity = '0';
+          }
+        });
+      });
+
+      // Split layouts might not have specific classes for both children, so we hide direct children
+      document.querySelectorAll(".split-section, .performer-box").forEach(layout => {
+         Array.from(layout.children).forEach(child => child.style.opacity = '0');
+      });
+
+      // 2. Animations on Scroll
+      
+      // Hero Section
+      inView(".detail-hero", () => {
+        const text = document.querySelector(".hero-text");
+        const img = document.querySelector(".hero-img-wrapper");
+        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+        if(img) animate(img, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+      });
+
+      // Section Titles
+      document.querySelectorAll(".sec-title").forEach(title => {
+        inView(title, () => animate(title, { opacity: [0, 1], y: [50, 0] }, { duration: 0.8, easing: "ease-out" }));
+      });
+
+      // Split Sections
+      document.querySelectorAll(".split-section, .performer-box").forEach(layout => {
+        inView(layout, () => {
+          const children = Array.from(layout.children);
+          if (children.length >= 2) {
+             animate(children[0], { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
+             animate(children[1], { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+          }
+        });
+      });
+
+      // Grids & Timeline
+      grids.forEach(grid => {
+        inView(grid, () => {
+          const children = Array.from(grid.children).filter(c => c.tagName !== 'STYLE' && c.tagName !== 'SCRIPT');
+          children.forEach((child, index) => {
+            let xOffset = 0; let yOffset = 50;
+            
+            if (grid.classList.contains('timeline-container')) {
+              // Timeline items alternate left and right
+              xOffset = (index % 2 === 0) ? -100 : 100;
+              yOffset = 0;
+            } else if (children.length > 1) {
+              if (index % 3 === 0) { xOffset = -100; yOffset = 0; } 
+              else if (index % 3 === 2) { xOffset = 100; yOffset = 0; }
+            }
+            
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
+          });
+        });
+      });
+      
+      // Booking CTA
+      inView(".booking-cta", ({ target }) => {
+        const text = target.querySelector(".booking-text");
+        const form = target.querySelector(".booking-form");
+        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8 });
+        if(form) animate(form, { opacity: [0, 1], scale: [0.95, 1] }, { duration: 0.8, delay: 0.2 });
+      });
+
+    });
+  </script>
+</body>
+
+</html>

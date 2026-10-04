@@ -1,0 +1,864 @@
+import os
+
+filepath = r'c:\Users\vigas\Desktop\magiqo\booking.html'
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Celebration | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Hero Section */
+    .booking-hero {
+      padding: 160px 0 80px;
+      background-color: var(--color-bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .booking-hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-family: var(--font-magic);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .booking-hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+    }
+    .hero-bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--color-primary);
+      opacity: 0.1;
+      animation: float 6s infinite ease-in-out;
+    }
+    .hero-bubble-1 { width: 100px; height: 100px; top: 120px; left: 10%; }
+    .hero-bubble-2 { width: 150px; height: 150px; bottom: 20px; right: 10%; background: #3895c8; animation-delay: 2s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px 20px;
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text-light);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .trust-badge i {
+      font-size: 2rem;
+      color: #3895c8;
+    }
+
+    /* Layout */
+    .booking-layout {
+      max-width: 1300px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Stepper Header */
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+      background: var(--color-surface);
+      padding: 25px 20px 40px;
+      border-radius: 20px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 30px var(--color-shadow);
+    }
+    .stepper-header::before {
+      content: '';
+      position: absolute;
+      top: 45px;
+      left: 30px;
+      right: 30px;
+      height: 4px;
+      background: var(--color-bg);
+      z-index: 1;
+      border-radius: 4px;
+    }
+    .step-indicator {
+      position: relative;
+      z-index: 2;
+      background: var(--color-surface);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--color-text-light);
+      transition: all 0.4s;
+    }
+    .step-indicator.active {
+      border-color: var(--color-primary);
+      background: var(--color-primary);
+      color: white;
+      box-shadow: 0 0 20px rgba(210, 75, 118, 0.4);
+      transform: scale(1.1);
+    }
+    .step-indicator.completed {
+      border-color: #3895c8;
+      background: #3895c8;
+      color: white;
+    }
+    .step-label {
+      position: absolute;
+      top: 55px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: var(--color-text-light);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .step-indicator.active .step-label { color: var(--color-primary); font-weight: 800; }
+    .step-indicator.completed .step-label { color: #3895c8; }
+
+    /* Step Contents */
+    .step-content {
+      display: none;
+      background: var(--color-surface);
+      padding: 45px;
+      border-radius: 20px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px var(--color-shadow);
+    }
+    .step-content.active {
+      display: block;
+      animation: slideIn 0.5s forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step-title {
+      font-family: var(--font-magic);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--color-primary);
+      text-align: center;
+    }
+    .step-desc {
+      text-align: center;
+      color: var(--color-text-light);
+      margin-bottom: 35px;
+    }
+
+    /* Form Fields */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label {
+      font-weight: 600;
+      color: var(--color-text);
+      font-size: 0.95rem;
+    }
+    .form-control {
+      padding: 15px;
+      border: 2px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      font-size: 1rem;
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: 0.3s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #3895c8;
+      box-shadow: 0 0 0 4px rgba(56, 149, 200, 0.1);
+    }
+
+    /* Availability Check Section */
+    .availability-box {
+      background: rgba(56, 149, 200, 0.05);
+      border: 2px dashed #3895c8;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .availability-box button {
+      background: #3895c8;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+    .availability-box button:hover { background: #2a7da8; transform: translateY(-3px); }
+    .success-msg { display: none; color: #10b981; font-weight: bold; font-size: 1.1rem; margin-top: 15px; }
+    .success-msg i { margin-right: 5px; }
+
+    /* Cards with Images */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .selection-card {
+      border: 2px solid var(--color-border);
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      position: relative;
+      background: var(--color-bg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-img-wrap {
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+    }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+    .selection-card:hover .card-img { transform: scale(1.1); }
+    .selection-card:hover {
+      border-color: #3895c8;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(56, 149, 200, 0.15);
+    }
+    .selection-card.selected {
+      border-color: var(--color-primary);
+      background: var(--color-surface);
+      box-shadow: 0 15px 30px rgba(210, 75, 118, 0.2);
+    }
+    .selection-card.selected::after {
+      content: '\\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--color-primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .card-content { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+    .card-title { font-weight: 800; font-size: 1.2rem; color: var(--color-text); margin-bottom: 5px; }
+    .card-price { font-size: 1.25rem; font-weight: 800; color: var(--color-primary); margin-top: auto; }
+
+    /* Stepper Controls */
+    .stepper-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .btn-nav {
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+    .btn-nav-prev {
+      background: rgba(0,0,0,0.05);
+      color: var(--color-text);
+    }
+    .btn-nav-prev:hover { background: rgba(0,0,0,0.1); }
+    .btn-nav-next {
+      background: var(--color-primary);
+      color: white;
+    }
+    .btn-nav-next:hover {
+      background: #3895c8;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(56, 149, 200, 0.3);
+    }
+
+    /* Sidebar Summary */
+    .summary-card {
+      background: var(--color-surface);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px var(--color-shadow);
+      position: sticky;
+      top: 120px;
+    }
+    .summary-title {
+      font-family: var(--font-magic);
+      font-size: 2rem;
+      color: #3895c8;
+      margin-bottom: 25px;
+      text-align: center;
+      border-bottom: 1px dashed rgba(0,0,0,0.1);
+      padding-bottom: 15px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      color: var(--color-text);
+      font-size: 1rem;
+    }
+    .summary-item.sub {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-top: -10px;
+      margin-bottom: 15px;
+      padding-left: 10px;
+    }
+    .summary-total {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 2px solid rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+
+    /* General Features & FAQs */
+    .features-section, .faq-section, .testimonials-section {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .features-grid, .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .feature-item i { font-size: 3rem; color: #3895c8; margin-bottom: 20px; }
+    .feature-item h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--color-text); }
+    .test-card {
+      background: var(--color-surface);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px var(--color-shadow);
+    }
+    .test-card i { color: var(--color-primary); font-size: 2rem; margin-bottom: 15px; }
+
+    @media (max-width: 992px) {
+      .booking-layout { grid-template-columns: 1fr; }
+      .summary-card { position: relative; top: 0; }
+    }
+    @media (max-width: 768px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .stepper-header { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section class="booking-hero">
+      <div class="hero-bubble hero-bubble-1"></div>
+      <div class="hero-bubble hero-bubble-2"></div>
+      <div class="container reveal">
+        <h1>Reserve Your Date in <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">6 Easy Steps</span></h1>
+        <p>Follow our simple booking progress to completely customize and lock in your magical celebration.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TRUST BADGES -->
+    <section class="trust-badges reveal">
+      <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i><span>Secure Booking</span></div>
+      <div class="trust-badge"><i class="fa-solid fa-star"></i><span>5-Star Performers</span></div>
+      <div class="trust-badge"><i class="fa-solid fa-calendar-check"></i><span>Guaranteed Arrival</span></div>
+      <div class="trust-badge"><i class="fa-solid fa-face-smile"></i><span>100% Joy Guarantee</span></div>
+    </section>
+
+    <!-- SECTION 3: BOOKING FLOW -->
+    <div class="booking-layout">
+      
+      <!-- LEFT: STEPPER -->
+      <div class="stepper-container reveal">
+        
+        <!-- Header -->
+        <div class="stepper-header">
+          <div class="step-indicator active" data-step="1">1<div class="step-label">Availability</div></div>
+          <div class="step-indicator" data-step="2">2<div class="step-label">Package</div></div>
+          <div class="step-indicator" data-step="3">3<div class="step-label">Theme</div></div>
+          <div class="step-indicator" data-step="4">4<div class="step-label">Guests</div></div>
+          <div class="step-indicator" data-step="5">5<div class="step-label">Add-ons</div></div>
+          <div class="step-indicator" data-step="6">6<div class="step-label">Payment</div></div>
+        </div>
+
+        <!-- STEP 1: AVAILABILITY -->
+        <div class="step-content active" id="step-1">
+          <h2 class="step-title">Entertainer & Availability</h2>
+          <p class="step-desc">Select your preferred entertainer and date to ensure they are available for your event.</p>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Select Entertainer</label>
+              <select class="form-control" id="entertainer-select">
+                <option value="">-- Choose an Entertainer --</option>
+                <option value="Elias">Elias (Master Magician)</option>
+                <option value="Lily">Lily (Princess Royal)</option>
+                <option value="Captain Ray">Captain Ray (Superhero)</option>
+                <option value="Barnaby">Barnaby (Clown & Juggler)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Select Event Date</label>
+              <input type="date" class="form-control" id="event-date">
+            </div>
+          </div>
+          
+          <div class="availability-box">
+            <h4 style="color: var(--color-text); margin-bottom: 10px;">Check Availability to Proceed</h4>
+            <button type="button" id="check-avail-btn" onclick="checkAvailability()">Check Availability</button>
+            <div class="success-msg" id="avail-success"><i class="fa-solid fa-circle-check"></i> Great news! The entertainer is available on this date.</div>
+          </div>
+
+          <div class="stepper-controls" style="justify-content: flex-end;">
+            <button class="btn-nav btn-nav-next" id="btn-next-1" onclick="nextStep(2)" disabled style="opacity: 0.5; cursor: not-allowed;">Continue to Packages <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 2: PACKAGE -->
+        <div class="step-content" id="step-2">
+          <h2 class="step-title">Select Your Package</h2>
+          <p class="step-desc">Choose the experience level that perfectly matches your celebration size.</p>
+          <div class="card-grid">
+            <div class="selection-card package-sel selected" onclick="selectCard(this, 'package', 'Sparkle Party', 99)">
+              <div class="card-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" class="card-img" alt="Sparkle"></div>
+              <div class="card-content">
+                <div class="card-title">Sparkle Party</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">1 hour • 1 Entertainer</p>
+                <div class="card-price">$99</div>
+              </div>
+            </div>
+            <div class="selection-card package-sel" onclick="selectCard(this, 'package', 'Magic Adventure', 149)">
+              <div class="card-img-wrap"><img src="assets/images/superhero_party_1790842695325.jpg" class="card-img" alt="Magic"></div>
+              <div class="card-content">
+                <div class="card-title">Magic Adventure</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">1.5 hours • Show</p>
+                <div class="card-price">$149</div>
+              </div>
+            </div>
+            <div class="selection-card package-sel" onclick="selectCard(this, 'package', 'Fantasy World', 199)">
+              <div class="card-img-wrap"><img src="assets/images/princess_party_1790842645232.jpg" class="card-img" alt="Fantasy"></div>
+              <div class="card-content">
+                <div class="card-title">Fantasy World</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">2 hours • Custom</p>
+                <div class="card-price">$199</div>
+              </div>
+            </div>
+            <div class="selection-card package-sel" onclick="selectCard(this, 'package', 'Ultimate Celebration', 349)">
+              <div class="card-img-wrap"><img src="assets/images/hero_magician_1790831867453.jpg" class="card-img" alt="Ultimate"></div>
+              <div class="card-content">
+                <div class="card-title">Ultimate Celeb</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">3 hours • Premium</p>
+                <div class="card-price">$349</div>
+              </div>
+            </div>
+          </div>
+          <div class="stepper-controls">
+            <button class="btn-nav btn-nav-prev" onclick="nextStep(1)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn-nav btn-nav-next" onclick="nextStep(3)">Continue to Theme <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 3: THEME -->
+        <div class="step-content" id="step-3">
+          <h2 class="step-title">Select Your Theme</h2>
+          <p class="step-desc">Pick a magical world for the entertainer to bring to life.</p>
+          <div class="card-grid">
+            <div class="selection-card theme-sel selected" onclick="selectCard(this, 'theme', 'Princess Royal', 0)">
+              <div class="card-img-wrap"><img src="assets/images/princess_party_1790842645232.jpg" class="card-img" alt="Princess"></div>
+              <div class="card-content"><div class="card-title">Princess Royal</div></div>
+            </div>
+            <div class="selection-card theme-sel" onclick="selectCard(this, 'theme', 'Superhero League', 0)">
+              <div class="card-img-wrap"><img src="assets/images/superhero_party_1790842695325.jpg" class="card-img" alt="Superhero"></div>
+              <div class="card-content"><div class="card-title">Superhero League</div></div>
+            </div>
+            <div class="selection-card theme-sel" onclick="selectCard(this, 'theme', 'Jungle Explorer', 0)">
+              <div class="card-img-wrap"><img src="assets/images/about_kids_birthday.jpg" class="card-img" alt="Jungle"></div>
+              <div class="card-content"><div class="card-title">Jungle Explorer</div></div>
+            </div>
+            <div class="selection-card theme-sel" onclick="selectCard(this, 'theme', 'Fairy Garden', 0)">
+              <div class="card-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" class="card-img" alt="Fairy"></div>
+              <div class="card-content"><div class="card-title">Fairy Garden</div></div>
+            </div>
+          </div>
+          <div class="stepper-controls">
+            <button class="btn-nav btn-nav-prev" onclick="nextStep(2)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn-nav btn-nav-next" onclick="nextStep(4)">Continue to Guests <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 4: GUESTS & EVENT DETAILS -->
+        <div class="step-content" id="step-4">
+          <h2 class="step-title">Event & Guest Details</h2>
+          <p class="step-desc">Tell us about the venue and how many friends will be joining the fun.</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Number of Children</label>
+              <input type="number" class="form-control" placeholder="e.g. 15">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Adults</label>
+              <input type="number" class="form-control" placeholder="e.g. 10">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Child's Age (turning)</label>
+              <input type="number" class="form-control" placeholder="e.g. 6">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Event Time</label>
+              <input type="time" class="form-control">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Event Location (Full Address)</label>
+              <input type="text" class="form-control" placeholder="e.g. 123 Magic Lane, New York, NY">
+            </div>
+          </div>
+          <div class="stepper-controls">
+            <button class="btn-nav btn-nav-prev" onclick="nextStep(3)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn-nav btn-nav-next" onclick="nextStep(5)">Continue to Add-ons <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 5: ADD-ONS -->
+        <div class="step-content" id="step-5">
+          <h2 class="step-title">Customize with Add-ons</h2>
+          <p class="step-desc">Enhance your party with extra magical touches.</p>
+          <div class="card-grid">
+            <div class="selection-card addon-sel" onclick="toggleAddon(this, 'Balloon Decor', 50)">
+              <div class="card-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" class="card-img" alt="Balloons"></div>
+              <div class="card-content">
+                <div class="card-title">Balloon Decor</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">Arch and table balloons</p>
+                <div class="card-price">+$50</div>
+              </div>
+            </div>
+            <div class="selection-card addon-sel" onclick="toggleAddon(this, 'Photography', 150)">
+              <div class="card-img-wrap"><img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="card-img" alt="Photo"></div>
+              <div class="card-content">
+                <div class="card-title">Photography</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">2 hours of pro photos</p>
+                <div class="card-price">+$150</div>
+              </div>
+            </div>
+            <div class="selection-card addon-sel" onclick="toggleAddon(this, 'Custom Cake', 80)">
+              <div class="card-img-wrap"><img src="assets/images/about_kids_birthday.jpg" class="card-img" alt="Cake"></div>
+              <div class="card-content">
+                <div class="card-title">Custom Cake</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">Themed 2-tier cake</p>
+                <div class="card-price">+$80</div>
+              </div>
+            </div>
+            <div class="selection-card addon-sel" onclick="toggleAddon(this, 'Party Favors', 60)">
+              <div class="card-img-wrap"><img src="assets/images/james_boy_smile.jpg" class="card-img" alt="Favors"></div>
+              <div class="card-content">
+                <div class="card-title">Party Favors</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light);">Goodie bags for 15 kids</p>
+                <div class="card-price">+$60</div>
+              </div>
+            </div>
+          </div>
+          <div class="stepper-controls">
+            <button class="btn-nav btn-nav-prev" onclick="nextStep(4)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn-nav btn-nav-next" onclick="nextStep(6)">Continue to Payment <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 6: PAYMENT -->
+        <div class="step-content" id="step-6">
+          <h2 class="step-title">Payment & Confirmation</h2>
+          <p class="step-desc">Secure your booking by providing payment details for the deposit.</p>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Name on Card</label>
+              <input type="text" class="form-control" placeholder="John Doe">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Card Number</label>
+              <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Expiry Date</label>
+              <input type="text" class="form-control" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+              <label class="form-label">CVV</label>
+              <input type="text" class="form-control" placeholder="123">
+            </div>
+            <div class="form-group full" style="margin-top: 15px;">
+              <label style="display: flex; align-items: flex-start; gap: 15px; cursor: pointer; color: var(--color-text-light); line-height: 1.5;">
+                <input type="checkbox" style="width: 24px; height: 24px; margin-top: 2px;">
+                I agree to the cancellation terms, booking policy, and authorize the advance deposit charge.
+              </label>
+            </div>
+          </div>
+          <div class="stepper-controls">
+            <button class="btn-nav btn-nav-prev" onclick="nextStep(5)"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn-nav btn-nav-next" style="background: #3895c8;">Complete Booking <i class="fa-solid fa-check"></i></button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: SUMMARY -->
+      <div class="summary-card reveal">
+        <h3 class="summary-title">Booking Summary</h3>
+        <div class="summary-item">
+          <span>Entertainer:</span>
+          <span style="font-weight: 800;" id="sum-ent">None Selected</span>
+        </div>
+        <div class="summary-item">
+          <span>Date:</span>
+          <span style="font-weight: 800;" id="sum-date">TBD</span>
+        </div>
+        <div class="summary-item">
+          <span>Package:</span>
+          <span style="font-weight: 800;" id="sum-pkg">Sparkle Party</span>
+        </div>
+        <div class="summary-item">
+          <span>Theme:</span>
+          <span style="font-weight: 800;" id="sum-theme">Princess Royal</span>
+        </div>
+        
+        <div id="sum-addons-container">
+          <!-- Addons will be injected here -->
+        </div>
+        
+        <div class="summary-total">
+          <span>Total:</span>
+          <span id="sum-total">$99.00</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--color-text-light); margin-top: 20px; text-align: center; line-height: 1.5;">20% Advance deposit required to lock in your date. Balance due 24h prior.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4: WHY BOOK WITH US -->
+    <section class="features-section reveal">
+      <h2 style="font-family: var(--font-magic); font-size: 3rem; margin-bottom: 15px; color: var(--color-primary);">Why Book With Magiqo?</h2>
+      <p style="color: var(--color-text-light); font-size: 1.15rem; max-width: 600px; margin: 0 auto;">We take the stress out of party planning so you can focus on making memories.</p>
+      
+      <div class="features-grid">
+        <div class="feature-item">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <h4>Premium Entertainment</h4>
+          <p style="color: var(--color-text-light);">All our performers are vetted, trained professionals who specialize in children's engagement.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <h4>Hassle-Free Process</h4>
+          <p style="color: var(--color-text-light);">Book your entire party online in minutes. No endless email chains or confusing quotes.</p>
+        </div>
+        <div class="feature-item">
+          <i class="fa-solid fa-heart"></i>
+          <h4>100% Satisfaction</h4>
+          <p style="color: var(--color-text-light);">We guarantee your child and their guests will have the absolute best time ever.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TESTIMONIALS -->
+    <section class="testimonials-section reveal" style="background: var(--color-surface); margin-top: 60px;">
+      <h2 style="font-family: var(--font-magic); font-size: 3rem; margin-bottom: 15px; color: #3895c8;">Happy Parents</h2>
+      <p style="color: var(--color-text-light); font-size: 1.15rem;">Don't just take our word for it.</p>
+      
+      <div class="test-grid">
+        <div class="test-card">
+          <i class="fa-solid fa-quote-left"></i>
+          <p>"Booking was so easy. The Princess arrived exactly on time and completely mesmerized the kids for two hours straight!"</p>
+          <div class="test-author" style="margin-top: 15px; font-weight: bold; color: var(--color-primary);">— Sarah Jenkins</div>
+        </div>
+        <div class="test-card">
+          <i class="fa-solid fa-quote-left"></i>
+          <p>"Magiqo took all the stress away. The Add-ons feature let me handle the cake, decor, and entertainment in one click."</p>
+          <div class="test-author" style="margin-top: 15px; font-weight: bold; color: var(--color-primary);">— Mark T.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FAQs -->
+    <section class="faq-section reveal" style="margin-top: 60px; margin-bottom: 80px;">
+      <h2 style="font-family: var(--font-magic); font-size: 3rem; text-align: center; margin-bottom: 40px;"><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">Booking Help</span> & FAQs</h2>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 20px; padding: 25px; box-shadow: 0 5px 15px var(--color-shadow); text-align: left;">
+        <h4 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 12px; color: var(--color-text);">When is my advance payment due?</h4>
+        <p style="color: var(--color-text-light); line-height: 1.6;">A 20% advance payment is required at the time of booking to secure your date. The remaining balance is due 24 hours before the event.</p>
+      </div>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; margin-bottom: 20px; padding: 25px; box-shadow: 0 5px 15px var(--color-shadow); text-align: left;">
+        <h4 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 12px; color: var(--color-text);">Need help with your booking?</h4>
+        <p style="color: var(--color-text-light); line-height: 1.6;">Call our party experts at (555) 123-4567 or email bookings@magiqo.com.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="js/components.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    // State
+    let pkgPrice = 99;
+    let addonsTotal = 0;
+    
+    // Check Availability Simulation
+    function checkAvailability() {
+      const ent = document.getElementById("entertainer-select").value;
+      const date = document.getElementById("event-date").value;
+      
+      if(!ent || !date) {
+        alert("Please select both an entertainer and a date.");
+        return;
+      }
+      
+      const btn = document.getElementById("check-avail-btn");
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Checking...';
+      
+      setTimeout(() => {
+        btn.style.display = 'none';
+        document.getElementById("avail-success").style.display = 'block';
+        
+        // Update summary
+        document.getElementById("sum-ent").textContent = ent;
+        document.getElementById("sum-date").textContent = date;
+        
+        // Enable Next button
+        const nextBtn = document.getElementById("btn-next-1");
+        nextBtn.disabled = false;
+        nextBtn.style.opacity = '1';
+        nextBtn.style.cursor = 'pointer';
+      }, 1000);
+    }
+
+    function selectCard(element, type, name, price) {
+      const container = element.parentElement;
+      const cards = container.querySelectorAll('.selection-card');
+      cards.forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+      
+      if(type === 'package') {
+        pkgPrice = price;
+        document.getElementById('sum-pkg').textContent = name;
+        updateTotal();
+      } else if (type === 'theme') {
+        document.getElementById('sum-theme').textContent = name;
+      }
+    }
+
+    function toggleAddon(element, name, price) {
+      element.classList.toggle('selected');
+      updateAddonsSummary();
+    }
+    
+    function updateAddonsSummary() {
+      addonsTotal = 0;
+      const container = document.getElementById('sum-addons-container');
+      container.innerHTML = '';
+      
+      const selectedAddons = document.querySelectorAll('.addon-sel.selected');
+      selectedAddons.forEach(el => {
+        const title = el.querySelector('.card-title').textContent;
+        const priceText = el.querySelector('.card-price').textContent;
+        const priceVal = parseInt(priceText.replace('+$', ''));
+        addonsTotal += priceVal;
+        
+        container.innerHTML += `
+          <div class="summary-item sub">
+            <span>+ ${title}</span>
+            <span>$${priceVal.toFixed(2)}</span>
+          </div>
+        `;
+      });
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const total = pkgPrice + addonsTotal;
+      document.getElementById('sum-total').textContent = '$' + total.toFixed(2);
+    }
+
+    function nextStep(stepNum) {
+      // Update indicators
+      document.querySelectorAll('.step-indicator').forEach(ind => {
+        const s = parseInt(ind.getAttribute('data-step'));
+        ind.classList.remove('active', 'completed');
+        if (s < stepNum) ind.classList.add('completed');
+        if (s === stepNum) ind.classList.add('active');
+      });
+
+      // Update contents
+      document.querySelectorAll('.step-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.getElementById('step-' + stepNum).classList.add('active');
+      window.scrollTo({ top: document.querySelector('.stepper-header').offsetTop - 20, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
+'''
+
+with open(filepath, 'w', encoding='utf-8') as f:
+    f.write(html_content)

@@ -1,0 +1,461 @@
+import os
+
+login_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('assets/images/magic_show_party_1790842468826.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    .auth-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 450px;
+      background: rgba(20, 20, 25, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 50px 40px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .auth-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+    .auth-title {
+      font-family: var(--font-magic);
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); }
+    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; }
+    
+    .auth-subtitle {
+      color: var(--color-text-light);
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .form-control:focus {
+      border-color: var(--color-primary);
+      outline: none;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .form-control::placeholder { color: rgba(255,255,255,0.4); }
+    
+    .forgot-link {
+      display: block;
+      text-align: right;
+      color: #3895c8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-top: -10px;
+      margin-bottom: 25px;
+      transition: 0.3s;
+    }
+    .forgot-link:hover { color: var(--color-primary); }
+    
+    .btn-auth {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #b83a62;
+      transform: translateY(-2px);
+    }
+    
+    .divider {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .divider::before { margin-right: 15px; }
+    .divider::after { margin-left: 15px; }
+    
+    .btn-social {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+    .btn-social:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn-social img {
+      width: 20px;
+      height: 20px;
+    }
+    .btn-social i {
+      font-size: 1.2rem;
+    }
+    
+    .bottom-link {
+      margin-top: 25px;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+    }
+    .bottom-link a {
+      color: #3895c8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .bottom-link a:hover { color: var(--color-primary); }
+    
+    .home-back {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      opacity: 0.7;
+      transition: 0.3s;
+      z-index: 3;
+    }
+    .home-back:hover { opacity: 1; }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <a href="index.html" class="home-back"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
+  <div class="auth-card">
+    <img src="assets/images/logoo.png" alt="Magiqo" class="auth-logo">
+    <h1 class="auth-title"><span class="text-pink">Welcome</span> <span class="text-blue">Back</span></h1>
+    <p class="auth-subtitle">Sign in to book entertainers and manage your magical events.</p>
+    
+    <form action="#" method="POST" onsubmit="event.preventDefault(); window.location.href='index.html';">
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required>
+      </div>
+      <a href="#" class="forgot-link">Forgot Password?</a>
+      
+      <button type="submit" class="btn-auth btn-primary">Log In</button>
+    </form>
+    
+    <div class="divider">OR</div>
+    
+    <button class="btn-social" type="button">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+      Continue with Google
+    </button>
+    <button class="btn-social" type="button">
+      <i class="fa-brands fa-apple"></i>
+      Continue with Apple
+    </button>
+    
+    <div class="bottom-link">
+      Don't have an account? <a href="register.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
+"""
+
+register_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('assets/images/superhero_party_1790842695325.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    .auth-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 450px;
+      background: rgba(20, 20, 25, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      margin: 40px 0;
+    }
+    .auth-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    .auth-title {
+      font-family: var(--font-magic);
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+    .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); }
+    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; }
+    
+    .auth-subtitle {
+      color: var(--color-text-light);
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .form-control:focus {
+      border-color: var(--color-primary);
+      outline: none;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .form-control::placeholder { color: rgba(255,255,255,0.4); }
+    
+    .btn-auth {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #b83a62;
+      transform: translateY(-2px);
+    }
+    
+    .divider {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .divider::before { margin-right: 15px; }
+    .divider::after { margin-left: 15px; }
+    
+    .btn-social {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+    .btn-social:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn-social img {
+      width: 20px;
+      height: 20px;
+    }
+    .btn-social i {
+      font-size: 1.2rem;
+    }
+    
+    .bottom-link {
+      margin-top: 25px;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+    }
+    .bottom-link a {
+      color: #3895c8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .bottom-link a:hover { color: var(--color-primary); }
+    
+    .home-back {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      opacity: 0.7;
+      transition: 0.3s;
+      z-index: 3;
+    }
+    .home-back:hover { opacity: 1; }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <a href="index.html" class="home-back"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
+  <div class="auth-card">
+    <img src="assets/images/logoo.png" alt="Magiqo" class="auth-logo">
+    <h1 class="auth-title"><span class="text-pink">Join</span> <span class="text-blue">Magiqo</span></h1>
+    <p class="auth-subtitle">Create an account to unlock unforgettable magical experiences.</p>
+    
+    <form action="#" method="POST" onsubmit="event.preventDefault(); window.location.href='index.html';">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required>
+      </div>
+      
+      <button type="submit" class="btn-auth btn-primary">Sign Up</button>
+    </form>
+    
+    <div class="divider">OR</div>
+    
+    <button class="btn-social" type="button">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+      Continue with Google
+    </button>
+    <button class="btn-social" type="button">
+      <i class="fa-brands fa-apple"></i>
+      Continue with Apple
+    </button>
+    
+    <div class="bottom-link">
+      Already have an account? <a href="login.html">Log In</a>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
+"""
+
+with open(r'c:\Users\vigas\Desktop\magiqo\login.html', 'w', encoding='utf-8') as f:
+    f.write(login_html)
+
+with open(r'c:\Users\vigas\Desktop\magiqo\register.html', 'w', encoding='utf-8') as f:
+    f.write(register_html)
