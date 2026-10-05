@@ -1,5 +1,5 @@
 /* HERO CINEMATIC STAGE - 18s MAGICAL PERFORMANCE */
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito+Sans:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 
 :root {
   --hero-bg-start: #FFF7F0;
@@ -37,7 +37,7 @@
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--hero-bg-start) !important;
 }
 
@@ -45,7 +45,7 @@ body {
 .logo-text,
 .berkshire,
 .section-title {
-  font-family: 'Berkshire Swash', cursive !important;
+  font-family: 'Playfair Display', serif !important;
 }
 
 .hero-stage {

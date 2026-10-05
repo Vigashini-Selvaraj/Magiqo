@@ -1,5 +1,5 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
 /* Ant Design Base Styles Override */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/antd/4.24.13/antd.min.css');
 
@@ -20,9 +20,9 @@
 
   --gradient-heading: linear-gradient(90deg, #D24B76, #13315C);
 
-  --font-heading: 'Nunito Sans', sans-serif;
-  --font-body: 'Nunito Sans', sans-serif;
-  --font-magic: 'Berkshire Swash', cursive;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-magic: 'Playfair Display', serif;
 
   --radius-sm: 8px;
   --radius-md: 16px;
