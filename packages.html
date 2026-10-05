@@ -464,6 +464,7 @@
       }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
 <body>
 
@@ -482,7 +483,7 @@
           </div>
         </div>
         <div class="hero-img-side">
-          <img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Magical Party" class="hero-main-img">
+          <img src="assets/images/pro_hero_party.jpg" alt="Magical Party" class="hero-main-img">
         </div>
       </div>
     </section>
@@ -501,7 +502,7 @@
       <div class="packages-grid">
         <!-- Package 1 -->
         <div class="package-card reveal" data-category="birthday">
-          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Sparkle Party" class="package-img">
+          <img src="assets/images/pro_classic_magic.jpg" alt="Sparkle Party" class="package-img">
           <div class="package-content">
             <h3>Sparkle Party</h3>
             <p>Perfect for birthdays! Includes games, music, and joyful entertainment that kids absolutely love.</p>
@@ -517,7 +518,7 @@
 
         <!-- Package 2 -->
         <div class="package-card reveal" data-category="birthday theme">
-          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Magic Adventure" class="package-img">
+          <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Magic Adventure" class="package-img">
           <div class="package-content">
             <h3>Magic Adventure</h3>
             <p>Captivating performances and interactive fun designed to amaze larger celebrations and parties.</p>
@@ -533,7 +534,7 @@
 
         <!-- Package 3 -->
         <div class="package-card reveal" data-category="theme">
-          <img src="assets/images/princess_party_1790842645232.jpg" alt="Fantasy World" class="package-img">
+          <img src="assets/images/pro_princess.jpg" alt="Fantasy World" class="package-img">
           <div class="package-content">
             <h3>Fantasy World</h3>
             <p>Story-inspired play and themed activities that transport kids straight into a magical fantasy world.</p>
@@ -549,7 +550,7 @@
 
         <!-- Package 4 -->
         <div class="package-card reveal" data-category="school">
-          <img src="assets/images/about_kids_birthday.jpg" alt="Little Explorers" class="package-img">
+          <img src="assets/images/pro_memory.jpg" alt="Little Explorers" class="package-img">
           <div class="package-content">
             <h3>Little Explorers</h3>
             <p>Exciting group activities, team games, and challenges perfectly suited for school events and big crowds.</p>
@@ -565,7 +566,7 @@
 
         <!-- Package 5 -->
         <div class="package-card reveal" data-category="theme">
-          <img src="assets/images/james_boy_smile.jpg" alt="Joyful Moments" class="package-img">
+          <img src="assets/images/pro_gallery_alt.jpg" alt="Joyful Moments" class="package-img">
           <div class="package-content">
             <h3>Joyful Moments</h3>
             <p>An intimate experience for smaller gatherings focused on personal interaction and close-up magic.</p>
@@ -581,7 +582,7 @@
 
         <!-- Package 6 -->
         <div class="package-card reveal" data-category="birthday school">
-          <img src="assets/images/hero_magician_1790831867453.jpg" alt="Ultimate Celebration" class="package-img">
+          <img src="assets/images/pro_services_hero.jpg" alt="Ultimate Celebration" class="package-img">
           <div class="package-content">
             <h3>Ultimate Celebration</h3>
             <p>The premium package that includes everything. Perfect for huge parties, with massive stage performances.</p>
@@ -598,196 +599,266 @@
       </div>
     </section>
 
-    <!-- COMPARE -->
-    <section class="container">
+    <!-- COMPARE (Interactive Accordion) -->
+    <section class="container" style="background: var(--color-surface); padding: 4rem 2rem; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); margin-bottom: 4rem;">
       <h2 class="section-title reveal"><span class="text-pink">Compare</span> <span class="text-blue">the experiences</span></h2>
-      <p class="reveal" style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto;">Review our carefully crafted packages side-by-side to find the perfect magical experience for your upcoming celebration.</p>
-      
+      <p class="reveal" style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto; margin-bottom: 3rem;">Click on a package below to reveal its magical features and find the perfect fit for your celebration.</p>
       
       <style>
-        .modern-compare-container {
-          
-          padding-bottom: 2rem;
-          margin-top: 3rem;
-        }
-        .modern-compare-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-        }
-        .compare-column {
-          flex: 1;
-          background: var(--color-surface);
-          border-radius: 20px;
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .accordion-container {
+          max-width: 800px;
+          margin: 0 auto;
           display: flex;
           flex-direction: column;
-          border-top: 4px solid var(--color-primary);
-          transition: transform 0.3s, box-shadow 0.3s;
+          gap: 1rem;
         }
-        .compare-column:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .accordion-item {
+          background: var(--color-bg);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          transition: all 0.3s ease;
         }
-        .compare-img {
-          width: 100%;
-          height: 120px;
-          object-fit: cover;
+        .accordion-item.active {
+          border-color: var(--color-primary);
+          box-shadow: 0 10px 30px rgba(46, 25, 167, 0.1);
         }
-        .compare-header {
-          padding: 1.5rem 1rem;
-          text-align: center;
-          border-bottom: 1px solid rgba(0,0,0,0.05);
+        .accordion-item.popular {
+          border-color: #3895c8;
         }
-        .compare-header h3 {
-          font-family: var(--font-magic);
-          font-size: 1.4rem;
-          color: #3895c8;
-          margin-bottom: 0.5rem;
+        .accordion-item.popular.active {
+          box-shadow: 0 10px 30px rgba(56, 149, 200, 0.15);
         }
-        .compare-price {
-          font-size: 1.5rem;
-          font-weight: bold;
+        .accordion-header {
+          padding: 1.5rem 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          background: var(--color-surface);
+          transition: background 0.3s;
+        }
+        .accordion-header:hover {
+          background: rgba(0,0,0,0.02);
+        }
+        .accordion-title-wrap {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        .accordion-icon {
+          font-size: 1.75rem;
           color: var(--color-primary);
         }
-        .compare-features {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          flex-grow: 1;
+        .accordion-item.popular .accordion-icon {
+          color: #3895c8;
         }
-        .compare-features li {
-          padding: 1rem;
-          text-align: center;
-          border-bottom: 1px solid rgba(0,0,0,0.03);
-          font-size: 0.9rem;
+        .accordion-title {
+          font-family: var(--font-magic);
+          font-size: 1.5rem;
           color: var(--color-text);
+          margin: 0;
+        }
+        .accordion-price-wrap {
           display: flex;
-          flex-direction: column;
-          gap: 5px;
           align-items: center;
+          gap: 1.5rem;
         }
-        .compare-features li:last-child {
-          border-bottom: none;
-        }
-        .compare-features li span {
+        .accordion-price {
+          font-size: 1.25rem;
+          font-weight: bold;
           color: var(--color-text-light);
-          font-size: 0.75rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
         }
-        .check-icon { color: var(--color-primary); font-size: 1.1rem; }
-        .x-icon { color: rgba(0,0,0,0.15); font-size: 1.1rem; }
+        .accordion-item.active .accordion-price {
+          color: var(--color-primary);
+        }
+        .accordion-item.popular.active .accordion-price {
+          color: #3895c8;
+        }
+        .accordion-toggle {
+          font-size: 1.25rem;
+          color: var(--color-text-light);
+          transition: transform 0.3s;
+        }
+        .accordion-item.active .accordion-toggle {
+          transform: rotate(180deg);
+          color: var(--color-primary);
+        }
+        .accordion-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease, padding 0.4s ease;
+          background: var(--color-bg);
+        }
+        .accordion-item.active .accordion-content {
+          max-height: 500px;
+          padding: 2rem;
+          border-top: 1px solid var(--color-border);
+        }
+        .features-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.5rem;
+        }
+        .feature-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          color: var(--color-text-light);
+        }
+        .feature-item i {
+          color: var(--color-primary);
+        }
+        .accordion-item.popular .feature-item i {
+          color: #3895c8;
+        }
+        .feature-item.unavailable {
+          color: rgba(0,0,0,0.3);
+        }
+        .feature-item.unavailable i {
+          color: rgba(0,0,0,0.2);
+        }
+        .accordion-action {
+          margin-top: 2rem;
+          text-align: right;
+        }
+        .popular-badge {
+          background: linear-gradient(90deg, #3895c8, #5bb4e5);
+          color: white;
+          padding: 4px 12px;
+          border-radius: 12px;
+          font-size: 0.75rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-right: 1rem;
+        }
       </style>
 
-      <div class="modern-compare-container reveal">
-        <div class="modern-compare-grid">
-          <!-- Sparkle Party -->
-          <div class="compare-column">
-            <img src="assets/images/magic_show_party_1790842468826.jpg" class="compare-img" alt="Sparkle Party">
-            <div class="compare-header">
-              <h3>Sparkle Party</h3>
-              <div class="compare-price">$99</div>
+      <div class="accordion-container">
+        
+        <!-- Sparkle -->
+        <div class="accordion-item active" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <div class="accordion-title-wrap">
+              <i class="fa-solid fa-wand-magic-sparkles accordion-icon"></i>
+              <h3 class="accordion-title">Sparkle Party</h3>
             </div>
-            <ul class="compare-features">
-              <li><span>Duration</span> 1 hour</li>
-              <li><span>Entertainers</span> 1</li>
-              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Themed activities</span> <i class="fa-solid fa-xmark x-icon"></i></li>
-              <li><span>Meet & Greet</span> <i class="fa-solid fa-xmark x-icon"></i></li>
-            </ul>
-          </div>
-          
-          <!-- Magic Adventure -->
-          <div class="compare-column" style="border-top-color: #3895c8; box-shadow: 0 15px 35px rgba(56,149,200,0.15);">
-            <img src="assets/images/superhero_party_1790842695325.jpg" class="compare-img" alt="Magic Adventure">
-            <div class="compare-header">
-              <h3 style="color: var(--color-primary);">Magic Adventure</h3>
-              <div class="compare-price" style="color: #3895c8;">$149</div>
+            <div class="accordion-price-wrap">
+              <span class="accordion-price">$99</span>
+              <i class="fa-solid fa-chevron-down accordion-toggle"></i>
             </div>
-            <ul class="compare-features">
-              <li><span>Duration</span> 1.5 hours</li>
-              <li><span>Entertainers</span> 1</li>
-              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
-              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
-              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
-              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon" style="color:#3895c8;"></i></li>
-            </ul>
           </div>
-          
-          <!-- Fantasy World -->
-          <div class="compare-column">
-            <img src="assets/images/princess_party_1790842645232.jpg" class="compare-img" alt="Fantasy World">
-            <div class="compare-header">
-              <h3>Fantasy World</h3>
-              <div class="compare-price">$199</div>
+          <div class="accordion-content">
+            <div class="features-grid">
+              <div class="feature-item"><i class="fa-solid fa-clock"></i> 1 Hour Duration</div>
+              <div class="feature-item"><i class="fa-solid fa-user"></i> 1 Entertainer</div>
+              <div class="feature-item"><i class="fa-solid fa-star"></i> Interactive Games</div>
+              <div class="feature-item"><i class="fa-solid fa-music"></i> Live Performance</div>
+              <div class="feature-item unavailable"><i class="fa-solid fa-xmark"></i> Themed Activities</div>
+              <div class="feature-item unavailable"><i class="fa-solid fa-xmark"></i> Meet & Greet</div>
             </div>
-            <ul class="compare-features">
-              <li><span>Duration</span> 2 hours</li>
-              <li><span>Entertainers</span> 1-2</li>
-              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon"></i></li>
-            </ul>
-          </div>
-          
-          <!-- Little Explorers -->
-          <div class="compare-column">
-            <img src="assets/images/about_kids_birthday.jpg" class="compare-img" alt="Little Explorers">
-            <div class="compare-header">
-              <h3>Little Explorers</h3>
-              <div class="compare-price">$249</div>
+            <div class="accordion-action">
+              <a href="booking.html" class="btn btn-primary" style="padding: 0.75rem 2rem;">Select Sparkle</a>
             </div>
-            <ul class="compare-features">
-              <li><span>Duration</span> 2.5 hours</li>
-              <li><span>Entertainers</span> 2</li>
-              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon"></i></li>
-            </ul>
           </div>
-          
-          <!-- Joyful Moments -->
-          <div class="compare-column">
-            <img src="assets/images/james_boy_smile.jpg" class="compare-img" alt="Joyful Moments">
-            <div class="compare-header">
-              <h3>Joyful Moments</h3>
-              <div class="compare-price">$129</div>
-            </div>
-            <ul class="compare-features">
-              <li><span>Duration</span> 1 hour</li>
-              <li><span>Entertainers</span> 1</li>
-              <li><span>Interactive games</span> <i class="fa-solid fa-xmark x-icon"></i></li>
-              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon"></i></li>
-              <li><span>Themed activities</span> <i class="fa-solid fa-xmark x-icon"></i></li>
-              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon"></i></li>
-            </ul>
-          </div>
-          
-          <!-- Ultimate Celebration -->
-          <div class="compare-column" style="border-top-color: #f5a623;">
-            <img src="assets/images/hero_magician_1790831867453.jpg" class="compare-img" alt="Ultimate Celebration">
-            <div class="compare-header">
-              <h3 style="color: #f5a623;">Ultimate Celeb</h3>
-              <div class="compare-price">$349</div>
-            </div>
-            <ul class="compare-features">
-              <li><span>Duration</span> 3 hours</li>
-              <li><span>Entertainers</span> 3</li>
-              <li><span>Interactive games</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
-              <li><span>Live performance</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
-              <li><span>Themed activities</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
-              <li><span>Meet & Greet</span> <i class="fa-solid fa-check check-icon" style="color:#f5a623;"></i></li>
-            </ul>
-          </div>
-          
         </div>
+
+        <!-- Magic Adv -->
+        <div class="accordion-item popular" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <div class="accordion-title-wrap">
+              <i class="fa-solid fa-hat-wizard accordion-icon"></i>
+              <h3 class="accordion-title">Magic Adventure</h3>
+            </div>
+            <div class="accordion-price-wrap">
+              <span class="popular-badge">Most Popular</span>
+              <span class="accordion-price">$149</span>
+              <i class="fa-solid fa-chevron-down accordion-toggle"></i>
+            </div>
+          </div>
+          <div class="accordion-content">
+            <div class="features-grid">
+              <div class="feature-item"><i class="fa-solid fa-clock"></i> 1.5 Hours Duration</div>
+              <div class="feature-item"><i class="fa-solid fa-user"></i> 1 Entertainer</div>
+              <div class="feature-item"><i class="fa-solid fa-star"></i> Interactive Games</div>
+              <div class="feature-item"><i class="fa-solid fa-music"></i> Live Performance</div>
+              <div class="feature-item"><i class="fa-solid fa-masks-theater"></i> Themed Activities</div>
+              <div class="feature-item"><i class="fa-solid fa-camera"></i> Meet & Greet</div>
+            </div>
+            <div class="accordion-action">
+              <a href="booking.html" class="btn btn-primary" style="background: #3895c8; border-color: #3895c8; padding: 0.75rem 2rem;">Select Magic Adv.</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fantasy -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <div class="accordion-title-wrap">
+              <i class="fa-solid fa-crown accordion-icon"></i>
+              <h3 class="accordion-title">Fantasy World</h3>
+            </div>
+            <div class="accordion-price-wrap">
+              <span class="accordion-price">$199</span>
+              <i class="fa-solid fa-chevron-down accordion-toggle"></i>
+            </div>
+          </div>
+          <div class="accordion-content">
+            <div class="features-grid">
+              <div class="feature-item"><i class="fa-solid fa-clock"></i> 2 Hours Duration</div>
+              <div class="feature-item"><i class="fa-solid fa-user-group"></i> 2 Entertainers</div>
+              <div class="feature-item"><i class="fa-solid fa-star"></i> Interactive Games</div>
+              <div class="feature-item"><i class="fa-solid fa-music"></i> Live Performance</div>
+              <div class="feature-item"><i class="fa-solid fa-masks-theater"></i> Themed Activities</div>
+              <div class="feature-item"><i class="fa-solid fa-camera"></i> Meet & Greet</div>
+            </div>
+            <div class="accordion-action">
+              <a href="booking.html" class="btn btn-primary" style="padding: 0.75rem 2rem;">Select Fantasy</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultimate -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+          <div class="accordion-header">
+            <div class="accordion-title-wrap">
+              <i class="fa-solid fa-gem accordion-icon"></i>
+              <h3 class="accordion-title">Ultimate Celebration</h3>
+            </div>
+            <div class="accordion-price-wrap">
+              <span class="accordion-price">$349</span>
+              <i class="fa-solid fa-chevron-down accordion-toggle"></i>
+            </div>
+          </div>
+          <div class="accordion-content">
+            <div class="features-grid">
+              <div class="feature-item"><i class="fa-solid fa-clock"></i> 3 Hours Duration</div>
+              <div class="feature-item"><i class="fa-solid fa-users"></i> 3 Entertainers</div>
+              <div class="feature-item"><i class="fa-solid fa-star"></i> Interactive Games</div>
+              <div class="feature-item"><i class="fa-solid fa-music"></i> Live Performance</div>
+              <div class="feature-item"><i class="fa-solid fa-masks-theater"></i> Themed Activities</div>
+              <div class="feature-item"><i class="fa-solid fa-gift"></i> Magic Gift Box</div>
+            </div>
+            <div class="accordion-action">
+              <a href="booking.html" class="btn btn-primary" style="padding: 0.75rem 2rem;">Select Ultimate</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
+      <script>
+        function toggleAccordion(element) {
+          // Optional: Close all other accordions
+          const accordions = document.querySelectorAll('.accordion-item');
+          accordions.forEach(acc => {
+            if (acc !== element) acc.classList.remove('active');
+          });
+          
+          // Toggle current
+          element.classList.toggle('active');
+        }
+      </script>
     </section>
 
     <!-- HOW IT WORKS -->
@@ -797,25 +868,25 @@
       
       <div class="steps-grid">
         <div class="step-card reveal clickable-step" data-step="1">
-          <div class="step-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Pick a Package"></div>
+          <div class="step-img-wrap"><img src="assets/images/pro_magical_services.jpg" alt="Pick a Package"></div>
           <div class="step-number">1</div>
           <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pick a Package</h3>
           <p>Explore our crafted experiences and pick the perfect magic package for your event.</p>
         </div>
         <div class="step-card reveal clickable-step" data-step="2">
-          <div class="step-img-wrap"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Select Entertainer"></div>
+          <div class="step-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Select Entertainer"></div>
           <div class="step-number">2</div>
           <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Select Entertainer</h3>
           <p>Tell us who you want to invite! Choose the entertainer or character for your child.</p>
         </div>
         <div class="step-card reveal clickable-step" data-step="3">
-          <div class="step-img-wrap"><img src="assets/images/about_kids_birthday.jpg" alt="Share Details"></div>
+          <div class="step-img-wrap"><img src="assets/images/pro_gallery_alt.jpg" alt="Share Details"></div>
           <div class="step-number">3</div>
           <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Share Details</h3>
           <p>Fill out our simple form with your date, location, and any special requests you have.</p>
         </div>
         <div class="step-card reveal clickable-step" data-step="4">
-          <div class="step-img-wrap"><img src="assets/images/james_boy_smile.jpg" alt="Confirm"></div>
+          <div class="step-img-wrap"><img src="assets/images/pro_memory.jpg" alt="Confirm"></div>
           <div class="step-number">4</div>
           <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Confirm</h3>
           <p>Review your booking and submit. We will verify and lock in your special date!</p>

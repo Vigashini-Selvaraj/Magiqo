@@ -285,7 +285,7 @@
     }
     .modal-title { font-family: var(--font-magic); font-size: 2rem; margin-bottom: 1rem; }
     .modal-list { list-style: none; padding: 0; margin-bottom: 2rem; color: var(--color-text); line-height: 1.8; font-size: 1.1rem; }
-    .modal-list li::before { content: '✓'; color: var(--color-primary); margin-right: 10px; font-weight: bold; }
+    .modal-list li::before { content: ''; color: var(--color-primary); margin-right: 10px; font-weight: bold; }
 
     /* 4. How the Magic Happens (Redesigned Step Flow) */
     .steps-container {
@@ -642,6 +642,7 @@
     }
 
 </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
 
 <body>
@@ -700,7 +701,7 @@
       <div class="responsive-grid">
         <div class="star-card">
           <div class="star-img-wrap">
-            <img src="assets/images/magician_portrait_1790843004983.jpg" alt="Magician">
+            <img src="assets/images/pro_magician.jpg" alt="Magician">
           </div>
           <h3>Elias</h3>
           <p class="star-role">Master Magician</p>
@@ -710,7 +711,7 @@
         
         <div class="star-card">
           <div class="star-img-wrap">
-            <img src="assets/images/princess_portrait_1790843055244.jpg" alt="Princess">
+            <img src="assets/images/pro_princess.jpg" alt="Princess">
           </div>
           <h3>Mia</h3>
           <p class="star-role">Fairytale Princess</p>
@@ -720,7 +721,7 @@
         
         <div class="star-card">
           <div class="star-img-wrap">
-            <img src="assets/images/clown_party_1790842566084.jpg" alt="Clown">
+            <img src="assets/images/pro_silly_clown.jpg" alt="Clown">
           </div>
           <h3>Barnaby</h3>
           <p class="star-role">Comedy & Balloons</p>
@@ -741,21 +742,21 @@
       
       <div class="responsive-grid">
         <div class="exp-card" onclick="openModal('magicModal')">
-          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Magic Shows">
+          <img src="assets/images/pro_classic_magic.jpg" alt="Magic Shows">
           <div class="exp-overlay">
             <h3>Stage Magic</h3>
             <p style="margin: 0; opacity: 0.9; color: white;">Click to view details</p>
           </div>
         </div>
         <div class="exp-card" onclick="openModal('princessModal')">
-          <img src="assets/images/princess_party_1790842645232.jpg" alt="Princess Parties">
+          <img src="assets/images/pro_princess.jpg" alt="Princess Parties">
           <div class="exp-overlay">
             <h3>Royal Visits</h3>
             <p style="margin: 0; opacity: 0.9; color: white;">Click to view details</p>
           </div>
         </div>
         <div class="exp-card" onclick="openModal('heroModal')">
-          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Action Games">
+          <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Action Games">
           <div class="exp-overlay">
             <h3>Action Heroes</h3>
             <p style="margin: 0; opacity: 0.9; color: white;">Click to view details</p>
@@ -823,7 +824,7 @@
         
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front" style="background-image: url('assets/images/magic_show_party_1790842468826.jpg');">
+            <div class="flip-card-front" style="background-image: url('assets/images/pro_classic_magic.jpg');">
               <div class="step-number" style="background: var(--color-primary); color: white; border: none;">1</div>
               <h3 style="color: white; -webkit-text-fill-color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Discover</h3>
             </div>
@@ -836,7 +837,7 @@
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front" style="background-image: url('assets/images/clown_party_1790842566084.jpg');">
+            <div class="flip-card-front" style="background-image: url('assets/images/pro_silly_clown.jpg');">
               <div class="step-number" style="background: var(--color-primary); color: white; border: none;">2</div>
               <h3 style="color: white; -webkit-text-fill-color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Customize</h3>
             </div>
@@ -849,7 +850,7 @@
 
         <div class="flip-card">
           <div class="flip-card-inner">
-            <div class="flip-card-front" style="background-image: url('assets/images/superhero_party_1790842695325.jpg');">
+            <div class="flip-card-front" style="background-image: url('https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
               <div class="step-number" style="background: var(--color-primary); color: white; border: none;">3</div>
               <h3 style="color: white; -webkit-text-fill-color: white; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Celebrate</h3>
             </div>
@@ -986,17 +987,17 @@
       </div>
       <div class="responsive-grid">
         <div class="magic-extra-card">
-          <img src="assets/images/blog_party_ideas_1790831919409.jpg" class="extra-img" alt="Decorations">
+          <img src="assets/images/pro_hero_party.jpg" class="extra-img" alt="Decorations">
           <h3 style="font-family: var(--font-magic); font-size: 1.75rem; margin-bottom: 0.5rem;">Custom Decorations</h3>
           <p style="color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6;">Themed balloon arches, beautiful banners, and fully styled backdrops for amazing photos.</p>
         </div>
         <div class="magic-extra-card">
-          <img src="assets/images/princess_party_1790842645232.jpg" class="extra-img" alt="Return Gifts">
+          <img src="assets/images/pro_princess.jpg" class="extra-img" alt="Return Gifts">
           <h3 style="font-family: var(--font-magic); font-size: 1.75rem; margin-bottom: 0.5rem;">Return Gifts</h3>
           <p style="color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6;">Curated magic kits, princess wands, and premium goody bags ready to hand out to guests.</p>
         </div>
         <div class="magic-extra-card">
-          <img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="extra-img" alt="Photography">
+          <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="extra-img" alt="Photography">
           <h3 style="font-family: var(--font-magic); font-size: 1.75rem; margin-bottom: 0.5rem;">Event Photography</h3>
           <p style="color: var(--color-text-light); margin-bottom: 1.5rem; line-height: 1.6;">Professional event photographers to capture every smile, so you can enjoy the moment.</p>
         </div>
@@ -1038,17 +1039,17 @@
     
     <div class="marquee-container">
       <div class="marquee-track">
-        <img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/blog_party_ideas_1790831919409.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/princess_party_1790842645232.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/superhero_party_1790842695325.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/magic_show_party_1790842468826.jpg" class="marquee-img" alt="Gallery">
+        <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="marquee-img" alt="Gallery">
+        <img src="assets/images/pro_hero_party.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/pro_princess.jpg" class="marquee-img" alt="Gallery">
+        <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="marquee-img" alt="Gallery">
+        <img src="assets/images/pro_classic_magic.jpg" class="marquee-img" alt="Gallery">
         
-        <img src="assets/images/cute_kids_clapping_1790833571210.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/blog_party_ideas_1790831919409.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/princess_party_1790842645232.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/superhero_party_1790842695325.jpg" class="marquee-img" alt="Gallery">
-        <img src="assets/images/magic_show_party_1790842468826.jpg" class="marquee-img" alt="Gallery">
+        <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="marquee-img" alt="Gallery">
+        <img src="assets/images/pro_hero_party.jpg" class="marquee-img" alt="Gallery">
+        <img src="assets/images/pro_princess.jpg" class="marquee-img" alt="Gallery">
+        <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="marquee-img" alt="Gallery">
+        <img src="assets/images/pro_classic_magic.jpg" class="marquee-img" alt="Gallery">
       </div>
     </div>
   </section>
@@ -1124,24 +1125,24 @@
     // Check Availability Logic
     const entertainersDB = {
       magic: [
-        { name: "Elias", role: "Master Magician", img: "assets/images/magician_portrait_1790843004983.jpg" },
+        { name: "Elias", role: "Master Magician", img: "assets/images/pro_magician.jpg" },
         { name: "The Great Zander", role: "Illusionist", img: "assets/images/premium_magician_1790833776545.jpg" },
         { name: "Mystic Marcus", role: "Stage Magician", img: "assets/images/hero_magician_1790831867453.jpg" }
       ],
       princess: [
-        { name: "Princess Mia", role: "Fairytale Princess", img: "assets/images/princess_portrait_1790843055244.jpg" },
-        { name: "Queen Elsa", role: "Snow Queen", img: "assets/images/princess_party_1790842645232.jpg" },
-        { name: "Cinderella", role: "Classic Princess", img: "assets/images/cute_kids_clapping_1790833571210.jpg" }
+        { name: "Princess Mia", role: "Fairytale Princess", img: "assets/images/pro_princess.jpg" },
+        { name: "Queen Elsa", role: "Snow Queen", img: "assets/images/pro_princess.jpg" },
+        { name: "Cinderella", role: "Classic Princess", img: "https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
       ],
       hero: [
-        { name: "Spider Hero", role: "Acrobatic Hero", img: "assets/images/superhero_party_1790842695325.jpg" },
-        { name: "Captain America", role: "Avenger Hero", img: "assets/images/blog_party_ideas_1790831919409.jpg" },
-        { name: "Bat Hero", role: "Dark Knight", img: "assets/images/magic_show_party_1790842468826.jpg" }
+        { name: "Spider Hero", role: "Acrobatic Hero", img: "https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" },
+        { name: "Captain America", role: "Avenger Hero", img: "assets/images/pro_hero_party.jpg" },
+        { name: "Bat Hero", role: "Dark Knight", img: "assets/images/pro_classic_magic.jpg" }
       ],
       clown: [
-        { name: "Barnaby", role: "Comedy & Balloons", img: "assets/images/clown_party_1790842566084.jpg" },
+        { name: "Barnaby", role: "Comedy & Balloons", img: "assets/images/pro_silly_clown.jpg" },
         { name: "Chuckles", role: "Juggler Clown", img: "assets/images/magician_on_horse_1790834451320.jpg" },
-        { name: "Happy Face", role: "Face Painter", img: "assets/images/cute_kids_clapping_1790833571210.jpg" }
+        { name: "Happy Face", role: "Face Painter", img: "https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" }
       ]
     };
 

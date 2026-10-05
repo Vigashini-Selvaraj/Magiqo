@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Hero Section */
+    .privacy-hero {
+      padding: 160px 0 80px;
+      background-color: var(--color-bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .privacy-hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-family: var(--font-magic);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .privacy-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+    }
+    .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none; }
+    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; background: none; }
+
+    /* Content Section */
+    .privacy-content {
+      padding: 80px 0;
+      background: var(--color-surface);
+    }
+    .content-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--color-bg);
+      padding: 50px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 30px var(--color-shadow);
+    }
+    .content-container h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .content-container h2:first-child {
+      margin-top: 0;
+    }
+    .content-container p {
+      color: var(--color-text-light);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    .content-container ul {
+      color: var(--color-text-light);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+    .content-container li {
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+
+  <!-- Dynamic Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Hero Section -->
+  <section class="privacy-hero">
+    <div class="container">
+      <h1><span class="text-pink">Help</span> <span class="text-blue">Center</span></h1>
+      <p>Need assistance? Find answers to common questions and learn how to get the most out of Magiqo.</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="privacy-content">
+    <div class="container">
+      <div class="content-container">
+        <h2>1. How to Book an Entertainer</h2>
+        <p>Browse our categories, select an entertainer, choose a package, and click 'Book Now'. You'll be prompted to enter your event details and secure the booking with a payment.</p>
+
+        <h2>2. Managing Your Bookings</h2>
+        <p>You can view, modify, or cancel your upcoming events by logging into your account and navigating to the 'My Bookings' tab in your user dashboard.</p>
+
+        <h2>3. Payment Issues</h2>
+        <p>If your payment is declined, please ensure your card details are correct or try an alternative payment method. For billing inquiries, contact our support team.</p>
+
+        <h2>4. Contact Support</h2>
+        <p>If you still need help, our dedicated support team is available 24/7. Please visit our Contact page to send us a message, or email us directly at support@magiqo.com.</p>
+
+        <p style="margin-top: 40px; font-style: italic; color: #888;">Last updated: October 4th, 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Footer -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

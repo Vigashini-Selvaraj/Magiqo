@@ -8,11 +8,19 @@
   <meta name="description"
     content="Discover amazing entertainers, plan unforgettable celebrations and create magical birthday memories with MAGIQO.">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/navbar.css?v=2">
+  <link rel="stylesheet" href="css/footer.css?v=2">
+  <link rel="stylesheet" href="css/hero.css?v=2">
+  <link rel="stylesheet" href="css/responsive.css?v=2">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<style>
+    .hero-classic a[href="packages.html"]:hover {
+        background: rgba(255,255,255,0.2) !important;
+        border-color: rgba(255,255,255,0.6) !important;
+    }
+  </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -21,348 +29,91 @@
   <div id="navbar"></div>
 
   <!-- Hero Section -->
-  <header class="hero">
-
-    <div class="container hero-container"
-      style="display: flex; align-items: center; justify-content: space-between; gap: 4rem; position: relative; z-index: 2; padding: 4rem 0;">
-      <div class="hero-text-content" style="flex: 1; width: 100%; max-width: 600px;">
-        <h1
-          style="font-size: clamp(3rem, 5vw + 1rem, 5.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-family: var(--font-magic, 'Berkshire Swash'); font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
-          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Make
-            Their</span><br><span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Day Magical.</span>
+  <!-- Hero Section -->
+        <header class="hero-split" style="position: relative; width: 100%; min-height: 90vh; display: flex; align-items: center; background: var(--color-bg); overflow: hidden; padding: 120px 0 80px 0;">
+    
+    <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; position: relative; z-index: 2;">
+      
+      <!-- Left Content -->
+      <div style="max-width: 600px;">
+        <div style="display: inline-block; padding: 8px 16px; background: rgba(232, 62, 135, 0.1); border-radius: 50px; color: var(--color-primary); font-weight: 700; font-size: 0.85rem; margin-bottom: 25px; letter-spacing: 2px;">
+          <i class="fa-solid fa-star" style="margin-right: 8px;"></i> PREMIUM EVENT ENTERTAINMENT
+        </div>
+        
+        <h1 style="font-family: var(--font-magic); font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.1; margin: 0 0 25px 0; color: transparent;">
+          <span style="color: #D24B76 !important; -webkit-text-fill-color: initial !important;">Make Their</span> <span style="color: #3895c8 !important; -webkit-text-fill-color: initial !important;">Day</span><br>
+          <span style="color: #3895c8 !important; -webkit-text-fill-color: initial !important;">Magical</span>
         </h1>
-        <p
-          style="font-size: clamp(1.125rem, 2vw, 1.35rem); color: var(--color-text-light); margin-bottom: 3rem; max-width: 480px; line-height: 1.6; font-weight: 600;">
-          Discover amazing entertainers, choose the perfect experience, and create a birthday they'll never forget.
+        
+        <p style="font-size: 1.25rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 40px;">
+          Discover talented entertainers, choose the perfect experience, and create a celebration they'll remember forever.
         </p>
-
-        <div class="hero-buttons" style="justify-content: flex-start; display: flex; gap: 1rem;">
-          <a href="entertainers.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Explore
-            Entertainers</a>
-          <a href="packages.html" class="btn btn-secondary"
-            style="font-size: 1.125rem; padding: 1rem 2rem; background: #3895c8; border-color: #3895c8; color: white;">Book
-            Now</a>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <a href="entertainers.html" class="btn btn-primary" style="padding: 16px 35px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 25px rgba(232, 62, 135, 0.3);">Explore Entertainers</a>
+          <a href="packages.html" class="btn btn-secondary" style="padding: 16px 35px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; color: white; background: #3895c8; border: none; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 25px rgba(56, 149, 200, 0.3);">View Packages</a>
         </div>
-
+        
+        <div style="margin-top: 45px; display: flex; align-items: center; gap: 20px; border-top: 1px solid var(--color-border); padding-top: 25px;">
+          <div style="display: flex;">
+            <img src="assets/images/pro_hero_party.jpg" style="width: 45px; height: 45px; border-radius: 50%; border: 3px solid var(--color-bg); object-fit: cover; margin-left: 0; z-index: 3;">
+            <img src="assets/images/pro_princess.jpg" style="width: 45px; height: 45px; border-radius: 50%; border: 3px solid var(--color-bg); object-fit: cover; margin-left: -15px; z-index: 2;">
+            <img src="assets/images/pro_magician_2.jpg" style="width: 45px; height: 45px; border-radius: 50%; border: 3px solid var(--color-bg); object-fit: cover; margin-left: -15px; z-index: 1;">
+          </div>
+          <div>
+            <div style="font-weight: 800; color: var(--color-text); font-size: 1.1rem;">500+ Verified Performers</div>
+            <div style="font-size: 0.9rem; color: var(--color-text-light);">Ready to amaze your guests</div>
+          </div>
+        </div>
       </div>
-
-      <div class="hero-animation"
-        style="flex: 1; display: flex; justify-content: center; position: relative; width: 100%;">
-
-        <div class="hero-stage" style="overflow: hidden; position: relative;">
-          <div class="stage-glow"></div>
-
-          <!-- Animated text synced with 18s timeline, placed firmly on the left -->
-          <div class="animated-booking-text"
-            style="position: absolute; top: 35%; left: 6%; width: 220px; font-family: var(--font-magic); font-size: 1.5rem; line-height: 1.3; color: var(--color-primary); background: rgba(255,255,255,0.95); padding: 1rem 1.5rem; border-radius: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.15); animation: fadeBookText var(--anim-duration) infinite; z-index: 20; text-align: center;">
-            Book us for your next birthday party!</div>
-          <style>
-            @keyframes fadeBookText {
-
-              0%,
-              25% {
-                opacity: 0;
-                transform: scale(0.8) translateY(20px);
-                pointer-events: none;
-              }
-
-              27%,
-              55% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-                pointer-events: auto;
-              }
-
-              57%,
-              100% {
-                opacity: 0;
-                transform: scale(0.8) translateY(-20px);
-                pointer-events: none;
-              }
-            }
-          </style>
-
-          <!-- Inner sparkles restricted to pink box -->
-          <div class="sparkle floating" style="top: 10%; left: 10%; z-index: 1;"></div>
-          <div class="sparkle floating" style="top: 30%; right: 10%; animation-delay: 1s; z-index: 1;"></div>
-          <div class="sparkle floating" style="top: 60%; left: 15%; animation-delay: 2s; z-index: 1;"></div>
-
-          <!-- Showering Magic Stars confined to pink stage -->
-          <div class="chocolate-shower">
-            <div class="choco c1"><svg viewBox="0 0 24 24" fill="#FFBE0B" width="30" height="30">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c2"><svg viewBox="0 0 24 24" fill="#E83E87" width="20" height="20">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c3"><svg viewBox="0 0 24 24" fill="#3A86FF" width="25" height="25">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c4"><svg viewBox="0 0 24 24" fill="#FFBE0B" width="28" height="28">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c5"><svg viewBox="0 0 24 24" fill="#FF006E" width="22" height="22">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c6"><svg viewBox="0 0 24 24" fill="#3A86FF" width="26" height="26">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c7"><svg viewBox="0 0 24 24" fill="#E83E87" width="32" height="32">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-            <div class="choco c8"><svg viewBox="0 0 24 24" fill="#FFBE0B" width="24" height="24">
-                <path d="M12 2 L15 10 L23 10 L16 15 L19 23 L12 18 L5 23 L8 15 L1 10 L9 10 Z" />
-              </svg></div>
-          </div>
-
-          <div class="infinity-trail">
-            <svg class="infinity-svg" viewBox="0 0 100 50">
-              <path d="M25,25 C10,10 10,40 25,25 L75,25 C90,40 90,10 75,25 Z" />
-            </svg>
-          </div>
-
-          <div class="magic-chocolate bundle-of-balloons">
-            <svg viewBox="0 0 100 120" width="60" height="80">
-              <path d="M50 110 L30 60 M50 110 L45 55 M50 110 L60 50 M50 110 L75 60" stroke="#fff" stroke-width="2"
-                fill="none" />
-              <circle cx="50" cy="110" r="3" fill="#fff" />
-              <ellipse cx="30" cy="50" rx="15" ry="20" fill="#FFBE0B" />
-              <ellipse cx="70" cy="50" rx="15" ry="20" fill="#3A86FF" />
-              <ellipse cx="45" cy="40" rx="16" ry="22" fill="#5A189A" />
-              <ellipse cx="60" cy="35" rx="14" ry="18" fill="#06d6a0" />
-              <ellipse cx="50" cy="25" rx="15" ry="20" fill="#8338ec" />
-            </svg>
-          </div>
-
-          <!-- Flying Diverse Balloons -->
-          <div class="chocolate-shower balloon-shower">
-            <!-- Pair 1 -->
-            <div class="choco c1">
-              <svg viewBox="0 0 50 60" width="40" height="50">
-                <ellipse cx="15" cy="20" rx="10" ry="14" fill="#FF9E00" />
-                <ellipse cx="35" cy="25" rx="12" ry="16" fill="#3A86FF" />
-                <path d="M15 34 L25 55 M35 41 L25 55" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-            <!-- Heart Balloon -->
-            <div class="choco c2">
-              <svg viewBox="0 0 40 50" width="30" height="40">
-                <path
-                  d="M20 30 C20 30 5 20 5 10 C5 5 10 2 15 2 C18 2 20 5 20 5 C20 5 22 2 25 2 C30 2 35 5 35 10 C35 20 20 30 20 30 Z"
-                  fill="#00B4D8" />
-                <path d="M20 30 L20 45" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-            <!-- Star Balloon Pair -->
-            <div class="choco c3">
-              <svg viewBox="0 0 50 60" width="45" height="55">
-                <path d="M15 5 L18 12 L25 12 L19 16 L21 23 L15 19 L9 23 L11 16 L5 12 L12 12 Z" fill="#FFBE0B" />
-                <ellipse cx="35" cy="25" rx="10" ry="14" fill="#06d6a0" />
-                <path d="M15 23 L25 50 M35 39 L25 50" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-            <!-- Big Round Balloon -->
-            <div class="choco c4">
-              <svg viewBox="0 0 40 55" width="35" height="50">
-                <circle cx="20" cy="20" r="16" fill="#8338ec" />
-                <path d="M20 36 L20 50" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-            <!-- Pair 2 -->
-            <div class="choco c5">
-              <svg viewBox="0 0 50 60" width="40" height="50">
-                <ellipse cx="15" cy="20" rx="8" ry="18" fill="#5A189A" />
-                <ellipse cx="30" cy="25" rx="12" ry="15" fill="#FFBE0B" />
-                <path d="M15 38 L22 55 M30 40 L22 55" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-            <!-- Regular Pair -->
-            <div class="choco c6">
-              <svg viewBox="0 0 50 60" width="40" height="50">
-                <ellipse cx="15" cy="20" rx="12" ry="16" fill="#06d6a0" />
-                <ellipse cx="35" cy="15" rx="10" ry="14" fill="#8338ec" />
-                <path d="M15 36 L25 55 M35 29 L25 55" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-            <!-- Triple Pair -->
-            <div class="choco c7">
-              <svg viewBox="0 0 50 60" width="45" height="55">
-                <ellipse cx="12" cy="20" rx="8" ry="12" fill="#FF9E00" />
-                <ellipse cx="25" cy="15" rx="10" ry="14" fill="#3A86FF" />
-                <ellipse cx="38" cy="22" rx="8" ry="12" fill="#FFBE0B" />
-                <path d="M12 32 L25 55 M25 29 L25 55 M38 34 L25 55" stroke="#fff" stroke-width="1.5" fill="none" />
-              </svg>
-            </div>
-          </div>
-
-          <!-- Clapping Kids -->
-          <div class="kids-container">
-            <!-- Kid Boy -->
-            <div class="kid-boy">
-              <svg viewBox="0 0 100 150" width="100%" height="100%">
-                <path d="M25 150 L25 80 Q50 60 75 80 L75 150 Z" fill="#3498db" /> <!-- Body -->
-                <circle cx="50" cy="40" r="25" fill="#ffc1a1" /> <!-- Head -->
-                <path d="M25 40 Q50 10 75 40 Q50 -10 25 40 Z" fill="#8B4513" /> <!-- Hair -->
-                <circle cx="42" cy="35" r="3" fill="#111" /> <!-- Eye L -->
-                <circle cx="58" cy="35" r="3" fill="#111" /> <!-- Eye R -->
-                <path d="M45 48 Q50 55 55 48" fill="none" stroke="#111" stroke-width="2" /> <!-- Smile -->
-                <!-- Left Arm (Back) -->
-                <g class="kid-arm" transform-origin="30 80">
-                  <path d="M30 80 Q10 110 40 120" fill="none" stroke="#2980b9" stroke-width="12"
-                    stroke-linecap="round" />
-                  <circle cx="40" cy="120" r="7" fill="#ffc1a1" />
-                </g>
-                <!-- Right Arm (Front) -->
-                <g class="kid-arm" transform-origin="70 80" style="animation-delay: 0.1s;">
-                  <path d="M70 80 Q90 110 50 120" fill="none" stroke="#2980b9" stroke-width="12"
-                    stroke-linecap="round" />
-                  <circle cx="50" cy="120" r="7" fill="#ffc1a1" />
-                </g>
-              </svg>
-            </div>
-            <!-- Kid Girl -->
-            <div class="kid-girl">
-              <svg viewBox="0 0 100 150" width="100%" height="100%">
-                <path d="M20 150 L35 80 Q50 70 65 80 L80 150 Z" fill="#e74c3c" /> <!-- Dress -->
-                <circle cx="50" cy="40" r="22" fill="#ffc1a1" /> <!-- Head -->
-                <path d="M25 40 Q50 15 75 40 Q50 -5 25 40 Z" fill="#654321" /> <!-- Hair Top -->
-                <circle cx="25" cy="45" r="10" fill="#654321" /> <!-- Pigtail L -->
-                <circle cx="75" cy="45" r="10" fill="#654321" /> <!-- Pigtail R -->
-                <circle cx="42" cy="40" r="3" fill="#111" />
-                <circle cx="58" cy="40" r="3" fill="#111" />
-                <path d="M45 50 Q50 55 55 50" fill="none" stroke="#111" stroke-width="2" />
-                <!-- Left Arm (Back) -->
-                <g class="kid-arm" transform-origin="35 90">
-                  <path d="M35 90 Q15 120 40 130" fill="none" stroke="#c0392b" stroke-width="10"
-                    stroke-linecap="round" />
-                  <circle cx="40" cy="130" r="6" fill="#ffc1a1" />
-                </g>
-                <!-- Right Arm (Front) -->
-                <g class="kid-arm" transform-origin="65 90" style="animation-delay: 0.15s;">
-                  <path d="M65 90 Q85 120 50 130" fill="none" stroke="#c0392b" stroke-width="10"
-                    stroke-linecap="round" />
-                  <circle cx="50" cy="130" r="6" fill="#ffc1a1" />
-                </g>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Detailed Running Magician SVG Rig -->
-          <div class="magician-container">
-            <svg viewBox="-50 -50 300 500" width="100%" height="100%">
-              <g class="magician">
-                <!-- Coat Tails (Back) -->
-                <path class="left-coat-tail" d="M 75 220 L 60 320 Q 100 330 110 300 Z" fill="var(--mag-coat)" />
-                <path class="right-coat-tail" d="M 110 300 Q 140 330 140 320 L 125 220 Z" fill="var(--mag-coat)" />
-
-                <!-- Left Leg -->
-                <g class="leg-left" transform-origin="85 220">
-                  <path class="left-thigh" d="M 85 220 L 80 300" fill="none" stroke="var(--mag-pants)" stroke-width="24"
-                    stroke-linecap="round" />
-                  <g class="left-lower-leg" transform-origin="80 300">
-                    <path d="M 80 300 L 80 380" fill="none" stroke="var(--mag-pants)" stroke-width="24"
-                      stroke-linecap="round" />
-                    <path class="left-foot" d="M 70 380 L 92 380 Q 92 395 80 395 L 60 395 Z" fill="var(--mag-shoes)" />
-                  </g>
-                </g>
-
-                <!-- Right Leg -->
-                <g class="leg-right" transform-origin="115 220">
-                  <path class="right-thigh" d="M 115 220 L 120 300" fill="none" stroke="var(--mag-pants)"
-                    stroke-width="24" stroke-linecap="round" />
-                  <g class="right-lower-leg" transform-origin="120 300">
-                    <path d="M 120 300 L 120 380" fill="none" stroke="var(--mag-pants)" stroke-width="24"
-                      stroke-linecap="round" />
-                    <path class="right-foot" d="M 108 380 L 130 380 Q 140 395 125 395 L 105 395 Z"
-                      fill="var(--mag-shoes)" />
-                  </g>
-                </g>
-
-                <!-- Left Arm (Back) -->
-                <g class="arm-left" transform-origin="80 100">
-                  <circle class="left-shoulder" cx="80" cy="100" r="11" fill="var(--mag-coat)" />
-                  <path class="left-upper-arm" d="M 80 100 L 50 160" fill="none" stroke="var(--mag-coat)"
-                    stroke-width="22" stroke-linecap="round" />
-                  <g class="left-forearm-group" transform-origin="50 160">
-                    <path class="left-forearm" d="M 50 160 L 60 220" fill="none" stroke="var(--mag-coat)"
-                      stroke-width="22" stroke-linecap="round" />
-                    <g class="left-hand" transform="translate(60, 220)">
-                      <circle cx="0" cy="5" r="10" fill="var(--mag-skin)" />
-                      <!-- Fingers -->
-                      <path d="M -5 5 L -5 20 M 0 5 L 0 20 M 5 5 L 5 18" fill="none" stroke="var(--mag-skin)"
-                        stroke-width="4" stroke-linecap="round" />
-                    </g>
-                  </g>
-                </g>
-
-                <!-- Torso -->
-                <path class="torso" d="M 75 100 L 125 100 Q 135 160 125 220 L 75 220 Q 65 160 75 100 Z"
-                  fill="var(--mag-coat)" />
-                <path class="waistcoat" d="M 85 100 L 115 100 L 100 160 Z" fill="var(--mag-shirt)" />
-                <path d="M 80 160 L 120 160 L 100 190 Z" fill="var(--mag-coat-hl)" /> <!-- Waistcoat bottom -->
-
-                <g class="bow-tie">
-                  <path d="M 90 105 L 100 115 L 110 105 Z" fill="var(--magic-primary)" />
-                  <path d="M 90 125 L 100 115 L 110 125 Z" fill="var(--magic-primary)" />
-                </g>
-
-                <!-- Neck and Head -->
-                <rect class="neck" x="90" y="80" width="20" height="25" fill="var(--mag-skin)" />
-                <g class="head-group" transform-origin="100 80">
-                  <circle class="head" cx="100" cy="55" r="30" fill="var(--mag-skin)" />
-                  <path class="hair"
-                    d="M 70 55 Q 70 20 100 20 Q 130 20 130 55 Q 135 70 125 75 Q 120 40 100 40 Q 80 40 75 75 Q 65 70 70 55 Z"
-                    fill="#222" />
-
-                  <circle class="eyes" cx="90" cy="50" r="4" fill="#111" />
-                  <circle class="eyes" cx="110" cy="50" r="4" fill="#111" />
-                  <path class="eyebrows" d="M 85 43 Q 90 40 95 43 M 105 43 Q 110 40 115 43" fill="none" stroke="#111"
-                    stroke-width="2" stroke-linecap="round" />
-                  <path class="mouth" d="M 92 70 Q 100 78 108 70 M 95 72 Q 100 78 105 72 Z" fill="#fff" stroke="#111"
-                    stroke-width="2" stroke-linecap="round" />
-
-                  <g class="hat" transform-origin="100 25">
-                    <ellipse cx="100" cy="20" rx="45" ry="8" fill="var(--mag-hat)" />
-                    <path d="M 75 20 L 80 -25 L 120 -25 L 125 20 Z" fill="var(--mag-hat)" />
-                    <ellipse cx="100" cy="-25" rx="20" ry="6" fill="#222" />
-                    <path d="M 76 10 Q 100 18 124 10 L 125 20 Q 100 28 75 20 Z" fill="var(--mag-hat-band)" />
-                  </g>
-                </g>
-
-                <!-- Right Arm (Front) -->
-                <g class="arm-right" transform-origin="120 100">
-                  <circle class="right-shoulder" cx="120" cy="100" r="11" fill="var(--mag-coat)" />
-                  <path class="right-upper-arm" d="M 120 100 L 150 140" fill="none" stroke="var(--mag-coat)"
-                    stroke-width="22" stroke-linecap="round" />
-                  <g class="right-forearm-group" transform-origin="150 140">
-                    <path class="right-forearm" d="M 150 140 L 180 110" fill="none" stroke="var(--mag-coat)"
-                      stroke-width="22" stroke-linecap="round" />
-
-                    <!-- Right Hand & Wand -->
-                    <g class="right-hand" transform="translate(180, 110)">
-                      <circle cx="0" cy="0" r="10" fill="var(--mag-skin)" />
-                      <g class="wand">
-                        <line x1="-15" y1="15" x2="40" y2="-40" stroke="var(--mag-wand)" stroke-width="6"
-                          stroke-linecap="round" />
-                        <line x1="25" y1="-25" x2="40" y2="-40" stroke="#fff" stroke-width="6" stroke-linecap="round" />
-                        <circle cx="40" cy="-40" r="8" fill="var(--mag-wand-glow)"
-                          filter="drop-shadow(0 0 5px var(--magic-light))" />
-                      </g>
-                      <!-- Fingers over wand -->
-                      <path d="M -5 -5 L 5 -15 M 0 -2 L 10 -12 M 5 3 L 15 -7 M 10 8 L 20 -2 M -8 5 L -15 -5" fill="none"
-                        stroke="var(--mag-skin)" stroke-width="4" stroke-linecap="round" />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+      
+      <!-- Right Image Grid (Bento Style) -->
+      <div style="position: relative; height: 600px; display: grid; grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px;">
+        
+        <!-- Large Left Image -->
+        <div class="bento-img-1" style="grid-row: 1 / span 2; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+          <img src="assets/images/pro_magician_2.jpg" alt="Magician" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <!-- Top Right Image -->
+        <div class="bento-img-2" style="border-radius: 30px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+          <img src="assets/images/pro_princess.jpg" alt="Princess" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <!-- Bottom Right Image -->
+        <div class="bento-img-3" style="border-radius: 30px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+          <img src="assets/images/pro_silly_clown.jpg" alt="Clown" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <!-- Floating Badge -->
+        <div style="position: absolute; top: 40px; left: -40px; background: var(--color-surface); padding: 15px 25px; border-radius: 20px; border: 1px solid var(--color-border); box-shadow: 0 20px 40px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 15px; animation: floatCard 5s infinite ease-in-out;">
+          
+          <div>
+            <div style="font-weight: 800; color: var(--color-text); font-size: 1.2rem;">4.9/5</div>
+            <div style="font-size: 0.9rem; color: var(--color-text-light);">Customer Rating</div>
           </div>
         </div>
 
       </div>
+      
     </div>
-
-    </div>
+    
+    <!-- Responsive CSS for Split Hero -->
+    <style>
+      @media (max-width: 992px) {
+        .hero-split .container { grid-template-columns: 1fr !important; }
+        .hero-split { padding: 100px 0 50px 0 !important; }
+      }
+    
+      .bento-img-1 { animation: floatBento 6s ease-in-out infinite; }
+      .bento-img-2 { animation: floatBento 7s ease-in-out infinite 1s; }
+      .bento-img-3 { animation: floatBento 8s ease-in-out infinite 2s; }
+      
+      @keyframes floatBento {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+      }
+</style>
   </header>
 
 
@@ -402,12 +153,12 @@
       <div class="entertainer-grid">
         <!-- Card 1 -->
         <div class="card entertainer-card">
-          <img src="assets/images/magician_portrait_1790843004983.jpg"
+          <img src="assets/images/pro_magician.jpg"
             style="width: 100%; height: 250px; object-fit: cover; display: block;" alt="Elias the Magician">
           <div class="entertainer-info">
             <div class="entertainer-header">
               <h3 class="entertainer-name">Elias the Magician</h3>
-              <span class="entertainer-rating"><span style="color: white;">★</span> 4.9</span>
+              <span class="entertainer-rating"><span style="color: white;"></span> 4.9</span>
             </div>
             <div class="entertainer-tags">Stage Magic • Illusionist</div>
             <div class="entertainer-meta"> New York • 150+ Parties</div>
@@ -425,7 +176,7 @@
           <div class="entertainer-info">
             <div class="entertainer-header">
               <h3 class="entertainer-name">Max the Action Hero</h3>
-              <span class="entertainer-rating"><span style="color: white;">★</span> 5.0</span>
+              <span class="entertainer-rating"><span style="color: white;"></span> 5.0</span>
             </div>
             <div class="entertainer-tags">Superhero Performer</div>
             <div class="entertainer-meta">Los Angeles • 300+ Parties</div>
@@ -438,12 +189,12 @@
         </div>
         <!-- Card 3 -->
         <div class="card entertainer-card">
-          <img src="assets/images/princess_portrait_1790843055244.jpg"
+          <img src="assets/images/pro_princess.jpg"
             style="width: 100%; height: 250px; object-fit: cover; display: block;" alt="Princess Mia">
           <div class="entertainer-info">
             <div class="entertainer-header">
               <h3 class="entertainer-name">Princess Mia</h3>
-              <span class="entertainer-rating"><span style="color: white;">★</span> 4.8</span>
+              <span class="entertainer-rating"><span style="color: white;"></span> 4.8</span>
             </div>
             <div class="entertainer-tags">Royal Princess Performer</div>
             <div class="entertainer-meta">Chicago • 200+ Parties</div>
@@ -463,7 +214,7 @@
     <div class="container">
       <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem;">
         <div style="flex: 1; min-width: 300px;">
-          <img src="assets/images/service_magic_1790831898290.jpg" alt="Service Detail"
+          <img src="assets/images/pro_magical_services.jpg" alt="Service Detail"
             style="width: 100%; border-radius: var(--radius-lg); box-shadow: 0 20px 40px var(--color-shadow);">
         </div>
         <div style="flex: 1; min-width: 300px;">
@@ -478,13 +229,13 @@
             provide high-quality services tailored to your child's age and interests.</p>
           <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
             <li style="margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span
-                style="color: var(--color-primary);">✓</span> Customized Party Packages</li>
+                style="color: var(--color-primary);"></span> Customized Party Packages</li>
             <li style="margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span
-                style="color: var(--color-primary);">✓</span> Verified & Professional Performers</li>
+                style="color: var(--color-primary);"></span> Verified & Professional Performers</li>
             <li style="margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span
-                style="color: var(--color-primary);">✓</span> Safe & Interactive Experiences</li>
+                style="color: var(--color-primary);"></span> Safe & Interactive Experiences</li>
             <li style="margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span
-                style="color: var(--color-primary);">✓</span> 100% Satisfaction Guarantee</li>
+                style="color: var(--color-primary);"></span> 100% Satisfaction Guarantee</li>
           </ul>
           <a href="entertainers.html" class="btn btn-primary"
             style="background: #3895c8; border-color: #3895c8; color: white;">View All Entertainers</a>
@@ -582,7 +333,7 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg></div>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--color-text); font-weight: 700;">Safety First
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: white; font-weight: 700;">Safety First
           </h3>
           <p style="color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem;">All entertainers are fully
             vetted,
@@ -597,7 +348,7 @@
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
               </svg></div>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--color-text); font-weight: 700;">Professional
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: white; font-weight: 700;">Professional
             Talent</h3>
           <p style="color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem;">Only the best, highly-rated
             magicians,
@@ -611,7 +362,7 @@
                 <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" />
               </svg></div>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--color-text); font-weight: 700;">Personalized
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: white; font-weight: 700;">Personalized
             Magic</h3>
           <p style="color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem;">Experiences tailored
             specifically to your
@@ -626,7 +377,7 @@
                 <line x1="12" y1="18" x2="12.01" y2="18" />
               </svg></div>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--color-text); font-weight: 700;">Easy Booking
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: white; font-weight: 700;">Easy Booking
           </h3>
           <p style="color: var(--color-text-light); line-height: 1.6; font-size: 0.95rem;">Seamless, transparent booking
             process with
@@ -646,8 +397,8 @@
       <div
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 3rem;">
         <div
-          onclick="openExperienceGalleryModal('Classic Magic', 'The Classic Magic show was astounding! Our 6-year-old was captivated the entire time. - Jane Doe', 'assets/images/magic_show_party_1790842468826.jpg')"
-          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/magic_show_party_1790842468826.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
+          onclick="openExperienceGalleryModal('Classic Magic', 'The Classic Magic show was astounding! Our 6-year-old was captivated the entire time. - Jane Doe', 'assets/images/pro_classic_magic.jpg')"
+          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/pro_classic_magic.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
           <div
             style="background: linear-gradient(transparent, rgba(0,0,0,0.8)); width: 100%; padding: 1.5rem; color: white;">
@@ -656,8 +407,8 @@
           </div>
         </div>
         <div
-          onclick="openExperienceGalleryModal('Royal Princess', 'Princess Mia made my daughter feel like royalty! Best birthday ever. - Mark Smith', 'assets/images/princess_party_1790842645232.jpg')"
-          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/princess_party_1790842645232.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
+          onclick="openExperienceGalleryModal('Royal Princess', 'Princess Mia made my daughter feel like royalty! Best birthday ever. - Mark Smith', 'assets/images/pro_princess.jpg')"
+          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/pro_princess.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
           <div
             style="background: linear-gradient(transparent, rgba(0,0,0,0.8)); width: 100%; padding: 1.5rem; color: white;">
@@ -666,8 +417,8 @@
           </div>
         </div>
         <div
-          onclick="openExperienceGalleryModal('Superhero Action', 'Max the Action Hero brought so much energy! The kids had a blast doing superhero training. - Sarah K.', 'assets/images/superhero_party_1790842695325.jpg')"
-          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/superhero_party_1790842695325.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
+          onclick="openExperienceGalleryModal('Superhero Action', 'Max the Action Hero brought so much energy! The kids had a blast doing superhero training. - Sarah K.', 'https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"
+          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
           <div
             style="background: linear-gradient(transparent, rgba(0,0,0,0.8)); width: 100%; padding: 1.5rem; color: white;">
@@ -676,8 +427,8 @@
           </div>
         </div>
         <div
-          onclick="openExperienceGalleryModal('Silly Clowns', 'The Silly Clowns were hilarious and kept the toddlers laughing non-stop. - Emily R.', 'assets/images/clown_party_1790842566084.jpg')"
-          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/clown_party_1790842566084.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
+          onclick="openExperienceGalleryModal('Silly Clowns', 'The Silly Clowns were hilarious and kept the toddlers laughing non-stop. - Emily R.', 'assets/images/pro_silly_clown.jpg')"
+          style="cursor: pointer; height: 350px; border-radius: var(--radius-md); background: url('assets/images/pro_silly_clown.jpg') center/cover; position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: transform 0.4s ease;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
           <div
             style="background: linear-gradient(transparent, rgba(0,0,0,0.8)); width: 100%; padding: 1.5rem; color: white;">
@@ -698,13 +449,13 @@
       <div class="section-subtitle text-center">See the smiles we've created.</div>
       <div
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 3rem;">
-        <img src="assets/images/party_moments_2_1790918669697.jpg" alt="Gallery 1"
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 1"
           style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Gallery 2"
+        <img src="assets/images/pro_classic_magic.jpg" alt="Gallery 2"
           style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Gallery 3"
+        <img src="assets/images/pro_classic_magic.jpg" alt="Gallery 3"
           style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s;"
           onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       </div>
@@ -713,13 +464,13 @@
       <div class="capture-smile-wrapper" style="margin-top: 6rem; text-align: center;">
         <div
           style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 3rem;">
-          <img src="assets/images/kids_clapping_party_1790917531872.jpg" alt="Gallery Image"
+          <img src="assets/images/pro_gallery_alt.jpg" alt="Gallery Image"
             style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s;"
             onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <img src="assets/images/princess_party_1790842645232.jpg" alt="Gallery Image"
+          <img src="assets/images/pro_princess.jpg" alt="Gallery Image"
             style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s;"
             onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Gallery Image"
+          <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery Image"
             style="width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-md); cursor: pointer; transition: transform 0.3s;"
             onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
         </div>
@@ -745,7 +496,7 @@
   <section id="finder" style="padding: 6rem 0; background: var(--hero-bg-start);">
     <div class="container">
       <div class="card"
-        style="padding: 4rem; text-align: center; border-radius: var(--radius-lg); box-shadow: 0 20px 40px var(--color-shadow); max-width: 800px; margin: 0 auto;">
+        style="padding: 4rem; text-align: center; border-radius: var(--radius-lg); box-shadow: 0 20px 40px var(--color-shadow); max-width: 800px; margin: 0 auto; overflow: visible;">
         <h2 style="font-family: var(--font-magic); font-size: 2.5rem; margin-bottom: 1rem;"><span
             style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Quick</span> <span
             style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Party Finder</span></h2>
@@ -796,42 +547,42 @@
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         <div class="card" style="padding: 0; overflow: hidden;">
-          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Kids Party Ideas"
-            style="width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer;" onclick="location.href='blog_detail.html?title=7%20Magic%20Show%20Ideas%20Kids%20Won\'t%20Stop%20Talking%20About&cat=Party%20Tips&img=assets/images/magic_show_party_1790842468826.jpg'" />
+          <img src="assets/images/pro_classic_magic.jpg" alt="Kids Party Ideas"
+            style="width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer;" onclick="location.href='blog_detail.html?title=7%20Magic%20Show%20Ideas%20Kids%20Won\'t%20Stop%20Talking%20About&cat=Party%20Tips&img=assets/images/pro_classic_magic.jpg'" />
           <div style="padding: 1.5rem;">
             <span
               style="color: var(--color-primary); font-size: 0.875rem; font-weight: bold; text-transform: uppercase;">Party
               Tips</span>
-            <h3 style="margin: 0.5rem 0; font-size: 1.5rem; cursor: pointer;" onclick="location.href='blog_detail.html?title=7%20Magic%20Show%20Ideas%20Kids%20Won\'t%20Stop%20Talking%20About&cat=Party%20Tips&img=assets/images/magic_show_party_1790842468826.jpg'">7 Magic Show Ideas Kids Won't Stop Talking About</h3>
+            <h3 style="margin: 0.5rem 0; font-size: 1.5rem; cursor: pointer;" onclick="location.href='blog_detail.html?title=7%20Magic%20Show%20Ideas%20Kids%20Won\'t%20Stop%20Talking%20About&cat=Party%20Tips&img=assets/images/pro_classic_magic.jpg'">7 Magic Show Ideas Kids Won't Stop Talking About</h3>
             <p style="color: var(--color-text-light); margin-bottom: 1rem;">Discover the most enchanting illusions
               that will keep the little ones engaged and amazed...</p>
-            <a href="blog_detail.html?title=7%20Magic%20Show%20Ideas%20Kids%20Won't%20Stop%20Talking%20About&cat=Party%20Tips&img=assets/images/magic_show_party_1790842468826.jpg" class="text-primary" style="font-weight: 600;">Read More &rarr;</a>
+            <a href="blog_detail.html?title=7%20Magic%20Show%20Ideas%20Kids%20Won't%20Stop%20Talking%20About&cat=Party%20Tips&img=assets/images/pro_classic_magic.jpg" class="text-primary" style="font-weight: 600;">Read More &rarr;</a>
           </div>
         </div>
 
         <div class="card" style="padding: 0; overflow: hidden;">
-          <img src="assets/images/clown_party_1790842566084.jpg" alt="Birthday Entertainer"
-            style="width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer;" onclick="location.href='blog_detail.html?title=How%20to%20Choose%20the%20Perfect%20Clown&cat=Guide&img=assets/images/clown_party_1790842566084.jpg'" />
+          <img src="assets/images/pro_clown_blog.jpg" alt="Birthday Entertainer"
+            style="width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer;" onclick="location.href='blog_detail.html?title=How%20to%20Choose%20the%20Perfect%20Clown&cat=Guide&img=assets/images/pro_clown_blog.jpg'" />
           <div style="padding: 1.5rem;">
             <span
               style="color: var(--color-primary); font-size: 0.875rem; font-weight: bold; text-transform: uppercase;">Guide</span>
-            <h3 style="margin: 0.5rem 0; font-size: 1.5rem; cursor: pointer;" onclick="location.href='blog_detail.html?title=How%20to%20Choose%20the%20Perfect%20Clown&cat=Guide&img=assets/images/clown_party_1790842566084.jpg'">How to Choose the Perfect Clown</h3>
+            <h3 style="margin: 0.5rem 0; font-size: 1.5rem; cursor: pointer;" onclick="location.href='blog_detail.html?title=How%20to%20Choose%20the%20Perfect%20Clown&cat=Guide&img=assets/images/pro_clown_blog.jpg'">How to Choose the Perfect Clown</h3>
             <p style="color: var(--color-text-light); margin-bottom: 1rem;">Not sure who to book? Here is our ultimate
               guide to finding the funniest match for your celebration.</p>
-            <a href="blog_detail.html?title=How%20to%20Choose%20the%20Perfect%20Clown&cat=Guide&img=assets/images/clown_party_1790842566084.jpg" class="text-primary" style="font-weight: 600;">Read More &rarr;</a>
+            <a href="blog_detail.html?title=How%20to%20Choose%20the%20Perfect%20Clown&cat=Guide&img=assets/images/pro_silly_clown.jpg" class="text-primary" style="font-weight: 600;">Read More &rarr;</a>
           </div>
         </div>
 
         <div class="card" style="padding: 0; overflow: hidden;">
-          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Party Planning Checklist"
-            style="width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer;" onclick="location.href='blog_detail.html?title=The%20Ultimate%20Superhero%20Party%20Checklist&cat=Checklist&img=assets/images/superhero_party_1790842695325.jpg'" />
+          <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Party Planning Checklist"
+            style="width: 100%; height: 250px; object-fit: cover; display: block; cursor: pointer;" onclick="location.href='blog_detail.html?title=The%20Ultimate%20Superhero%20Party%20Checklist&cat=Checklist&img=https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'" />
           <div style="padding: 1.5rem;">
             <span
               style="color: var(--color-primary); font-size: 0.875rem; font-weight: bold; text-transform: uppercase;">Checklist</span>
-            <h3 style="margin: 0.5rem 0; font-size: 1.5rem; cursor: pointer;" onclick="location.href='blog_detail.html?title=The%20Ultimate%20Superhero%20Party%20Checklist&cat=Checklist&img=assets/images/superhero_party_1790842695325.jpg'">The Ultimate Superhero Party Checklist</h3>
+            <h3 style="margin: 0.5rem 0; font-size: 1.5rem; cursor: pointer;" onclick="location.href='blog_detail.html?title=The%20Ultimate%20Superhero%20Party%20Checklist&cat=Checklist&img=https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">The Ultimate Superhero Party Checklist</h3>
             <p style="color: var(--color-text-light); margin-bottom: 1rem;">Everything you need to prepare step-by-step
               so you can actually enjoy the day saving the world.</p>
-            <a href="blog_detail.html?title=The%20Ultimate%20Superhero%20Party%20Checklist&cat=Checklist&img=assets/images/superhero_party_1790842695325.jpg" class="text-primary" style="font-weight: 600;">Read More &rarr;</a>
+            <a href="blog_detail.html?title=The%20Ultimate%20Superhero%20Party%20Checklist&cat=Checklist&img=https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="text-primary" style="font-weight: 600;">Read More &rarr;</a>
           </div>
         </div>
 
@@ -932,7 +683,7 @@
       <div style="flex:1; padding:3rem; display:flex; flex-direction:column; justify-content:center; min-width:300px;">
         <h2 id="exp-modal-title" style="font-family:var(--font-magic); font-size:2.5rem; margin-bottom:0.5rem;">Title
         </h2>
-        <div style="display: flex; margin-bottom: 1.5rem; color: #F6C344; font-size: 1.5rem;">★★★★★</div>
+        <div style="display: flex; margin-bottom: 1.5rem; color: #F6C344; font-size: 1.5rem;"></div>
         <p id="exp-modal-feedback"
           style="color:var(--color-text-light); font-size:1.1rem; line-height:1.6; font-style:italic;">"Feedback goes
           here"</p>
@@ -958,10 +709,10 @@
       if (!val || val === 'Theme Preference') val = 'Magic Show';
 
       var data = {
-        'Magic Show': { title: 'The Great Magic Show', desc: 'A classic stage magic experience with illusions.', img: 'assets/images/magic_show_party_1790842468826.jpg' },
-        'Superheroes': { title: 'Ultimate Hero Training', desc: 'Action-packed games and hero lessons.', img: 'assets/images/superhero_party_1790842695325.jpg' },
-        'Princesses': { title: 'Royal Coronation', desc: 'A beautiful crowning ceremony for the birthday girl.', img: 'assets/images/princess_party_1790842645232.jpg' },
-        'Clowns & Balloons': { title: 'Silly Clown Antics', desc: 'Hilarious comedy and slapstick fun.', img: 'assets/images/clown_party_1790842566084.jpg' }
+        'Magic Show': { title: 'The Great Magic Show', desc: 'A classic stage magic experience with illusions.', img: 'assets/images/pro_classic_magic.jpg' },
+        'Superheroes': { title: 'Ultimate Hero Training', desc: 'Action-packed games and hero lessons.', img: 'https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80' },
+        'Princesses': { title: 'Royal Coronation', desc: 'A beautiful crowning ceremony for the birthday girl.', img: 'assets/images/pro_princess.jpg' },
+        'Clowns & Balloons': { title: 'Silly Clown Antics', desc: 'Hilarious comedy and slapstick fun.', img: 'assets/images/pro_silly_clown.jpg' }
       };
 
       var item = data[val] || data['Magic Show'];

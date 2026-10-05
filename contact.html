@@ -410,6 +410,7 @@
       .contact-form-box { padding: 30px 20px; }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
 <body>
 
@@ -497,35 +498,6 @@
       </div>
     </div>
 
-    <!-- 4. CHOOSE YOUR EVENT -->
-    <section class="events-section reveal">
-      <div class="container">
-        <h2 class="section-title"><span class="text-pink">Perfect For</span> <span class="text-blue">Every Occasion</span></h2>
-        <div class="events-grid">
-          <div class="event-card">
-            <img src="assets/images/about_kids_birthday.jpg" alt="Birthdays">
-            <h3>Birthdays</h3>
-          </div>
-          <div class="event-card">
-            <img src="assets/images/blog_party_ideas_1790831919409.jpg" alt="Weddings">
-            <h3>Weddings</h3>
-          </div>
-          <div class="event-card">
-            <img src="assets/images/princess_party_1790842645232.jpg" alt="Baby Showers">
-            <h3>Baby Showers</h3>
-          </div>
-          <div class="event-card">
-            <img src="assets/images/magic_show_party_1790842468826.jpg" alt="School Events">
-            <h3>School Events</h3>
-          </div>
-          <div class="event-card">
-            <img src="assets/images/superhero_party_1790842695325.jpg" alt="Other">
-            <h3>Other Events</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 5. HOW WE CAN HELP (Redesigned to Numbered Grid) -->
     <section class="help-section reveal">
       <div class="container">
@@ -586,7 +558,7 @@
             </div>
           </div>
           <div class="why-image-side">
-            <img src="assets/images/hero_magician_1790831867453.jpg" class="why-main-img" alt="Magician performing">
+            <img src="assets/images/pro_magical_services.jpg" class="why-main-img" alt="Magician performing">
           </div>
         </div>
       </div>
@@ -601,7 +573,7 @@
         <div class="team-grid">
           <div class="team-card">
             <!-- Used gallery_smile_1.jpg for Sarah -->
-            <img src="assets/images/gallery_smile_1.jpg" class="team-img" alt="Sarah">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="team-img" alt="Sarah">
             <div class="team-info">
               <h4>Sarah Jenkins</h4>
               <span>Lead Event Coordinator</span>
@@ -610,7 +582,7 @@
           </div>
           <div class="team-card">
             <!-- Used magician_portrait for Elias -->
-            <img src="assets/images/magician_portrait_1790843004983.jpg" class="team-img" alt="Elias">
+            <img src="assets/images/pro_magician.jpg" class="team-img" alt="Elias">
             <div class="team-info">
               <h4>Elias Thorne</h4>
               <span>Head of Entertainment</span>
@@ -619,7 +591,7 @@
           </div>
           <div class="team-card">
             <!-- Used founder_mark for James to fix the "boy image doesn't suit" issue -->
-            <img src="assets/images/founder_mark.jpg" class="team-img" alt="James">
+            <img src="assets/images/pro_magician_2.jpg" class="team-img" alt="James">
             <div class="team-info">
               <h4>James Wright</h4>
               <span>Creative Director</span>
@@ -668,9 +640,9 @@
         
         <div class="insta-grid">
           <a href="#" class="insta-item"><img src="assets/images/hero_magician_1790831867453.jpg" alt="Insta 1"></a>
-          <a href="#" class="insta-item"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Insta 2"></a>
-          <a href="#" class="insta-item"><img src="assets/images/princess_party_1790842645232.jpg" alt="Insta 3"></a>
-          <a href="#" class="insta-item"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Insta 4"></a>
+          <a href="#" class="insta-item"><img src="assets/images/pro_classic_magic.jpg" alt="Insta 2"></a>
+          <a href="#" class="insta-item"><img src="assets/images/pro_princess.jpg" alt="Insta 3"></a>
+          <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Insta 4"></a>
         </div>
       </div>
     </section>
@@ -707,85 +679,59 @@
     });
   </script>
 
-  <!-- Framer Motion (Motion One for Vanilla JS) -->
-  <script type="module">
-    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+  <!-- Vanilla JS Scroll Animations -->
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .stagger-children.active > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-children.active > *:nth-child(6) { transition-delay: 0.6s; }
+  </style>
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Clean up old CSS-based scroll reveal
-      const oldReveals = document.querySelectorAll(".reveal");
-      oldReveals.forEach(el => {
-        el.classList.remove("reveal");
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.transition = 'none';
-      });
+      // Add stagger classes to grids for smooth child animations
+      const grids = document.querySelectorAll('.contact-cards-container, .help-grid-modern, .team-grid, .why-features-side');
+      grids.forEach(grid => grid.classList.add('stagger-children', 'reveal'));
 
-      // 2. Initial Opacity Setup
-      const fadeElements = document.querySelectorAll('.contact-hero h1, .contact-hero p, .contact-form-box, .map-container, .section-title, .section-desc, .faq-item, .social-section p');
-      fadeElements.forEach(el => el.style.opacity = '0');
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
 
-      const grids = document.querySelectorAll('.contact-cards-container, .events-grid, .help-grid-modern, .team-grid, .insta-grid');
-      grids.forEach(grid => {
-        Array.from(grid.children).forEach(child => child.style.opacity = '0');
-      });
-
-      const whyFeatures = document.querySelectorAll('.why-feature');
-      whyFeatures.forEach(el => el.style.opacity = '0');
-      const whyImg = document.querySelector('.why-main-img');
-      if(whyImg) whyImg.style.opacity = '0';
-
-      // 3. Animations on Scroll
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       
-      // Hero Section
-      inView(".contact-hero", () => {
-        const h1 = document.querySelector(".contact-hero h1");
-        const p = document.querySelector(".contact-hero p");
-        if(h1) animate(h1, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out" });
-        if(p) animate(p, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
-      });
-
-      // Contact Form & Map
-      inView(".contact-layout", () => {
-        const form = document.querySelector(".contact-form-box");
-        const map = document.querySelector(".map-container");
-        if(form) animate(form, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.8, easing: "ease-out" });
-        if(map) animate(map, { opacity: [0, 1], x: [50, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
-      });
-
-      // Section Titles & Descriptions
-      document.querySelectorAll(".section-title, .section-desc, .social-section p").forEach((el, index) => {
-        inView(el, () => animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out" }));
-      });
-
-      // Grids
-      grids.forEach(grid => {
-        inView(grid, () => {
-          const children = Array.from(grid.children);
-          children.forEach((child, index) => {
-            let xOffset = 0; let yOffset = 50;
-            if (children.length > 1) {
-              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
-            }
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
-          });
-        });
-      });
-
-      // Why Choose Magiqo Interactive Layout
-      inView(".why-interactive-container", () => {
-        whyFeatures.forEach((el, index) => {
-          animate(el, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.6, easing: "ease-out", delay: 0.1 * index });
-        });
-        if(whyImg) animate(whyImg, { opacity: [0, 1], scale: [0.9, 1] }, { duration: 1, easing: "ease-out", delay: 0.3 });
-      });
-
-      // FAQs
-      document.querySelectorAll(".faq-item").forEach((el, index) => {
-        inView(el, () => {
-          animate(el, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, easing: "ease-out", delay: index * 0.1 });
-        });
-      });
+      // Also manually animate the hero section immediately
+      setTimeout(() => {
+        const heroText = document.querySelector('.contact-hero-text');
+        if(heroText) {
+          heroText.style.opacity = '1';
+          heroText.style.transform = 'translateY(0)';
+        }
+      }, 100);
     });
   </script>
 </body>

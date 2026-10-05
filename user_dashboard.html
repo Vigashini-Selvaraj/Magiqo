@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | Magiqo</title>
+
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/responsive.css?v=2">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* Sidebar */
+    .admin-sidebar {
+      width: 280px;
+      background: var(--color-surface);
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 20px;
+      transition: all 0.3s;
+      z-index: 10;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .admin-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      text-decoration: none;
+    }
+    .admin-logo img { height: 50px; object-fit: contain; }
+    .admin-logo span { font-family: var(--font-magic); font-size: 2.2rem; color: var(--color-primary); }
+    
+    .admin-nav { flex: 1; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+    .admin-nav-item {
+      display: flex; align-items: center; gap: 15px; padding: 12px 18px;
+      border-radius: 12px; color: var(--color-text-light); text-decoration: none;
+      font-weight: 600; transition: 0.3s; cursor: pointer;
+    }
+    .admin-nav-item i { font-size: 1.2rem; width: 25px; text-align: center; }
+    .admin-nav-item:hover, .admin-nav-item.active { background: rgba(210, 75, 118, 0.1); color: var(--color-primary); }
+    
+    .sidebar-toggles { margin-top: auto; border-top: 1px solid var(--color-border); padding-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .toggle-btn {
+      display: flex; align-items: center; justify-content: space-between; padding: 10px 15px;
+      background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); border-radius: 10px;
+      color: var(--color-text); cursor: pointer; font-weight: 600; transition: 0.3s;
+    }
+    .toggle-btn:hover { background: rgba(0,0,0,0.4); border-color: var(--color-primary); }
+    
+    /* Content Area */
+    .admin-content { flex: 1; padding: 30px 40px; overflow-y: auto; background: var(--color-bg); position: relative; }
+    
+    .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .dashboard-title { font-family: var(--font-magic); font-size: 2.2rem; color: var(--color-primary); margin: 0; background: none; -webkit-text-fill-color: initial; }
+    .user-profile { display: flex; align-items: center; gap: 15px; }
+    .user-profile img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary); }
+    
+    /* Grid Stats */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .stat-card {
+      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px;
+      padding: 20px; display: flex; align-items: center; gap: 15px; transition: 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-5px); border-color: var(--color-primary); }
+    .stat-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .stat-info h3 { margin: 0 0 5px; font-size: 0.9rem; color: var(--color-text-light); }
+    .stat-info p { margin: 0; font-size: 1.6rem; font-weight: bold; color: var(--color-text); }
+    
+    /* Panels */
+    .content-panel { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; padding: 25px; margin-bottom: 25px; }
+    .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .panel-header h3 { font-size: 1.3rem; margin: 0; font-family: var(--font-heading); }
+    
+    /* Quick Shortcuts */
+    .shortcuts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .shortcut-btn {
+      padding: 15px; background: rgba(56, 149, 200, 0.05); border: 1px solid rgba(56, 149, 200, 0.2);
+      border-radius: 12px; color: var(--color-text); font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: 0.3s;
+    }
+    .shortcut-btn:hover { background: rgba(56, 149, 200, 0.15); border-color: #3895c8; }
+    .shortcut-btn i { color: #3895c8; font-size: 1.2rem; }
+    
+    /* Schedule Timeline */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--color-border); }
+    .timeline-item { position: relative; margin-bottom: 20px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -28.5px; top: 5px; width: 12px; height: 12px;
+      border-radius: 50%; background: var(--color-primary); border: 2px solid var(--color-surface);
+    }
+    .timeline-time { font-size: 0.85rem; color: var(--color-primary); font-weight: bold; margin-bottom: 5px; }
+    .timeline-content { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; border: 1px solid var(--color-border); }
+    .timeline-content h4 { margin: 0 0 5px; font-size: 1.1rem; }
+    .timeline-content p { margin: 0; font-size: 0.9rem; color: var(--color-text-light); }
+    
+    /* Tables */
+    .table-container { overflow-x: auto; }
+    .table { width: 100%; border-collapse: collapse; min-width: 700px; }
+    .table th, .table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 0.95rem; }
+    .table th { color: var(--color-text-light); font-weight: 600; }
+    .table tr:hover td { background: rgba(255,255,255,0.02); }
+    .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+    .status-success { background: rgba(46, 204, 113, 0.1); color: #2ecc71; }
+    .status-pending { background: rgba(241, 196, 15, 0.1); color: #f1c40f; }
+    
+    .action-btn { background: none; border: none; color: #3895c8; cursor: pointer; padding: 5px; font-size: 1rem; margin-right: 5px; }
+    .action-btn:hover { color: var(--color-primary); }
+
+    /* Forms & Filters */
+    .filter-bar { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
+    .filter-select { padding: 8px 15px; background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); color: var(--color-text); border-radius: 8px; outline: none; }
+    .btn-primary { padding: 10px 20px; background: var(--color-primary); border: none; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .btn-primary:hover { background: #b83a62; }
+    
+    /* Slot Calendar */
+    .slot-grid { display: grid; grid-template-columns: 80px 1fr; gap: 15px; margin-bottom: 15px; }
+    .slot-time { font-weight: bold; color: var(--color-text-light); padding-top: 15px; text-align: right; }
+    .slot-card { background: rgba(56, 149, 200, 0.05); border: 1px solid rgba(56, 149, 200, 0.2); padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .slot-card.empty { background: rgba(255,255,255,0.02); border: 1px dashed var(--color-border); color: var(--color-text-light); justify-content: center; cursor: pointer; }
+    .slot-card.empty:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 100; align-items: center; justify-content: center; }
+    .modal.active { display: flex; }
+    .modal-content { background: var(--color-surface); width: 100%; max-width: 500px; padding: 30px; border-radius: 16px; border: 1px solid var(--color-border); position: relative; }
+    .close-modal { position: absolute; top: 15px; right: 15px; background: none; border: none; color: var(--color-text); font-size: 1.5rem; cursor: pointer; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; color: var(--color-text-light); font-size: 0.9rem; }
+    .form-control { width: 100%; padding: 10px 15px; background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); border-radius: 8px; color: white; box-sizing: border-box; }
+
+    /* RTL Support */
+    [dir="rtl"] .admin-sidebar { border-right: none; border-left: 1px solid var(--color-border); }
+    [dir="rtl"] .table th, [dir="rtl"] .table td { text-align: right; }
+    [dir="rtl"] .timeline { padding-left: 0; padding-right: 30px; }
+    [dir="rtl"] .timeline::before { left: auto; right: 7px; }
+    [dir="rtl"] .timeline-item::before { left: auto; right: -28.5px; }
+    
+    /* Tab Logic */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* Mobile Sidebar Toggle */
+    .admin-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--color-text);
+      cursor: pointer;
+    }
+    
+    .admin-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 5;
+      backdrop-filter: blur(2px);
+    }
+    .admin-overlay.active { display: block; }
+
+    @media (max-width: 768px) {
+      .admin-menu-toggle { display: block; }
+      body { flex-direction: row; }
+      .admin-sidebar { 
+        position: fixed; 
+        left: -100%; 
+        top: 0; 
+        bottom: 0;
+        width: 280px; 
+        height: 100vh;
+        border-right: 1px solid var(--color-border);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+      }
+      .admin-sidebar.active { left: 0; }
+      [dir="rtl"] .admin-sidebar { border-right: none; border-left: 1px solid var(--color-border); left: auto; right: -100%; }
+      [dir="rtl"] .admin-sidebar.active { right: 0; }
+      
+      .admin-content { padding: 20px; width: 100%; }
+      .shortcuts-grid { grid-template-columns: 1fr; }
+      
+      /* Make tables responsive */
+      .content-panel { padding: 15px; }
+      .dashboard-title { font-size: 1.8rem; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+  <div class="admin-overlay" id="admin-overlay"></div>
+
+  <div class="admin-sidebar">
+    <a href="index.html" class="admin-logo">
+      <img src="assets/images/magic_hat_logo.png" alt="Magiqo">
+      <span>Magiqo</span>
+    </a>
+    
+    
+            <div class="admin-nav">
+      <div class="admin-nav-item active" onclick="switchTab('overview', this)">
+        <i class="fa-solid fa-house"></i> Dashboard
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('explore', this)">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Explore Entertainers
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('bookings', this)">
+        <i class="fa-solid fa-calendar-check"></i> My Bookings
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('favorites', this)">
+        <i class="fa-solid fa-heart"></i> Favorites
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('messages', this)">
+        <i class="fa-solid fa-envelope"></i> Messages
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('payments', this)">
+        <i class="fa-solid fa-file-invoice-dollar"></i> Payments & Invoices
+      </div>
+      <div class="admin-nav-item" onclick="switchTab('real-moments', this)">
+        <i class="fa-solid fa-camera-retro"></i> Real Moments
+      </div>
+      <div class="admin-nav-item" onclick="window.location.href='index.html'" style="color: #D24B76; border-top: 1px solid var(--color-border); border-radius: 0; margin-top: 10px; padding-top: 20px;">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+      </div>
+    </div>
+    <div class="sidebar-toggles">
+      <button id="admin-theme-toggle" class="toggle-btn">
+        <span>Dark / Light</span>
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button id="admin-rtl-toggle" class="toggle-btn">
+        <span>LTR / RTL</span>
+        <i class="fa-solid fa-language"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-content">
+    
+    <div class="dashboard-header">
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <button id="admin-menu-toggle" class="admin-menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <h1 class="dashboard-title">Overview</h1>
+      </div>
+      <div class="user-profile">
+        <div style="text-align: right;" class="d-none-mobile">
+          <div style="font-weight: bold;">Jane Doe</div>
+          <div style="font-size: 0.85rem; color: var(--color-text-light);">User</div>
+        </div>
+        <img src="assets/images/pro_magician_2.jpg" alt="Admin">
+      </div>
+    </div>
+    
+    
+    <!-- OVERVIEW TAB -->
+    <div id="overview" class="tab-content active">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+        <h2 style="margin: 0; font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary);">Welcome back, Jane!</h2>
+        <a href="#" onclick="openModal()" class="btn-primary" style="background: #3895c8; text-decoration: none;"><i class="fa-solid fa-plus"></i> New Booking</a>
+      </div>
+      
+      <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(46, 204, 113, 0.1); color: #2ecc71;"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="stat-info">
+            <h3>Upcoming Events</h3>
+            <p>2</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(56, 149, 200, 0.1); color: #3895c8;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <div class="stat-info">
+            <h3>Past Events</h3>
+            <p>1</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3><i class="fa-solid fa-calendar" style="color: var(--color-primary); margin-right: 10px;"></i> Upcoming Events (2)</h3>
+        </div>
+        <div style="background: rgba(56,149,200,0.05); border: 1px solid rgba(56,149,200,0.2); border-radius: 12px; padding: 20px; margin-bottom: 15px;">
+          <h4 style="margin: 0 0 10px; font-size: 1.2rem; color: #3895c8;">Liam's 7th Birthday Party</h4>
+          <p style="margin: 0 0 5px; color: var(--color-text-light);"><i class="fa-regular fa-calendar"></i> <strong>Date:</strong> Saturday, Oct 15th, 2026</p>
+          <p style="margin: 0 0 15px; color: var(--color-text-light);"><i class="fa-regular fa-clock"></i> <strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+          <div style="display: flex; gap: 10px;">
+            <a href="#" class="btn-primary" onclick="openDetailsModal()" style="padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">View Details</a>
+            <a href="#" class="btn-primary" onclick="switchTab('messages', document.querySelectorAll('.admin-nav-item')[4])" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text); padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">Contact Support</a>
+          </div>
+        </div>
+        
+        <div style="background: rgba(56,149,200,0.05); border: 1px solid rgba(56,149,200,0.2); border-radius: 12px; padding: 20px;">
+          <h4 style="margin: 0 0 10px; font-size: 1.2rem; color: #3895c8;">Halloween Magic Show</h4>
+          <p style="margin: 0 0 5px; color: var(--color-text-light);"><i class="fa-regular fa-calendar"></i> <strong>Date:</strong> Friday, Oct 31st, 2026</p>
+          <p style="margin: 0 0 15px; color: var(--color-text-light);"><i class="fa-regular fa-clock"></i> <strong>Time:</strong> 6:00 PM - 8:00 PM</p>
+          <div style="display: flex; gap: 10px;">
+            <a href="#" class="btn-primary" onclick="openDetailsModal()" style="padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">View Details</a>
+            <a href="#" class="btn-primary" onclick="switchTab('messages', document.querySelectorAll('.admin-nav-item')[4])" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text); padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">Contact Support</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3><i class="fa-solid fa-clock-rotate-left" style="color: var(--color-primary); margin-right: 10px;"></i> Past Events (1)</h3>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; padding: 20px;">
+          <h4 style="margin: 0 0 10px; font-size: 1.2rem; color: var(--color-text);">Jane's Anniversary Party</h4>
+          <p style="margin: 0 0 5px; color: var(--color-text-light);"><i class="fa-regular fa-calendar"></i> <strong>Date:</strong> August 12th, 2026</p>
+          <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <a href="#" onclick="switchTab('real-moments', document.querySelectorAll('.admin-nav-item')[6])" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">View Media</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPLORE ENTERTAINERS TAB -->
+    <div id="explore" class="tab-content">
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3 style="font-size: 2rem; margin: 0; font-family: var(--font-magic); color: var(--color-primary); background: none; -webkit-text-fill-color: initial;">Explore Entertainers</h3>
+        </div>
+        <p style="color: var(--color-text-light); margin-bottom: 25px;">Browse magicians, clowns, storytellers, and balloon artists to book for your next event.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+          <!-- Card 1 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/pro_magician.jpg" alt="Max The Hero" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">Max The Hero</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Superhero Impersonator & Action Games</p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
+                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/pro_magician_2.jpg" alt="The Great Houdini" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">The Great Houdini</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Master Magician & Illusionist</p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
+                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/pro_silly_clown.jpg" alt="Chuckles the Clown" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">Chuckles the Clown</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Comedy, Juggling & Balloon Animals</p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
+                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/pro_princess.jpg" alt="Princess Aurora" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">Princess Aurora</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Storytelling & Royal Activities</p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
+                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
+            <img src="assets/images/pro_magician.jpg" alt="Elias Thorne" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">Elias Thorne</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Modern Magician & Mind Reader</p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
+                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Captain Cosmic" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">Captain Cosmic</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Superhero Training & Games</p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
+                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOKINGS TAB -->
+    <div id="bookings" class="tab-content">
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3 style="font-size: 2rem; margin: 0; font-family: var(--font-magic); color: var(--color-primary); background: none; -webkit-text-fill-color: initial;">My Bookings</h3>
+          <button class="btn-primary" onclick="openModal()"><i class="fa-solid fa-plus"></i> New Booking</button>
+        </div>
+        
+        <div class="table-container">
+          <table class="table" id="bookingsTable">
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Event Type</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                
+              </tr>
+            </thead>
+            <tbody id="bookingsBody">
+              <tr data-status="confirmed">
+                <td>#BKG-8410</td><td>Halloween Magic Show</td><td>Oct 31, 2026</td><td>$350</td><td><span class="status-badge status-success">Confirmed</span></td>
+              </tr>
+              <tr data-status="confirmed">
+                <td>#BKG-8409</td><td>Liam's 7th Birthday Party</td><td>Oct 15, 2026</td><td>$600</td><td><span class="status-badge status-success">Confirmed</span></td>
+              </tr>
+              <tr data-status="completed">
+                <td>#BKG-8407</td><td>Jane's Anniversary Party</td><td>Aug 12, 2026</td><td>$400</td><td><span class="status-badge" style="background: rgba(56, 149, 200, 0.1); color: #3895c8;">Completed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAVORITES TAB -->
+    <div id="favorites" class="tab-content">
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3 style="font-size: 2rem; margin: 0; font-family: var(--font-magic); color: var(--color-primary); background: none; -webkit-text-fill-color: initial;">My Favorites</h3>
+        </div>
+        <p style="color: var(--color-text-light); margin-bottom: 25px;">Quickly book your favorite entertainers and packages.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+          <!-- Fav 1 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-primary); border-radius: 12px; overflow: hidden; position: relative;">
+            <div style="position: absolute; top: 10px; right: 10px; color: var(--color-primary); font-size: 1.5rem; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 50%;"><i class="fa-solid fa-heart"></i></div>
+            <img src="assets/images/pro_magician_2.jpg" alt="The Great Houdini" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">The Great Houdini</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Master Magician & Illusionist</p>
+              <button class="btn-primary" style="width: 100%;" onclick="openModal()">Book Now</button>
+            </div>
+          </div>
+          <!-- Fav 2 -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-primary); border-radius: 12px; overflow: hidden; position: relative;">
+            <div style="position: absolute; top: 10px; right: 10px; color: var(--color-primary); font-size: 1.5rem; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 50%;"><i class="fa-solid fa-heart"></i></div>
+            <img src="assets/images/pro_princess.jpg" alt="Princess Aurora" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">Princess Aurora</h4>
+              <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Storytelling & Royal Activities</p>
+              <button class="btn-primary" style="width: 100%;" onclick="openModal()">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MESSAGES TAB -->
+    <div id="messages" class="tab-content">
+      <div class="content-panel" style="display: flex; flex-direction: column; height: 600px; padding: 0; overflow: hidden;">
+        <div class="panel-header" style="padding: 20px; border-bottom: 1px solid var(--color-border); margin: 0; background: rgba(255,255,255,0.02);">
+          <h3 style="font-size: 1.8rem; margin: 0; font-family: var(--font-magic); color: var(--color-primary); background: none; -webkit-text-fill-color: initial;">Messages</h3>
+          <span style="font-size: 0.9rem; color: var(--color-text-light);">Chatting with: Magiqo Support</span>
+        </div>
+        
+        <div id="chatWindow" style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; background: rgba(0,0,0,0.2);">
+          <div style="align-self: flex-end; background: var(--color-primary); color: white; padding: 12px 18px; border-radius: 18px 18px 0 18px; max-width: 70%;">
+            Hi, I'm interested in the Halloween Magic Show package. Does it include spooky balloon animals?
+            <div style="font-size: 0.7rem; margin-top: 5px; opacity: 0.8; text-align: right;">10:30 AM</div>
+          </div>
+          <div style="align-self: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); padding: 12px 18px; border-radius: 18px 18px 18px 0; max-width: 70%;">
+            Hello Jane! Yes, the Halloween package includes spooky themed balloon animals, such as bats, spiders, and pumpkins! Let me know if you'd like to proceed with the booking.
+            <div style="font-size: 0.7rem; margin-top: 5px; color: var(--color-text-light);">10:35 AM</div>
+          </div>
+          <div style="align-self: flex-end; background: var(--color-primary); color: white; padding: 12px 18px; border-radius: 18px 18px 0 18px; max-width: 70%;">
+            That sounds perfect! Can I add an extra 30 minutes to the show?
+            <div style="font-size: 0.7rem; margin-top: 5px; opacity: 0.8; text-align: right;">10:42 AM</div>
+          </div>
+        </div>
+        
+        <div style="padding: 15px 20px; background: var(--color-surface); border-top: 1px solid var(--color-border); display: flex; gap: 10px;">
+          <input type="text" id="chatInput" class="form-control" placeholder="Type a message..." style="flex: 1;" onkeypress="if(event.key === 'Enter') sendMessage()">
+          <button class="btn-primary" onclick="sendMessage()" style="padding: 10px 20px;"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYMENTS TAB -->
+    <div id="payments" class="tab-content">
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3 style="font-size: 2rem; margin: 0; font-family: var(--font-magic); color: var(--color-primary); background: none; -webkit-text-fill-color: initial;">Payments & Invoices</h3>
+        </div>
+        
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#INV-99821</td>
+                <td>Liam's 7th Birthday Party</td>
+                <td>Oct 02, 2026</td>
+                <td>$600.00</td>
+                <td><span class="status-badge status-success">Paid</span></td>
+                <td><button class="action-btn" onclick="alert('Download complete!')"><i class="fa-solid fa-download"></i></button></td>
+              </tr>
+              <tr>
+                <td>#INV-99820</td>
+                <td>Halloween Magic Show</td>
+                <td>Oct 01, 2026</td>
+                <td>$350.00</td>
+                <td><span class="status-badge status-success">Paid</span></td>
+                <td><button class="action-btn" onclick="alert('Download complete!')"><i class="fa-solid fa-download"></i></button></td>
+              </tr>
+              <tr>
+                <td>#INV-99810</td>
+                <td>Jane's Anniversary Party</td>
+                <td>Aug 01, 2026</td>
+                <td>$400.00</td>
+                <td><span class="status-badge status-success">Paid</span></td>
+                <td><button class="action-btn" onclick="alert('Download complete!')"><i class="fa-solid fa-download"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- REAL MOMENTS TAB -->
+    <div id="real-moments" class="tab-content">
+      <div class="content-panel">
+        <div class="panel-header">
+          <h3 style="font-size: 2rem; margin: 0; font-family: var(--font-magic); color: var(--color-primary); background: none; -webkit-text-fill-color: initial;">Real Moments</h3>
+          <button class="btn-primary" onclick="document.getElementById('file-input').click()"><i class="fa-solid fa-upload"></i> Upload Media</button>
+          <input type="file" id="file-input" multiple style="display: none;" accept="image/*">
+        </div>
+        <p style="color: var(--color-text-light); margin-bottom: 25px;">Photos and videos from your completed events.</p>
+        
+        <h4 style="margin: 0 0 15px; font-size: 1.2rem; color: var(--color-primary);">Jane's Anniversary Party (Aug 12, 2026)</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="assets/images/pro_silly_clown.jpg" alt="Moment 1" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="assets/images/pro_magician_2.jpg" alt="Moment 2" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="assets/images/pro_magician.jpg" alt="Moment 3" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="assets/images/pro_hero_party.jpg" alt="Moment 4" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Moment 5" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Moment 6" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2);">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Moment 7" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="border-radius: 12px; overflow: hidden; border: 1px dashed var(--color-border); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--color-text-light); cursor: pointer;" onclick="document.getElementById('file-input').click()">
+
+            <i class="fa-solid fa-plus" style="font-size: 2rem; margin-bottom: 10px;"></i>
+            <span>Add More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal" id="staffModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeStaffModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="margin-top: 0; font-family: var(--font-heading); color: var(--color-primary);">Add New Staff</h2>
+      
+      <form id="newStaffForm" onsubmit="event.preventDefault(); submitStaff();">
+        <div class="form-group">
+          <label>Staff Name</label>
+          <input type="text" class="form-control" id="staffName" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Role</label>
+            <input type="text" class="form-control" id="staffRole" placeholder="e.g. Entertainer" required>
+          </div>
+          <div class="form-group">
+            <label>Assigned Hall</label>
+            <input type="text" class="form-control" id="staffHall" placeholder="e.g. Hall A" required>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Shift Hour</label>
+            <input type="text" class="form-control" id="staffShift" placeholder="e.g. 09:00 AM - 05:00 PM" required>
+          </div>
+          <div class="form-group">
+            <label>Contact Number</label>
+            <input type="text" class="form-control" id="staffContact" placeholder="(555) 000-0000" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Add Staff Member</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Reply Modal -->
+  <div class="modal" id="replyModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeReplyModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="margin-top: 0; font-family: var(--font-heading); color: var(--color-primary);">Respond to Enquiry</h2>
+      
+      <form id="replyForm" onsubmit="event.preventDefault(); submitReply();">
+        <input type="hidden" id="replyEnquiryId">
+        <div class="form-group">
+          <label>Response Message</label>
+          <textarea class="form-control" rows="5" required placeholder="Type your response here..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;"><i class="fa-solid fa-paper-plane"></i> Send Reply & Resolve</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Slot Modal -->
+  <div class="modal" id="slotModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeSlotModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="margin-top: 0; font-family: var(--font-heading); color: var(--color-primary);">Add New Slot</h2>
+      
+      <form id="newSlotForm" onsubmit="event.preventDefault(); submitSlot();">
+        <div class="form-group">
+          <label>Client Name</label>
+          <input type="text" class="form-control" id="slotClientName" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Event Type</label>
+            <select class="form-control" id="slotEventType" required>
+              <option value="Kids Birthday">Kids Birthday</option>
+              <option value="Corporate Gala">Corporate Gala</option>
+              <option value="Magic Show">Magic Show</option>
+              <option value="Wedding Reception">Wedding Reception</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="form-control" id="slotDate" required>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Amount ($)</label>
+            <input type="number" class="form-control" id="slotAmount" required>
+          </div>
+          <div class="form-group">
+            <label>Paid Status</label>
+            <select class="form-control" id="slotPaid">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Timing</label>
+            <input type="time" class="form-control" id="slotTime" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Add Slot</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="margin-top: 0; font-family: var(--font-heading); color: var(--color-primary);">Add New Booking</h2>
+      
+      <form id="newBookingForm" onsubmit="event.preventDefault(); submitBooking();">
+        <div class="form-group">
+          <label>Client Name</label>
+          <input type="text" class="form-control" id="clientName" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Event Type</label>
+            <select class="form-control" id="eventType" required>
+              <option value="Kids Birthday">Kids Birthday</option>
+              <option value="Corporate Gala">Corporate Gala</option>
+              <option value="Magic Show">Magic Show</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="form-control" id="eventDate" required>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Amount ($)</label>
+            <input type="number" class="form-control" id="eventAmount" required>
+          </div>
+          <div class="form-group">
+            <label>Paid Status</label>
+            <select class="form-control" id="eventPaid">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Create Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Logistics Modal -->
+  <div class="modal" id="logisticsModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeLogisticsModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="margin-top: 0; font-family: var(--font-heading); color: var(--color-primary);">Add Logistics Order</h2>
+      
+      <form id="newLogisticsForm" onsubmit="event.preventDefault(); submitLogistics();">
+        <div class="form-group">
+          <label>Venue Name</label>
+          <input type="text" class="form-control" id="logisticsVenue" required placeholder="e.g. Grand Plaza Hotel">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label>Event Type</label>
+            <select class="form-control" id="logisticsEvent" required>
+              <option value="Painting Session">Painting Session</option>
+              <option value="Magic Show">Magic Show</option>
+              <option value="Princess Party">Princess Party</option>
+              <option value="Clown Party">Clown Party</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Booking ID</label>
+            <input type="text" class="form-control" id="logisticsBookingId" required placeholder="e.g. #BKG-8405">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Logistics Required</label>
+          <input type="text" class="form-control" id="logisticsItems" required placeholder="e.g. Easels, Canvases, Paint kits">
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Add Order</button>
+      </form>
+    </div>
+  </div>
+
+  
+  <script>
+    // Tab Switching
+    function switchTab(tabId, element) {
+      document.querySelectorAll('.admin-nav-item').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      
+      document.querySelector('.dashboard-title').textContent = element.textContent.trim();
+      
+      // Render charts if analytics is clicked and not yet rendered
+      if (tabId === 'analytics' && !window.chartsRendered) {
+        renderCharts();
+        window.chartsRendered = true;
+      }
+    }
+
+    
+    function openDetailsModal() { document.getElementById('detailsModal').classList.add('active'); }
+    function closeDetailsModal() { document.getElementById('detailsModal').classList.remove('active'); }
+    
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      
+      const chatWindow = document.getElementById('chatWindow');
+      
+      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      chatWindow.innerHTML += `
+        <div style="align-self: flex-end; background: var(--color-primary); color: white; padding: 12px 18px; border-radius: 18px 18px 0 18px; max-width: 70%; animation: fadeIn 0.3s ease;">
+          ${text}
+          <div style="font-size: 0.7rem; margin-top: 5px; opacity: 0.8; text-align: right;">${timeStr}</div>
+        </div>
+      `;
+      
+      input.value = '';
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+      
+      setTimeout(() => {
+        chatWindow.innerHTML += `
+          <div style="align-self: flex-start; background: var(--color-surface); border: 1px solid var(--color-border); padding: 12px 18px; border-radius: 18px 18px 18px 0; max-width: 70%; animation: fadeIn 0.3s ease;">
+            Thank you for reaching out! We've received your message and will respond with the best suggestions right away.
+            <div style="font-size: 0.7rem; margin-top: 5px; color: var(--color-text-light);">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+          </div>
+        `;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }, 1000);
+    }
+
+    // Modal Logic
+    function openModal() { document.getElementById('bookingModal').classList.add('active'); }
+    function closeModal() { document.getElementById('bookingModal').classList.remove('active'); document.getElementById('newBookingForm').reset(); }
+
+    function submitBooking() {
+      const type = document.getElementById('eventType').value;
+      const dateRaw = document.getElementById('eventDate').value;
+      const amount = document.getElementById('eventAmount').value;
+      
+      const dateObj = new Date(dateRaw);
+      const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      
+      const newRow = `
+        <tr data-status="pending">
+          <td>#BKG-${Math.floor(Math.random() * 1000) + 8500}</td>
+          <td>${type}</td>
+          <td>${dateStr}</td>
+          <td>$${amount}</td>
+          <td><span class="status-badge status-pending">Pending</span></td>
+        </tr>
+      `;
+      
+      document.getElementById('bookingsBody').insertAdjacentHTML('afterbegin', newRow);
+      closeModal();
+      
+      // Switch to bookings tab to see the result
+      const bookingsNav = document.querySelector('.admin-nav-item:nth-child(2)');
+      switchTab('bookings', bookingsNav);
+    }
+
+    // Logistics Logic
+    function openLogisticsModal() { document.getElementById('logisticsModal').classList.add('active'); }
+    function closeLogisticsModal() { document.getElementById('logisticsModal').classList.remove('active'); document.getElementById('newLogisticsForm').reset(); }
+
+    function submitLogistics() {
+      const venue = document.getElementById('logisticsVenue').value;
+      const eventType = document.getElementById('logisticsEvent').value;
+      const bkgId = document.getElementById('logisticsBookingId').value;
+      const items = document.getElementById('logisticsItems').value;
+
+      const newCard = `
+          <div class="stat-card" style="border-left: 4px solid var(--color-primary); animation: fadeIn 0.5s;">
+            <div>
+              <h4 style="margin: 0 0 5px; color: var(--color-primary);">${venue}</h4>
+              <div style="font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 10px;">Booking ${bkgId} | Event: ${eventType}</div>
+              <p style="margin: 0; font-size: 0.9rem;"><strong>Logistics:</strong> ${items}</p>
+            </div>
+            <div style="text-align: right; min-width: 80px;">
+              <span class="status-badge status-pending">Pending</span>
+            </div>
+          </div>
+      `;
+      document.querySelector('#venues .stats-grid').insertAdjacentHTML('afterbegin', newCard);
+      closeLogisticsModal();
+    }
+
+    // Filter Logic
+    
+    
+    // Staff JS
+    function openStaffModal() { document.getElementById('staffModal').classList.add('active'); }
+    function closeStaffModal() { document.getElementById('staffModal').classList.remove('active'); document.getElementById('newStaffForm').reset(); }
+    
+    function submitStaff() {
+      const name = document.getElementById('staffName').value;
+      const role = document.getElementById('staffRole').value;
+      const hall = document.getElementById('staffHall').value;
+      const shift = document.getElementById('staffShift').value;
+      const contact = document.getElementById('staffContact').value;
+      const newId = 'duty-' + Math.floor(Math.random() * 1000);
+      
+      const newRow = `
+        <tr style="animation: fadeIn 0.5s;">
+          <td>${name}</td>
+          <td>${role}</td>
+          <td>${hall}</td>
+          <td>${shift}</td>
+          <td>${contact}</td>
+          <td><span class="status-badge status-success" id="${newId}">On Duty</span></td>
+          <td>
+            <select class="filter-select" onchange="updateDutyStatus('${newId}', this.value)" style="padding: 5px 10px; font-size: 0.85rem;">
+              <option value="On Duty" selected>On Duty</option>
+              <option value="Off Duty">Off Duty</option>
+              <option value="Standby">Standby</option>
+            </select>
+          </td>
+        </tr>
+      `;
+      
+      document.querySelector('#staffTable tbody').insertAdjacentHTML('beforeend', newRow);
+      closeStaffModal();
+    }
+
+    // Enquiry JS
+    function openReplyModal(enquiryId) {
+      document.getElementById('replyEnquiryId').value = enquiryId;
+      document.getElementById('replyModal').classList.add('active');
+    }
+    
+    function closeReplyModal() {
+      document.getElementById('replyModal').classList.remove('active');
+      document.getElementById('replyForm').reset();
+    }
+    
+    function submitReply() {
+      const enqId = document.getElementById('replyEnquiryId').value;
+      resolveEnquiry(enqId);
+      closeReplyModal();
+    }
+    
+    function resolveEnquiry(enquiryId) {
+      const badge = document.getElementById('badge-' + enquiryId);
+      if(badge) {
+        badge.className = 'status-badge status-success';
+        badge.textContent = 'Resolved';
+      }
+      // Add a subtle green border to indicate it's resolved
+      const card = document.getElementById(enquiryId);
+      if(card) {
+        card.style.borderColor = '#2ecc71';
+      }
+    }
+
+    function openSlotModal() { document.getElementById('slotModal').classList.add('active'); }
+    function closeSlotModal() { document.getElementById('slotModal').classList.remove('active'); document.getElementById('newSlotForm').reset(); }
+
+    function submitSlot() {
+      const client = document.getElementById('slotClientName').value;
+      const type = document.getElementById('slotEventType').value;
+      const dateRaw = document.getElementById('slotDate').value;
+      const timeRaw = document.getElementById('slotTime').value;
+      
+      const dateObj = new Date(dateRaw);
+      const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: '2-digit' });
+      
+      // Parse time
+      let [hours, minutes] = timeRaw.split(':');
+      let ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      let timeStr = hours.toString().padStart(2, '0') + ':' + minutes + ' ' + ampm;
+      
+      const newSlot = `
+          <div class="slot-time" style="line-height:1.2;">${dateStr}<br><span style="font-size:0.75rem;font-weight:normal;">${timeStr}</span></div>
+          <div class="slot-card" style="border-left: 4px solid var(--color-primary); animation: fadeIn 0.5s;">
+            <div>
+              <h4 style="margin: 0 0 5px;">${type}</h4>
+              <div style="font-size: 0.85rem; color: var(--color-text-light);">Lead: Unassigned | Client: ${client}</div>
+            </div>
+            <span class="status-badge status-success">Booked</span>
+          </div>
+      `;
+      
+      // Append to the Upcoming Future Slots grid (the second grid in the slots tab)
+      const grids = document.querySelectorAll('.slot-grid');
+      if (grids.length > 1) {
+        grids[1].insertAdjacentHTML('beforeend', newSlot);
+      }
+      
+      closeSlotModal();
+    }
+
+    
+    function updateDutyStatus(badgeId, newStatus) {
+      const badge = document.getElementById(badgeId);
+      badge.textContent = newStatus;
+      
+      // Reset classes
+      badge.className = 'status-badge';
+      badge.style.background = '';
+      badge.style.color = '';
+      
+      // Apply appropriate styles based on status
+      if (newStatus === 'On Duty') {
+        badge.classList.add('status-success');
+      } else if (newStatus === 'Off Duty') {
+        badge.style.background = 'rgba(210, 75, 118, 0.1)';
+        badge.style.color = 'var(--color-primary)';
+      } else if (newStatus === 'En Route') {
+        badge.classList.add('status-pending');
+      } else if (newStatus === 'Standby') {
+        badge.style.background = 'rgba(255,255,255,0.1)';
+        badge.style.color = 'var(--color-text-light)';
+      }
+    }
+
+    function filterBookings() {
+      const filter = document.getElementById('bookingFilter').value;
+      const rows = document.querySelectorAll('#bookingsBody tr');
+      
+      rows.forEach(row => {
+        if (filter === 'all' || row.dataset.status === filter) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Analytics Charts using Chart.js
+    function renderCharts() {
+      const ctxRev = document.getElementById('revenueChart').getContext('2d');
+      new Chart(ctxRev, {
+        type: 'line',
+        data: {
+          labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+          datasets: [{
+            label: 'Revenue ($)',
+            data: [22000, 28000, 31000, 36000, 42000, 45200],
+            borderColor: '#D24B76',
+            backgroundColor: 'rgba(210, 75, 118, 0.2)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'rgba(255,255,255,0.6)' } },
+            x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)' } }
+          }
+        }
+      });
+
+      const ctxType = document.getElementById('typeChart').getContext('2d');
+      new Chart(ctxType, {
+        type: 'doughnut',
+        data: {
+          labels: ['Kids Birthday', 'Corporate', 'Weddings', 'Shows'],
+          datasets: [{
+            data: [45, 25, 20, 10],
+            backgroundColor: ['#D24B76', '#3895c8', '#f1c40f', '#2ecc71'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'right', labels: { color: 'rgba(255,255,255,0.8)' } }
+          }
+        }
+      });
+    }
+  </script>
+
+  <!-- Admin Theme & RTL Toggles -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeBtn = document.getElementById('admin-theme-toggle');
+      const rtlBtn = document.getElementById('admin-rtl-toggle');
+      const html = document.documentElement;
+
+      // 1. Theme Initialization
+      const savedTheme = localStorage.getItem('magiqo-theme') || 'dark';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      // 2. RTL Initialization
+      const savedDir = localStorage.getItem('magiqo-dir') || 'ltr';
+      html.setAttribute('dir', savedDir);
+
+      // 3. Theme Toggle Click
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const currentTheme = html.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          html.setAttribute('data-theme', newTheme);
+          localStorage.setItem('magiqo-theme', newTheme);
+          updateThemeIcon(newTheme);
+        });
+      }
+
+      // 4. RTL Toggle Click
+      if (rtlBtn) {
+        rtlBtn.addEventListener('click', () => {
+          const currentDir = html.getAttribute('dir');
+          const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+          html.setAttribute('dir', newDir);
+          localStorage.setItem('magiqo-dir', newDir);
+        });
+      }
+
+      function updateThemeIcon(theme) {
+        if (!themeBtn) return;
+        const span = themeBtn.querySelector('span');
+        const icon = themeBtn.querySelector('i');
+        if (theme === 'dark') {
+          if(span) span.textContent = 'Light Theme';
+          if(icon) icon.className = 'fa-solid fa-sun';
+        } else {
+          if(span) span.textContent = 'Dark Theme';
+          if(icon) icon.className = 'fa-solid fa-moon';
+        }
+      }
+
+      // 5. Mobile Sidebar Toggle
+      const menuToggle = document.getElementById('admin-menu-toggle');
+      const sidebar = document.querySelector('.admin-sidebar');
+      const overlay = document.getElementById('admin-overlay');
+
+      if (menuToggle && sidebar && overlay) {
+        menuToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+          overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+        
+        // Auto close on nav item click for mobile
+        const navItems = document.querySelectorAll('.admin-nav-item');
+        navItems.forEach(item => {
+          item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+              sidebar.classList.remove('active');
+              overlay.classList.remove('active');
+            }
+          });
+        });
+      }
+    });
+
+    // Custom logic for User Dashboard tasks
+    function addToFavorites(btn) {
+      // Find the card element
+      const card = btn.closest('div[style*="background: rgba(255,255,255,0.02)"]');
+      if (!card) return;
+      
+      const imgPath = card.querySelector('img').src;
+      const title = card.querySelector('h4').textContent;
+      const desc = card.querySelector('p').textContent;
+      
+      const favGrid = document.querySelector('#favorites .content-panel > div[style*="display: grid"]');
+      if (!favGrid) return;
+      
+      // Check if already exists in favorites
+      let exists = false;
+      favGrid.querySelectorAll('h4').forEach(h4 => {
+        if (h4.textContent === title) exists = true;
+      });
+      
+      if (exists) {
+        alert(title + ' is already in your favorites!');
+        return;
+      }
+      
+      const newFav = document.createElement('div');
+      newFav.style.cssText = "background: rgba(255,255,255,0.02); border: 1px solid var(--color-primary); border-radius: 12px; overflow: hidden; position: relative; animation: fadeIn 0.4s ease;";
+      newFav.innerHTML = `
+        <div style="position: absolute; top: 10px; right: 10px; color: var(--color-primary); font-size: 1.5rem; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 50%;"><i class="fa-solid fa-heart"></i></div>
+        <img src="${imgPath}" alt="${title}" style="width: 100%; height: 200px; object-fit: cover;">
+        <div style="padding: 20px;">
+          <h4 style="margin: 0 0 5px; font-size: 1.2rem; color: var(--color-primary);">${title}</h4>
+          <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">${desc}</p>
+          <button class="btn-primary" style="width: 100%;" onclick="openModal()">Book Now</button>
+        </div>
+      `;
+      
+      favGrid.appendChild(newFav);
+      
+      // Change the heart icon in explore to filled pink
+      btn.style.color = 'var(--color-primary)';
+      btn.style.borderColor = 'var(--color-primary)';
+      
+      alert(title + ' added to Favorites!');
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const fileInput = document.getElementById('file-input');
+      if (fileInput) {
+        fileInput.addEventListener('change', function(e) {
+          const files = e.target.files;
+          if (!files || files.length === 0) return;
+          
+          const grid = document.querySelector('#real-moments .content-panel > div[style*="display: grid"]');
+          const addMoreBtn = grid.lastElementChild; // The add more box
+          
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const reader = new FileReader();
+            reader.onload = function(event) {
+              const newMoment = document.createElement('div');
+              newMoment.style.cssText = "border-radius: 12px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 1/1; background: rgba(0,0,0,0.2); animation: fadeIn 0.4s ease;";
+              newMoment.innerHTML = `<img src="${event.target.result}" alt="New Moment" style="width: 100%; height: 100%; object-fit: cover;">`;
+              
+              grid.insertBefore(newMoment, addMoreBtn);
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
