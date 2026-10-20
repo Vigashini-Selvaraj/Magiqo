@@ -1,12 +1,9 @@
-# Scratch & Development Scripts
-scratch/
-*.py
-*.pyc
-__pycache__/
-
-# Temporary & Backup Files
-*_backup.html
-*.bak
+# Operating System Files
 .DS_Store
 Thumbs.db
+desktop.ini
 
+# Editor & IDE Files
+.vscode/
+.idea/
+*.bak
