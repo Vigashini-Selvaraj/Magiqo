@@ -214,8 +214,8 @@
       </div>
       <div class="form-group">
         <div style="position: relative;">
-          <input type="password" id="login-pwd" class="form-control" placeholder="Password" required value="••••••••" style="padding-right: 40px;">
-          <i class="fa-solid fa-eye" id="toggle-pwd" style="position: absolute; right: 15px; top: 15px; color: rgba(255,255,255,0.5); cursor: pointer;" onclick="const pwd = document.getElementById('login-pwd'); if(pwd.type === 'password'){ pwd.type='text'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { pwd.type='password'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
+          <input type="text" id="login-pwd" class="form-control" placeholder="Password" required value="••••••••" style="padding-right: 40px; -webkit-text-security: disc;">
+          <i class="fa-solid fa-eye" id="toggle-pwd" style="position: absolute; right: 15px; top: 15px; color: rgba(255,255,255,0.5); cursor: pointer;" onclick="const pwd = document.getElementById('login-pwd'); if(pwd.style.webkitTextSecurity !== 'none'){ pwd.style.webkitTextSecurity='none'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { pwd.style.webkitTextSecurity='disc'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
         </div>
       </div>
       <a href="#" class="forgot-link" onclick="alert('Demo Mode: In production, a reset link is emailed.');">Forgot Password?</a>
