@@ -277,7 +277,8 @@ html, body {
   /* Hero Split (index.html) Responsive Adjustments */
   .hero-split {
     min-height: auto !important;
-    padding: 100px 0 40px 0 !important;
+    margin-top: 80px !important;
+    padding: 25px 0 35px 0 !important;
   }
   .hero-split-container {
     grid-template-columns: 1fr !important;
