@@ -1,0 +1,12 @@
+# Scratch & Development Scripts
+scratch/
+*.py
+*.pyc
+__pycache__/
+
+# Temporary & Backup Files
+*_backup.html
+*.bak
+.DS_Store
+Thumbs.db
+
