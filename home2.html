@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/responsive.css">
   
   <style>
     /* Absolute Clean, Uniform Styling for Home 2 */
@@ -437,6 +436,19 @@
     .form-control:focus {
       border-color: var(--color-primary);
     }
+    .btn-check-avail {
+      display: inline-block;
+      width: 100%;
+      max-width: 460px;
+      padding: 1.25rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 1.25rem auto 0 auto;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: normal !important;
+      word-break: break-word;
+    }
     .assurance-note {
       text-align: center;
       color: var(--color-text-light);
@@ -569,17 +581,58 @@
     }
 
     @media (max-width: 992px) {
+      .hero-h2 {
+        min-height: auto;
+        padding-top: 95px;
+        padding-bottom: 2.5rem;
+        background: var(--color-bg);
+      }
       .hero-container {
         flex-direction: column;
         text-align: center;
+        gap: 1.5rem;
+        padding: 0;
+      }
+      .hero-text-side {
+        max-width: 100%;
+      }
+      .hero-title {
+        font-size: 2.75rem;
+      }
+      .hero-booking-ui {
+        padding: 1.5rem 1.25rem;
+        border-radius: var(--radius-md);
       }
       .hero-anim-side {
         width: 100%;
-        margin-top: 2rem;
+        margin-top: 1rem;
+      }
+      .hero-main-img {
+        height: 320px;
+        max-width: 340px;
+        margin: 0 auto;
+        border-width: 6px;
+      }
+      .booking-form-box {
+        padding: 1.75rem 1.25rem;
+        border-radius: var(--radius-lg);
       }
       .chain-container { flex-direction: column; gap: 1rem; }
       .chain-container::before { display: none; }
       .chain-list { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      .hero-main-img {
+        height: 250px;
+        max-width: 270px;
+      }
+      .booking-form-box {
+        padding: 1.25rem 0.85rem;
+      }
     }
   
     /* Flip Card CSS */
@@ -650,6 +703,7 @@
     }
 
 </style>
+  <link rel="stylesheet" href="css/responsive.css">
   <link rel="icon" type="image/png" href="assets/logoooo.png">
 </head>
 
@@ -915,7 +969,7 @@
             </select>
           </div>
         </div>
-        <button class="btn btn-primary" style="padding: 1.25rem 4rem; font-size: 1.25rem; margin-top: 1rem;" onclick="checkAvailability()">Check Availability Now</button>
+        <button class="btn btn-primary btn-check-avail" onclick="checkAvailability()">Check Availability Now</button>
         <div class="assurance-note">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
           No commitment required to check availability. 100% secure.
