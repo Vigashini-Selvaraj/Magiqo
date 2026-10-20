@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
@@ -135,48 +134,57 @@
     }
 
     .packages-hero {
-      padding: 160px 0 80px;
+      padding: 120px 0 60px;
       background-color: var(--color-bg);
       position: relative;
     }
-    .hero-container {
+    .packages-hero .hero-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 40px;
     }
-    .hero-text-side { flex: 1; max-width: 600px; text-align: left; }
-    .hero-img-side { flex: 1; display: flex; justify-content: flex-end; }
+    .packages-hero .hero-text-side {
+      flex: 1.1;
+      max-width: 600px;
+      text-align: left;
+    }
+    .packages-hero .hero-img-side {
+      flex: 0.9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     
     .hero-main-img {
-      width: 100%; max-width: 550px;
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 32px;
       border: 8px solid var(--color-surface);
       box-shadow: 0 20px 40px var(--color-shadow);
-      object-fit: cover; height: 500px;
-      animation: morph 8s ease-in-out infinite;
+      object-fit: cover;
+      height: 460px;
+      transition: transform var(--transition-normal);
     }
-    @keyframes morph {
-      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-      50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-      100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    .hero-main-img:hover {
+      transform: scale(1.02);
     }
 
     .packages-hero h1 {
-      font-size: clamp(3.5rem, 5vw, 5rem);
+      font-size: clamp(3rem, 5vw, 4.8rem);
       font-family: var(--font-magic);
-      line-height: 1.1;
-      margin: 0 0 30px 0;
+      line-height: 1.12;
+      margin: 0 0 20px 0;
     }
     .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none; }
     .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; background: none; }
     
     .packages-hero p {
-      max-width: 650px;
-      margin: 0 0 30px 0;
+      max-width: 580px;
+      margin: 0 0 25px 0;
       font-size: 1.15rem;
       color: var(--color-text-light);
-      line-height: 1.6;
+      line-height: 1.65;
     }
     
     .filter-container {
@@ -454,17 +462,101 @@
       color: var(--color-primary);
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
+      .packages-hero {
+        padding: 95px 0 35px !important;
+      }
       .packages-hero .hero-container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column !important;
+        text-align: left !important;
+        gap: 1.5rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+      }
+      .packages-hero .hero-text-side {
+        max-width: 100% !important;
+        text-align: left !important;
+      }
+      .packages-hero h1 {
+        font-size: clamp(2.3rem, 7vw, 3.2rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 14px !important;
       }
       .packages-hero p {
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+      }
+      .packages-hero .hero-actions {
+        margin-bottom: 1rem !important;
+      }
+      .packages-hero .hero-img-side {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      .hero-main-img {
+        height: 260px !important;
+        max-width: 100% !important;
+        border-radius: 20px !important;
+        border-width: 4px !important;
+        animation: none !important;
+      }
+      .filter-container {
+        gap: 10px !important;
+        margin: 25px 0 35px !important;
+        justify-content: flex-start !important;
+        overflow-x: auto;
+        flex-wrap: nowrap !important;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .filter-btn {
+        flex-shrink: 0;
+        padding: 8px 18px !important;
+        font-size: 0.95rem !important;
+      }
+      .packages-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding-bottom: 40px !important;
+      }
+      .package-content {
+        padding: 1.5rem 1.25rem !important;
+      }
+      .package-content h3 {
+        font-size: 1.5rem !important;
+      }
+      .package-price {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px !important;
+      }
+      .accordion-header {
+        padding: 1.25rem 1rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.75rem !important;
+      }
+      .accordion-title {
+        font-size: 1.25rem !important;
+      }
+      .accordion-content {
+        padding: 1.25rem 1rem !important;
+      }
+      .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .packages-hero h1 {
+        font-size: 2.15rem !important;
+      }
+      .hero-main-img {
+        height: 220px !important;
       }
     }
   </style>
+  <link rel="stylesheet" href="css/responsive.css">
   <link rel="icon" type="image/png" href="assets/logoooo.png">
 </head>
 <body>
@@ -477,10 +569,15 @@
     <section class="packages-hero">
       <div class="container hero-container reveal">
         <div class="hero-text-side">
+          <div class="pill-badge" style="margin-bottom: 18px;">
+            <i class="fa-solid fa-gift" style="color: var(--color-accent);"></i> CURATED PARTY EXPERIENCES
+          </div>
           <h1><span class="text-pink">A little magic.</span><br><span class="text-blue">A lot of joy.</span></h1>
           <p>From joyful birthdays to extraordinary celebrations, discover experiences designed to make every little moment unforgettable.</p>
           <div class="hero-actions">
-            <a href="#packages" class="btn btn-primary" style="padding: 15px 30px; font-size: 1.1rem;">Explore Packages</a>
+            <a href="#packages" class="btn btn-primary" style="padding: 14px 28px; font-size: 1.1rem; border-radius: 50px;">
+              <i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 8px;"></i> Explore Packages
+            </a>
           </div>
         </div>
         <div class="hero-img-side">

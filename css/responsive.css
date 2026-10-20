@@ -52,8 +52,15 @@ html, body {
   }
   
   .hero-container {
-    gap: 2rem !important;
-    padding: 2rem 0 !important;
+    gap: 1.75rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
   }
   
   /* Zigzag Rows (Services & Experience) */
