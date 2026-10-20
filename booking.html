@@ -934,55 +934,33 @@
   <div id="footer"></div>
 
   <!-- SCRIPTS -->
-  <script src="js/components.js">
-    function completeBooking() {
-      const step6Content = document.getElementById('step-6');
-      const formGrid = step6Content.querySelector('.form-grid');
-      const controls = document.getElementById('final-controls');
-      const desc = step6Content.querySelector('.step-desc');
-      
-      if(formGrid) formGrid.style.display = 'none';
-      if(controls) controls.style.display = 'none';
-      if(desc) desc.style.display = 'none';
-      
-      document.getElementById('booking-success').style.display = 'block';
-    }
-
-    function sendMessage() {
-      const btn = document.getElementById('send-msg-btn');
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-      
-      setTimeout(() => {
-        btn.style.display = 'none';
-        document.getElementById('msg-success').style.display = 'block';
-      }, 1000);
-    }
-  </script>
-  <script src="js/theme.js">
-    function completeBooking() {
-      const step6Content = document.getElementById('step-6');
-      const formGrid = step6Content.querySelector('.form-grid');
-      const controls = document.getElementById('final-controls');
-      const desc = step6Content.querySelector('.step-desc');
-      
-      if(formGrid) formGrid.style.display = 'none';
-      if(controls) controls.style.display = 'none';
-      if(desc) desc.style.display = 'none';
-      
-      document.getElementById('booking-success').style.display = 'block';
-    }
-
-    function sendMessage() {
-      const btn = document.getElementById('send-msg-btn');
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-      
-      setTimeout(() => {
-        btn.style.display = 'none';
-        document.getElementById('msg-success').style.display = 'block';
-      }, 1000);
-    }
-  </script>
+  <script src="js/components.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/main.js"></script>
   <script>
+    function completeBooking() {
+      const step6Content = document.getElementById('step-6');
+      const formGrid = step6Content.querySelector('.form-grid');
+      const controls = document.getElementById('final-controls');
+      const desc = step6Content.querySelector('.step-desc');
+      
+      if(formGrid) formGrid.style.display = 'none';
+      if(controls) controls.style.display = 'none';
+      if(desc) desc.style.display = 'none';
+      
+      document.getElementById('booking-success').style.display = 'block';
+    }
+
+    function sendMessage() {
+      const btn = document.getElementById('send-msg-btn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      
+      setTimeout(() => {
+        btn.style.display = 'none';
+        document.getElementById('msg-success').style.display = 'block';
+      }, 1000);
+    }
     // State
     let pkgPrice = 99;
     let addonsTotal = 0;
