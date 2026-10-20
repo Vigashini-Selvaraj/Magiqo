@@ -7,3 +7,9 @@ desktop.ini
 .vscode/
 .idea/
 *.bak
+*.swp
+*.tmp
+
+# Archives & Site Verification
+*.zip
+google*.html
