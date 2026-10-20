@@ -463,7 +463,7 @@
           <div class="step-indicator" data-step="3">3<div class="step-label">Theme</div></div>
           <div class="step-indicator" data-step="4">4<div class="step-label">Guests</div></div>
           <div class="step-indicator" data-step="5">5<div class="step-label">Add-ons</div></div>
-          <div class="step-indicator" data-step="6">6<div class="step-label">Payment</div></div>
+          <div class="step-indicator" data-step="6">6<div class="step-label">Confirm</div></div>
         </div>
 
         <!-- STEP 1: AVAILABILITY -->
@@ -643,46 +643,80 @@
           </div>
           <div class="stepper-controls">
             <button class="btn-nav btn-nav-prev" onclick="nextStep(4)"><i class="fa-solid fa-arrow-left"></i> Back</button>
-            <button class="btn-nav btn-nav-next" onclick="nextStep(6)">Continue to Payment <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn-nav btn-nav-next" onclick="nextStep(6)">Review & Confirm <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
 
-        <!-- STEP 6: PAYMENT -->
+        <!-- STEP 6: REVIEW & CONFIRM -->
         <div class="step-content" id="step-6">
-          <h2 class="step-title">Payment & Confirmation</h2>
-          <p class="step-desc">Secure your booking by providing payment details for the deposit.</p>
+          <h2 class="step-title">Review & Confirm Reservation</h2>
+          <p class="step-desc">Provide your contact details and select your preferred payment method upon arrival.</p>
+
+          <!-- Security & Safe Guarantee Notice -->
+          <div style="background: rgba(56, 149, 200, 0.08); border: 1px solid rgba(56, 149, 200, 0.25); border-radius: 16px; padding: 16px 20px; margin-bottom: 25px; display: flex; align-items: flex-start; gap: 14px;">
+            <i class="fa-solid fa-shield-halved" style="color: #3895c8; font-size: 1.5rem; margin-top: 2px;"></i>
+            <div>
+              <strong style="color: var(--color-text); font-size: 1rem; display: block; margin-bottom: 4px;">Zero Upfront Risk • No Sensitive Payment Data Collected</strong>
+              <span style="color: var(--color-text-light); font-size: 0.92rem; line-height: 1.5; display: block;">
+                For your privacy and security, Magiqo never asks for credit card numbers on this website. Your reservation is sent directly to your assigned entertainer to confirm your date.
+              </span>
+            </div>
+          </div>
+
+          <!-- Payment Method Options -->
+          <div style="margin-bottom: 25px;">
+            <label class="form-label" style="margin-bottom: 12px; display: block;">Select Payment Preference</label>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+              <div class="pay-opt selected" style="cursor: pointer; padding: 16px 18px; border-radius: 16px; border: 2px solid var(--color-primary); background: var(--color-surface);" onclick="document.querySelectorAll('.pay-opt').forEach(el => { el.style.borderColor='var(--color-border)'; el.classList.remove('selected'); }); this.style.borderColor='var(--color-primary)'; this.classList.add('selected');">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                  <i class="fa-solid fa-hand-holding-dollar" style="color: var(--color-primary); font-size: 1.3rem;"></i>
+                  <strong style="color: var(--color-text); font-size: 1rem;">Pay on Event Day</strong>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light); margin: 0;">Settle via cash or contactless card reader with the performer at the event.</p>
+              </div>
+
+              <div class="pay-opt" style="cursor: pointer; padding: 16px 18px; border-radius: 16px; border: 1px solid var(--color-border); background: var(--color-surface);" onclick="document.querySelectorAll('.pay-opt').forEach(el => { el.style.borderColor='var(--color-border)'; el.classList.remove('selected'); }); this.style.borderColor='var(--color-primary)'; this.classList.add('selected');">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                  <i class="fa-solid fa-file-invoice-dollar" style="color: #3895c8; font-size: 1.3rem;"></i>
+                  <strong style="color: var(--color-text); font-size: 1rem;">Official Digital Invoice</strong>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--color-text-light); margin: 0;">Receive an itemized digital invoice via email with standard banking details.</p>
+              </div>
+            </div>
+          </div>
+
           <div class="form-grid">
-            <div class="form-group full">
-              <label class="form-label">Name on Card</label>
-              <input type="text" class="form-control" placeholder="John Doe">
-            </div>
-            <div class="form-group full">
-              <label class="form-label">Card Number</label>
-              <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+            <div class="form-group">
+              <label class="form-label">Parent / Host Full Name</label>
+              <input type="text" class="form-control" placeholder="e.g. Sarah Jenkins" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Expiry Date</label>
-              <input type="text" class="form-control" placeholder="MM/YY">
+              <label class="form-label">Event Day Phone</label>
+              <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" required>
             </div>
-            <div class="form-group">
-              <label class="form-label">CVV</label>
-              <input type="text" class="form-control" placeholder="123">
+            <div class="form-group full">
+              <label class="form-label">Contact Email (for reservation receipt)</label>
+              <input type="email" class="form-control" placeholder="sarah@example.com" required>
             </div>
-            <div class="form-group full" style="margin-top: 15px;">
+            <div class="form-group full">
+              <label class="form-label">Special Event Notes / Requests (optional)</label>
+              <input type="text" class="form-control" placeholder="e.g. Favorite magic theme, surprise party, dietary needs, parking tips">
+            </div>
+            <div class="form-group full" style="margin-top: 10px;">
               <label style="display: flex; align-items: flex-start; gap: 15px; cursor: pointer; color: var(--color-text-light); line-height: 1.5;">
-                <input type="checkbox" style="width: 24px; height: 24px; margin-top: 2px;">
-                I agree to the cancellation terms, booking policy, and authorize the advance deposit charge.
+                <input type="checkbox" checked style="width: 20px; height: 20px; margin-top: 2px;">
+                I agree to the 48-hour free cancellation policy and confirm this celebration booking.
               </label>
             </div>
           </div>
           <div class="stepper-controls" id="final-controls">
             <button class="btn-nav btn-nav-prev" onclick="nextStep(5)"><i class="fa-solid fa-arrow-left"></i> Back</button>
-            <button class="btn-nav btn-nav-next" id="complete-booking-btn" onclick="completeBooking()">Complete Booking <i class="fa-solid fa-check"></i></button>
+            <button class="btn-nav btn-nav-next" id="complete-booking-btn" onclick="completeBooking()">Confirm Reservation <i class="fa-solid fa-check"></i></button>
           </div>
           <div id="booking-success" style="display: none; text-align: center; margin-top: 30px; padding: 40px; background: rgba(16, 185, 129, 0.1); border: 2px dashed #10b981; border-radius: 20px; animation: slideIn 0.5s forwards;">
             <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: #10b981; margin-bottom: 20px;"></i>
-            <h3 style="font-size: 2.2rem; color: var(--color-text); margin-bottom: 15px; font-family: var(--font-magic);">Transaction Successful!</h3>
-            <p style="color: var(--color-text-light); font-size: 1.1rem;">Your magical celebration is officially locked in! We've sent a receipt and full details to your email.</p>
+            <h3 style="font-size: 2.2rem; color: var(--color-text); margin-bottom: 15px; font-family: var(--font-magic);">Reservation Received!</h3>
+            <p style="color: var(--color-text-light); font-size: 1.1rem;">Your party entertainer has been notified and your date is tentatively reserved! A confirmation summary has been sent to your email.</p>
           </div>
         </div>
 
