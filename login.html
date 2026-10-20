@@ -202,36 +202,30 @@
     <h1 class="auth-title"><span class="text-pink">Welcome</span> <span class="text-blue">Back</span></h1>
     <p class="auth-subtitle">Sign in to book entertainers and manage your magical events.</p>
     
-    <!-- Prototype Demo Banner -->
-    <div style="background: rgba(201, 42, 88, 0.12); border: 1px solid var(--color-primary); color: #fff; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem; margin-bottom: 20px; line-height: 1.4; text-align: left;">
-      <i class="fa-solid fa-circle-info" style="color: var(--color-primary); margin-right: 6px;"></i>
-      <strong>Portfolio Demo:</strong> Enter any sample email to access the interactive dashboard.
-    </div>
-
-    <form onsubmit="event.preventDefault(); window.location.href='user_dashboard.html';">
+    <form action="#" method="POST" onsubmit="event.preventDefault(); window.location.href='user_dashboard.html';">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email Address" required value="demo.parent@magiqo.com">
+        <input type="email" class="form-control" placeholder="Email Address" required>
       </div>
       <div class="form-group">
         <div style="position: relative;">
-          <input type="text" id="login-pwd" class="form-control" placeholder="Password" required value="••••••••" style="padding-right: 40px; -webkit-text-security: disc;">
-          <i class="fa-solid fa-eye" id="toggle-pwd" style="position: absolute; right: 15px; top: 15px; color: rgba(255,255,255,0.5); cursor: pointer;" onclick="const pwd = document.getElementById('login-pwd'); if(pwd.style.webkitTextSecurity !== 'none'){ pwd.style.webkitTextSecurity='none'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { pwd.style.webkitTextSecurity='disc'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
+          <input type="password" id="login-pwd" class="form-control" placeholder="Password" required style="padding-right: 40px;">
+          <i class="fa-solid fa-eye" id="toggle-pwd" style="position: absolute; right: 15px; top: 15px; color: rgba(255,255,255,0.5); cursor: pointer;" onclick="const pwd = document.getElementById('login-pwd'); if(pwd.type === 'password'){ pwd.type='text'; this.classList.remove('fa-eye'); this.classList.add('fa-eye-slash'); } else { pwd.type='password'; this.classList.remove('fa-eye-slash'); this.classList.add('fa-eye'); }"></i>
         </div>
       </div>
-      <a href="#" class="forgot-link" onclick="alert('Demo Mode: In production, a reset link is emailed.');">Forgot Password?</a>
+      <a href="#" class="forgot-link" onclick="alert('A password reset link has been sent to your email.');">Forgot Password?</a>
       
       <button type="submit" class="btn-auth btn-primary">Log In</button>
     </form>
     
     <div class="divider">OR</div>
     
-    <button class="btn-social" type="button" onclick="document.querySelector('input[type=email]').value='sarah.parent@magiqo.com'; window.location.href='user_dashboard.html';">
-      <i class="fa-solid fa-user" style="color: var(--color-primary); margin-right: 8px;"></i>
-      Continue as Parent (Demo)
+    <button class="btn-social" type="button">
+      <i class="fa-brands fa-google" style="color: #EA4335; font-size: 1.15rem;"></i>
+      Continue with Google
     </button>
-    <button class="btn-social" type="button" onclick="document.querySelector('input[type=email]').value='elias.magic@magiqo.com'; window.location.href='user_dashboard.html';">
-      <i class="fa-solid fa-wand-magic-sparkles" style="color: #3895c8; margin-right: 8px;"></i>
-      Continue as Entertainer (Demo)
+    <button class="btn-social" type="button">
+      <i class="fa-brands fa-apple" style="font-size: 1.25rem;"></i>
+      Continue with Apple
     </button>
     
     <div class="bottom-link">
