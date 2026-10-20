@@ -1,6 +1,5 @@
-import os
-
-html_content = """<!DOCTYPE html>
+# Prepare the revamped upload.html code matching Magiqo design system perfectly
+revamped_upload = """<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,122 +7,360 @@ html_content = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Real Moments - Magiqo Community Gallery</title>
   <meta name="description" content="Share your magical moments, photos, and videos with entertainers booked through Magiqo.">
+  <link rel="icon" type="image/png" href="assets/logoooo.png">
 
+  <!-- Core Google Fonts matching the entire site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Unified Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/responsive.css">
   
-  <style>
-    :root {
-      --color-tertiary: #8E44AD; /* Purple color requested */
-    }
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   
-    /* Specific styles for upload page */
+  <style>
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
     .hero-upload {
       position: relative;
-      padding: 10rem 0 8rem;
+      padding: 150px 0 90px;
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/party_moments_2_1790918669697.jpg') center/cover;
+      background: radial-gradient(circle at 15% 25%, rgba(201, 42, 88, 0.12) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 75%, rgba(56, 149, 200, 0.12) 0%, transparent 45%),
+                  var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
       overflow: hidden;
     }
-    
-    .masonry-gallery {
-      column-count: 3;
-      column-gap: 1.5rem;
+
+    .hero-upload .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201, 42, 88, 0.1);
+      color: var(--color-primary);
+      border: 1px solid rgba(201, 42, 88, 0.25);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-upload h1 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-upload p {
+      font-size: 1.2rem;
+      color: var(--color-text-light);
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* Grid & Cards */
+    .equal-height-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
     }
     @media (max-width: 992px) {
-      .masonry-gallery { column-count: 2; }
+      .equal-height-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 576px) {
-      .masonry-gallery { column-count: 1; }
+    @media (max-width: 600px) {
+      .equal-height-grid { grid-template-columns: 1fr; }
     }
-    
+
     .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 1.5rem;
-      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius-lg);
       overflow: hidden;
       position: relative;
       background: var(--color-surface);
-      box-shadow: 0 10px 20px var(--color-shadow);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 25px var(--color-shadow);
       cursor: pointer;
-      transition: transform 0.3s ease;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
     }
-    .masonry-item:hover { transform: translateY(-5px); }
+    .masonry-item:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 20px 40px var(--color-shadow);
+      border-color: rgba(201, 42, 88, 0.3);
+    }
+    .masonry-item .img-wrapper {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
     .masonry-item img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform 0.6s ease;
     }
+    .masonry-item:hover img {
+      transform: scale(1.05);
+    }
+    .masonry-item .hover-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(14, 20, 36, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .masonry-item:hover .hover-overlay {
+      opacity: 1;
+    }
+    .masonry-item .hover-overlay i {
+      color: #FFFFFF;
+      font-size: 2rem;
+      background: var(--color-primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
     .masonry-item-info {
-      padding: 1rem;
+      padding: 1.75rem;
+      background: var(--color-surface);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-    
+    .masonry-item-info h4 {
+      font-family: var(--font-magic);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-text);
+      margin: 0 0 0.5rem;
+    }
+    .masonry-item-info p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-style: italic;
+      margin: 0 0 1.25rem;
+      flex: 1;
+    }
+    .masonry-item-info .ent-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      background: rgba(201, 42, 88, 0.08);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+    }
+
+    /* Upload Zone */
     .upload-zone {
       border: 2px dashed var(--color-primary);
       border-radius: var(--radius-lg);
-      padding: 4rem 2rem;
+      padding: 3.5rem 2rem;
       text-align: center;
-      background: rgba(255,255,255,0.05);
+      background: var(--color-bg);
       cursor: pointer;
-      transition: background 0.3s ease;
-      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
     }
     .upload-zone:hover {
-      background: rgba(255,255,255,0.1);
+      background: rgba(201, 42, 88, 0.05);
+      border-color: #3895c8;
+      transform: translateY(-2px);
     }
-    
+    .upload-zone h3 {
+      font-family: var(--font-magic);
+      font-weight: 800;
+      color: var(--color-text);
+      font-size: 1.4rem;
+      margin: 0.75rem 0 0.35rem;
+    }
+    .upload-zone p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Form Controls */
     .form-control {
       width: 100%;
-      padding: 1rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-border);
+      padding: 0.95rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-border);
       background: var(--color-bg);
       color: var(--color-text);
+      font-family: var(--font-body);
       font-size: 1rem;
-      margin-bottom: 1rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
     }
-    
+    .form-control:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(201, 42, 88, 0.15);
+      outline: none;
+      background: var(--color-surface);
+    }
+    .form-control::placeholder {
+      color: var(--color-text-light);
+      opacity: 0.7;
+    }
+
+    /* Category Cards */
     .category-card {
       background: var(--color-surface);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 10px 20px var(--color-shadow);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 25px var(--color-shadow);
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: all 0.4s ease;
     }
-    .category-card:hover { transform: translateY(-10px); }
-    
+    .category-card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 20px 40px var(--color-shadow);
+      border-color: rgba(201, 42, 88, 0.3);
+    }
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .category-card:hover img {
+      transform: scale(1.08);
+    }
+    .category-card h3 {
+      font-family: var(--font-magic);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--color-text);
+      margin: 0;
+    }
+
+    /* Feature Card */
     .feature-card {
       display: flex;
       background: var(--color-surface);
       border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
       overflow: hidden;
-      margin-bottom: 3rem;
-      box-shadow: 0 15px 30px var(--color-shadow);
+      box-shadow: 0 20px 45px var(--color-shadow);
+      transition: transform 0.4s ease;
     }
-    @media (max-width: 768px) {
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    @media (max-width: 900px) {
       .feature-card { flex-direction: column; }
     }
-    
-    .inspiration-card {
-      background: linear-gradient(135deg, var(--color-tertiary), var(--color-primary));
-      border-radius: var(--radius-xl);
-      padding: 4rem;
-      color: white;
+
+    /* Inspiration Section */
+    .inspiration-section {
+      padding: 6rem 0; 
+      background: var(--color-bg);
+      position: relative;
+    }
+    .inspiration-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 992px) {
+      .inspiration-grid { grid-template-columns: 1fr; text-align: center; }
+    }
+    .quote-box {
+      background: var(--color-surface);
+      padding: 3.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      border-left: 6px solid var(--color-primary);
       box-shadow: 0 20px 40px var(--color-shadow);
       position: relative;
-      overflow: hidden;
     }
-    .inspiration-card::before {
-      content: '"';
-      position: absolute;
-      top: -20px;
-      left: 20px;
-      font-size: 15rem;
-      color: rgba(255,255,255,0.1);
+
+    /* Spotlight Buttons */
+    .spotlight-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .spotlight-btn-group .btn {
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.8rem 1.75rem;
+      border-radius: var(--radius-pill);
+    }
+
+    /* Final CTA Banner (Official Magiqo Style) */
+    .cta-banner-section {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #8c1e3e 100%);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .cta-banner-section h2 {
       font-family: var(--font-magic);
-      line-height: 1;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      margin-bottom: 1rem;
+    }
+    .cta-banner-section p {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Text Colors */
+    .text-pink {
+      color: var(--color-primary) !important;
+      -webkit-text-fill-color: var(--color-primary) !important;
+    }
+    .text-blue {
+      color: #3895c8 !important;
+      -webkit-text-fill-color: #3895c8 !important;
     }
   </style>
 </head>
@@ -135,151 +372,223 @@ html_content = """<!DOCTYPE html>
 
   <!-- 01. Hero Section -->
   <section class="hero-upload">
-    <div class="container" style="position: relative; z-index: 2;">
-      <h1 style="font-family: var(--font-magic); font-size: clamp(3rem, 5vw, 5.5rem); margin-bottom: 1rem; color: white;">
-        Every Moment <span style="color: var(--color-primary);">Has a Story</span>
+    <div class="container" style="position: relative; z-index: 2;" data-aos="fade-up" data-aos-duration="900">
+      <div class="pill-badge">
+        <i class="fa-solid fa-camera-retro"></i> Magiqo Community Gallery
+      </div>
+      <h1>
+        <span class="text-pink">Every Moment</span> 
+        <span class="text-blue">Has a Story</span>
       </h1>
-      <p style="font-size: 1.25rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.6;">
-        Join our community gallery. Share your magical memories, photos, and videos of celebrations brought to life by Magiqo entertainers.
+      <p>
+        Join our authentic parent community gallery. Share your magical photos, videos, and heartfelt memories of celebrations brought to life by Magiqo performers.
       </p>
-      <a href="#upload-section" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Share Your Moment</a>
+      <a href="#upload-section" class="btn btn-primary btn-lg">
+        <i class="fa-solid fa-cloud-arrow-up"></i> Share Your Moment &rarr;
+      </a>
     </div>
   </section>
 
   <!-- 02. Moments That Matter (Community Gallery) -->
   <section id="gallery" style="padding: 6rem 0; background: var(--color-bg);">
     <div class="container">
-      <div class="section-title text-center" style="font-family: var(--font-magic);">
-        <span style="color: var(--color-primary);">Moments</span> <span style="color: #3895c8;">That Matter</span>
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title" style="font-family: var(--font-magic); font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 0.75rem;">
+          <span class="text-pink">Moments</span> <span class="text-blue">That Matter</span>
+        </h2>
+        <div class="section-subtitle" style="font-size: 1.15rem; color: var(--color-text-light);">
+          Real smiles, genuine wonder, captured in action across recent celebrations.
+        </div>
       </div>
-      <div class="section-subtitle text-center">Real smiles, real magic, shared by you.</div>
       
-      <div class="masonry-gallery" style="margin-top: 3rem;">
-        <div class="masonry-item" onclick="openLightbox('assets/images/magic_show_party_1790842468826.jpg', 'The kids couldn\\'t stop laughing! Best magician ever.')">
-          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Magic Show">
+      <div class="equal-height-grid" style="margin-top: 3.5rem;">
+        
+        <!-- Item 1: Magic -->
+        <div class="masonry-item" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox('assets/images/pro_classic_magic.jpg', 'The kids couldn\\'t stop laughing and gasping! Best birthday party magician ever.')">
+          <div class="img-wrapper">
+            <img src="assets/images/pro_classic_magic.jpg" alt="Leo's 6th Birthday Magic Show">
+            <div class="hover-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
           <div class="masonry-item-info">
-            <h4 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Leo's 6th Birthday</h4>
-            <p style="color:var(--color-text-light); font-size:0.9rem; font-style:italic;">"The kids couldn't stop laughing! Best magician ever."</p>
-            <div style="margin-top:0.5rem; font-size:0.8rem; color:#888;">Entertainer: The Great Magic Show</div>
+            <h4>Leo's 6th Birthday</h4>
+            <p>"The kids couldn't stop laughing and gasping! Best birthday party magician ever."</p>
+            <div class="ent-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Performer: Elias Thorne</div>
           </div>
         </div>
-        <div class="masonry-item" onclick="openLightbox('assets/images/princess_party_1790842645232.jpg', 'A truly royal experience.')">
-          <img src="assets/images/princess_party_1790842645232.jpg" alt="Princess Party">
+
+        <!-- Item 2: Princess -->
+        <div class="masonry-item" data-aos="fade-up" data-aos-delay="150" onclick="openLightbox('assets/images/princess_party_1790842645232.jpg', 'A truly royal fairytale coronation. My daughter cried happy tears!')">
+          <div class="img-wrapper">
+            <img src="assets/images/princess_party_1790842645232.jpg" alt="Mia's Royal Tea Party">
+            <div class="hover-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
           <div class="masonry-item-info">
-            <h4 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Mia's Royal Tea</h4>
-            <p style="color:var(--color-text-light); font-size:0.9rem; font-style:italic;">"A truly royal experience."</p>
-            <div style="margin-top:0.5rem; font-size:0.8rem; color:#888;">Entertainer: Royal Princess</div>
+            <h4>Mia's Royal Tea Party</h4>
+            <p>"A truly royal fairytale coronation. My daughter cried happy tears!"</p>
+            <div class="ent-tag"><i class="fa-solid fa-crown"></i> Performer: Princess Lily</div>
           </div>
         </div>
-        <div class="masonry-item" onclick="openLightbox('assets/images/party_moments_2_1790918669697.jpg', 'So much fun and joy!')">
-          <img src="assets/images/party_moments_2_1790918669697.jpg" alt="Party Moments">
+
+        <!-- Item 3: Interactive Magic Show -->
+        <div class="masonry-item" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox('assets/images/interactive_party_show.jpg', 'So much interactive energy! Every single kid was jumping with delight.')">
+          <div class="img-wrapper">
+            <img src="assets/images/interactive_party_show.jpg" alt="Summer Family Bash">
+            <div class="hover-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
           <div class="masonry-item-info">
-            <h4 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Summer Bash</h4>
-            <p style="color:var(--color-text-light); font-size:0.9rem; font-style:italic;">"So much fun and joy!"</p>
-            <div style="margin-top:0.5rem; font-size:0.8rem; color:#888;">Entertainer: Close-Up Magic</div>
+            <h4>Summer Garden Bash</h4>
+            <p>"So much interactive energy! Every single kid was jumping with delight."</p>
+            <div class="ent-tag"><i class="fa-solid fa-star"></i> Performer: Arthur The Mentalist</div>
           </div>
         </div>
-        <div class="masonry-item" onclick="openLightbox('assets/images/superhero_party_1790842695325.jpg', 'Action packed!')">
-          <img src="assets/images/superhero_party_1790842695325.jpg" alt="Superhero Party">
+
+        <!-- Item 4: Superhero -->
+        <div class="masonry-item" data-aos="fade-up" data-aos-delay="250" onclick="openLightbox('assets/images/superhero_party_1790842695325.jpg', 'Hero bootcamp obstacle course was an absolute smash hit!')">
+          <div class="img-wrapper">
+            <img src="assets/images/superhero_party_1790842695325.jpg" alt="Hero Training Party">
+            <div class="hover-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
           <div class="masonry-item-info">
-            <h4 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Hero Training</h4>
-            <p style="color:var(--color-text-light); font-size:0.9rem; font-style:italic;">"Action packed!"</p>
-            <div style="margin-top:0.5rem; font-size:0.8rem; color:#888;">Entertainer: Ultimate Hero</div>
+            <h4>Oliver's Hero Academy</h4>
+            <p>"Hero bootcamp obstacle course was an absolute smash hit!"</p>
+            <div class="ent-tag"><i class="fa-solid fa-shield-halved"></i> Performer: Captain Leo</div>
           </div>
         </div>
-        <div class="masonry-item" onclick="openLightbox('assets/images/clown_party_1790842566084.jpg', 'Balloons everywhere!')">
-          <img src="assets/images/clown_party_1790842566084.jpg" alt="Clowns">
+
+        <!-- Item 5: Clown & Balloons -->
+        <div class="masonry-item" data-aos="fade-up" data-aos-delay="300" onclick="openLightbox('assets/images/clown_party_1790842566084.jpg', 'Hilarious slapstick humor! Even the parents were rolling with laughter.')">
+          <div class="img-wrapper">
+            <img src="assets/images/clown_party_1790842566084.jpg" alt="Toddler Birthday Giggles">
+            <div class="hover-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
           <div class="masonry-item-info">
-            <h4 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Toddler Fun</h4>
-            <p style="color:var(--color-text-light); font-size:0.9rem; font-style:italic;">"Balloons everywhere!"</p>
-            <div style="margin-top:0.5rem; font-size:0.8rem; color:#888;">Entertainer: Silly Clowns</div>
+            <h4>Toddler Birthday Giggles</h4>
+            <p>"Hilarious slapstick humor! Even the parents were rolling with laughter."</p>
+            <div class="ent-tag"><i class="fa-solid fa-face-laugh-beam"></i> Performer: Barnaby The Clown</div>
           </div>
         </div>
-        <!-- Added a 6th moment here -->
-        <div class="masonry-item" onclick="openLightbox('assets/images/kids_clapping_party_1790917531872.jpg', 'The balloons made the entire party so vibrant! Everyone loved it.')">
-          <img src="assets/images/kids_clapping_party_1790917531872.jpg" alt="Kids Clapping">
+
+        <!-- Item 6: Balloon Twisting -->
+        <div class="masonry-item" data-aos="fade-up" data-aos-delay="350" onclick="openLightbox('assets/images/service_balloon_twisting.jpg', 'The giant balloon sculptures and wearable crowns blew everyone away!')">
+          <div class="img-wrapper">
+            <img src="assets/images/service_balloon_twisting.jpg" alt="Sarah's 5th Birthday Balloon Art">
+            <div class="hover-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+          </div>
           <div class="masonry-item-info">
-            <h4 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Sarah's 5th Birthday</h4>
-            <p style="color:var(--color-text-light); font-size:0.9rem; font-style:italic;">"The balloons made the entire party so vibrant! Everyone loved it."</p>
-            <div style="margin-top:0.5rem; font-size:0.8rem; color:#888;">Entertainer: Master Balloon Twister</div>
+            <h4>Sarah's 5th Birthday</h4>
+            <p>"The giant balloon sculptures and wearable crowns blew everyone away!"</p>
+            <div class="ent-tag"><i class="fa-solid fa-palette"></i> Performer: Chloe Balloon Art</div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 03 & 09. Share Your Moment (Upload Form) + Guidelines -->
-  <section id="upload-section" style="padding: 6rem 0; background: var(--color-surface);">
-    <div class="container" style="max-width: 1000px;">
+  <!-- 03. Share Your Moment (Upload Form) + Guidelines -->
+  <section id="upload-section" style="padding: 6rem 0; background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="container" style="max-width: 1140px;">
       
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+      <div class="upload-grid" style="display:grid; grid-template-columns: 1fr 1.25fr; gap: 4rem; align-items: start;">
         
-        <!-- Upload Guidelines -->
-        <div style="background:var(--color-bg); padding:2.5rem; border-radius:var(--radius-lg); border-left:4px solid var(--color-primary);">
-          <h3 style="font-size:1.75rem; color:var(--color-primary); margin-bottom:1.5rem; font-family:var(--font-magic);">Upload Guidelines</h3>
-          <p style="color:var(--color-text-light); margin-bottom:1rem;">Please read before sharing your magical moments:</p>
-          <ul style="color:var(--color-text-light); line-height:1.8; padding-left:1.5rem; margin:0;">
-            <li><strong>File Formats:</strong> JPG, PNG, MP4 accepted. Max size 20MB per file.</li>
-            <li><strong>Content Moderation:</strong> All submissions are reviewed by our team before publishing to ensure community safety.</li>
-            <li><strong>Consent is Key:</strong> Ensure you have explicit permission from anyone clearly visible in your photos/videos before sharing.</li>
-            <li><strong>Privacy First:</strong> We will never sell your photos or use them for external marketing without separate written consent.</li>
+        <!-- Left: Upload Guidelines -->
+        <div data-aos="fade-right" style="background:var(--color-bg); padding:3rem; border-radius:var(--radius-lg); border-left:5px solid var(--color-primary); border-top: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); box-shadow: 0 15px 35px var(--color-shadow);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:1.25rem;">
+            <i class="fa-solid fa-shield-halved" style="color:var(--color-primary); font-size:1.6rem;"></i>
+            <h3 style="font-size:1.85rem; font-weight:800; color:var(--color-text); margin:0; font-family:var(--font-magic);">
+              Upload Guidelines
+            </h3>
+          </div>
+          <p style="color:var(--color-text-light); margin-bottom:1.75rem; font-size:1.05rem; line-height: 1.6;">
+            Help us keep our community space family-friendly, safe, and inspiring:
+          </p>
+          <ul style="color:var(--color-text-light); line-height:1.9; padding-left:1.25rem; margin:0; font-size:1rem;">
+            <li style="margin-bottom:1rem;">
+              <strong style="color:var(--color-text);">Accepted Media:</strong> High-res JPG, PNG, and MP4 videos (up to 25MB each).
+            </li>
+            <li style="margin-bottom:1rem;">
+              <strong style="color:var(--color-text);">Safe Moderation:</strong> All uploads are reviewed by our team within 24 hours prior to public gallery display.
+            </li>
+            <li style="margin-bottom:1rem;">
+              <strong style="color:var(--color-text);">Parental Consent:</strong> Ensure you have full permission from parents of all children clearly featured in footage.
+            </li>
+            <li>
+              <strong style="color:var(--color-text);">Privacy Guarantee:</strong> We never sell personal photos or license them to external third parties.
+            </li>
           </ul>
         </div>
         
-        <!-- Form -->
-        <div id="form-container">
-          <div class="section-title" style="font-family: var(--font-magic); margin-bottom:1.5rem;">
-            <span style="color: var(--color-primary);">Share Your</span> <span style="color: #3895c8;">Moment</span>
-          </div>
+        <!-- Right: Form -->
+        <div id="form-container" data-aos="fade-left">
+          <h2 style="font-family: var(--font-magic); font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem;">
+            <span class="text-pink">Share Your</span> <span class="text-blue">Moment</span>
+          </h2>
           <form id="uploadForm" onsubmit="submitForm(event)">
+            
             <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-              <input type="file" id="fileInput" style="display:none;" onchange="fileSelected(event)">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" style="margin-bottom:1rem;">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-              </svg>
-              <h3 id="uploadText" style="color:var(--color-text); font-size:1.5rem; margin-bottom:0.5rem;">Click to Browse Files</h3>
-              <p style="color:var(--color-text-light);">or drag & drop here</p>
+              <input type="file" id="fileInput" style="display:none;" onchange="fileSelected(event)" accept="image/*,video/*">
+              <i class="fa-solid fa-cloud-arrow-up" style="font-size: 3rem; color: var(--color-primary); margin-bottom: 0.5rem;"></i>
+              <h3 id="uploadText">Click to Browse Photos or Videos</h3>
+              <p>or drag &amp; drop files directly into this area</p>
             </div>
             
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;">
-              <input type="text" class="form-control" placeholder="Event Title" required>
-              <input type="text" class="form-control" placeholder="Your Name" required>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.25rem;">
+              <div>
+                <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:var(--color-text);">Event Title *</label>
+                <input type="text" class="form-control" placeholder="e.g. Liam's 7th Birthday" required>
+              </div>
+              <div>
+                <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:var(--color-text);">Your Name *</label>
+                <input type="text" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+              </div>
             </div>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;">
-              <select class="form-control" required>
-                <option value="">Select Event Category</option>
-                <option>Kids Party</option>
-                <option>Toddler Birthdays</option>
-                <option>Special Celebration</option>
-              </select>
-              <input type="text" class="form-control" placeholder="Entertainer Name">
-            </div>
-            <textarea class="form-control" rows="3" placeholder="Tell us about the magic! Add a caption..." required></textarea>
             
-            <div style="margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 0.5rem;">
-              <input type="checkbox" id="consent" required style="margin-top: 0.3rem;">
-              <label for="consent" style="color:var(--color-text-light); font-size:0.85rem; line-height:1.5;">
-                I confirm I have permission to share these files and agree to the guidelines.
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.25rem;">
+              <div>
+                <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:var(--color-text);">Category *</label>
+                <select class="form-control" required>
+                  <option value="">Select Celebration Type</option>
+                  <option>Kids Birthday Magic</option>
+                  <option>Fairytale & Princess</option>
+                  <option>Superhero Bootcamp</option>
+                  <option>Toddler Slapstick Clown</option>
+                  <option>Giant Bubble & Art Party</option>
+                </select>
+              </div>
+              <div>
+                <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:var(--color-text);">Entertainer Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Elias Thorne">
+              </div>
+            </div>
+            
+            <div>
+              <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.4rem; color:var(--color-text);">Your Story &amp; Feedback *</label>
+              <textarea class="form-control" rows="3" placeholder="Tell us about the magic! What was your child's favorite trick or moment?" required></textarea>
+            </div>
+            
+            <div style="margin-bottom: 1.75rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+              <input type="checkbox" id="consent" required style="margin-top: 0.25rem; accent-color: var(--color-primary); width: 18px; height: 18px;">
+              <label for="consent" style="color:var(--color-text-light); font-size:0.92rem; line-height:1.5; font-weight: 500;">
+                I confirm I have parental permission to share these memories and agree to Magiqo's community safety guidelines.
               </label>
             </div>
             
-            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.125rem; padding: 1rem;">Submit for Review</button>
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              <i class="fa-solid fa-paper-plane"></i> Submit Memory for Review
+            </button>
           </form>
         </div>
         
         <!-- Success Message (Hidden by default) -->
-        <div id="success-message" style="display:none; text-align:center; padding: 4rem 2rem; border-radius:var(--radius-lg); background:rgba(46, 204, 113, 0.1); border:2px solid #2ecc71;">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2" style="margin-bottom:1rem;">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          <h3 style="color:var(--color-text); font-size:2rem; margin-bottom:1rem; font-family:var(--font-magic);">Moment Submitted!</h3>
-          <p style="color:var(--color-text-light); font-size:1.1rem; line-height:1.6;">
-            Thank you for sharing your magic with us. Your memory has been submitted for review and will appear in the gallery soon!
+        <div id="success-message" style="display:none; text-align:center; padding: 4rem 2rem; border-radius:var(--radius-lg); background:rgba(46, 204, 113, 0.08); border:2px solid #2ecc71; grid-column: 2;">
+          <i class="fa-solid fa-circle-check" style="font-size: 3.5rem; color: #2ecc71; margin-bottom: 1.25rem;"></i>
+          <h3 style="color:var(--color-text); font-size:2.2rem; font-weight:800; margin-bottom:1rem; font-family:var(--font-magic);">
+            Moment Submitted Successfully!
+          </h3>
+          <p style="color:var(--color-text-light); font-size:1.15rem; line-height:1.6; max-width: 500px; margin: 0 auto 2rem;">
+            Thank you for sharing your celebration with us. Your submission has been securely received and will appear in the community gallery after quick moderation!
           </p>
-          <button onclick="resetForm()" class="btn btn-outline" style="margin-top:2rem;">Upload Another</button>
+          <button onclick="resetForm()" class="btn btn-outline">Upload Another Photo</button>
         </div>
         
       </div>
@@ -289,51 +598,80 @@ html_content = """<!DOCTYPE html>
   <!-- 04. Choose Your Celebration -->
   <section id="categories" style="padding: 6rem 0; background: var(--color-bg);">
     <div class="container">
-      <div class="section-title text-center" style="font-family: var(--font-magic);">
-        <span style="color: var(--color-primary);">Explore by</span> <span style="color: #3895c8;">Category</span>
+      <div class="text-center" data-aos="zoom-in">
+        <h2 class="section-title" style="font-family: var(--font-magic); font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 0.75rem;">
+          <span class="text-pink">Explore by</span> <span class="text-blue">Category</span>
+        </h2>
+        <div class="section-subtitle" style="font-size: 1.15rem; color: var(--color-text-light);">
+          Browse authentic party moments organized by event theme.
+        </div>
       </div>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:2rem; margin-top:3rem;">
-        <div class="category-card">
-          <img src="assets/images/superhero_party_1790842695325.jpg" style="width:100%; height:180px; object-fit:cover;">
-          <div style="padding: 1.5rem;">
-            <h3 style="color:var(--color-primary); font-family:var(--font-magic); font-size:1.5rem;">Kids' Parties</h3>
+      
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:2rem; margin-top:3.5rem;">
+        
+        <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+          <div style="overflow:hidden; height:200px;">
+            <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Kids' Magic Parties">
+          </div>
+          <div style="padding: 1.75rem;">
+            <h3>Kids' Magic Shows</h3>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; margin-top: 0.5rem;">Ages 4 - 12 Years</p>
           </div>
         </div>
-        <div class="category-card">
-          <img src="assets/images/clown_party_1790842566084.jpg" style="width:100%; height:180px; object-fit:cover;">
-          <div style="padding: 1.5rem;">
-            <h3 style="color:var(--color-primary); font-family:var(--font-magic); font-size:1.5rem;">Toddler Birthdays</h3>
+
+        <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+          <div style="overflow:hidden; height:200px;">
+            <img src="assets/images/clown_party_1790842566084.jpg" alt="Toddler Birthday Clowns">
+          </div>
+          <div style="padding: 1.75rem;">
+            <h3>Toddler Giggles</h3>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; margin-top: 0.5rem;">Ages 2 - 6 Years</p>
           </div>
         </div>
-        <div class="category-card">
-          <img src="assets/images/party_moments_2_1790918669697.jpg" style="width:100%; height:180px; object-fit:cover;">
-          <div style="padding: 1.5rem;">
-            <h3 style="color:var(--color-primary); font-family:var(--font-magic); font-size:1.5rem;">Special Celebrations</h3>
+
+        <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+          <div style="overflow:hidden; height:200px;">
+            <img src="assets/images/interactive_party_show.jpg" alt="Special Celebrations">
+          </div>
+          <div style="padding: 1.75rem;">
+            <h3>Special Celebrations</h3>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; margin-top: 0.5rem;">All Age Groups</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- 05. Stories Behind the Smiles -->
-  <section id="featured" style="padding: 6rem 0; background: var(--color-surface);">
+  <section id="featured" style="padding: 6rem 0; background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
     <div class="container">
-      <div class="section-title text-center" style="font-family: var(--font-magic);">
-        <span style="color: var(--color-primary);">Stories Behind</span> <span style="color: #3895c8;">The Smiles</span>
-      </div>
-      <div class="section-subtitle text-center" style="margin-bottom:4rem;">Featured moments from our incredible community.</div>
-      
-      <div class="feature-card">
-        <div style="flex:1; min-height:300px;">
-          <img src="assets/images/magic_show_party_1790842468826.jpg" style="width:100%; height:100%; object-fit:cover;">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title" style="font-family: var(--font-magic); font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 0.75rem;">
+          <span class="text-pink">Stories Behind</span> <span class="text-blue">The Smiles</span>
+        </h2>
+        <div class="section-subtitle" style="font-size: 1.15rem; color: var(--color-text-light); margin-bottom: 3.5rem;">
+          Featured authentic reviews and celebration recaps from our parent community.
         </div>
-        <div style="flex:1; padding:3rem; display:flex; flex-direction:column; justify-content:center;">
-          <div style="color:var(--color-primary); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:1rem;">Featured Event</div>
-          <h3 style="font-size:2.5rem; margin-bottom:1rem; font-family:var(--font-magic); color:var(--color-text);">The Incredible Magic Show</h3>
-          <p style="color:var(--color-text-light); line-height:1.8; margin-bottom:1.5rem; font-style:italic; font-size: 1.1rem;">
-            "We were completely blown away by the level of engagement! The magician had every single child completely focused and laughing for an entire hour. It made our son's 7th birthday truly unforgettable. He actually made a dove appear out of thin air, and the look on the kids' faces was priceless. I highly recommend them to anyone wanting a real, awe-inspiring experience for their child."
+      </div>
+      
+      <div class="feature-card" data-aos="zoom-in-up" data-aos-duration="800">
+        <div style="flex:1; min-height:360px; overflow:hidden;">
+          <img src="assets/images/about_kids_birthday.jpg" alt="The Incredible Magic Show" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div style="flex:1; padding:3.5rem; display:flex; flex-direction:column; justify-content:center;">
+          <div style="color:var(--color-primary); font-weight:800; text-transform:uppercase; letter-spacing:1.5px; font-size:0.9rem; margin-bottom:0.75rem;">
+            <i class="fa-solid fa-trophy"></i> Featured Celebration
+          </div>
+          <h3 style="font-size:2.2rem; font-weight:800; margin-bottom:1.25rem; font-family:var(--font-magic); color:var(--color-text);">
+            The Grand Illusion Party
+          </h3>
+          <p style="color:var(--color-text-light); line-height:1.8; margin-bottom:1.75rem; font-style:italic; font-size: 1.1rem;">
+            "We were completely blown away by the level of engagement! The magician had all 25 kids totally focused and cheering for a solid hour. The birthday levitation trick left every adult in disbelief. It made our son's 7th birthday completely unforgettable!"
           </p>
-          <div style="color:var(--color-primary); font-size:1rem; font-weight: bold;">- Shared by The Anderson Family</div>
+          <div style="color:var(--color-primary); font-size:1.05rem; font-weight: 700;">
+            — Shared by The Anderson Family (London)
+          </div>
         </div>
       </div>
     </div>
@@ -342,77 +680,119 @@ html_content = """<!DOCTYPE html>
   <!-- 06. The Entertainer Spotlight -->
   <section id="spotlight" style="padding: 6rem 0; background: var(--color-bg);">
     <div class="container">
-      <div class="section-title text-center" style="font-family: var(--font-magic);">
-        <span style="color: var(--color-primary);">Entertainer</span> <span style="color: #3895c8;">Spotlight</span>
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title" style="font-family: var(--font-magic); font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 0.75rem;">
+          <span class="text-pink">Entertainer</span> <span class="text-blue">Spotlight</span>
+        </h2>
+        <div style="text-align:center; max-width:620px; margin:0 auto 2.5rem; color:var(--color-text-light); font-size:1.15rem;" data-aos="fade-up" data-aos-delay="100">
+          Discover the top performers who bring these extraordinary moments to life. Click to explore specialties.
+        </div>
       </div>
-      <div style="text-align:center; max-width:600px; margin:0 auto 3rem; color:var(--color-text-light);">
-        Discover the talented professionals making these moments possible. Click to learn what they do.
-      </div>
-      <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-        <button onclick="showEntertainer('Magic Show', 'Prepare to be amazed by classic illusions, card tricks, and mind-bending stage magic that captivates audiences of all ages.')" class="btn btn-outline" style="border-radius:50px; font-size:1.1rem;">The Great Magic Show</button>
-        <button onclick="showEntertainer('Royal Princess', 'Our princesses bring fairy tales to life with elegant tea parties, enchanting storytelling, and royal coronation ceremonies.')" class="btn btn-outline" style="border-radius:50px; font-size:1.1rem;">Royal Princess</button>
-        <button onclick="showEntertainer('Superhero', 'Action-packed hero training! Our heroes engage kids with dynamic stunt shows, games, and meet-and-greets.')" class="btn btn-outline" style="border-radius:50px; font-size:1.1rem;">Ultimate Hero</button>
-        <button onclick="showEntertainer('Silly Clowns', 'Hilarious slapstick comedy, balloon animals, and non-stop laughter perfect for toddlers and young children.')" class="btn btn-outline" style="border-radius:50px; font-size:1.1rem;">Silly Clowns</button>
+
+      <div class="spotlight-btn-group" data-aos="fade-up" data-aos-delay="150">
+        <button onclick="showEntertainer('Master Magicians', 'Prepare to be amazed by classic sleight of hand, mentalism, and stage levitation that leaves both kids and adults astonished.')" class="btn btn-outline">Master Magicians</button>
+        <button onclick="showEntertainer('Fairytale Princesses', 'Arriving in museum-grade royal gowns with live musical theatre singing, storytelling, and heartwarming coronation tiaras.')" class="btn btn-outline">Royal Princesses</button>
+        <button onclick="showEntertainer('Action Heroes', 'High-voltage superhero obstacle courses, stunt agility drills, teamwork games, and official superhero oath ceremonies.')" class="btn btn-outline">Action Heroes</button>
+        <button onclick="showEntertainer('Circus & Slapstick', 'Award-winning juggling acts, runaway slapstick comedy, plate spinning, and giant balloon sculptures for non-stop laughter.')" class="btn btn-outline">Circus &amp; Clowns</button>
       </div>
       
       <!-- Inline Entertainer Description -->
-      <div id="ent-desc-box" style="display:none; max-width:600px; margin: 3rem auto 0; background:var(--color-surface); padding:2rem; border-radius:var(--radius-md); box-shadow:0 10px 20px var(--color-shadow); text-align:center;">
-        <h3 id="ent-title" style="color:var(--color-primary); font-family:var(--font-magic); font-size:2rem; margin-bottom:1rem;">Title</h3>
-        <p id="ent-desc" style="color:var(--color-text-light); font-size:1.1rem; line-height:1.6;"></p>
+      <div id="ent-desc-box" style="display:none; max-width:720px; margin: 3rem auto 0; background:var(--color-surface); padding:3rem; border-radius:var(--radius-lg); border:1px solid var(--color-border); box-shadow:0 15px 35px var(--color-shadow); text-align:center; border-top: 4px solid var(--color-primary);">
+        <h3 id="ent-title" style="color:var(--color-primary); font-family:var(--font-magic); font-weight:800; font-size:2rem; margin-bottom:1rem;">Title</h3>
+        <p id="ent-desc" style="color:var(--color-text-light); font-size:1.15rem; line-height:1.7;"></p>
       </div>
     </div>
   </section>
 
-  <!-- 08. Your Memories, Our Inspiration -->
-  <section style="padding: 6rem 0; background: var(--color-surface);">
-    <div class="container" style="max-width:900px;">
-      <div class="inspiration-card text-center">
-        <h2 style="font-family: var(--font-magic); font-size:3rem; margin-bottom: 2rem; position:relative; z-index:2;">
-          Your Memories, <br>Our Inspiration
-        </h2>
-        <p style="font-size: 1.25rem; line-height: 1.8; font-style:italic; position:relative; z-index:2; margin-bottom:2rem;">
-          "Seeing the joy and wonder in these shared moments is what drives us. Thank you to every family and community member who allows us to be a part of their special celebrations. Your smiles fuel our magic."
-        </p>
-        <div style="font-weight:bold; font-size:1.1rem; position:relative; z-index:2;">- The Magiqo Team</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. CTA -->
-  <section style="padding: 8rem 0; text-align:center; background: var(--color-tertiary);">
+  <!-- 08. Redesigned Your Memories, Our Inspiration -->
+  <section class="inspiration-section">
     <div class="container">
-      <h2 style="font-family: var(--font-magic); font-size:3.5rem; margin-bottom:1.5rem; color: white;">
-        Let's Make More Memories
-      </h2>
-      <p style="color:rgba(255,255,255,0.9); font-size:1.25rem; margin-bottom:3rem;">Ready to create unforgettable moments for your next big celebration?</p>
+      <div class="inspiration-grid">
+        <div data-aos="fade-right">
+          <h2 style="font-family: var(--font-magic); font-size: clamp(2.5rem, 4.5vw, 3.5rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.2;">
+            <span class="text-pink">Your Memories,</span><br>
+            <span class="text-blue">Our Inspiration</span>
+          </h2>
+          <p style="font-size: 1.2rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 2rem;">
+            Every party is unique, and every child's smile is special. We are endlessly inspired by the joy, laughter, and creativity shared by Magiqo families across the country.
+          </p>
+        </div>
+        <div data-aos="fade-left">
+          <div class="quote-box">
+            <p style="font-size: 1.25rem; line-height: 1.8; font-style:italic; color:var(--color-text); margin-bottom:1.75rem; position:relative; z-index:2;">
+              "Seeing the joy and wonder in these shared moments is what drives us. Thank you to every family who welcomes us into their home to create lifelong memories. Your smiles fuel our magic."
+            </p>
+            <div style="font-weight:800; font-size:1.1rem; color:var(--color-primary); text-transform:uppercase; letter-spacing:1.5px; font-family: var(--font-magic);">
+              — The Magiqo Team
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Official Magiqo Final CTA -->
+  <section class="cta-banner-section">
+    <div class="container" data-aos="zoom-in" data-aos-duration="900">
+      <h2>Let's Make More Memories</h2>
+      <p>Ready to create an unforgettable celebration for your child's next big milestone?</p>
       <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
-        <a href="#upload-section" class="btn" style="padding:1rem 2.5rem; font-size: 1.1rem; background:white; color:var(--color-tertiary); font-weight:bold; border-radius:var(--radius-pill);">Upload a Memory</a>
-        <a href="packages.html" class="btn btn-outline" style="padding:1rem 2.5rem; font-size: 1.1rem; color:white; border-color:white; border-radius:var(--radius-pill);">Book an Entertainer</a>
+        <a href="#upload-section" class="btn btn-white btn-lg">
+          <i class="fa-solid fa-camera"></i> Upload a Memory
+        </a>
+        <a href="packages.html" class="btn btn-outline-white btn-lg">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Book an Entertainer
+        </a>
       </div>
     </div>
   </section>
 
   <!-- 07. Lightbox Modal -->
-  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter: blur(8px);">
-    <div style="background:var(--color-surface); border-radius:var(--radius-lg); overflow:hidden; display:flex; flex-wrap:wrap; max-width:900px; width:100%; position:relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5);">
-      <button onclick="document.getElementById('lightbox').style.display='none'" style="position:absolute; top:15px; right:20px; background:rgba(255,255,255,0.8); border:none; font-size:1.5rem; color:#111; cursor:pointer; width:40px; height:40px; border-radius:50%; z-index:10; display:flex; align-items:center; justify-content:center;">&times;</button>
-      <div style="flex:1; min-width:300px;">
-        <img id="lightboxImg" src="" alt="Moment" style="width:100%; height:100%; object-fit:cover; display:block; min-height:300px; max-height: 70vh;">
+  <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; padding:20px; backdrop-filter: blur(10px); opacity:0; transition:opacity 0.3s ease;">
+    <div style="background:var(--color-surface); border: 1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; display:flex; flex-wrap:wrap; max-width:960px; width:100%; position:relative; box-shadow: 0 25px 60px rgba(0,0,0,0.5); transform:scale(0.95); transition:transform 0.3s ease;" id="lightbox-content">
+      <button onclick="closeLightbox()" style="position:absolute; top:15px; right:20px; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.2); font-size:1.5rem; color:#FFFFFF; cursor:pointer; width:40px; height:40px; border-radius:50%; z-index:10; display:flex; align-items:center; justify-content:center; transition:background 0.3s;">&times;</button>
+      <div style="flex:1.2; min-width:300px; background:#000;">
+        <img id="lightboxImg" src="" alt="Moment" style="width:100%; height:100%; object-fit:contain; display:block; min-height:320px; max-height: 75vh;">
       </div>
-      <div style="flex:1; padding:3rem; display:flex; flex-direction:column; justify-content:center; min-width:300px;">
-        <h3 style="font-family:var(--font-magic); font-size:2.5rem; color:var(--color-primary); margin-bottom:1rem;">Community Memory</h3>
-        <p id="lightboxDesc" style="color:var(--color-text-light); font-size:1.1rem; line-height:1.6; font-style:italic;">""</p>
+      <div style="flex:1; padding:3.5rem; display:flex; flex-direction:column; justify-content:center; min-width:280px; background:var(--color-surface);">
+        <div style="color:var(--color-primary); font-weight:700; text-transform:uppercase; letter-spacing:1.5px; font-size:0.85rem; margin-bottom:0.75rem;">
+          <i class="fa-solid fa-camera"></i> Community Memory
+        </div>
+        <h3 style="font-family:var(--font-magic); font-weight:800; font-size:2rem; color:var(--color-text); margin-bottom:1rem;">Verified Celebration</h3>
+        <p id="lightboxDesc" style="color:var(--color-text-light); font-size:1.15rem; line-height:1.7; font-style:italic;">""</p>
       </div>
     </div>
   </div>
 
   <div id="footer"></div>
 
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+    });
+  
     function openLightbox(imgUrl, desc) {
       document.getElementById('lightboxImg').src = imgUrl;
       document.getElementById('lightboxDesc').innerText = '"' + desc + '"';
-      document.getElementById('lightbox').style.display = 'flex';
+      const lb = document.getElementById('lightbox');
+      lb.style.display = 'flex';
+      setTimeout(() => {
+        lb.style.opacity = '1';
+        document.getElementById('lightbox-content').style.transform = 'scale(1)';
+      }, 10);
+    }
+    
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.style.opacity = '0';
+      document.getElementById('lightbox-content').style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        lb.style.display = 'none';
+      }, 300);
     }
     
     function fileSelected(e) {
@@ -429,7 +809,7 @@ html_content = """<!DOCTYPE html>
     
     function resetForm() {
       document.getElementById('uploadForm').reset();
-      document.getElementById('uploadText').innerText = 'Click to Browse Files';
+      document.getElementById('uploadText').innerText = 'Click to Browse Photos or Videos';
       document.getElementById('form-container').style.display = 'block';
       document.getElementById('success-message').style.display = 'none';
     }
@@ -437,17 +817,30 @@ html_content = """<!DOCTYPE html>
     function showEntertainer(title, desc) {
       document.getElementById('ent-title').innerText = title;
       document.getElementById('ent-desc').innerText = desc;
-      document.getElementById('ent-desc-box').style.display = 'block';
+      const box = document.getElementById('ent-desc-box');
+      box.style.display = 'block';
+      
+      box.style.opacity = '0';
+      box.style.transform = 'translateY(10px)';
+      box.style.transition = 'all 0.4s ease';
+      
+      setTimeout(() => {
+        box.style.opacity = '1';
+        box.style.transform = 'translateY(0)';
+      }, 10);
     }
   </script>
 
   <script src="js/components.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/rtl.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>
 """
 
-with open('c:/Users/vigas/Desktop/magiqo/upload.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
+with open('upload.html', 'w', encoding='utf-8') as f:
+    f.write(revamped_upload)
 
-print("done")
+print("Rewrote upload.html with full Magiqo typography, Outfit & Plus Jakarta fonts, proper weights, colors, local assets, and button system!")

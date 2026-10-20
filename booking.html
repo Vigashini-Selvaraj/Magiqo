@@ -677,7 +677,7 @@
           </div>
           <div class="stepper-controls" id="final-controls">
             <button class="btn-nav btn-nav-prev" onclick="nextStep(5)"><i class="fa-solid fa-arrow-left"></i> Back</button>
-            <button class="btn-nav btn-nav-next" style="background: #3895c8;" id="complete-booking-btn" onclick="completeBooking()">Complete Booking <i class="fa-solid fa-check"></i></button>
+            <button class="btn-nav btn-nav-next" id="complete-booking-btn" onclick="completeBooking()">Complete Booking <i class="fa-solid fa-check"></i></button>
           </div>
           <div id="booking-success" style="display: none; text-align: center; margin-top: 30px; padding: 40px; background: rgba(16, 185, 129, 0.1); border: 2px dashed #10b981; border-radius: 20px; animation: slideIn 0.5s forwards;">
             <i class="fa-solid fa-circle-check" style="font-size: 4rem; color: #10b981; margin-bottom: 20px;"></i>
@@ -1083,14 +1083,8 @@
         el.style.transition = 'none';
       });
 
-      // 2. Initial Opacity Setup
-      const fadeElements = document.querySelectorAll('.booking-hero h1, .booking-hero p, .trust-badge, .stepper-container, .summary-card, details, .query-section > div, .features-section h2, .features-section p, .gallery-section h2, .gallery-section p, .testimonials-section h2, .testimonials-section p, .faq-section h2');
-      fadeElements.forEach(el => el.style.opacity = '0');
-
+      // 2. Grids
       const grids = document.querySelectorAll('.features-grid, .gallery-section div[style*="display: grid"], .test-grid');
-      grids.forEach(grid => {
-        Array.from(grid.children).forEach(child => child.style.opacity = '0');
-      });
 
       // 3. Animations on Scroll
       

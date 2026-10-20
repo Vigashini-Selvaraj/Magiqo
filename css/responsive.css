@@ -4,6 +4,28 @@
   display: none;
 }
 
+/* Navbar Tablet Landscape / Small Desktop (e.g. 1024px) */
+@media (min-width: 992px) and (max-width: 1180px) {
+  .navbar-container {
+    padding: 0 0.75rem !important;
+  }
+  .nav-logo-img, .logo img {
+    height: 46px !important;
+  }
+  .nav-links {
+    gap: 0.65rem !important;
+    margin: 0 0.25rem !important;
+  }
+  .nav-links a {
+    font-size: 0.82rem !important;
+    white-space: nowrap !important;
+    padding: 0.2rem 0 !important;
+  }
+  .nav-actions {
+    gap: 0.4rem !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero h1 { font-size: 3.5rem; }
   
@@ -28,6 +50,70 @@
     padding: 2rem 0 !important;
   }
   
+  /* Zigzag Rows (Services & Experience) */
+  .zigzag-row, .zigzag-row:nth-child(even) {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    margin-bottom: 3.5rem !important;
+  }
+  .zigzag-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+  .zigzag-img img {
+    width: 100% !important;
+    height: 280px !important;
+    object-fit: cover !important;
+  }
+  .zigzag-text {
+    width: 100% !important;
+    flex: none !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  /* Hero Animation & Float Card (Blog & About) */
+  .hero-anim-side {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 2rem !important;
+    position: relative !important;
+  }
+  .hero-main-img {
+    width: 100% !important;
+    max-width: 520px !important;
+    height: auto !important;
+    max-height: 380px !important;
+    border-radius: 28px !important;
+    object-fit: cover !important;
+  }
+  .hero-float-card {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: -35px auto 0 auto !important;
+    width: calc(100% - 2rem) !important;
+    max-width: 380px !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+  }
+
+  /* Featured Story */
+  .featured-story {
+    grid-template-columns: 1fr !important;
+  }
+  .featured-img-wrap {
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+  .featured-content {
+    padding: 1.5rem !important;
+  }
+  
   [style*="grid-template-columns: 1fr 1fr"], 
   [style*="grid-template-columns: repeat(2"], 
   [style*="grid-template-columns: repeat(3"],
@@ -36,8 +122,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  /* Navbar */
+@media (max-width: 991px) {
+  /* Navbar Mobile Hamburger */
   .hamburger {
     display: flex;
   }
@@ -170,6 +256,38 @@
 }
 
 @media (max-width: 480px) {
+  .zigzag-row {
+    gap: 1.25rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+  .zigzag-img img {
+    height: 220px !important;
+  }
+  .zigzag-text h3 {
+    font-size: 1.7rem !important;
+  }
+  .zigzag-text p {
+    font-size: 0.95rem !important;
+  }
+
+  .hero-float-card {
+    width: 96% !important;
+    margin: -25px auto 0 auto !important;
+    padding: 1rem 1.25rem !important;
+    gap: 1rem !important;
+  }
+  .hero-float-card .float-card-icon {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+  }
+  .hero-float-card .float-card-text h4 {
+    font-size: 1.05rem !important;
+  }
+  .hero-float-card .float-card-text p {
+    font-size: 0.85rem !important;
+  }
+
   .hero-animation { 
     margin: -50px auto -150px auto !important;
   }

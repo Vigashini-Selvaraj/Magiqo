@@ -4,25 +4,29 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/antd/4.24.13/antd.min.css');
 
 :root {
-  /* Magical Theme (Light) */
-  --color-primary: #D24B76;
-  --color-primary-hover: #B7245C;
-  --color-secondary: #13315C;
-  --color-accent: #7C3238;
-  --color-supporting: rgba(237, 203, 177, 0.5);
-  /* Lightened peach */
-  --color-bg: #FFEED6;
+  /* Magical Theme (Light) - Sky Blue Uniform Accent */
+  --color-primary: #C92A58;
+  --color-primary-hover: #A71C44;
+  --color-secondary: #3895c8;
+  --color-secondary-hover: #2d82b0;
+  --color-accent: #B25E00;
+  --color-supporting: rgba(201, 42, 88, 0.08);
+  --color-bg: #FFF8F0;
   --color-surface: #FFFFFF;
-  --color-text: #13315C;
-  --color-text-light: #7C3238;
-  --color-border: #B7245C;
-  --color-shadow: rgba(19, 49, 92, 0.15);
+  --color-surface-elevated: #FFF1E2;
+  --color-text: #0E2240;
+  --color-text-light: #4A3B4E;
+  --color-border: #E8D3C4;
+  --color-shadow: rgba(14, 34, 64, 0.08);
+  --color-shadow-hover: rgba(201, 42, 88, 0.18);
 
-  --gradient-heading: linear-gradient(90deg, #D24B76, #13315C);
+  --gradient-heading: linear-gradient(135deg, #C92A58 0%, #3895c8 100%);
+  --gradient-primary: linear-gradient(135deg, #E6396B 0%, #C92A58 100%);
+  --gradient-secondary: linear-gradient(135deg, #3895c8 0%, #5BB4E5 100%);
 
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-magic: 'Playfair Display', serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-magic: 'Playfair Display', Georgia, serif;
 
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -30,27 +34,31 @@
   --radius-xl: 32px;
   --radius-pill: 9999px;
 
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme="dark"] {
-  /* Glowing Theme (Dark) */
-  --color-primary: #D24B76;
-  --color-primary-hover: #B7245C;
-  --color-secondary: #EDCBB1;
-  --color-accent: #7C3238;
-  --color-supporting: #13315C;
-  --color-bg: #000000;
-  --color-surface: #111111;
-  /* Darker navy */
-  --color-text: #EDCBB1;
-  --color-text-light: rgba(237, 203, 177, 0.7);
-  --color-border: #7C3238;
-  --color-shadow: rgba(0, 0, 0, 0.5);
+  /* Glowing Cosmic Theme (Dark) - Sky Blue Accent */
+  --color-primary: #FF5A88;
+  --color-primary-hover: #FF7E9F;
+  --color-secondary: #3895c8;
+  --color-secondary-hover: #5BB4E5;
+  --color-accent: #FFC043;
+  --color-supporting: rgba(255, 90, 136, 0.15);
+  --color-bg: #0B0E17;
+  --color-surface: #141929;
+  --color-surface-elevated: #1D243A;
+  --color-text: #F8F9FE;
+  --color-text-light: #B8BFD6;
+  --color-border: #252D47;
+  --color-shadow: rgba(0, 0, 0, 0.55);
+  --color-shadow-hover: rgba(255, 90, 136, 0.28);
 
-  --gradient-heading: linear-gradient(90deg, #EDCBB1, #D24B76);
+  --gradient-heading: linear-gradient(135deg, #FF5A88 0%, #3895c8 100%);
+  --gradient-primary: linear-gradient(135deg, #FF5A88 0%, #E6396B 100%);
+  --gradient-secondary: linear-gradient(135deg, #3895c8 0%, #5BB4E5 100%);
 }
 
 * {
@@ -58,7 +66,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body {
   font-family: var(--font-body);
@@ -76,18 +83,30 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.text-gradient {
   background: var(--gradient-heading);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: var(--color-text);
-  /* Fallback */
-  margin-bottom: 1rem;
-  font-weight: 700;
   display: inline-block;
-  /* Ensure gradient applies nicely to text width */
-  width: 100%;
-  /* Prevent collapse */
+}
+
+.text-pink {
+  color: var(--color-primary) !important;
+  -webkit-text-fill-color: var(--color-primary) !important;
+  background: none !important;
+}
+
+.text-blue {
+  color: #3895c8 !important;
+  -webkit-text-fill-color: #3895c8 !important;
+  background: none !important;
 }
 
 a {
@@ -107,70 +126,156 @@ a:hover {
   padding: 0 1.5rem;
 }
 
-/* Typography */
+/* Typography Helpers */
 .text-center {
   text-align: center;
 }
 
 .text-primary {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }
 
 .text-secondary {
-  color: var(--color-secondary);
+  color: var(--color-secondary) !important;
 }
 
-/* Buttons */
+.text-muted {
+  color: var(--color-text-light) !important;
+}
+
+/* Unified Button System */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 2rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1rem;
+  line-height: 1.2;
   cursor: pointer;
   transition: all var(--transition-normal);
-  border: none;
-  gap: 0.5rem;
+  border: 2px solid transparent;
+  gap: 0.6rem;
   text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-sm {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1.1rem 2.6rem;
+  font-size: 1.125rem;
+}
+
+.btn-full {
+  width: 100% !important;
+  display: flex !important;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(108, 59, 255, 0.3);
+  background: var(--gradient-primary);
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(201, 42, 88, 0.32);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  color: #fff;
+  background: var(--gradient-primary);
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(108, 59, 255, 0.4);
+  box-shadow: 0 12px 28px rgba(201, 42, 88, 0.45);
+  filter: brightness(1.05);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: #fff;
-  box-shadow: 0 4px 14px rgba(255, 95, 162, 0.3);
+  background: var(--gradient-secondary);
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(15, 76, 129, 0.28);
 }
 
 .btn-secondary:hover {
-  background-color: #FF4793;
-  color: #fff;
+  background: var(--gradient-secondary);
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 95, 162, 0.4);
+  box-shadow: 0 12px 28px rgba(15, 76, 129, 0.4);
+  filter: brightness(1.08);
 }
 
 .btn-outline {
-  background-color: transparent;
-  color: var(--color-primary);
+  background: transparent;
+  color: var(--color-primary) !important;
   border: 2px solid var(--color-primary);
 }
 
 .btn-outline:hover {
-  background-color: rgba(108, 59, 255, 0.05);
+  background: var(--color-primary);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 42, 88, 0.3);
+}
+
+.btn-outline-secondary {
+  background: transparent;
+  color: var(--color-secondary) !important;
+  border: 2px solid var(--color-secondary);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--color-secondary);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 76, 129, 0.3);
+}
+
+.btn-white {
+  background: #FFFFFF;
+  color: var(--color-primary) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-white:hover {
+  background: #FFFFFF;
+  color: var(--color-primary-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF;
+}
+
+.btn-outline-white:hover {
+  background: #FFFFFF;
+  color: var(--color-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--color-supporting);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
 }
 
 /* Magical Elements */
@@ -717,4 +822,75 @@ section {
 [dir="rtl"] .testimonial-card::before {
   right: auto;
   left: 2rem;
+}
+
+/* Hero Floating Surface Card (Universal Theme Adaptability) */
+.hero-float-card {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 15px 35px var(--color-shadow) !important;
+}
+
+.hero-float-card .float-card-icon {
+  background: var(--color-primary) !important;
+  flex-shrink: 0;
+}
+
+.hero-float-card .float-card-icon svg {
+  fill: #FFFFFF !important;
+}
+
+.hero-float-card .float-card-text h4 {
+  color: var(--color-text) !important;
+}
+
+.hero-float-card .float-card-text p {
+  color: var(--color-text-light) !important;
+}
+/* ========================================================
+   UNIVERSAL MAGIQO CTA BRAND PINK (#C92A58)
+   Consistent vibrant brand pink across all pages & themes
+   ======================================================== */
+.cta-section, .cta-banner-section {
+  background: #C92A58 !important;
+  background-color: #C92A58 !important;
+  color: #FFFFFF !important;
+}
+
+.cta-section h2, .cta-banner-section h2 {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background: none !important;
+}
+
+.cta-section p, .cta-banner-section p {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.cta-section .btn-white, .cta-banner-section .btn-white {
+  background: #FFFFFF !important;
+  color: #C92A58 !important;
+  border-color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.cta-section .btn-white:hover, .cta-banner-section .btn-white:hover {
+  background: #FFF8F0 !important;
+  color: #A71C44 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-section .btn-outline-white, .cta-banner-section .btn-outline-white {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border: 2px solid rgba(255, 255, 255, 0.85) !important;
+  font-weight: 700 !important;
+}
+
+.cta-section .btn-outline-white:hover, .cta-banner-section .btn-outline-white:hover {
+  background: #FFFFFF !important;
+  color: #C92A58 !important;
+  border-color: #FFFFFF !important;
+  transform: translateY(-2px);
 }

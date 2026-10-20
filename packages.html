@@ -124,12 +124,12 @@
       font-size: 1.05rem;
     }
     .step-modal-btn:hover {
-      background: #3895c8;
+      background: var(--color-secondary);
       color: white;
     }
 
     .choose-package-btn:hover {
-      background: #3895c8 !important;
+      background: var(--color-primary-hover) !important;
       color: white !important;
       transform: translateY(-3px);
     }
@@ -202,7 +202,7 @@
       background: var(--color-primary);
       color: #fff;
       border-color: var(--color-primary);
-      box-shadow: 0 4px 14px rgba(210, 75, 118, 0.3);
+      box-shadow: 0 4px 14px rgba(201, 42, 88, 0.3);
     }
     
     .packages-grid {
@@ -219,6 +219,7 @@
       transition: all var(--transition-normal);
       display: flex;
       flex-direction: column;
+      box-shadow: var(--shadow-sm);
     }
     .package-card:hover {
       transform: translateY(-5px);
@@ -239,7 +240,7 @@
     .package-content h3 {
       font-family: var(--font-magic);
       font-size: 1.8rem;
-      color: #3895c8;
+      color: var(--color-text);
       margin-bottom: 10px;
       -webkit-text-fill-color: initial;
       background: none;
@@ -266,13 +267,13 @@
     .package-features li {
       margin-bottom: 12px;
       font-size: 0.95rem;
-      color: #3895c8;
+      color: var(--color-text);
       display: flex;
       align-items: center;
       gap: 12px;
     }
     .package-features li i {
-      color: #3895c8;
+      color: var(--color-secondary);
       font-size: 1.1rem;
     }
     
@@ -370,7 +371,7 @@
     .cta-section {
       text-align: center;
       padding: 100px 20px;
-      background: var(--color-surface);
+      background: #C92A58 !important;
       border-radius: var(--radius-lg);
       border: 2px solid var(--color-primary);
       margin-bottom: 100px;
@@ -501,98 +502,104 @@
 
       <div class="packages-grid">
         <!-- Package 1 -->
-        <div class="package-card reveal" data-category="birthday">
-          <img src="assets/images/pro_classic_magic.jpg" alt="Sparkle Party" class="package-img">
+        <div class="package-card" data-category="birthday">
+          <img src="assets/images/sparkle_party.jpg" alt="Sparkle Party" class="package-img">
           <div class="package-content">
             <h3>Sparkle Party</h3>
-            <p>Perfect for birthdays! Includes games, music, and joyful entertainment that kids absolutely love.</p>
+            <p>Perfect for birthdays! Includes party games, background music, balloon animal giveaways, and joyful interactive fun that kids adore.</p>
             <div class="package-price">$99 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
             <ul class="package-features">
-              <li><i class="fa-solid fa-clock"></i> 1 hour of entertainment</li>
-              <li><i class="fa-solid fa-user"></i> 1 Professional Entertainer</li>
-              <li><i class="fa-solid fa-gamepad"></i> Interactive Games & Fun</li>
+              <li><i class="fa-solid fa-clock"></i> 1 hour of continuous entertainment</li>
+              <li><i class="fa-solid fa-user"></i> 1 Dedicated Professional Entertainer</li>
+              <li><i class="fa-solid fa-gamepad"></i> Interactive Party Games & Props</li>
+              <li><i class="fa-solid fa-gift"></i> Keepsake Gift for Birthday Child</li>
             </ul>
-            <a href="booking.html?package=sparkle-party" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+            <a href="booking.html?package=sparkle-party" class="btn btn-primary btn-full choose-package-btn">Choose Package &rarr;</a>
           </div>
         </div>
 
         <!-- Package 2 -->
-        <div class="package-card reveal" data-category="birthday theme">
-          <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Magic Adventure" class="package-img">
+        <div class="package-card" data-category="birthday theme">
+          <img src="assets/images/magic_show_party_1790842468826.jpg" alt="Magic Adventure" class="package-img">
           <div class="package-content">
             <h3>Magic Adventure</h3>
-            <p>Captivating performances and interactive fun designed to amaze larger celebrations and parties.</p>
+            <p>Captivating stage illusions, sleight of hand, and interactive comedy magic designed to amaze kids and parents alike.</p>
             <div class="package-price">$149 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
             <ul class="package-features">
               <li><i class="fa-solid fa-clock"></i> 1.5 hours of entertainment</li>
-              <li><i class="fa-solid fa-wand-magic-sparkles"></i> Spectacular Magic Show</li>
-              <li><i class="fa-solid fa-camera"></i> Meet & Greet Moments</li>
+              <li><i class="fa-solid fa-wand-magic-sparkles"></i> Spectacular Live Magic Show</li>
+              <li><i class="fa-solid fa-hands-clapping"></i> Kid-Volunteers Magic Participation</li>
+              <li><i class="fa-solid fa-camera"></i> Meet & Greet Photo Opportunity</li>
             </ul>
-            <a href="booking.html?package=magic-adventure" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+            <a href="booking.html?package=magic-adventure" class="btn btn-primary btn-full choose-package-btn">Choose Package &rarr;</a>
           </div>
         </div>
 
         <!-- Package 3 -->
-        <div class="package-card reveal" data-category="theme">
-          <img src="assets/images/pro_princess.jpg" alt="Fantasy World" class="package-img">
+        <div class="package-card" data-category="theme">
+          <img src="assets/images/princess_party_1790842645232.jpg" alt="Fantasy World" class="package-img">
           <div class="package-content">
             <h3>Fantasy World</h3>
-            <p>Story-inspired play and themed activities that transport kids straight into a magical fantasy world.</p>
+            <p>Story-inspired roleplay, singing, coronation ceremony, and themed games transporting young guests straight into a fairytale kingdom.</p>
             <div class="package-price">$199 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
             <ul class="package-features">
-              <li><i class="fa-solid fa-clock"></i> 2 hours of entertainment</li>
-              <li><i class="fa-solid fa-crown"></i> Custom Themed Activities</li>
-              <li><i class="fa-solid fa-music"></i> Interactive Story & Music</li>
+              <li><i class="fa-solid fa-clock"></i> 2 hours of themed entertainment</li>
+              <li><i class="fa-solid fa-crown"></i> Royal/Hero Coronation & Themed Activities</li>
+              <li><i class="fa-solid fa-music"></i> Interactive Storybook & Live Vocals</li>
+              <li><i class="fa-solid fa-wand-sparkles"></i> Glitter or Face Paint Accents</li>
             </ul>
-            <a href="booking.html?package=fantasy-world" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+            <a href="booking.html?package=fantasy-world" class="btn btn-primary btn-full choose-package-btn">Choose Package &rarr;</a>
           </div>
         </div>
 
         <!-- Package 4 -->
-        <div class="package-card reveal" data-category="school">
-          <img src="assets/images/pro_memory.jpg" alt="Little Explorers" class="package-img">
+        <div class="package-card" data-category="school">
+          <img src="assets/images/kids_clapping_party_1790917531872.jpg" alt="Little Explorers" class="package-img">
           <div class="package-content">
             <h3>Little Explorers</h3>
-            <p>Exciting group activities, team games, and challenges perfectly suited for school events and big crowds.</p>
+            <p>High-octane obstacle relays, team challenges, and dynamic group competitions perfectly suited for school carnivals and large venues.</p>
             <div class="package-price">$249 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
             <ul class="package-features">
-              <li><i class="fa-solid fa-clock"></i> 2.5 hours of entertainment</li>
-              <li><i class="fa-solid fa-users"></i> 2 Professional Entertainers</li>
-              <li><i class="fa-solid fa-puzzle-piece"></i> Exciting Team Challenges</li>
+              <li><i class="fa-solid fa-clock"></i> 2.5 hours of high-energy games</li>
+              <li><i class="fa-solid fa-users"></i> 2 Professional Entertainers / Hosts</li>
+              <li><i class="fa-solid fa-puzzle-piece"></i> Dynamic Team Challenges & Relays</li>
+              <li><i class="fa-solid fa-bullhorn"></i> Complete Sound System Provided</li>
             </ul>
-            <a href="booking.html?package=little-explorers" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+            <a href="booking.html?package=little-explorers" class="btn btn-primary btn-full choose-package-btn">Choose Package &rarr;</a>
           </div>
         </div>
 
         <!-- Package 5 -->
-        <div class="package-card reveal" data-category="theme">
-          <img src="assets/images/pro_gallery_alt.jpg" alt="Joyful Moments" class="package-img">
+        <div class="package-card" data-category="theme">
+          <img src="assets/images/service_balloon_twisting.jpg" alt="Joyful Moments" class="package-img">
           <div class="package-content">
             <h3>Joyful Moments</h3>
-            <p>An intimate experience for smaller gatherings focused on personal interaction and close-up magic.</p>
+            <p>An intimate and personal experience for cozy living room parties, focusing on close-up artistry, custom balloon sculptures, and warmth.</p>
             <div class="package-price">$129 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
             <ul class="package-features">
-              <li><i class="fa-solid fa-clock"></i> 1 hour of entertainment</li>
-              <li><i class="fa-solid fa-wand-sparkles"></i> Close-up Magic</li>
-              <li><i class="fa-solid fa-gift"></i> Custom Keepsake</li>
+              <li><i class="fa-solid fa-clock"></i> 1 hour of personalized interaction</li>
+              <li><i class="fa-solid fa-paint-brush"></i> Face Art or Balloon Twisting</li>
+              <li><i class="fa-solid fa-wand-sparkles"></i> Close-Up Micro-Illusions</li>
+              <li><i class="fa-solid fa-gift"></i> Deluxe Keepsake for Birthday Child</li>
             </ul>
-            <a href="booking.html?package=joyful-moments" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+            <a href="booking.html?package=joyful-moments" class="btn btn-primary btn-full choose-package-btn">Choose Package &rarr;</a>
           </div>
         </div>
 
         <!-- Package 6 -->
-        <div class="package-card reveal" data-category="birthday school">
-          <img src="assets/images/pro_services_hero.jpg" alt="Ultimate Celebration" class="package-img">
+        <div class="package-card" data-category="birthday school">
+          <img src="assets/images/pro_grand_stage.jpg" alt="Ultimate Celebration" class="package-img">
           <div class="package-content">
             <h3>Ultimate Celebration</h3>
-            <p>The premium package that includes everything. Perfect for huge parties, with massive stage performances.</p>
+            <p>Our all-inclusive flagship package! Stage magic, full sound & light effects, 3 performers, character visits, and unforgettable grand finale.</p>
             <div class="package-price">$349 <span style="font-size: 1rem; font-weight: normal; color: var(--color-text-light);">/ event</span></div>
             <ul class="package-features">
-              <li><i class="fa-solid fa-clock"></i> 3 hours of entertainment</li>
-              <li><i class="fa-solid fa-users"></i> 3 Professional Entertainers</li>
-              <li><i class="fa-solid fa-star"></i> Full Stage Magic Show</li>
+              <li><i class="fa-solid fa-clock"></i> 3 full hours of non-stop spectacles</li>
+              <li><i class="fa-solid fa-users"></i> 3 Professional Performers & Crew</li>
+              <li><i class="fa-solid fa-star"></i> Full Grand Stage Magic Production</li>
+              <li><i class="fa-solid fa-gift"></i> Premium Deluxe Magic Kit for Child</li>
             </ul>
-            <a href="booking.html?package=ultimate-celebration" class="btn btn-primary choose-package-btn" style="width: 100%;">Choose Package</a>
+            <a href="booking.html?package=ultimate-celebration" class="btn btn-primary btn-full choose-package-btn">Choose Package &rarr;</a>
           </div>
         </div>
 
@@ -786,7 +793,7 @@
               <div class="feature-item"><i class="fa-solid fa-camera"></i> Meet & Greet</div>
             </div>
             <div class="accordion-action">
-              <a href="booking.html" class="btn btn-primary" style="background: #3895c8; border-color: #3895c8; padding: 0.75rem 2rem;">Select Magic Adv.</a>
+              <a href="booking.html" class="btn btn-primary" style="padding: 0.75rem 2rem;">Select Magic Adv.</a>
             </div>
           </div>
         </div>
@@ -862,41 +869,80 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="container">
-      <h2 class="section-title reveal"><span class="text-pink">How</span> <span class="text-blue">booking works</span></h2>
-      <p class="reveal" style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto;">Plan your celebration with our simple 4-step process, from choosing your magical experience to confirming the final details.</p>
+    <section class="container" style="padding: 4rem 20px;">
+      <h2 class="section-title"><span class="text-pink">How</span> <span class="text-blue">booking works</span></h2>
+      <p style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto 3rem;">Plan your celebration with our simple 4-step process, from choosing your magical experience to confirming the final details.</p>
       
       <div class="steps-grid">
-        <div class="step-card reveal clickable-step" data-step="1">
-          <div class="step-img-wrap"><img src="assets/images/pro_magical_services.jpg" alt="Pick a Package"></div>
+        <div class="step-card clickable-step" data-step="1">
+          <div class="step-img-wrap"><img src="assets/images/magic_package.jpg" alt="Pick a Package"></div>
           <div class="step-number">1</div>
-          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Pick a Package</h3>
+          <h3 style="color: var(--color-text);">Pick a Package</h3>
           <p>Explore our crafted experiences and pick the perfect magic package for your event.</p>
         </div>
-        <div class="step-card reveal clickable-step" data-step="2">
-          <div class="step-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Select Entertainer"></div>
+        <div class="step-card clickable-step" data-step="2">
+          <div class="step-img-wrap"><img src="assets/images/performer_superhero.jpg" alt="Select Entertainer"></div>
           <div class="step-number">2</div>
-          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Select Entertainer</h3>
+          <h3 style="color: var(--color-text);">Select Entertainer</h3>
           <p>Tell us who you want to invite! Choose the entertainer or character for your child.</p>
         </div>
-        <div class="step-card reveal clickable-step" data-step="3">
-          <div class="step-img-wrap"><img src="assets/images/pro_gallery_alt.jpg" alt="Share Details"></div>
+        <div class="step-card clickable-step" data-step="3">
+          <div class="step-img-wrap"><img src="assets/images/service_puppet_show.jpg" alt="Share Details"></div>
           <div class="step-number">3</div>
-          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Share Details</h3>
+          <h3 style="color: var(--color-text);">Share Details</h3>
           <p>Fill out our simple form with your date, location, and any special requests you have.</p>
         </div>
-        <div class="step-card reveal clickable-step" data-step="4">
-          <div class="step-img-wrap"><img src="assets/images/pro_memory.jpg" alt="Confirm"></div>
+        <div class="step-card clickable-step" data-step="4">
+          <div class="step-img-wrap"><img src="assets/images/pa_system_setup.jpg" alt="Confirm"></div>
           <div class="step-number">4</div>
-          <h3 style="background: linear-gradient(90deg, var(--color-primary), #3895c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Confirm</h3>
+          <h3 style="color: var(--color-text);">Confirm</h3>
           <p>Review your booking and submit. We will verify and lock in your special date!</p>
         </div>
       </div>
+    </section>
 
+    <!-- INCLUDED IN EVERY PACKAGE GUARANTEE (Content & Layout Enhancement) -->
+    <section class="container" style="margin-bottom: 5rem;">
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 24px; padding: 3.5rem 2.5rem; box-shadow: var(--shadow-sm);">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+          <h2 style="font-family: var(--font-magic); font-size: 2.5rem; margin-bottom: 0.75rem;"><span class="text-pink">Every Package</span> <span class="text-blue">Includes</span></h2>
+          <p style="color: var(--color-text-light); font-size: 1.1rem; line-height: 1.6;">No surprise fees or extra equipment rentals. Every Magiqo booking comes completely equipped for instant fun.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+          <div style="text-align: center; padding: 1.5rem; background: var(--color-bg); border-radius: 16px; border: 1px solid var(--color-border);">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(201, 42, 88, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <i class="fa-solid fa-shield-halved" style="font-size: 1.75rem; color: var(--color-primary);"></i>
+            </div>
+            <h4 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">100% Insured & Vetted</h4>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.5;">Background checks and comprehensive liability insurance on every talent.</p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--color-bg); border-radius: 16px; border: 1px solid var(--color-border);">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(15, 76, 129, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <i class="fa-solid fa-volume-high" style="font-size: 1.75rem; color: var(--color-secondary);"></i>
+            </div>
+            <h4 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">Pro Sound & Props</h4>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.5;">Wireless mics, party playlists, and all magic props brought to your venue.</p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--color-bg); border-radius: 16px; border: 1px solid var(--color-border);">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(22, 163, 74, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <i class="fa-solid fa-calendar-check" style="font-size: 1.75rem; color: #16A34A;"></i>
+            </div>
+            <h4 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">Free Rescheduling</h4>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.5;">Sick kid or rain? Reschedule up to 7 days ahead with zero penalty fees.</p>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--color-bg); border-radius: 16px; border: 1px solid var(--color-border);">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+              <i class="fa-solid fa-gift" style="font-size: 1.75rem; color: #D97706;"></i>
+            </div>
+            <h4 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">Birthday Keepsake</h4>
+            <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.5;">A special coronation crown, wand, or magic certificate for the child of honor.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- FAQs -->
-    <section class="faq-section reveal">
+    <section class="faq-section">
       <h2 class="section-title"><span class="text-pink">Frequently</span> <span class="text-blue">Asked Questions</span></h2>
       <div style="margin-top: 40px;">
         <div class="faq-item">
@@ -931,7 +977,7 @@
       <div class="cta-section reveal">
         <h2><span class="text-pink">Let's make</span> <span class="text-blue">a little magic happen</span></h2>
         <p class="cta-desc">Choose an experience, find your entertainer, and start planning a celebration filled with laughter, wonder, and unforgettable moments.</p>
-        <a href="booking.html" class="btn btn-primary" style="position: relative; padding: 20px 50px; font-size: 1.35rem; box-shadow: 0 10px 30px rgba(210, 75, 118, 0.4); text-transform: uppercase; letter-spacing: 1px;">Plan Your Celebration <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i></a>
+        <a href="booking.html" class="btn btn-primary btn-lg">Plan Your Celebration <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i></a>
       </div>
     </section>
   </main>
@@ -1054,80 +1100,17 @@
   <script type="module">
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Clean up old CSS-based scroll reveal to prevent conflicts
-      const oldReveals = document.querySelectorAll(".reveal");
-      oldReveals.forEach(el => {
-        el.classList.remove("reveal");
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.transition = 'none';
-      });
-
-      // 2. Initial Opacity Setup
-      const fadeElements = document.querySelectorAll('.hero-text-side, .hero-img-side, .section-title, p[style*="text-align: center"], .filter-container, .faq-item, .cta-section h2, .cta-desc');
-      fadeElements.forEach(el => el.style.opacity = '0');
-
-      const grids = document.querySelectorAll('.packages-grid, .modern-compare-grid, .steps-grid');
-      grids.forEach(grid => {
-        Array.from(grid.children).forEach(child => child.style.opacity = '0');
-      });
-
-      // 3. Animations on Scroll
-      
-      // Hero Section
+      // Gentle animations without pre-hiding to avoid blank space glitches
       inView(".packages-hero", () => {
         const text = document.querySelector(".hero-text-side");
         const img = document.querySelector(".hero-img-side");
-        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
-        if(img) animate(img, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+        if(text) animate(text, { opacity: [0.3, 1], x: [-30, 0] }, { duration: 0.6, easing: "ease-out" });
+        if(img) animate(img, { opacity: [0.3, 1], scale: [0.95, 1] }, { duration: 0.6, easing: "ease-out", delay: 0.1 });
       });
 
-      // Section Titles & Text blocks
-      document.querySelectorAll(".section-title, p[style*='text-align: center'], .filter-container, .cta-section h2, .cta-desc").forEach(el => {
-        inView(el, () => animate(el, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out" }));
+      document.querySelectorAll(".section-title").forEach(el => {
+        inView(el, () => animate(el, { opacity: [0.5, 1], y: [20, 0] }, { duration: 0.5, easing: "ease-out" }));
       });
-
-      // FAQs
-      document.querySelectorAll(".faq-item").forEach((item, index) => {
-        inView(item, () => animate(item, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.6, easing: "ease-out", delay: 0.1 * index }));
-      });
-
-      // Component Grids (Packages, Compare, Steps)
-      grids.forEach(grid => {
-        inView(grid, () => {
-          const children = Array.from(grid.children).filter(c => c.style.display !== 'none');
-          children.forEach((child, index) => {
-            let xOffset = 0; let yOffset = 50;
-            // Left, bottom, right slide-ins
-            if (children.length > 1) {
-              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
-            }
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
-          });
-        });
-      });
-
-      // Filter Re-animation hook for package cards
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const triggerAnimation = () => {
-        const grid = document.querySelector('.packages-grid');
-        if(!grid) return;
-        const children = Array.from(grid.children).filter(child => child.style.display !== 'none');
-        children.forEach((child, index) => {
-            child.style.opacity = '0';
-            let xOffset = 0; let yOffset = 50;
-            if (children.length > 1) {
-              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
-            }
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.5, easing: "ease-out", delay: 0.05 * index });
-        });
-      };
-      
-      if(filterBtns) {
-        filterBtns.forEach(btn => btn.addEventListener('click', () => setTimeout(triggerAnimation, 50)));
-      }
     });
   </script>
 </body>

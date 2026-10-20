@@ -31,11 +31,11 @@
 
     /* Uniform Section Layouts */
     .section-pad {
-      padding: 6rem 0;
+      padding: 4.5rem 0;
     }
     .sec-title {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
     }
     .sec-title h2 {
       font-family: var(--font-magic);
@@ -337,6 +337,9 @@
       box-shadow: 0 10px 30px var(--color-shadow);
       border: 1px solid var(--color-border);
       position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .quote-icon {
       font-family: var(--font-magic);
@@ -359,7 +362,7 @@
     .testi-stars svg {
       width: 24px;
       height: 24px;
-      fill: #D24B76;
+      fill: #C92A58;
     }
     .testi-text {
       color: var(--color-text);
@@ -369,12 +372,17 @@
       margin-bottom: 2rem;
       position: relative;
       z-index: 1;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .testi-author {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1rem;
+      margin-top: auto;
     }
     .testi-avatar {
       width: 60px;
@@ -528,7 +536,7 @@
 
     /* Final CTA (Orange Background) */
     .cta-section {
-      background: var(--color-accent); /* Requested Orange */
+      background: #C92A58 !important; /* Requested Orange */
       padding: 6rem 0;
       text-align: center;
       color: white !important;
@@ -679,7 +687,7 @@
               <option>2 Hours Ultimate - $350</option>
             </select>
           </div>
-          <a href="packages.html" class="btn btn-primary" style="background: #3895c8; border-color: #3895c8; color: white;">Book Now</a>
+          <a href="packages.html" class="btn btn-primary">Book Now</a>
         </div>
       </div>
       
@@ -701,29 +709,29 @@
       <div class="responsive-grid">
         <div class="star-card">
           <div class="star-img-wrap">
-            <img src="assets/images/pro_magician.jpg" alt="Magician">
+            <a href="entertainer_detail.html?id=elias"><img src="assets/images/magician_portrait_1790843004983.jpg" alt="Elias Thorne"></a>
           </div>
-          <h3>Elias</h3>
-          <p class="star-role">Master Magician</p>
+          <h3><a href="entertainer_detail.html?id=elias" style="color: inherit; text-decoration: none;">Elias Thorne</a></h3>
+          <p class="star-role">Master Magician & Illusionist</p>
           <p class="star-desc">Mind-bending stage magic and interactive illusions that captivate all ages.</p>
           <a href="entertainer_detail.html?id=elias" class="btn btn-outline" style="width: 100%;">View Profile</a>
         </div>
         
         <div class="star-card">
           <div class="star-img-wrap">
-            <img src="assets/images/pro_princess.jpg" alt="Princess">
+            <a href="entertainer_detail.html?id=lily"><img src="assets/images/princess_portrait_1790843055244.jpg" alt="Princess Lily"></a>
           </div>
-          <h3>Mia</h3>
+          <h3><a href="entertainer_detail.html?id=lily" style="color: inherit; text-decoration: none;">Princess Lily</a></h3>
           <p class="star-role">Fairytale Princess</p>
           <p class="star-desc">Beautiful singing, storytelling, and elegant royal coronation ceremonies.</p>
-          <a href="entertainer_detail.html?id=mia" class="btn btn-outline" style="width: 100%;">View Profile</a>
+          <a href="entertainer_detail.html?id=lily" class="btn btn-outline" style="width: 100%;">View Profile</a>
         </div>
         
         <div class="star-card">
           <div class="star-img-wrap">
-            <img src="assets/images/pro_silly_clown.jpg" alt="Clown">
+            <a href="entertainer_detail.html?id=barnaby"><img src="assets/images/pro_silly_clown.jpg" alt="Clown"></a>
           </div>
-          <h3>Barnaby</h3>
+          <h3><a href="entertainer_detail.html?id=barnaby" style="color: inherit; text-decoration: none;">Barnaby</a></h3>
           <p class="star-role">Comedy & Balloons</p>
           <p class="star-desc">High-energy juggling, incredible balloon art, and endless hearty laughs.</p>
           <a href="entertainer_detail.html?id=barnaby" class="btn btn-outline" style="width: 100%;">View Profile</a>
@@ -778,7 +786,7 @@
         <li>Special Levitation Trick for the Birthday Child</li>
         <li>Comedy and Audience Participation</li>
       </ul>
-      <button class="btn btn-primary" style="width:100%; padding: 1rem; font-size: 1.1rem; background: #3895c8; border-color: #3895c8; color: white;" onclick="window.location.href='packages.html'">Book This Theme</button>
+      <button class="btn btn-primary btn-full" onclick="window.location.href='packages.html'">Book This Theme</button>
     </div>
   </div>
 
@@ -793,7 +801,7 @@
         <li>Royal Coronation Ceremony</li>
         <li>Themed Face Painting</li>
       </ul>
-      <button class="btn btn-primary" style="width:100%; padding: 1rem; font-size: 1.1rem; background: #3895c8; border-color: #3895c8; color: white;" onclick="window.location.href='packages.html'">Book This Theme</button>
+      <button class="btn btn-primary btn-full" onclick="window.location.href='packages.html'">Book This Theme</button>
     </div>
   </div>
 
@@ -808,7 +816,7 @@
         <li>Energetic Party Games</li>
         <li>Heroic Photo Opportunities</li>
       </ul>
-      <button class="btn btn-primary" style="width:100%; padding: 1rem; font-size: 1.1rem; background: #3895c8; border-color: #3895c8; color: white;" onclick="window.location.href='packages.html'">Book This Theme</button>
+      <button class="btn btn-primary btn-full" onclick="window.location.href='packages.html'">Book This Theme</button>
     </div>
   </div>
 
@@ -1055,7 +1063,7 @@
   </section>
 
   <!-- 10. Let the Magic Begin (Premium Background CTA) -->
-  <section class="royal-cta" style="padding: 8rem 0; text-align: center; background: #D24B76; position: relative; overflow: hidden;">
+  <section class="royal-cta" style="padding: 8rem 0; text-align: center; background: #C92A58; position: relative; overflow: hidden;">
     <style>
       .royal-cta::before {
         content: '';
@@ -1091,7 +1099,7 @@
       <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.6; color: rgba(255, 255, 255, 0.9) !important; position: relative; z-index: 2;">
         Secure your child's favorite entertainer before our calendar fills up completely. Let's create an unforgettable celebration together.
       </p>
-        <a href="packages.html" class="btn btn-animated" style="background: white; color: var(--color-primary); padding: 1.25rem 4rem; font-size: 1.25rem; font-weight: bold; border-radius: var(--radius-pill); text-decoration: none; display: inline-block;">Book Your Party Now</a>
+        <a href="packages.html" class="btn btn-white btn-lg">Book Your Party Now</a>
     </div>
   </section>
 
@@ -1125,7 +1133,7 @@
     // Check Availability Logic
     const entertainersDB = {
       magic: [
-        { name: "Elias", role: "Master Magician", img: "assets/images/pro_magician.jpg" },
+        { name: "Elias Thorne", role: "Master Magician", img: "assets/images/magician_portrait_1790843004983.jpg" },
         { name: "The Great Zander", role: "Illusionist", img: "assets/images/premium_magician_1790833776545.jpg" },
         { name: "Mystic Marcus", role: "Stage Magician", img: "assets/images/hero_magician_1790831867453.jpg" }
       ],
@@ -1168,7 +1176,7 @@
             <h3>${ent.name}</h3>
             <p class="star-role">${ent.role}</p>
             <p class="star-desc">Available for your selected date and time.</p>
-            <a href="packages.html" class="btn btn-outline" style="width: 100%; border-color: #3895c8; color: #3895c8;">Book Now</a>
+            <a href="packages.html" class="btn btn-outline-secondary btn-full">Book Now</a>
           </div>
         `;
       });
@@ -1187,12 +1195,6 @@
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Set initial opacity to 0 to prevent flash before animation
-      const hiddenElements = document.querySelectorAll('.hero-text-side, .hero-anim-side, .sec-title, .booking-form-box, .marquee-container, .royal-cta .container, .star-card, .exp-card, .flip-card, .testimonial-card, .magic-extra-card, .faq-item');
-      hiddenElements.forEach(el => {
-        el.style.opacity = '0';
-      });
-
       // 1. Hero Section - Left / Right
       inView(".hero-container", () => {
         animate(".hero-text-side", { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });

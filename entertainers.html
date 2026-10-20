@@ -15,115 +15,107 @@
     body {
       background-color: var(--color-bg) !important;
       background: var(--color-bg) !important; margin: 0; padding: 0; overflow-x: hidden; }
-    .section-pad { padding: 6rem 0; }
-    .sec-title { text-align: center; margin-bottom: 3.5rem; }
+    .section-pad { padding: 4.5rem 0; }
+    .sec-title { text-align: center; margin-bottom: 2.5rem; }
     .sec-title h2 { font-family: var(--font-magic); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem; color: var(--color-text); }
     .sec-title p { color: var(--color-text-light); font-size: 1.125rem; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
     
     
-    /* 1. Entertainers Hero (Redesigned) */
+    /* 1. Entertainers Hero */
     .ent-hero {
-      position: relative; min-height: 90vh; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg) 45%, #3895c8 45%, #3895c8 100%);
+      position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 85% 20%, rgba(201, 42, 88, 0.09) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(15, 76, 129, 0.09) 0%, transparent 45%), var(--color-bg);
       padding-top: 150px; padding-bottom: 120px; overflow: hidden;
     }
     .ent-hero-content { position: relative; z-index: 2; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
     .hero-text { flex: 1; text-align: left; max-width: 600px; }
-    .hero-text h1 { font-family: var(--font-magic, 'Playfair Display'); font-size: clamp(3rem, 5vw + 1rem, 5.5rem); font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; color: var(--color-primary) !important; -webkit-text-fill-color: var(--color-primary) !important; background: none !important; line-height: 1.1; }
+    .hero-text h1 { font-family: var(--font-magic, 'Playfair Display'); font-size: clamp(2.8rem, 5vw + 0.5rem, 4.5rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.15; color: var(--color-text); }
     .hero-text p { font-size: 1.25rem; font-weight: 400; margin-bottom: 2.5rem; color: var(--color-text-light); line-height: 1.6; }
-    .hero-btn { background: var(--color-primary); color: #fff; padding: 1rem 2.5rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 1.125rem; display: inline-block; transition: transform 0.3s; box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3); }
-    .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(218, 47, 95, 0.4); color: white; background-color: var(--color-primary-hover); }
+    .hero-btn { background: var(--color-primary); color: #fff; padding: 1rem 2.5rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 1.125rem; display: inline-block; transition: all 0.3s; box-shadow: 0 5px 15px rgba(201, 42, 88, 0.3); text-decoration: none; }
+    .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(201, 42, 88, 0.4); color: white; background-color: var(--color-primary-hover); }
     
     .hero-visual { flex: 1; display: flex; justify-content: center; position: relative; }
     .scallop-container { 
-      position: relative; width: 450px; height: 450px; 
+      position: relative; width: 440px; height: 440px; 
       display: flex; align-items: center; justify-content: center;
       background: var(--color-surface); border-radius: 50%; padding: 15px;
-      box-shadow: 0 0 0 10px #a9e0ff, 0 15px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 0 0 10px rgba(15, 76, 129, 0.15), 0 20px 45px var(--color-shadow);
       animation: float 6s ease-in-out infinite;
     }
     .scallop-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
     
     /* Decorative elements */
     .hero-deco { position: absolute; pointer-events: none; z-index: 3; }
-    .bubble { border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.4) 70%, transparent); box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.1); animation: float 4s infinite ease-in-out alternate; }
+    .bubble { border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.3) 70%, transparent); box-shadow: inset -5px -5px 15px rgba(0,0,0,0.08), 0 10px 20px rgba(0,0,0,0.06); animation: float 4s infinite ease-in-out alternate; }
     
     /* Wavy Divider at bottom */
     .custom-shape-divider-bottom { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
     .custom-shape-divider-bottom svg { position: relative; display: block; width: calc(100% + 1.3px); height: 80px; }
-    .custom-shape-divider-bottom .shape-fill { fill: var(--color-bg); }
+    .custom-shape-divider-bottom .shape-fill { fill: var(--color-surface); }
     
     @media (max-width: 992px) {
       .ent-hero-content { flex-direction: column; text-align: center; }
       .hero-text { text-align: center; margin-bottom: 3rem; }
-      .scallop-container { width: 350px; height: 350px; }
+      .scallop-container { width: 330px; height: 330px; }
     }
 
 
     /* 4. Featured Stars */
-    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-    .featured-card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--color-border); transition: all 0.4s; position: relative; }
-    .featured-card:hover { transform: translateY(-10px); border-color: var(--color-primary); box-shadow: 0 20px 40px rgba(218,47,95,0.15); }
-    .feat-badge { position: absolute; top: 1rem; right: 1rem; background: #F6C344; color: #180D20; padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 0.85rem; z-index: 2; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-    .featured-img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s; }
+    .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .featured-card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); transition: all 0.4s; position: relative; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+    .featured-card:hover { transform: translateY(-8px); border-color: var(--color-primary); box-shadow: 0 20px 40px rgba(201,42,88,0.15); }
+    .feat-badge { position: absolute; top: 1rem; right: 1rem; background: #F6C344; color: #180D20; padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 0.85rem; z-index: 2; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+    .featured-img { width: 100%; height: 340px; object-fit: cover; transition: transform 0.5s; }
     .featured-card:hover .featured-img { transform: scale(1.05); }
-    .feat-info { padding: 2rem; position: relative; z-index: 2; background: var(--color-surface); }
-    .feat-info h3 { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-text); margin-bottom: 0.25rem; }
-    .feat-info h4 { color: var(--color-primary); font-size: 1rem; margin-bottom: 1rem; }
-    .feat-stats { display: flex; gap: 1rem; border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: 1rem; }
+    .feat-info { padding: 2rem; position: relative; z-index: 2; background: var(--color-surface); display: flex; flex-direction: column; flex-grow: 1; }
+    .feat-info h3 { font-family: var(--font-heading); font-size: 1.65rem; color: var(--color-text); margin-bottom: 0.25rem; }
+    .feat-info h4 { color: var(--color-primary); font-size: 1rem; margin-bottom: 1rem; font-weight: 600; }
+    .feat-stats { display: flex; gap: 1rem; border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: auto; margin-bottom: 1.25rem; }
     .stat { flex: 1; text-align: center; }
     .stat strong { display: block; font-size: 1.25rem; color: var(--color-text); }
     .stat span { font-size: 0.8rem; color: var(--color-text-light); }
 
     /* 3. Find Your Perfect Entertainer (Filters) */
-    .filters-bar { background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; border: 1px solid var(--color-border); }
-    .search-input { flex: 1; min-width: 250px; padding: 1rem 1.5rem; border: 2px solid var(--color-border); border-radius: var(--radius-pill); font-size: 1rem; outline: none; transition: border-color 0.3s; }
+    .filters-bar { background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; border: 1px solid var(--color-border); }
+    .search-input { flex: 1; min-width: 250px; padding: 0.85rem 1.5rem; border: 1.5px solid var(--color-border); border-radius: var(--radius-pill); font-size: 1rem; outline: none; transition: border-color 0.3s; background: var(--color-bg); color: var(--color-text); }
     .search-input:focus { border-color: var(--color-primary); }
     .style-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .style-pill { padding: 0.5rem 1.25rem; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-pill); font-size: 0.9rem; cursor: pointer; color: var(--color-text-light); transition: all 0.2s; }
-    .style-pill.active, .style-pill:hover { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+    .style-pill { padding: 0.55rem 1.35rem; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-pill); font-size: 0.95rem; font-weight: 500; cursor: pointer; color: var(--color-text); transition: all 0.2s; }
+    .style-pill.active, .style-pill:hover { background: var(--color-primary); color: white; border-color: var(--color-primary); box-shadow: 0 4px 12px rgba(201,42,88,0.25); }
 
     /* 5. Meet the Magic Makers (20 Grid) */
     .makers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; } 
     @media(max-width: 992px) { .makers-grid { grid-template-columns: repeat(2, 1fr); } } 
     @media(max-width: 576px) { .makers-grid { grid-template-columns: 1fr; } }
-    .maker-card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); transition: all 0.3s; text-align: center; }
-    .maker-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--color-primary); }
-    .maker-img-wrap { width: 100%; height: 220px; overflow: hidden; }
+    .maker-card { background: var(--color-surface); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); transition: all 0.3s; text-align: center; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); }
+    .maker-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px var(--color-shadow); border-color: var(--color-primary); }
+    .maker-img-wrap { width: 100%; height: 230px; overflow: hidden; }
     .maker-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .maker-card:hover .maker-img-wrap img { transform: scale(1.1); }
-    .maker-info { padding: 1.5rem; }
-    .maker-info h4 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-text); margin-bottom: 0.25rem; }
-    .maker-info p { color: var(--color-primary); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: bold; }
-    .maker-rating { color: #F6C344; font-size: 0.9rem; }
-
-    /* 6. Performance Styles */
-    .style-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-    .style-box { background: linear-gradient(135deg, #ffffff, var(--color-bg)); padding: 2rem; border-radius: var(--radius-lg); text-align: center; border: 2px solid transparent; transition: all 0.3s; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-    .style-box:hover { background: linear-gradient(135deg, #ff9800, #2e19a7); color: white; transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 30px rgba(46, 25, 167, 0.2); }
-    .style-box h3 { font-size: 1.25rem; margin-top: 1rem; transition: color 0.3s; }
-    .style-box svg { width: 50px; height: 50px; fill: #2e19a7; transition: fill 0.3s; }
-    .style-box:hover svg { fill: white; }
+    .maker-card:hover .maker-img-wrap img { transform: scale(1.08); }
+    .maker-info { padding: 1.25rem 1rem 0.5rem; flex-grow: 1; }
+    .maker-info h4 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.25rem; }
+    .maker-info p { color: var(--color-primary); font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 600; }
+    .maker-rating { font-size: 0.9rem; }
 
     /* 8. Loved by Little Guests */
     .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .review-card { background: var(--color-surface); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid #ffb6c1; position: relative; }
-    .review-card::before { content: '"'; font-family: var(--font-magic); font-size: 6rem; color: var(--color-surface); position: absolute; top: 0rem; left: 1rem; z-index: 0; line-height: 1; }
+    .review-card { background: var(--color-surface); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); position: relative; box-shadow: var(--shadow-sm); }
+    .review-card::before { content: '"'; font-family: var(--font-magic); font-size: 6rem; color: rgba(201, 42, 88, 0.12); position: absolute; top: 0rem; left: 1rem; z-index: 0; line-height: 1; pointer-events: none; }
     .review-content { position: relative; z-index: 2; }
-    .stars { color: #F6C344; margin-bottom: 1rem; font-size: 1.2rem; }
+    .stars { margin-bottom: 1rem; font-size: 1.2rem; }
     .review-text { font-size: 1.1rem; color: var(--color-text-light); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; }
     .reviewer { font-weight: bold; color: var(--color-text); }
 
     /* 9. The Magiqo Standard (Safety) */
-        .standards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; perspective: 1000px; }
+    .standards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; perspective: 1000px; }
     .flip-card { background-color: transparent; height: 350px; perspective: 1000px; cursor: pointer; }
     .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
     .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
     .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid var(--color-border); }
-    .flip-card-front { background-color: white; color: var(--color-text); }
-    .flip-card-front svg { width: 80px; height: 80px; fill: #3895c8; margin-bottom: 1.5rem; padding: 15px; background: rgba(56, 149, 200, 0.1); border-radius: 50%; }
-    .flip-card-front h3 { font-family: var(--font-magic); font-size: 2rem; color: #2e19a7; margin-bottom:0; }
+    .flip-card-front { background-color: var(--color-surface); color: var(--color-text); }
+    .flip-card-front svg { width: 80px; height: 80px; fill: var(--color-secondary); margin-bottom: 1.5rem; padding: 15px; background: rgba(15, 76, 129, 0.1); border-radius: 50%; }
+    .flip-card-front h3 { font-family: var(--font-magic); font-size: 2rem; color: var(--color-text); margin-bottom:0; }
     .flip-card-back { background: var(--color-surface); color: var(--color-text); transform: rotateY(180deg); }
     .flip-card-back p { font-size: 1.2rem; line-height: 1.6; opacity: 0.95; font-weight: 500; }
     
@@ -171,7 +163,7 @@
     .join-text p { font-size: 1.1rem; opacity: 0.9; max-width: 500px; line-height: 1.6; }
 
     /* 13. Final CTA */
-    .cta-section { background: repeating-conic-gradient(from 0deg, var(--color-primary) 0deg 10deg, #c72551 10deg 20deg); padding: 8rem 0; text-align: center; color: white; position: relative; overflow: hidden; }
+    .cta-section { background: #C92A58 !important; padding: 8rem 0; text-align: center; color: white; position: relative; overflow: hidden; }
     .cta-section h2 { color: var(--color-primary) !important; -webkit-text-fill-color: var(--color-primary) !important; background: none !important; font-size: 4rem; }
 
     @media (max-width: 992px) {
@@ -198,9 +190,9 @@
     
     <div class="container ent-hero-content">
       <div class="hero-text">
-        <h1><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">The Children's Favourite</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Party Entertainers!</span></h1>
-        <p>Our mission is to make kids parties hassle-free and enjoyable experience. So you can relax and have fun with your kids.</p>
-        <a href="#roster" class="hero-btn">View All Parties &rarr;</a>
+        <h1><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">The Children's Favourite</span> <br><span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Party Entertainers!</span></h1>
+        <p>Our mission is to make kids parties a hassle-free and joy-filled experience. So you can relax, celebrate, and make lasting memories with your children.</p>
+        <a href="#roster" class="btn btn-primary btn-lg">View All Talent &rarr;</a>
       </div>
       <div class="hero-visual">
         <div class="scallop-container">
@@ -223,50 +215,44 @@
   <section class="section-pad" style="background: var(--color-surface);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">Featured</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Stars</span></h2>
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Featured</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Stars</span></h2>
         <p>Meet our highest-rated, most requested performers this month.</p>
       </div>
       <div class="featured-grid">
         <div class="featured-card">
           <div class="feat-badge">Most Requested</div>
-          <img src="assets/images/pro_magician.jpg" alt="Elias The Magic" class="featured-img">
-          <div class="feat-info">
-            <h3>Elias "The Magic"</h3>
+          <a href="entertainer_detail.html?id=elias" style="display: block; overflow: hidden;"><img src="assets/images/magician_portrait_1790843004983.jpg" alt="Elias The Magic" class="featured-img"></a><div class="feat-info"><h3><a href="entertainer_detail.html?id=elias" style="color: inherit; text-decoration: none;">Elias "The Magic"</a></h3>
             <h4>Master Illusionist</h4>
             <div class="feat-stats">
               <div class="stat"><strong>4.9</strong><span>Rating</span></div>
               <div class="stat"><strong>1,200+</strong><span>Shows</span></div>
               <div class="stat"><strong>12 Yrs</strong><span>Exp.</span></div>
             </div>
-            <a href="entertainer_detail.html?id=elias" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">View Details</a>
+            <a href="entertainer_detail.html?id=elias" class="btn btn-outline btn-full">View Details</a>
           </div>
         </div>
         <div class="featured-card">
           <div class="feat-badge">Kids Favorite</div>
-          <img src="assets/images/pro_princess.jpg" alt="Princess Lily" class="featured-img">
-          <div class="feat-info">
-            <h3>Princess Lily</h3>
+          <a href="entertainer_detail.html?id=lily" style="display: block; overflow: hidden;"><img src="assets/images/princess_portrait_1790843055244.jpg" alt="Princess Lily" class="featured-img"></a><div class="feat-info"><h3><a href="entertainer_detail.html?id=lily" style="color: inherit; text-decoration: none;">Princess Lily</a></h3>
             <h4>Royal Visits & Vocals</h4>
             <div class="feat-stats">
               <div class="stat"><strong>5.0</strong><span>Rating</span></div>
               <div class="stat"><strong>850+</strong><span>Shows</span></div>
               <div class="stat"><strong>8 Yrs</strong><span>Exp.</span></div>
             </div>
-            <a href="entertainer_detail.html?id=lily" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">View Details</a>
+            <a href="entertainer_detail.html?id=lily" class="btn btn-outline btn-full">View Details</a>
           </div>
         </div>
         <div class="featured-card">
           <div class="feat-badge">Highest Energy</div>
-          <img src="assets/images/pro_magician.jpg" alt="Jojo" class="featured-img">
-          <div class="feat-info">
-            <h3>Jojo The Juggler</h3>
+          <a href="entertainer_detail.html?id=jojo" style="display: block; overflow: hidden;"><img src="assets/images/service_circus_juggler.jpg" alt="Jojo" class="featured-img"></a><div class="feat-info"><h3><a href="entertainer_detail.html?id=jojo" style="color: inherit; text-decoration: none;">Jojo The Juggler</a></h3>
             <h4>Comedy & Acrobatics</h4>
             <div class="feat-stats">
               <div class="stat"><strong>4.8</strong><span>Rating</span></div>
               <div class="stat"><strong>920+</strong><span>Shows</span></div>
               <div class="stat"><strong>10 Yrs</strong><span>Exp.</span></div>
             </div>
-            <a href="entertainer_detail.html?id=jojo" class="btn btn-outline" style="margin-top: 1rem; width: 100%;">View Details</a>
+            <a href="entertainer_detail.html?id=jojo" class="btn btn-outline btn-full">View Details</a>
           </div>
         </div>
       </div>
@@ -277,7 +263,7 @@
   <section id="roster" class="section-pad" style="background: var(--color-bg);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">Find Your</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Perfect Entertainer</span></h2>
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Find Your</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Perfect Entertainer</span></h2>
         <p>Filter by specialty to discover the right fit for your celebration.</p>
       </div>
       
@@ -288,127 +274,124 @@
           <button class="style-pill" data-filter="magic">Magicians</button>
           <button class="style-pill" data-filter="characters">Characters</button>
           <button class="style-pill" data-filter="clowns">Clowns</button>
-          <button class="style-pill" data-filter="painters">Face Painters</button>
+          <button class="style-pill" data-filter="painters">Face & Art</button>
         </div>
       </div>
 
       <div class="makers-grid" id="makersGrid">
-        <!-- 20 Dynamically Generated Entertainers -->
+        <!-- 20 Distinct Entertainers with Unique Assets -->
         <div class="maker-card" data-name="Elias" data-category="magic">
-          <div class="maker-img-wrap"><img src="assets/images/pro_magician.jpg" alt="Elias"></div>
-          <div class="maker-info"><h4>Elias</h4><p>Magician</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=elias" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=elias" style="display:block;width:100%;height:100%;"><img src="assets/images/magician_portrait_1790843004983.jpg" alt="Elias" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=elias" style="color: inherit; text-decoration: none;">Elias</a></h4><p>Master Magician</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(1,200+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=elias" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Lily" data-category="characters">
-          <div class="maker-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Lily"></div>
-          <div class="maker-info"><h4>Lily</h4><p>Princess</p><div class="maker-rating">Rating: 5.0/5</div></div>
-          <a href="entertainer_detail.html?id=lily" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=lily" style="display:block;width:100%;height:100%;"><img src="assets/images/princess_portrait_1790843055244.jpg" alt="Lily" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=lily" style="color: inherit; text-decoration: none;">Princess Lily</a></h4><p>Royal Singer</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 5.0 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(850+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=lily" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Barnaby" data-category="clowns">
-          <div class="maker-img-wrap"><img src="assets/images/pro_silly_clown.jpg" alt="Barnaby"></div>
-          <div class="maker-info"><h4>Barnaby</h4><p>Classic Clown</p><div class="maker-rating">Rating: 4.8/5</div></div>
-          <a href="entertainer_detail.html?id=barnaby" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=barnaby" style="display:block;width:100%;height:100%;"><img src="assets/images/pro_silly_clown.jpg" alt="Barnaby" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=barnaby" style="color: inherit; text-decoration: none;">Barnaby</a></h4><p>Classic Comedy Clown</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.8 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(620+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=barnaby" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Sarah" data-category="painters">
-          <div class="maker-img-wrap"><img src="assets/images/pro_hero_party.jpg" alt="Sarah"></div>
-          <div class="maker-info"><h4>Sarah</h4><p>Face Painter</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=sarah" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=sarah" style="display:block;width:100%;height:100%;"><img src="assets/images/service_face_painting.jpg" alt="Sarah" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=sarah" style="color: inherit; text-decoration: none;">Sarah</a></h4><p>Face Painting Artist</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(740+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=sarah" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Rex" data-category="characters">
-          <div class="maker-img-wrap"><img src="assets/images/service_mascot.jpg" alt="Rex"></div>
-          <div class="maker-info"><h4>Rex</h4><p>Mascot Actor</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=rex" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=rex" style="display:block;width:100%;height:100%;"><img src="assets/images/service_mascot.jpg" alt="Rex" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=rex" style="color: inherit; text-decoration: none;">Rex</a></h4><p>Friendly Mascot Lead</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(510+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=rex" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="David" data-category="magic">
-          <div class="maker-img-wrap"><img src="assets/images/pro_magician_2.jpg" alt="David"></div>
-          <div class="maker-info"><h4>David</h4><p>Stage Illusionist</p><div class="maker-rating">Rating: 5.0/5</div></div>
-          <a href="entertainer_detail.html?id=david" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=david" style="display:block;width:100%;height:100%;"><img src="assets/images/pro_grand_stage.jpg" alt="David" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=david" style="color: inherit; text-decoration: none;">David</a></h4><p>Grand Stage Illusionist</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 5.0 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(980+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=david" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Jojo" data-category="clowns">
-          <div class="maker-img-wrap"><img src="assets/images/pro_magician.jpg" alt="Jojo"></div>
-          <div class="maker-info"><h4>Jojo</h4><p>Comedy Juggler</p><div class="maker-rating">Rating: 4.7/5</div></div>
-          <a href="entertainer_detail.html?id=jojo" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=jojo" style="display:block;width:100%;height:100%;"><img src="assets/images/service_circus_juggler.jpg" alt="Jojo" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=jojo" style="color: inherit; text-decoration: none;">Jojo</a></h4><p>Circus Juggler & Clown</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.8 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(920+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=jojo" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Captain Ray" data-category="characters">
-          <div class="maker-img-wrap"><img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ray"></div>
-          <div class="maker-info"><h4>Captain Ray</h4><p>Superhero</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=captain ray" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=captain_ray" style="display:block;width:100%;height:100%;"><img src="assets/images/performer_superhero.jpg" alt="Ray" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=captain_ray" style="color: inherit; text-decoration: none;">Captain Ray</a></h4><p>Hero Academy Coach</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(880+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=captain_ray" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Emma" data-category="magic">
-          <div class="maker-img-wrap"><img src="assets/images/pro_classic_magic.jpg" alt="Emma"></div>
-          <div class="maker-info"><h4>Emma</h4><p>Puppeteer</p><div class="maker-rating">Rating: 4.8/5</div></div>
-          <a href="entertainer_detail.html?id=emma" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=emma" style="display:block;width:100%;height:100%;"><img src="assets/images/service_puppet_show.jpg" alt="Emma" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=emma" style="color: inherit; text-decoration: none;">Emma</a></h4><p>Master Puppeteer</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.8 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(610+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=emma" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Chloe" data-category="painters">
-          <div class="maker-img-wrap"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chloe"></div>
-          <div class="maker-info"><h4>Chloe</h4><p>Balloon Artist</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=chloe" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=chloe" style="display:block;width:100%;height:100%;"><img src="assets/images/service_balloon_twisting.jpg" alt="Chloe" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=chloe" style="color: inherit; text-decoration: none;">Chloe</a></h4><p>Balloon Sculptor</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(790+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=chloe" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Arthur" data-category="magic">
-          <div class="maker-img-wrap"><img src="assets/images/about_art_of_magic.jpg" alt="Arthur"></div>
-          <div class="maker-info"><h4>Arthur</h4><p>Mentalist</p><div class="maker-rating">Rating: 5.0/5</div></div>
-          <a href="entertainer_detail.html?id=arthur" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=arthur" style="display:block;width:100%;height:100%;"><img src="assets/images/about_art_of_magic.jpg" alt="Arthur" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=arthur" style="color: inherit; text-decoration: none;">Arthur</a></h4><p>Junior Mind Reader</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 5.0 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(460+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=arthur" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Bella" data-category="characters">
-          <div class="maker-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Bella"></div>
-          <div class="maker-info"><h4>Bella</h4><p>Fairy Godmother</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=bella" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=bella" style="display:block;width:100%;height:100%;"><img src="assets/images/performer_fairy.jpg" alt="Bella" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=bella" style="color: inherit; text-decoration: none;">Bella</a></h4><p>Fairy Godmother</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(670+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=bella" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Tommy" data-category="clowns">
-          <div class="maker-img-wrap"><img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tommy"></div>
-          <div class="maker-info"><h4>Tommy</h4><p>Slapstick Clown</p><div class="maker-rating">Rating: 4.6/5</div></div>
-          <a href="entertainer_detail.html?id=tommy" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=tommy" style="display:block;width:100%;height:100%;"><img src="assets/images/clown_party_1790842566084.jpg" alt="Tommy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=tommy" style="color: inherit; text-decoration: none;">Tommy</a></h4><p>Slapstick Humorist</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.7 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(540+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=tommy" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="DJ Spark" data-category="painters">
-          <div class="maker-img-wrap"><img src="assets/images/pro_hero_party.jpg" alt="Spark"></div>
-          <div class="maker-info"><h4>DJ Spark</h4><p>Kids Party DJ</p><div class="maker-rating">Rating: 4.8/5</div></div>
-          <a href="entertainer_detail.html?id=dj spark" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=dj_spark" style="display:block;width:100%;height:100%;"><img src="assets/images/theme_music.jpg" alt="Spark" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=dj_spark" style="color: inherit; text-decoration: none;">DJ Spark</a></h4><p>Kids Party DJ & MC</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.8 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(810+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=dj_spark" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Elena" data-category="magic">
-          <div class="maker-img-wrap"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elena"></div>
-          <div class="maker-info"><h4>Elena</h4><p>Storyteller</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=elena" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=elena" style="display:block;width:100%;height:100%;"><img src="assets/images/about_kids_birthday.jpg" alt="Elena" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=elena" style="color: inherit; text-decoration: none;">Elena</a></h4><p>Magical Storyteller</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(730+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=elena" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Giggles" data-category="clowns">
-          <div class="maker-img-wrap"><img src="assets/images/pro_clown_blog.jpg" alt="Giggles"></div>
-          <div class="maker-info"><h4>Giggles</h4><p>Face Painting Clown</p><div class="maker-rating">Rating: 5.0/5</div></div>
-          <a href="entertainer_detail.html?id=giggles" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=giggles" style="display:block;width:100%;height:100%;"><img src="assets/images/pro_clown_blog.jpg" alt="Giggles" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=giggles" style="color: inherit; text-decoration: none;">Giggles</a></h4><p>Face Painting Clown</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 5.0 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(690+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=giggles" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Steve" data-category="characters">
-          <div class="maker-img-wrap"><img src="assets/images/service_mascot.jpg" alt="Steve"></div>
-          <div class="maker-info"><h4>Steve</h4><p>Dino Mascot</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=steve" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=steve" style="display:block;width:100%;height:100%;"><img src="assets/images/superhero_party_1790842695325.jpg" alt="Steve" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=steve" style="color: inherit; text-decoration: none;">Steve</a></h4><p>Action Games Host</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(580+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=steve" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Mia" data-category="painters">
-          <div class="maker-img-wrap"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mia"></div>
-          <div class="maker-info"><h4>Mia</h4><p>Glitter Tattoos</p><div class="maker-rating">Rating: 4.8/5</div></div>
-          <a href="entertainer_detail.html?id=mia" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=mia" style="display:block;width:100%;height:100%;"><img src="assets/images/service_bubble_show.jpg" alt="Mia" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=mia" style="color: inherit; text-decoration: none;">Mia</a></h4><p>Giant Bubble Specialist</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(640+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=mia" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="The Great Z" data-category="magic">
-          <div class="maker-img-wrap"><img src="assets/images/pro_magician.jpg" alt="Z"></div>
-          <div class="maker-info"><h4>The Great Z</h4><p>Close-up Magic</p><div class="maker-rating">Rating: 4.9/5</div></div>
-          <a href="entertainer_detail.html?id=the great z" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=the_great_z" style="display:block;width:100%;height:100%;"><img src="assets/images/pro_classic_magic.jpg" alt="Z" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=the_great_z" style="color: inherit; text-decoration: none;">The Great Z</a></h4><p>Close-up Card Conjurer</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 4.9 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(820+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=the_great_z" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
         </div>
         <div class="maker-card" data-name="Aurora" data-category="characters">
-          <div class="maker-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Aurora"></div>
-          <div class="maker-info"><h4>Aurora</h4><p>Ice Princess</p><div class="maker-rating">Rating: 5.0/5</div></div>
-          <a href="entertainer_detail.html?id=aurora" class="btn btn-outline" style="margin: 1rem; width: calc(100% - 2rem);">View Details</a>
-        </div>
+          <div class="maker-img-wrap"><a href="entertainer_detail.html?id=aurora" style="display:block;width:100%;height:100%;"><img src="assets/images/sparkle_party.jpg" alt="Aurora" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"></a></div>
+          <div class="maker-info"><h4><a href="entertainer_detail.html?id=aurora" style="color: inherit; text-decoration: none;">Aurora</a></h4><p>Snow & Frost Princess</p><div class="maker-rating" style="color: #E59800; font-weight: 600;">★ 5.0 <span style="color: var(--color-text-light); font-weight: normal; font-size: 0.85rem;">(950+ shows)</span></div></div>
+          <a href="entertainer_detail.html?id=aurora" class="btn btn-outline btn-sm" style="margin: 0 1rem 1rem; width: calc(100% - 2rem); display: block;">View Details</a>
       </div>
     </div>
   </section>
 
-  
-  
-  <!-- 6. Choose Your Performance Style (Redesigned Again) -->
+  <!-- 6. Choose Your Performance Style (Quiz) -->
   <section class="section-pad" style="background: var(--color-bg); position: relative;">
     <div class="container">
       <div class="sec-title text-center">
-        <h2><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">Find Your</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Perfect Match</span></h2>
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Find Your</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Perfect Match</span></h2>
         <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--color-text-light);">Answer a few quick questions to find the ideal entertainer for your event.</p>
       </div>
       
-      <div class="interactive-finder" style="background: var(--color-surface); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--color-border); max-width: 800px; margin: 0 auto; overflow: hidden;">
+      <div class="interactive-finder" style="background: var(--color-surface); border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); border: 1px solid var(--color-border); max-width: 800px; margin: 0 auto; overflow: hidden;">
         
         <div style="padding: 3rem; position: relative;">
             <div id="quizContainer">
@@ -430,19 +413,19 @@
             </div>
             
             <div id="talentSuggestion" style="display: none; text-align: center; animation: fadeIn 0.5s ease-out;">
-               <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 4px solid var(--color-primary);">
-                 <img src="assets/images/pro_magician.jpg" alt="Elias" style="width: 100%; height: 100%; object-fit: cover;">
+               <div style="width: 130px; height: 130px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 4px solid var(--color-primary); box-shadow: var(--shadow-md);">
+                 <img src="assets/images/magician_portrait_1790843004983.jpg" alt="Elias" style="width: 100%; height: 100%; object-fit: cover;">
                </div>
                <h3 style="color: var(--color-text); font-size: 2rem; margin-bottom: 0.5rem; font-family: var(--font-heading);">Elias the Magician</h3>
                <p id="sugDesc" style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 2rem; line-height: 1.6; max-width: 500px; margin-left: auto; margin-right: auto;"></p>
-               <a href="entertainer_detail.html?id=elias" class="btn btn-primary" style="background: var(--color-primary); font-size: 1.1rem; padding: 1rem 2.5rem; border-radius: var(--radius-pill); width: 100%; max-width: 300px;">View Full Profile</a>
+               <a href="entertainer_detail.html?id=elias" class="btn btn-primary btn-lg" style="width: 100%; max-width: 300px;">View Full Profile &rarr;</a>
             </div>
         </div>
       </div>
       
       <style>
-        .style-btn-modern { background: transparent; border: 2px solid var(--color-border); color: var(--color-text); padding: 1.25rem 1.5rem; border-radius: 12px; font-size: 1.1rem; font-weight: 600; transition: all 0.2s; cursor: pointer; text-align: left; }
-        .style-btn-modern:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(218, 47, 95, 0.05); transform: translateY(-2px); }
+        .style-btn-modern { background: var(--color-bg); border: 2px solid var(--color-border); color: var(--color-text); padding: 1.25rem 1.5rem; border-radius: 12px; font-size: 1.1rem; font-weight: 600; transition: all 0.2s; cursor: pointer; text-align: left; }
+        .style-btn-modern:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-surface); transform: translateY(-2px); }
       </style>
       <script>
         const questions = [
@@ -479,35 +462,35 @@
 
 
   <!-- 8. Loved by Little Guests (Reviews) -->
-  <section class="section-pad" style="background: var(--color-bg);">
+  <section class="section-pad" style="background: var(--color-surface);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">Loved by</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Little Guests</span></h2>
-        <p>What parents are saying about our entertainers.</p>
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Loved by</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Little Guests</span></h2>
+        <p>What parents and organizers are saying about our entertainers.</p>
       </div>
       <div class="review-grid">
-        <div class="review-card" style="padding-top: 1rem;">
-          <img src="assets/images/pro_hero_party.jpg" alt="Sarah" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #ff9800;">
+        <div class="review-card">
+          <img src="assets/images/gallery_smile_1.jpg" alt="Sarah" style="width: 75px; height: 75px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--color-primary);">
           <div class="review-content">
-            <div class="stars" style="font-weight: bold; color: #ff9800;">Rating: 5/5</div>
+            <div class="stars" style="color: #E59800; font-weight: 600;">★★★★★ 5.0 / 5</div>
             <p class="review-text">"Elias was absolutely incredible! He held the attention of 25 seven-year-olds for an entire hour. The parents were just as amazed by the magic."</p>
-            <p class="reviewer">- Sarah M.</p>
+            <p class="reviewer">- Sarah M., Parent</p>
           </div>
         </div>
-        <div class="review-card" style="padding-top: 1rem;">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="James" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #ff9800;">
+        <div class="review-card">
+          <img src="assets/images/james_boy_smile.jpg" alt="James" style="width: 75px; height: 75px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--color-primary);">
           <div class="review-content">
-            <div class="stars" style="font-weight: bold; color: #ff9800;">Rating: 5/5</div>
+            <div class="stars" style="color: #E59800; font-weight: 600;">★★★★★ 5.0 / 5</div>
             <p class="review-text">"Princess Lily made my daughter's dream come true. Her voice is beautiful and she was so patient and sweet with every single child."</p>
-            <p class="reviewer">- James T.</p>
+            <p class="reviewer">- James T., Parent</p>
           </div>
         </div>
-        <div class="review-card" style="padding-top: 1rem;">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Emily" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #ff9800;">
+        <div class="review-card">
+          <img src="assets/images/emily_girl_smile.jpg" alt="Emily" style="width: 75px; height: 75px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--color-primary);">
           <div class="review-content">
-            <div class="stars" style="font-weight: bold; color: #ff9800;">Rating: 5/5</div>
+            <div class="stars" style="color: #E59800; font-weight: 600;">★★★★★ 5.0 / 5</div>
             <p class="review-text">"Barnaby the Clown brought non-stop laughs. The physical comedy was perfect, and the balloon animals at the end were a huge hit!"</p>
-            <p class="reviewer">- Emily R.</p>
+            <p class="reviewer">- Emily R., Event Host</p>
           </div>
         </div>
       </div>
@@ -515,35 +498,35 @@
   </section>
 
   
-  <!-- NEW SECTION 1: The Magiqo Standard -->
+  <!-- 9. The Magiqo Standard -->
   <section class="section-pad" style="background: var(--color-bg);">
     <div class="container">
       <div class="sec-title text-center">
-        <h2><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">The Magiqo</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Standard</span></h2>
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">The Magiqo</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Standard</span></h2>
         <p style="color: var(--color-text-light);">Your child's safety, happiness, and engagement are our top priorities.</p>
       </div>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
         
-        <div style="background: var(--color-surface); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="width: 70px; height: 70px; background: rgba(56, 149, 200, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-            <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: #3895c8;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        <div style="background: var(--color-surface); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; box-shadow: var(--shadow-sm);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="width: 70px; height: 70px; background: rgba(15, 76, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: var(--color-secondary);"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
           </div>
           <h3 style="color: var(--color-text); font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem;">Background Checked</h3>
           <p style="color: var(--color-text-light); line-height: 1.6;">Every single entertainer undergoes a comprehensive nationwide background check and reference verification.</p>
         </div>
         
-        <div style="background: var(--color-surface); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="width: 70px; height: 70px; background: rgba(218, 47, 95, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <div style="background: var(--color-surface); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; box-shadow: var(--shadow-sm);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="width: 70px; height: 70px; background: rgba(201, 42, 88, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
             <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: var(--color-primary);"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
           </div>
           <h3 style="color: var(--color-text); font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem;">Professionally Trained</h3>
           <p style="color: var(--color-text-light); line-height: 1.6;">Our talent attends rigorous Magiqo Workshops to master crowd control and the art of highly-engaging performance.</p>
         </div>
         
-        <div style="background: var(--color-surface); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="width: 70px; height: 70px; background: rgba(255, 152, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-            <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: #ff9800;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 12h-4v-4h4v4zm0-6h-4V5h4v4zm6 6h-4v-4h4v4zm0-6h-4V5h4v4z"/></svg>
+        <div style="background: var(--color-surface); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--color-border); text-align: center; transition: transform 0.3s; box-shadow: var(--shadow-sm);" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="width: 70px; height: 70px; background: rgba(22, 163, 74, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: #16A34A;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 12h-4v-4h4v4zm0-6h-4V5h4v4zm6 6h-4v-4h4v4zm0-6h-4V5h4v4z"/></svg>
           </div>
           <h3 style="color: var(--color-text); font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem;">Fully Insured</h3>
           <p style="color: var(--color-text-light); line-height: 1.6;">We are fully licensed and hold robust liability insurance, giving parents complete peace of mind.</p>
@@ -554,11 +537,11 @@
   </section>
 
 
-  <!-- NEW SECTION 2: Questions About Our Talent -->
-  <section class="section-pad" style="background: var(--color-bg);">
+  <!-- 10. Questions About Our Talent -->
+  <section class="section-pad" style="background: var(--color-surface);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: #3895c8; -webkit-text-fill-color: #3895c8; ">Questions About</span> <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); ">Our Talent</span></h2>
+        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Questions About</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Our Talent</span></h2>
         <p>Everything you need to know about booking our professional entertainers.</p>
       </div>
       <div class="faq-container">
@@ -583,27 +566,18 @@
   </section>
 
   
-  
-  
-
-  
-  
-  <!-- NEW SECTION 3: Join the Team (CTA) -->
-  <section class="cta-section" style="background: #D24B76; padding: 6rem 0; text-align: center; position: relative; overflow: hidden;">
+  <!-- 11. Join the Team (CTA) -->
+  <section class="cta-section" style="background: #C92A58 !important; padding: 6rem 0; text-align: center; position: relative; overflow: hidden;">
     <div class="container" style="position: relative; z-index: 2;">
         <h2 style="font-family: var(--font-magic); font-size: 3.5rem; margin-bottom: 1rem; color: white !important; -webkit-text-fill-color: white !important; background: none !important;">
            Have a Talent for Magic?
         </h2>
-        <p style="font-size: 1.25rem; color: white; max-width: 700px; margin: 0 auto 3rem; line-height: 1.6;">
+        <p style="font-size: 1.25rem; color: white; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.6; opacity: 0.95;">
            We are always looking for passionate, high-energy individuals to join our growing roster of premium entertainers. If you love making kids smile, we'd love to meet you.
         </p>
-        <a href="join.html" class="btn btn-animated" style="background: white; color: var(--color-primary); padding: 1.25rem 4rem; font-size: 1.25rem; font-weight: bold; border-radius: var(--radius-pill); text-decoration: none; display: inline-block; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Apply to Join</a>
+        <a href="join.html" class="btn btn-white btn-lg">Apply to Join Roster &rarr;</a>
     </div>
   </section>
-
-
-
-  
 
   <!-- Dynamic Footer -->
   <div id="footer"></div>
@@ -632,7 +606,7 @@
           const matchesCategory = currentFilter === 'all' || category === currentFilter;
           
           if (matchesSearch && matchesCategory) {
-            card.style.display = 'block';
+            card.style.display = 'flex';
           } else {
             card.style.display = 'none';
           }
@@ -665,82 +639,17 @@
   <script type="module">
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Initial Opacity Setup
-      const fadeElements = document.querySelectorAll('.sec-title, .hero-text, .hero-visual, .faq-item');
-      fadeElements.forEach(el => el.style.opacity = '0');
-
-      const grids = document.querySelectorAll('.featured-grid, #makersGrid, div[style*="display: grid"]');
-      grids.forEach(grid => {
-        Array.from(grid.children).forEach(child => {
-          if(child.tagName !== 'STYLE' && child.tagName !== 'SCRIPT') {
-            child.style.opacity = '0';
-          }
-        });
-      });
-
-      // 2. Animations on Scroll
-      
-      // Hero Section
+      // Gentle animations without pre-hiding elements to prevent blank space bugs
       inView(".ent-hero", () => {
         const text = document.querySelector(".hero-text");
         const vis = document.querySelector(".hero-visual");
-        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
-        if(vis) animate(vis, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+        if(text) animate(text, { opacity: [0.3, 1], x: [-30, 0] }, { duration: 0.6, easing: "ease-out" });
+        if(vis) animate(vis, { opacity: [0.3, 1], scale: [0.95, 1] }, { duration: 0.6, easing: "ease-out", delay: 0.1 });
       });
 
-      // Section Titles
       document.querySelectorAll(".sec-title").forEach(title => {
-        inView(title, () => animate(title, { opacity: [0, 1], y: [50, 0] }, { duration: 0.8, easing: "ease-out" }));
+        inView(title, () => animate(title, { opacity: [0.5, 1], y: [20, 0] }, { duration: 0.5, easing: "ease-out" }));
       });
-
-      // FAQ Items
-      document.querySelectorAll(".faq-item").forEach((item, index) => {
-        inView(item, () => animate(item, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.6, easing: "ease-out", delay: 0.1 * index }));
-      });
-
-      // CTA Section
-      inView(".cta-section", ({ target }) => {
-        const container = target.querySelector(".container");
-        if(container) animate(container, { opacity: [0, 1], scale: [0.95, 1] }, { duration: 0.8 });
-      });
-
-      // Grids
-      grids.forEach(grid => {
-        inView(grid, () => {
-          const children = Array.from(grid.children).filter(c => c.style.display !== 'none' && c.tagName !== 'STYLE' && c.tagName !== 'SCRIPT');
-          children.forEach((child, index) => {
-            let xOffset = 0; let yOffset = 50;
-            if (children.length > 1) {
-              // 3 column or 4 column grids typically
-              if (index % 3 === 0) { xOffset = -100; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 100; yOffset = 0; }
-            }
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
-          });
-        });
-      });
-      
-      // Filter Re-animation
-      const searchInput = document.getElementById('makerSearch');
-      const filterBtns = document.querySelectorAll('#makerFilters .style-pill');
-      
-      const triggerAnimation = () => {
-        const grid = document.getElementById('makersGrid');
-        if(!grid) return;
-        const children = Array.from(grid.children).filter(child => child.style.display !== 'none');
-        children.forEach((child, index) => {
-            child.style.opacity = '0';
-            let xOffset = 0; let yOffset = 50;
-            if (children.length > 1) {
-              if (index % 3 === 0) { xOffset = -100; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 100; yOffset = 0; }
-            }
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.5, easing: "ease-out", delay: 0.05 * index });
-        });
-      };
-      
-      if(searchInput) searchInput.addEventListener('input', () => setTimeout(triggerAnimation, 50));
-      if(filterBtns) filterBtns.forEach(btn => btn.addEventListener('click', () => setTimeout(triggerAnimation, 50)));
     });
   </script>
 </body>

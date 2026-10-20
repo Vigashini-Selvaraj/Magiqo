@@ -28,28 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Reveal animations on scroll
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
+  // Smooth reveal animations on scroll for explicitly designated elements
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '50px' });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(el);
     });
-  }, observerOptions);
-
-  document.querySelectorAll('.card, .step-card, .section-title').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    observer.observe(el);
-  });
+  }
 });
 
 window.resetPlanner = function () {

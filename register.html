@@ -56,10 +56,10 @@
       margin-bottom: 5px;
     }
     .text-pink { color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); }
-    .text-blue { color: #3895c8; -webkit-text-fill-color: #3895c8; }
+    .text-blue { color: #58A6FF; -webkit-text-fill-color: #58A6FF; }
     
     .auth-subtitle {
-      color: var(--color-text-light);
+      color: rgba(255, 255, 255, 0.8);
       margin-bottom: 25px;
       font-size: 0.95rem;
     }
@@ -88,12 +88,12 @@
     .btn-auth {
       width: 100%;
       padding: 15px;
-      border-radius: 12px;
+      border-radius: var(--radius-pill);
       border: none;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       margin-top: 10px;
       margin-bottom: 20px;
     }
@@ -156,7 +156,7 @@
       font-size: 0.9rem;
     }
     .bottom-link a {
-      color: #3895c8;
+      color: #58A6FF;
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
@@ -186,9 +186,8 @@
   
 
   <div class="auth-card">
-    <a href="index.html" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; text-decoration: none;">
-      <img src="assets/images/magic_hat_logo.png" alt="Magiqo Logo" class="auth-logo" style="margin-bottom: 0; margin-top: 0;">
-      <span style="font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary);">Magiqo</span>
+    <a href="index.html" style="display: flex; align-items: center; justify-content: center; margin-bottom: 25px; text-decoration: none;">
+      <img src="assets/full logo.png" alt="Magiqo Premium Events Logo" style="height: 85px; width: auto; object-fit: contain;">
     </a>
     <h1 class="auth-title"><span class="text-pink">Join</span> <span class="text-blue">Magiqo</span></h1>
     <p class="auth-subtitle">Create an account to unlock unforgettable magical experiences.</p>

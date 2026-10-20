@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MAGIQO - Service Details</title>
 
+    <!-- Core Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/footer.css">
@@ -15,6 +20,8 @@
     body {
       background: var(--color-bg) !important;
       background-color: var(--color-bg) !important;
+      color: var(--color-text);
+      font-family: var(--font-body);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
@@ -32,29 +39,32 @@
     .sec-title h2 {
       font-family: var(--font-magic);
       font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
       margin-bottom: 1rem;
-      background: var(--gradient-heading);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--color-text);
+      line-height: 1.2;
     }
 
     .sec-title p {
       color: var(--color-text-light);
-      font-size: 1.125rem;
+      font-size: 1.15rem;
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
-    /* 1. Detail Hero (Redesigned Split Layout) */
+    /* 1. Detail Hero */
     .detail-hero {
       position: relative;
-      min-height: 85vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
-      padding-top: 120px;
-      padding-bottom: 4rem;
-      background: var(--color-surface);
+      padding-top: 140px;
+      padding-bottom: 5rem;
+      background: radial-gradient(circle at 10% 20%, rgba(201, 42, 88, 0.08) 0%, transparent 45%),
+                  radial-gradient(circle at 90% 80%, rgba(56, 149, 200, 0.08) 0%, transparent 45%),
+                  var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
       overflow: hidden;
     }
 
@@ -74,32 +84,63 @@
 
     .hero-title {
       font-family: var(--font-magic);
-      font-size: clamp(3rem, 5vw, 5rem);
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 900;
       margin-bottom: 1rem;
-      line-height: 1.1;
-      background: var(--gradient-heading);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      line-height: 1.15;
+      color: var(--color-text);
     }
 
     .hero-subtitle {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--color-text-light);
       margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-badges-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-bg);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+    .hero-badge-item.pink {
+      border-color: rgba(201, 42, 88, 0.3);
+      color: var(--color-primary);
+      background: rgba(201, 42, 88, 0.06);
+    }
+    .hero-badge-item.blue {
+      border-color: rgba(56, 149, 200, 0.3);
+      color: #3895c8;
+      background: rgba(56, 149, 200, 0.06);
     }
 
     .hero-card {
-      background: var(--color-surface);
+      background: var(--color-bg);
       border: 1px solid var(--color-border);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px var(--color-shadow);
       padding: 2rem;
       border-radius: var(--radius-lg);
       margin-top: 2rem;
     }
 
     .hero-card h4 {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
+      font-family: var(--font-magic);
+      font-size: 1.4rem;
+      font-weight: 800;
       margin-bottom: 0.5rem;
       color: var(--color-text);
     }
@@ -108,6 +149,7 @@
       font-size: 0.95rem;
       margin-bottom: 1.5rem;
       color: var(--color-text-light);
+      line-height: 1.6;
     }
 
     .hero-img-wrapper {
@@ -120,477 +162,447 @@
     .hero-img-wrapper img {
       width: 100%;
       max-width: 500px;
+      height: 480px;
+      object-fit: cover;
       border-radius: var(--radius-lg);
-      box-shadow: 0 20px 50px rgba(218, 47, 95, 0.2);
-      border: 8px solid white;
-      transform: rotate(3deg);
-      transition: transform 0.5s;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      border: 6px solid var(--color-surface);
+      transition: transform 0.5s ease;
     }
 
     .hero-img-wrapper:hover img {
-      transform: rotate(0deg) scale(1.02);
+      transform: scale(1.02);
     }
 
-    /* 2 & 3. Meet the Experience / What Makes it Magical */
-    .split-section {
-      display: flex;
-      gap: 4rem;
-      align-items: center;
-      margin-bottom: 6rem;
-    }
-
-    .split-text {
-      flex: 1;
-    }
-
-    .split-text h2 {
-      font-family: var(--font-magic);
-      font-size: 2.5rem;
-      color: var(--color-primary);
-      margin-bottom: 1.5rem;
-    }
-
-    .split-text p {
-      font-size: 1.1rem;
-      color: var(--color-text-light);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .magical-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 2rem;
-    }
-
-    .magical-list li {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-
-    .magical-icon {
-      width: 40px;
-      height: 40px;
+    /* Feature Cards (What Makes it Magical) */
+    .magical-feature-card {
+      text-align: center;
+      padding: 2.75rem 2rem;
       background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 25px var(--color-shadow);
+      border: 1px solid var(--color-border);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .magical-feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201, 42, 88, 0.3);
+    }
+    .magical-feature-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, rgba(201, 42, 88, 0.12) 0%, rgba(56, 149, 200, 0.12) 100%);
+      border: 1px solid rgba(201, 42, 88, 0.2);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--color-accent);
-      flex-shrink: 0;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      color: var(--color-primary);
+      font-size: 1.8rem;
+    }
+    .magical-feature-card h4 {
+      font-size: 1.35rem;
+      font-family: var(--font-magic);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+    }
+    .magical-feature-card p {
+      color: var(--color-text-light);
+      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
-    .magical-icon svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
-
-    /* 4. The Show Unfolds (Vertical Timeline) */
+    /* 4. Timeline */
     .timeline-container {
       position: relative;
       max-width: 900px;
       margin: 0 auto 6rem;
       padding: 2rem 0;
     }
-
     .timeline-container::before {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
-      width: 4px;
-      background: var(--color-primary);
+      width: 3px;
+      background: linear-gradient(to bottom, var(--color-primary), #3895c8);
       transform: translateX(-50%);
-      opacity: 0.2;
+      opacity: 0.3;
     }
-
     .timeline-item {
       display: flex;
       justify-content: flex-end;
       padding-right: 50%;
       position: relative;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
       width: 100%;
     }
-
     .timeline-item:nth-child(even) {
       justify-content: flex-start;
       padding-right: 0;
       padding-left: 50%;
     }
-
     .timeline-content {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 2rem;
-      width: 90%;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      padding: 2.25rem;
+      width: 88%;
+      box-shadow: 0 10px 30px var(--color-shadow);
       position: relative;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-
     .timeline-item:hover .timeline-content {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: var(--color-primary);
     }
-
     .timeline-content::before {
       content: attr(data-step);
       position: absolute;
       top: 2rem;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       background: var(--color-primary);
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
-      font-size: 1.25rem;
-      box-shadow: 0 0 0 8px var(--color-bg);
+      font-weight: 800;
+      font-size: 1.2rem;
+      font-family: var(--font-magic);
+      box-shadow: 0 0 0 6px var(--color-bg);
       z-index: 2;
     }
-
     .timeline-item:nth-child(odd) .timeline-content::before {
-      right: -65px;
+      right: -67px;
     }
-
     .timeline-item:nth-child(even) .timeline-content::before {
-      left: -65px;
+      left: -67px;
     }
-
     .timeline-content h4 {
-      font-size: 1.5rem;
-      color: var(--color-primary);
-      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      font-family: var(--font-magic);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: 0.6rem;
     }
-
     .timeline-content p {
       color: var(--color-text-light);
       line-height: 1.6;
+      font-size: 0.95rem;
     }
 
-    /* 5. What's Included Grid (Images Redesign) */
+    /* 5. What's Included */
     .included-wrapper {
-      padding: 6rem 0;
+      padding: 5rem 0;
       margin-bottom: 6rem;
       background: var(--color-surface);
+      border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
     }
-
     .included-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
-      padding: 0 2rem;
+      padding: 0 2.5rem;
     }
-
     .included-card {
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      height: 350px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      height: 320px;
+      box-shadow: 0 10px 25px var(--color-shadow);
       border: 1px solid var(--color-border);
     }
-
     .included-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s;
+      display: block;
+      transition: transform 0.5s ease;
     }
-
     .included-card:hover img {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
-
     .included-overlay {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-      padding: 2rem;
-      color: white;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(14, 20, 36, 0.92) 0%, transparent 100%);
+      padding: 2rem 1.5rem 1.5rem;
       display: flex;
       align-items: flex-end;
     }
-
     .included-overlay h5 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-family: var(--font-magic);
-      color: white !important;
+      font-weight: 800;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
       margin: 0;
-      -webkit-text-fill-color: white !important;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     }
 
-    /* 6. Perfect For Little Celebr (Interactive Grid) */
+    /* 6. Perfect For Grid */
     .perfect-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
-      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
       margin-bottom: 6rem;
     }
-
     .perfect-card {
-      background: var(--color-surface); border: 2px dashed var(--color-border); border-radius: var(--radius-lg);
-      padding: 2.5rem; text-align: center; transition: all 0.3s;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 25px var(--color-shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    .perfect-card:hover { border-color: var(--color-primary); background: var(--color-primary); color: white; transform: scale(1.05); }
-    .perfect-card h3 { font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.5rem; transition: color 0.3s; }
-    .perfect-card:hover h3 { color: #F6C344; }
-    .perfect-card p { font-size: 1.1rem; font-weight: bold; color: var(--color-text-light); transition: color 0.3s; }
-    .perfect-card:hover p { color: white; }
+    .perfect-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-primary);
+    }
+    .perfect-card h3 {
+      font-family: var(--font-magic);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .perfect-card p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0;
+    }
 
-    /* 7. Meet Performer */
+    /* 7. Performer Box */
     .performer-box {
       background: var(--color-surface);
       border-radius: var(--radius-lg);
       overflow: hidden;
       display: flex;
       border: 1px solid var(--color-border);
-      max-width: 1000px;
-      margin: 0 auto;
+      box-shadow: 0 15px 40px var(--color-shadow);
+      max-width: 1040px;
+      margin: 0 auto 6rem;
     }
-
     .performer-img {
-      width: 400px;
-      height: 400px;
+      width: 380px;
+      height: 420px;
       object-fit: cover;
+      display: block;
     }
-
     .performer-info {
       padding: 3rem;
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .performer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(46, 204, 113, 0.12);
+      color: #2ecc71;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
+      margin-bottom: 1rem;
     }
 
-    /* 8. Choose Package (Pricing) */
+    /* 8. Pricing Grid */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
-      justify-content: center;
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
       margin-bottom: 6rem;
     }
-
     .pricing-card {
       background: var(--color-surface);
       border-radius: var(--radius-lg);
-      padding: 3.5rem 2.5rem;
+      padding: 3rem 2rem;
       text-align: center;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px var(--color-shadow);
       border: 1px solid var(--color-border);
       position: relative;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
-
     .pricing-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px var(--color-shadow);
     }
-
     .pricing-card.featured {
-      background: linear-gradient(to bottom, var(--color-surface), var(--color-bg));
       border: 2px solid var(--color-primary);
-      transform: scale(1.05);
-      box-shadow: 0 20px 50px rgba(218, 47, 95, 0.15);
+      box-shadow: 0 15px 40px rgba(201, 42, 88, 0.15);
     }
-
-    .pricing-card.featured:hover {
-      transform: scale(1.05) translateY(-5px);
-    }
-
     .pricing-card.featured::before {
       content: 'Most Popular';
       position: absolute;
-      top: -16px;
+      top: -15px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--gradient-heading);
+      background: var(--color-primary);
       color: white;
-      padding: 0.5rem 2rem;
+      padding: 0.4rem 1.5rem;
       border-radius: var(--radius-pill);
-      font-weight: bold;
-      font-size: 0.9rem;
-      box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 5px 15px rgba(201, 42, 88, 0.3);
     }
-
     .price-title {
       font-family: var(--font-magic);
-      font-size: 2.5rem;
+      font-size: 1.85rem;
+      font-weight: 800;
       color: var(--color-text);
       margin-bottom: 0.5rem;
     }
-
     .price-amount {
-      font-size: 3.5rem;
-      font-weight: 800;
+      font-size: 3rem;
+      font-weight: 900;
+      font-family: var(--font-magic);
       color: var(--color-primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       line-height: 1;
     }
-
     .price-duration {
       color: var(--color-text-light);
       margin-bottom: 2rem;
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-weight: 600;
+      font-size: 1rem;
     }
-
     .price-features {
       list-style: none;
       margin-bottom: 2.5rem;
       text-align: left;
       padding: 0;
+      flex-grow: 1;
     }
-
     .price-features li {
-      padding: 0.85rem 0;
+      padding: 0.75rem 0;
       border-bottom: 1px solid var(--color-border);
       color: var(--color-text-light);
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 0.75rem;
+      font-size: 0.95rem;
     }
-
-    .price-features li svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--color-accent);
+    .price-features li i {
+      color: var(--color-primary);
+      font-size: 1rem;
       flex-shrink: 0;
-      margin-top: 3px;
     }
 
-    /* 9. Gallery */
+    /* 9. Masonry Gallery */
     .masonry-gallery {
-      columns: 3;
-      column-gap: 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 6rem;
     }
-
     .masonry-item {
-      margin-bottom: 1.5rem;
-      break-inside: avoid;
       border-radius: var(--radius-lg);
       overflow: hidden;
+      height: 260px;
+      box-shadow: 0 10px 25px var(--color-shadow);
+      border: 1px solid var(--color-border);
     }
-
     .masonry-item img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease;
     }
-
     .masonry-item:hover img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
-    /* 10. Booking Form CTA */
-    .booking-cta {
-      background: #D24B76;
-      padding: 5rem;
-      border-radius: var(--radius-lg);
-      display: flex;
-      gap: 4rem;
-      align-items: center;
+    /* 10. Official Booking CTA (Full-Width Brand Section) */
+    .cta-section {
+      background: #C92A58 !important;
+      padding: 6rem 0;
       color: white;
-      margin-top: 4rem;
-      margin-bottom: 4rem;
-    }
-
-    .booking-text {
-      flex: 1;
-    }
-
-    .booking-text h2 {
-      font-family: var(--font-magic);
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: white !important;
-      -webkit-text-fill-color: white !important;
-      background: none !important;
-    }
-
-    .booking-form {
-      flex: 1;
-      background: var(--color-surface);
-      padding: 3rem;
-      border-radius: var(--radius-lg);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--color-text);
-      font-weight: bold;
-    }
-
-    .form-control {
-      background: var(--color-bg);
-      color: var(--color-text);
+      text-align: center;
       width: 100%;
-      padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      font-family: inherit;
+      position: relative;
+    }
+    .cta-section h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+      font-weight: 800;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius-pill);
+      padding: 0.85rem 2.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-white:hover {
+      background: white;
+      color: var(--color-primary);
+      border-color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Brand text classes */
+    .text-pink {
+      color: var(--color-primary) !important;
+      -webkit-text-fill-color: var(--color-primary) !important;
+    }
+    .text-blue {
+      color: #3895c8 !important;
+      -webkit-text-fill-color: #3895c8 !important;
     }
 
     @media (max-width: 992px) {
-      .hero-content {
-        flex-direction: column;
-        align-items: flex-start;
+      .hero-container { flex-direction: column; text-align: center; }
+      .hero-badges-row { justify-content: center; }
+      .performer-box { flex-direction: column; text-align: center; }
+      .performer-img { width: 100%; height: 350px; }
+      .timeline-container::before { left: 20px; }
+      .timeline-item, .timeline-item:nth-child(even) {
+        padding-left: 50px;
+        padding-right: 0;
+        justify-content: flex-start;
       }
-
-      .hero-card {
-        width: 100%;
-      }
-
-      .split-section {
-        flex-direction: column;
-      }
-
-      .performer-box {
-        flex-direction: column;
-      }
-
-      .performer-img {
-        width: 100%;
-      }
-
-      .booking-cta {
-        flex-direction: column;
-        padding: 3rem 2rem;
-      }
-
-      .masonry-gallery {
-        columns: 2;
+      .timeline-content { width: 100%; }
+      .timeline-content::before, .timeline-item:nth-child(even) .timeline-content::before {
+        left: -42px;
+        right: auto;
       }
     }
 
-    @media (max-width: 768px) {
-      .masonry-gallery {
-        columns: 1;
-      }
-    }
-    .modal-availability { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 9999; }
-    .modal-availability.active { display: flex; }
-    .modal-avail-content { background: var(--color-surface); padding: 3rem; border-radius: var(--radius-lg); text-align: center; max-width: 400px; box-shadow: 0 20px 40px var(--color-shadow); border: 1px solid var(--color-border); }
-    .modal-avail-content h3 { font-family: var(--font-magic); color: var(--color-primary); font-size: 2.2rem; margin-bottom: 1rem; }
   </style>
   <link rel="icon" type="image/png" href="assets/logoooo.png">
 </head>
@@ -603,23 +615,18 @@
   <section class="detail-hero">
     <div class="container hero-container">
       <div class="hero-text">
-        <h1 class="hero-title" id="dynamicHeroTitle"><span
-            style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Magical</span> <span
-            style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Experience</span></h1>
+        <h1 class="hero-title" id="dynamicHeroTitle"><span class="text-pink">Magical</span> <span class="text-blue">Experience</span></h1>
         <p class="hero-subtitle">Step into a world of wonder. Our premium entertainment brings imagination to life,
           creating memories that will last long after the final curtain call.</p>
-        <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
-          <span
-            style="background: var(--color-surface); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 0.9rem; border: 1px solid var(--color-primary); color: var(--color-primary);">From
-            $199</span>
-          <span
-            style="background: var(--color-surface); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-weight: bold; font-size: 0.9rem; border: 1px solid var(--color-accent); color: var(--color-accent);">45
-            - 120 Mins</span>
+        <div class="hero-badges-row">
+          <span class="hero-badge-item pink"><i class="fa-solid fa-tag"></i> From $199</span>
+          <span class="hero-badge-item blue"><i class="fa-solid fa-clock"></i> 45 - 120 Mins</span>
+          <span class="hero-badge-item"><i class="fa-solid fa-shield-halved"></i> 100% DBS Vetted</span>
         </div>
         <div class="hero-card">
           <h4>Ready to book?</h4>
           <p>Check availability for this specific entertainment package before dates fill up.</p>
-          <a href="#booking" class="btn btn-primary" style="width: 100%;">Check Availability</a>
+          <a href="#booking" class="btn btn-primary btn-full">Check Availability</a>
         </div>
       </div>
       <div class="hero-img-wrapper">
@@ -632,42 +639,40 @@
 
     <!-- 2 & 3. Meet the Experience / What Makes It Magical -->
     <div style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
-      <h2 style="font-family: var(--font-magic); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem; background: var(--gradient-heading); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Meet the Experience</h2>
+      <h2 style="font-family: var(--font-magic); font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem;"><span class="text-pink">Meet the</span> <span class="text-blue">Experience</span></h2>
       <p style="font-size: 1.25rem; color: var(--color-text); line-height: 1.8; margin-bottom: 1rem;">This isn't just a performance; it's an immersive journey. We tailor every single moment to match the energy of the crowd, ensuring that both children and adults are completely captivated from start to finish.</p>
       <p style="font-size: 1.15rem; color: var(--color-primary); font-weight: bold;">Expect high-energy interactions, stunning visuals, and moments of pure astonishment.</p>
     </div>
 
     <div class="sec-title">
-      <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">What Makes It</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Magical?</span></h2>
+      <h2><span class="text-pink">What Makes It</span> <span class="text-blue">Magical?</span></h2>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-bottom: 7rem;">
-      <div style="text-align: center; padding: 2.5rem; background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--color-border); transition: transform 0.3s;">
-        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
-          <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: white;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <div class="magical-feature-card">
+        <div class="magical-feature-icon">
+          <i class="fa-solid fa-star"></i>
         </div>
-        <h4 style="font-size: 1.4rem; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-heading);">Star of the Show</h4>
-        <p style="color: var(--color-text-light); line-height: 1.6;">The birthday child is integrated into the climax of the performance, making them feel truly special.</p>
+        <h4>Star of the Show</h4>
+        <p>The birthday child is integrated into the climax of the performance, making them feel truly celebrated with their own magic wand.</p>
       </div>
-      <div style="text-align: center; padding: 2.5rem; background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--color-border); transition: transform 0.3s;">
-        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
-          <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: white;"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+      <div class="magical-feature-card">
+        <div class="magical-feature-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
         </div>
-        <h4 style="font-size: 1.4rem; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-heading);">Fully Immersive</h4>
-        <p style="color: var(--color-text-light); line-height: 1.6;">We bring our own professional sound systems, backdrops, and lighting for a complete experience.</p>
+        <h4>Fully Immersive</h4>
+        <p>We bring our own professional sound systems, backdrops, and lighting for a complete theatrical experience anywhere.</p>
       </div>
-      <div style="text-align: center; padding: 2.5rem; background: var(--color-surface); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--color-border); transition: transform 0.3s;">
-        <div style="width: 70px; height: 70px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
-          <svg viewBox="0 0 24 24" style="width: 35px; height: 35px; fill: white;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+      <div class="magical-feature-card">
+        <div class="magical-feature-icon">
+          <i class="fa-solid fa-heart"></i>
         </div>
-        <h4 style="font-size: 1.4rem; color: var(--color-text); margin-bottom: 1rem; font-family: var(--font-heading);">Adaptable Flow</h4>
-        <p style="color: var(--color-text-light); line-height: 1.6;">We read the room and seamlessly adjust the pacing to keep everyone constantly engaged.</p>
+        <h4>Adaptable Flow</h4>
+        <p>We read the room and seamlessly adjust pacing and comedy to keep every child from toddlers to tweens captivated.</p>
       </div>
     </div>
-
     <!-- 4. The Show Unfolds (Redesigned Timeline) -->
     <div class="sec-title">
-      <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">The</span> <span
-          style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Show Unfolds</span></h2>
+      <h2><span class="text-pink">The</span> <span class="text-blue">Show Unfolds</span></h2>
       <p>Here is exactly how the entertainment flows from arrival to goodbye.</p>
     </div>
 
@@ -704,8 +709,7 @@
     <!-- 5. What's Included (Dark Glowing Redesign) -->
     <div class="included-wrapper">
       <div class="sec-title">
-        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">What's</span>
-          <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Included</span></h2>
+        <h2><span class="text-pink">What's</span> <span class="text-blue">Included</span></h2>
         <p>Everything we provide to ensure the perfect show.</p>
       </div>
       <div class="included-grid">
@@ -738,8 +742,7 @@
 
   <!-- 6. Perfect For Little Celebrations (Redesigned Grid) -->
   <div class="sec-title">
-    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Perfect For</span>
-      <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Little Celebrations</span></h2>
+    <h2><span class="text-pink">Perfect For</span> <span class="text-blue">Little Celebrations</span></h2>
     <p>This specific experience is tailored to ensure the best possible engagement.</p>
   </div>
   <div class="perfect-grid">
@@ -763,29 +766,28 @@
 
   <!-- 7. Meet Your Performer -->
   <div class="sec-title">
-    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Meet</span> <span
-        style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Your Performer</span></h2>
+    <h2><span class="text-pink">Meet</span> <span class="text-blue">Your Performer</span></h2>
   </div>
   <div class="performer-box" style="margin-bottom: 6rem;">
-    <img src="assets/images/pro_magician.jpg" alt="Performer" class="performer-img">
+    <img src="assets/images/magician_portrait_1790843004983.jpg" id="performerImg" alt="Performer" class="performer-img">
     <div class="performer-info">
-      <h3
+      <h3 id="performerName"
         style="font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">
         Mark "The Magic"</h3>
-      <p style="font-weight: bold; color: var(--color-accent); margin-bottom: 1.5rem;">Lead Entertainer • 10+ Years
+      <p id="performerRole" style="font-weight: bold; color: var(--color-accent); margin-bottom: 1.5rem;">Lead Entertainer • 10+ Years
         Experience</p>
-      <p style="color: var(--color-text-light); line-height: 1.8; margin-bottom: 2rem;">
+      <p id="performerBio" style="color: var(--color-text-light); line-height: 1.8; margin-bottom: 2rem;">
         Mark has performed at over 2,000 children's parties. His background in improvisational theater and close-up
         illusion makes him one of the most sought-after children's entertainers in the state. He specializes in
         high-energy engagement and making every child feel special.
       </p>
       <div style="display: flex; gap: 2rem;">
         <div>
-          <div style="font-size: 2rem; font-weight: 900; color: var(--color-text);">4.9/5</div>
+          <div id="performerRating" style="font-size: 2rem; font-weight: 900; color: var(--color-text);">4.9/5</div>
           <div style="color: var(--color-text-light); font-size: 0.9rem;">Average Rating</div>
         </div>
         <div>
-          <div style="font-size: 2rem; font-weight: 900; color: var(--color-text);">1,200+</div>
+          <div id="performerParties" style="font-size: 2rem; font-weight: 900; color: var(--color-text);">1,200+</div>
           <div style="color: var(--color-text-light); font-size: 0.9rem;">Parties Hosted</div>
         </div>
       </div>
@@ -794,8 +796,7 @@
 
   <!-- 8. Choose Your Package -->
   <div class="sec-title" id="packages">
-    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Choose</span> <span
-        style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Your Package</span></h2>
+    <h2><span class="text-pink">Choose</span> <span class="text-blue">Your Package</span></h2>
     <p>Select the perfect duration and feature set for this specific experience.</p>
   </div>
   <div class="pricing-grid">
@@ -804,20 +805,12 @@
       <div class="price-amount">$199</div>
       <div class="price-duration">45 Minutes</div>
       <ul class="price-features">
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> 1 Professional Entertainer</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Core Performance</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Happy Birthday Ceremony</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Photo Opportunities</li>
+        <li><i class="fa-solid fa-circle-check"></i> 1 Professional Entertainer</li>
+        <li><i class="fa-solid fa-circle-check"></i> Core Performance</li>
+        <li><i class="fa-solid fa-circle-check"></i> Happy Birthday Ceremony</li>
+        <li><i class="fa-solid fa-circle-check"></i> Photo Opportunities</li>
       </ul>
-      <a href="#booking" class="btn btn-outline" style="width: 100%; padding: 1rem;">Select The Spark</a>
+      <a href="#booking" class="btn btn-outline btn-full">Select The Spark</a>
     </div>
 
     <div class="pricing-card featured">
@@ -825,20 +818,12 @@
       <div class="price-amount">$299</div>
       <div class="price-duration">90 Minutes</div>
       <ul class="price-features">
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Extended Performance</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Balloon Twisting</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Party Games & Music</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Special Gift Box</li>
+        <li><i class="fa-solid fa-circle-check"></i> Extended Performance</li>
+        <li><i class="fa-solid fa-circle-check"></i> Balloon Twisting</li>
+        <li><i class="fa-solid fa-circle-check"></i> Party Games & Music</li>
+        <li><i class="fa-solid fa-circle-check"></i> Special Gift Box</li>
       </ul>
-      <a href="#booking" class="btn btn-primary" style="width: 100%; padding: 1rem;">Select The Magic</a>
+      <a href="#booking" class="btn btn-primary btn-full">Select The Magic</a>
     </div>
 
     <div class="pricing-card">
@@ -846,80 +831,43 @@
       <div class="price-amount">$499</div>
       <div class="price-duration">2 Hours</div>
       <ul class="price-features">
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> 2 Professional Entertainers</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Grand Performance & Face Paint</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Mini Disco Setup</li>
-        <li><svg viewBox="0 0 24 24">
-            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-          </svg> Premium Gift Box</li>
+        <li><i class="fa-solid fa-circle-check"></i> 2 Professional Entertainers</li>
+        <li><i class="fa-solid fa-circle-check"></i> Grand Performance & Face Paint</li>
+        <li><i class="fa-solid fa-circle-check"></i> Mini Disco Setup</li>
+        <li><i class="fa-solid fa-circle-check"></i> Premium Gift Box</li>
       </ul>
-      <a href="#booking" class="btn btn-outline" style="width: 100%; padding: 1rem;">Select The Spectacle</a>
+      <a href="#booking" class="btn btn-outline btn-full">Select The Spectacle</a>
     </div>
   </div>
 
   <!-- 9. Moments of Magic (Gallery) -->
   <div class="sec-title">
-    <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Moments</span> <span
-        style="color: #3895c8; -webkit-text-fill-color: #3895c8;">of Magic</span></h2>
-    <p>Glimpses into the joy we bring.</p>
+    <h2><span class="text-pink">Moments</span> <span class="text-blue">of Magic</span></h2>
+    <p>Glimpses into the joyful memories we create across every celebration.</p>
   </div>
   <div class="masonry-gallery">
-    <div class="masonry-item"><img src="assets/images/pro_hero_party.jpg" alt="Gallery"></div>
-    <div class="masonry-item"><img src="assets/images/pro_classic_magic.jpg" alt="Gallery"></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery"></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery"></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery"></div>
-    <div class="masonry-item"><img src="assets/images/pro_princess.jpg" alt="Gallery"></div>
+    <div class="masonry-item"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Magic Performance Joy"></div>
+    <div class="masonry-item"><img src="assets/images/service_balloon_twisting.jpg" alt="Balloon Twisting Art"></div>
+    <div class="masonry-item"><img src="assets/images/princess_party_1790842645232.jpg" alt="Princess Fairytale Storytime"></div>
+    <div class="masonry-item"><img src="assets/images/service_bubble_show.jpg" alt="Giant Bubble Wonders"></div>
+    <div class="masonry-item"><img src="assets/images/kids_clapping_party_1790917531872.jpg" alt="Laughing & Cheering Children"></div>
+    <div class="masonry-item"><img src="assets/images/service_face_painting.jpg" alt="Colorful Face Painting"></div>
   </div>
+  </div> <!-- /container.section-pad -->
 
-  <!-- 10. Booking CTA -->
-  <div id="booking" class="booking-cta">
-    <div class="booking-text">
-      <h2 style="color: white !important; -webkit-text-fill-color: white !important; background: none !important;">Ready to Make Memories?</h2>
-      <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.9;">Secure your preferred date now. Fill out the quick
-        form and our team will get back to you within 24 hours to finalize your magical celebration.</p>
+  <!-- 10. Official Booking CTA Banner (Full-Width) -->
+  <section id="booking" class="cta-section">
+    <div class="container text-center">
+      <h2>Ready to Make Memories?</h2>
+      <p>Secure your preferred date with our verified entertainers before calendar slots fill up. Fast, flexible, and fully guaranteed.</p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+        <a href="booking.html" class="btn btn-white btn-lg"><i class="fa-solid fa-calendar-check"></i> Book This Service Now</a>
+        <a href="packages.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-wand-magic-sparkles"></i> View All Packages</a>
+      </div>
     </div>
-    <div class="booking-form">
-      <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--color-text);">
-        Check Availability</h4>
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" class="form-control" placeholder="Jane Doe">
-      </div>
-      <div class="form-group">
-        <label>Party Date</label>
-        <input type="date" class="form-control">
-      </div>
-      <div class="form-group">
-        <label>Package Preference</label>
-        <select class="form-control">
-          <option>The Spark (45 Mins)</option>
-          <option>The Magic (90 Mins)</option>
-          <option>The Spectacle (2 Hours)</option>
-        </select>
-      </div>
-      <button class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.1rem;" onclick="document.getElementById('submitModal').classList.add('active')">Submit Request</button>
-    </div>
-  </div>
-  </div>
+  </section>
 
-  <!-- Submit Modal -->
-  <div class="modal-availability" id="submitModal" onclick="if(event.target===this) this.classList.remove('active')">
-    <div class="modal-avail-content" style="position: relative;">
-      <button onclick="document.getElementById('submitModal').classList.remove('active')" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-text);">&times;</button>
-      <h3>Request Submitted!</h3>
-      <p style="font-size: 1.1rem; margin: 1rem 0 2rem; color: var(--color-text);">Your booking request has been securely sent. Want to learn more about the talent?</p>
-      <a id="modalEntertainerBtn" href="entertainer_detail.html" class="btn btn-primary" style="background: var(--gradient-heading); border: none; width: 100%; padding: 1rem; font-size: 1.1rem; border-radius: var(--radius-pill);">View Entertainer Details</a>
-    </div>
-  </div>
-
-  <!-- Dynamic Footer -->
+  <!-- Dynamic Footer (Full-Width, Unconstrained) -->
   <div id="footer"></div>
 
   <!-- Scripts -->
@@ -935,38 +883,124 @@
       const title = params.get('title');
       const imgSrc = params.get('img');
 
-      // Update the Hero Section if data exists
+      // Update the Hero Section if data exists with two-tone Magiqo branding
       if (title) {
-        document.getElementById('dynamicHeroTitle').textContent = title;
+        const words = title.split(' ');
+        if (words.length > 1) {
+          const mid = Math.ceil(words.length / 2);
+          const pinkPart = words.slice(0, mid).join(' ');
+          const bluePart = words.slice(mid).join(' ');
+          document.getElementById('dynamicHeroTitle').innerHTML = `<span class="text-pink">${pinkPart}</span> <span class="text-blue">${bluePart}</span>`;
+        } else {
+          document.getElementById('dynamicHeroTitle').innerHTML = `<span class="text-pink">${title}</span>`;
+        }
         document.title = "MAGIQO - " + title;
       }
       if (imgSrc) {
         document.getElementById('dynamicHeroImg').src = imgSrc;
       }
 
-      const modalBtn = document.getElementById('modalEntertainerBtn');
-      if (title && modalBtn) {
-        const serviceToEntertainerMap = {
-          "Grand Stage Magician": { name: "Elias", id: "elias" },
-          "Friendly Mascots": { name: "Rex", id: "rex" },
-          "Royal Princess Visit": { name: "Lily", id: "lily" },
-          "Action Superhero": { name: "Captain Ray", id: "captain_ray" },
-          "Classic Clown": { name: "Barnaby", id: "barnaby" },
-          "Face Painting Pro": { name: "Sarah", id: "sarah" },
-          "Close-Up Magician": { name: "David", id: "david" },
-          "Balloon Twisting": { name: "Chloe", id: "chloe" },
-          "Interactive Puppet Show": { name: "Giggles", id: "giggles" },
-          "High-Energy Party Host": { name: "Steve", id: "steve" }
-        };
-        
-        if (serviceToEntertainerMap[title]) {
-            const ent = serviceToEntertainerMap[title];
-            modalBtn.textContent = "View " + ent.name + " Details";
-            modalBtn.href = "entertainer_detail.html?id=" + ent.id;
-        } else {
-            modalBtn.textContent = "View " + title + " Entertainer";
-            modalBtn.href = "entertainer_detail.html";
+      // Performer mapping database
+      const performersDB = {
+        "Grand Stage Magician": {
+          name: "Elias Vance",
+          role: "Master Stage Illusionist • 12+ Years Experience",
+          bio: "Elias has performed at over 2,000 children's parties and family galas. His specialty lies in high-energy grand illusions, interactive sleight of hand, and tailoring each trick to make the birthday child feel like the true star of the show.",
+          rating: "4.9/5",
+          parties: "1,200+",
+          img: "assets/images/magician_portrait_1790843004983.jpg",
+          id: "elias"
+        },
+        "Close-Up Magician": {
+          name: "David Marvel",
+          role: "Sleight-of-Hand Virtuoso • 8+ Years Experience",
+          bio: "David dazzles intimate crowds with mind-bending card miracles, coin levitations, and pocket-sized wonders right under your guests' noses. Kids and adults alike are left gasping in delight.",
+          rating: "5.0/5",
+          parties: "850+",
+          img: "assets/images/magician_portrait_1790843004983.jpg",
+          id: "david"
+        },
+        "Royal Princess Visit": {
+          name: "Princess Lily",
+          role: "Royal Storyteller & Vocalist • 6+ Years Experience",
+          bio: "Trained in classical musical theatre, Princess Lily arrives in opulent gowns with live singing, interactive royal fairytale storytime, etiquette games, and a magical coronation crowning for the birthday child.",
+          rating: "5.0/5",
+          parties: "940+",
+          img: "assets/images/princess_portrait_1790843055244.jpg",
+          id: "lily"
+        },
+        "Action Superhero": {
+          name: "Captain Ray",
+          role: "Hero Academy Trainer • 7+ Years Experience",
+          bio: "An energetic stunt performer who brings a full obstacle training camp, teamwork challenges, hero pose photoshoots, and an official superhero oath ceremony for all young recruits.",
+          rating: "4.9/5",
+          parties: "820+",
+          img: "assets/images/performer_superhero.jpg",
+          id: "captain_ray"
+        },
+        "Balloon Twisting": {
+          name: "Chloe Twist",
+          role: "Master Balloon Sculptor • 9+ Years Experience",
+          bio: "Forget basic dogs—Chloe crafts wearable butterfly wings, multi-balloon laser blasters, rainbow crowns, and life-size cartoon characters that wow kids and parents alike.",
+          rating: "4.8/5",
+          parties: "680+",
+          img: "assets/images/service_balloon_twisting.jpg",
+          id: "chloe"
+        },
+        "Interactive Puppet Show": {
+          name: "Barnaby & Giggles",
+          role: "Ventriloquist & Storyteller • 11+ Years Experience",
+          bio: "A side-splitting variety show starring lovable hand puppets, comical dialogue, audience participation, and interactive song-and-dance numbers perfect for ages 3 to 8.",
+          rating: "4.9/5",
+          parties: "760+",
+          img: "assets/images/service_puppet_show.jpg",
+          id: "giggles"
+        },
+        "Giant Bubble Show": {
+          name: "Professor Pop",
+          role: "Bubble Scientist & Artist • 6+ Years Experience",
+          bio: "An unforgettable outdoor and indoor bubble spectacle featuring smoky bubbles, bubble cubes, rainbow foam volcanos, and putting the birthday child entirely inside a giant bubble dome!",
+          rating: "5.0/5",
+          parties: "590+",
+          img: "assets/images/service_bubble_show.jpg",
+          id: "bubble"
+        },
+        "Face Painting Pro": {
+          name: "Sarah 'Palette'",
+          role: "Cosmetic Face & Glitter Artist • 8+ Years Experience",
+          bio: "Using hypoallergenic, FDA-approved cosmetic paints and biodegradable glitter, Sarah creates stunning superhero masks, intricate fairy designs, and mythical creatures in minutes.",
+          rating: "4.9/5",
+          parties: "1,100+",
+          img: "assets/images/service_face_painting.jpg",
+          id: "sarah"
+        },
+        "Circus & Juggler": {
+          name: "Jax Circus",
+          role: "Acrobat & Juggler • 10+ Years Experience",
+          bio: "Thrilling physical comedy, LED club manipulation, balance boards, and spinning plates that kids get to try themselves during an interactive circus workshop.",
+          rating: "4.9/5",
+          parties: "650+",
+          img: "assets/images/service_circus_juggler.jpg",
+          id: "jax"
         }
+      };
+
+      // Populate Performer section dynamically if match found
+      if (title && performersDB[title]) {
+        const perf = performersDB[title];
+        const pImg = document.getElementById('performerImg');
+        const pName = document.getElementById('performerName');
+        const pRole = document.getElementById('performerRole');
+        const pBio = document.getElementById('performerBio');
+        const pRating = document.getElementById('performerRating');
+        const pParties = document.getElementById('performerParties');
+
+        if (pImg) pImg.src = perf.img;
+        if (pName) pName.textContent = perf.name;
+        if (pRole) pRole.textContent = perf.role;
+        if (pBio) pBio.textContent = perf.bio;
+        if (pRating) pRating.textContent = perf.rating;
+        if (pParties) pParties.textContent = perf.parties;
       }
     });
   </script>
@@ -975,79 +1009,54 @@
   <script type="module">
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Initial Opacity Setup
-      const fadeElements = document.querySelectorAll('.sec-title, .hero-text, .hero-img-wrapper, .split-text, .performer-img, .performer-info, .booking-text, .booking-form');
-      fadeElements.forEach(el => el.style.opacity = '0');
-
       const grids = document.querySelectorAll('.included-grid, .perfect-grid, .pricing-grid, .masonry-gallery, .timeline-container');
-      grids.forEach(grid => {
-        Array.from(grid.children).forEach(child => {
-          if(child.tagName !== 'STYLE' && child.tagName !== 'SCRIPT') {
-            child.style.opacity = '0';
-          }
-        });
-      });
 
-      // Split layouts might not have specific classes for both children, so we hide direct children
-      document.querySelectorAll(".split-section, .performer-box").forEach(layout => {
-         Array.from(layout.children).forEach(child => child.style.opacity = '0');
-      });
-
-      // 2. Animations on Scroll
-      
-      // Hero Section
+      // 1. Hero Section animation
       inView(".detail-hero", () => {
         const text = document.querySelector(".hero-text");
         const img = document.querySelector(".hero-img-wrapper");
-        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
-        if(img) animate(img, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+        if(text) animate(text, { opacity: [0, 1], x: [-60, 0] }, { duration: 0.7, easing: "ease-out" });
+        if(img) animate(img, { opacity: [0, 1], x: [60, 0] }, { duration: 0.7, easing: "ease-out", delay: 0.15 });
       });
 
-      // Section Titles
+      // 2. Section Titles
       document.querySelectorAll(".sec-title").forEach(title => {
-        inView(title, () => animate(title, { opacity: [0, 1], y: [50, 0] }, { duration: 0.8, easing: "ease-out" }));
+        inView(title, () => animate(title, { opacity: [0, 1], y: [30, 0] }, { duration: 0.6, easing: "ease-out" }));
       });
 
-      // Split Sections
+      // 3. Split Sections
       document.querySelectorAll(".split-section, .performer-box").forEach(layout => {
         inView(layout, () => {
           const children = Array.from(layout.children);
           if (children.length >= 2) {
-             animate(children[0], { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
-             animate(children[1], { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
+             animate(children[0], { opacity: [0, 1], x: [-40, 0] }, { duration: 0.6, easing: "ease-out" });
+             animate(children[1], { opacity: [0, 1], x: [40, 0] }, { duration: 0.6, easing: "ease-out", delay: 0.15 });
           }
         });
       });
 
-      // Grids & Timeline
+      // 4. Grids & Timeline
       grids.forEach(grid => {
         inView(grid, () => {
           const children = Array.from(grid.children).filter(c => c.tagName !== 'STYLE' && c.tagName !== 'SCRIPT');
           children.forEach((child, index) => {
-            let xOffset = 0; let yOffset = 50;
-            
+            let xOffset = 0; let yOffset = 30;
             if (grid.classList.contains('timeline-container')) {
-              // Timeline items alternate left and right
-              xOffset = (index % 2 === 0) ? -100 : 100;
+              xOffset = (index % 2 === 0) ? -40 : 40;
               yOffset = 0;
-            } else if (children.length > 1) {
-              if (index % 3 === 0) { xOffset = -100; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 100; yOffset = 0; }
             }
-            
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
+            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.6, easing: "ease-out", delay: 0.08 * index });
           });
         });
       });
       
-      // Booking CTA
+      // 5. Booking CTA
       inView(".booking-cta", ({ target }) => {
         const text = target.querySelector(".booking-text");
         const form = target.querySelector(".booking-form");
-        if(text) animate(text, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8 });
-        if(form) animate(form, { opacity: [0, 1], scale: [0.95, 1] }, { duration: 0.8, delay: 0.2 });
+        if(text) animate(text, { opacity: [0, 1], x: [-40, 0] }, { duration: 0.7 });
+        if(form) animate(form, { opacity: [0, 1], scale: [0.96, 1] }, { duration: 0.7, delay: 0.15 });
       });
-
     });
   </script>
 </body>

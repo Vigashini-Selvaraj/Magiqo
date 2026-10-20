@@ -123,8 +123,10 @@
     /* Forms & Filters */
     .filter-bar { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
     .filter-select { padding: 8px 15px; background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); color: var(--color-text); border-radius: 8px; outline: none; }
-    .btn-primary { padding: 10px 20px; background: var(--color-primary); border: none; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .btn-primary { padding: 10px 20px; background: var(--color-primary); border: none; color: white; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
     .btn-primary:hover { background: #b83a62; }
+    .btn-outline { padding: 10px 20px; background: transparent; border: 1px solid var(--color-border); color: var(--color-text); border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-outline:hover { border-color: var(--color-primary); color: var(--color-primary); }
     
     /* Slot Calendar */
     .slot-grid { display: grid; grid-template-columns: 80px 1fr; gap: 15px; margin-bottom: 15px; }
@@ -205,9 +207,8 @@
   <div class="admin-overlay" id="admin-overlay"></div>
 
   <div class="admin-sidebar">
-    <a href="index.html" class="admin-logo">
-      <img src="assets/images/magic_hat_logo.png" alt="Magiqo">
-      <span>Magiqo</span>
+    <a href="index.html" class="admin-logo" style="display: flex; align-items: center; margin-bottom: 30px; text-decoration: none;">
+      <img src="assets/full logo.png" alt="Magiqo" style="height: 60px; width: auto; max-width: 100%; object-fit: contain;">
     </a>
     
     
@@ -270,7 +271,7 @@
     <div id="overview" class="tab-content active">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
         <h2 style="margin: 0; font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary);">Welcome back, Jane!</h2>
-        <a href="#" onclick="openModal()" class="btn-primary" style="background: #3895c8; text-decoration: none;"><i class="fa-solid fa-plus"></i> New Booking</a>
+        <a href="#" onclick="openModal()" class="btn btn-primary" style="text-decoration: none;"><i class="fa-solid fa-plus"></i> New Booking</a>
       </div>
       
       <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
@@ -299,8 +300,8 @@
           <p style="margin: 0 0 5px; color: var(--color-text-light);"><i class="fa-regular fa-calendar"></i> <strong>Date:</strong> Saturday, Oct 15th, 2026</p>
           <p style="margin: 0 0 15px; color: var(--color-text-light);"><i class="fa-regular fa-clock"></i> <strong>Time:</strong> 2:00 PM - 4:00 PM</p>
           <div style="display: flex; gap: 10px;">
-            <a href="#" class="btn-primary" onclick="openDetailsModal()" style="padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">View Details</a>
-            <a href="#" class="btn-primary" onclick="switchTab('messages', document.querySelectorAll('.admin-nav-item')[4])" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text); padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">Contact Support</a>
+            <a href="#" class="btn-primary" onclick="openDetailsModal()" style="padding: 8px 15px; font-size: 0.9rem;">View Details</a>
+            <a href="#" class="btn-outline" onclick="switchTab('messages', document.querySelectorAll('.admin-nav-item')[4])" style="padding: 8px 15px; font-size: 0.9rem;">Contact Support</a>
           </div>
         </div>
         
@@ -309,8 +310,8 @@
           <p style="margin: 0 0 5px; color: var(--color-text-light);"><i class="fa-regular fa-calendar"></i> <strong>Date:</strong> Friday, Oct 31st, 2026</p>
           <p style="margin: 0 0 15px; color: var(--color-text-light);"><i class="fa-regular fa-clock"></i> <strong>Time:</strong> 6:00 PM - 8:00 PM</p>
           <div style="display: flex; gap: 10px;">
-            <a href="#" class="btn-primary" onclick="openDetailsModal()" style="padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">View Details</a>
-            <a href="#" class="btn-primary" onclick="switchTab('messages', document.querySelectorAll('.admin-nav-item')[4])" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text); padding: 8px 15px; font-size: 0.9rem; text-decoration: none;">Contact Support</a>
+            <a href="#" class="btn-primary" onclick="openDetailsModal()" style="padding: 8px 15px; font-size: 0.9rem;">View Details</a>
+            <a href="#" class="btn-outline" onclick="switchTab('messages', document.querySelectorAll('.admin-nav-item')[4])" style="padding: 8px 15px; font-size: 0.9rem;">Contact Support</a>
           </div>
         </div>
       </div>
@@ -346,7 +347,7 @@
               <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Superhero Impersonator & Action Games</p>
               <div style="display: flex; gap: 10px;">
                 <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
-                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn-outline" style="padding: 10px 15px;" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -358,7 +359,7 @@
               <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Master Magician & Illusionist</p>
               <div style="display: flex; gap: 10px;">
                 <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
-                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn-outline" style="padding: 10px 15px;" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -370,7 +371,7 @@
               <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Comedy, Juggling & Balloon Animals</p>
               <div style="display: flex; gap: 10px;">
                 <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
-                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn-outline" style="padding: 10px 15px;" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -382,7 +383,7 @@
               <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Storytelling & Royal Activities</p>
               <div style="display: flex; gap: 10px;">
                 <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
-                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn-outline" style="padding: 10px 15px;" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -395,7 +396,7 @@
               <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Modern Magician & Mind Reader</p>
               <div style="display: flex; gap: 10px;">
                 <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
-                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn-outline" style="padding: 10px 15px;" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -407,7 +408,7 @@
               <p style="margin: 0 0 15px; color: var(--color-text-light); font-size: 0.9rem;">Superhero Training & Games</p>
               <div style="display: flex; gap: 10px;">
                 <button class="btn-primary" style="flex: 1;" onclick="openModal()">Book Now</button>
-                <button class="btn-primary" style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text);" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
+                <button class="btn-outline" style="padding: 10px 15px;" onclick="addToFavorites(this)"><i class="fa-solid fa-heart"></i></button>
               </div>
             </div>
           </div>

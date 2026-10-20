@@ -1,1634 +1,932 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Elias Thorne - Master Magician | Magiqo</title>
+  <meta name="description" id="page-desc" content="Discover Elias Thorne, master magician available for birthdays and special celebrations with Magiqo.">
+  <link rel="icon" type="image/png" href="assets/logoooo.png">
 
-  <title>Elias - Master Magician | Magiqo</title>
-  <meta name="description" content="Discover Elias, a master magician available for birthdays, celebrations and special events with Magiqo.">
-
-  <meta name="theme-color" content="#fff9fc">
-
+  <!-- Core Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Unified Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/responsive.css">
 
   <style>
-    
-    :root {
-      --ed-pink: var(--color-primary);
-      --ed-pink-dark: var(--color-primary-hover);
-      --ed-blue: #3895c8;
-      --ed-purple: #3895c8;
-      --ed-bg: var(--color-bg);
-      --ed-soft: var(--color-surface);
-      --ed-text: var(--color-text);
-      --ed-muted: var(--color-text-light);
-      --ed-border: var(--color-border);
-      --ed-shadow: 0 20px 55px var(--color-shadow);
-      --ed-heading: var(--font-heading);
-      --ed-body: var(--font-body);
-    }
-
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
       margin: 0;
-      font-family: var(--ed-body);
-      color: var(--ed-text);
-      background: var(--color-bg);
+      padding: 0;
+      overflow-x: hidden;
     }
 
-    img {
-      max-width: 100%;
+    /* Hero Section */
+    .detail-hero {
+      position: relative;
+      padding: 130px 0 70px;
+      background: radial-gradient(circle at 10% 20%, rgba(201, 42, 88, 0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(56, 149, 200, 0.08) 0%, transparent 40%),
+                  var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      overflow: hidden;
     }
 
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .ed-container {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .ed-eyebrow {
-      display: inline-block;
-      color: var(--ed-pink-dark);
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    .ed-section-heading {
-      max-width: 700px;
-      margin: 0 auto 4rem;
-      text-align: center;
-    }
-
-    .ed-section-heading h2,
-    .ed-about-content h2,
-    .ed-events-content h2,
-    .ed-booking-copy h2,
-    .ed-final-cta h2 {
-      font-family: var(--ed-heading);
-      color: var(--ed-text);
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.08;
-      font-weight: 600;
-      margin: 0 0 1.3rem;
-    }
-
-    .ed-section-heading h2 {
-      font-size: clamp(2.3rem, 4vw, 3.5rem);
-    }
-
-    .ed-about-content h2 span,
-    .ed-events-content h2 span,
-    .ed-final-cta h2 span {
-      display: block;
-      color: var(--ed-pink);
-    }
-
-    .ed-section-heading p,
-    .ed-about-content p,
-    .ed-events-content p {
-      color: var(--ed-muted);
-      font-size: 1.02rem;
-      line-height: 1.8;
-    }
-
-    .ed-btn {
-      display: inline-flex;
+    .breadcrumb-nav {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 15px 27px;
-      border-radius: 50px;
-      background: var(--ed-purple);
-      color: white;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+    }
+    .breadcrumb-nav a {
+      color: var(--color-text-light);
       text-decoration: none;
-      font-size: .9rem;
-      font-weight: 700;
-      transition: .3s ease;
-      border: 0;
-      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+    .breadcrumb-nav a:hover {
+      color: var(--color-primary);
     }
 
-    .ed-btn:hover {
-      background: var(--ed-pink-dark);
-      color: white !important;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(217, 87, 145, .22);
-    }
-
-    /* HERO */
-
-    .ent-detail-hero {
-      position: relative;
-      min-height: 750px;
-      display: flex;
-      align-items: center;
-      padding: 145px 0 90px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 8% 20%, rgba(210, 75, 118, 0.1), transparent 30%),
-        radial-gradient(circle at 90% 75%, rgba(56, 149, 200, 0.1), transparent 35%),
-        var(--color-bg);
-    }
-
-    .ent-detail-hero::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      border: 1px solid rgba(241,123,172,.22);
-      top: -210px;
-      right: 10%;
-    }
-
-    .ent-detail-hero::after {
-      content: "";
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      border: 1px solid rgba(117,191,242,.32);
-      bottom: -130px;
-      left: 4%;
-    }
-
-    .profile-layout {
+    .hero-profile-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 460px 1fr;
+      gap: 3.5rem;
       align-items: center;
-      gap: 5rem;
-      position: relative;
-      z-index: 2;
     }
 
-    .profile-image-wrap {
+    /* Image Wrapper */
+    .profile-img-container {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 0;
     }
-
-    .profile-image-wrap::before {
-      content: "";
-      position: absolute;
-      width: 88%;
-      height: 88%;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(241,123,172,.25), rgba(117,191,242,.3));
-      filter: blur(2px);
-      transform: rotate(-10deg);
-    }
-
-    .profile-image-frame {
-      position: relative;
-      width: min(100%, 490px);
+    .profile-img-frame {
+      width: 100%;
       height: 520px;
-      border: 10px solid white;
-      border-radius: 42% 58% 54% 46% / 39% 40% 60% 61%;
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 25px 65px rgba(73,53,107,.18);
-      animation: profileFloat 6s ease-in-out infinite;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+      border: 6px solid var(--color-surface);
+      background: var(--color-bg);
+      position: relative;
     }
-
-    .profile-image-frame img {
-      display: block;
+    .profile-img-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .profile-img-container:hover .profile-img-frame img {
+      transform: scale(1.03);
     }
 
-    @keyframes profileFloat {
-      0%, 100% {
-        transform: translateY(0);
-        border-radius: 42% 58% 54% 46% / 39% 40% 60% 61%;
-      }
-      50% {
-        transform: translateY(-12px);
-        border-radius: 50% 50% 43% 57% / 46% 38% 62% 54%;
-      }
-    }
-
-    .hero-floating-note {
+    /* Floating Badges */
+    .float-badge-top {
       position: absolute;
-      bottom: 35px;
-      left: -5px;
-      z-index: 2;
+      top: 20px;
+      right: -15px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 25px var(--color-shadow);
       display: flex;
       align-items: center;
-      gap: 12px;
-      background: var(--color-surface);
-      border-radius: 18px;
-      padding: 14px 18px;
-      box-shadow: var(--ed-shadow);
-      animation: noteFloat 5s ease-in-out infinite;
-    }
-
-    @keyframes noteFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .hero-note-icon {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      border-radius: 14px;
-      color: var(--ed-purple);
-      background: linear-gradient(135deg, #ffe2ef, #e5f5ff);
-      font-size: 1.2rem;
+      gap: 8px;
       font-weight: 700;
-    }
-
-    .hero-floating-note strong,
-    .hero-floating-note span {
-      display: block;
-    }
-
-    .hero-floating-note strong {
-      font-size: .85rem;
+      font-size: 0.95rem;
       color: var(--color-text);
+      z-index: 2;
+    }
+    .float-badge-top i {
+      color: #f39c12;
     }
 
-    .hero-floating-note span {
-      font-size: .7rem;
-      color: var(--color-text-light);
-      margin-top: 3px;
+    .float-badge-bottom {
+      position: absolute;
+      bottom: -15px;
+      left: -15px;
+      background: var(--color-primary);
+      color: #FFFFFF;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 12px 30px rgba(201, 42, 88, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      z-index: 2;
     }
 
-    .profile-info {
-      max-width: 590px;
+    /* Profile Content */
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+    }
+    .verified-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(46, 204, 113, 0.12);
+      color: #2ecc71;
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      width: fit-content;
+      margin-bottom: 1rem;
     }
 
-    .profile-info .ed-eyebrow {
-      padding: 9px 15px;
-      border-radius: 50px;
-      background: rgba(241,123,172,.12);
-    }
-
-    .profile-info h1 {
+    .profile-title-name {
       font-family: var(--font-magic);
-      font-size: clamp(3.6rem, 6vw, 5.8rem);
-      font-weight: 600;
-      line-height: 1;
-      color: var(--ed-purple);
-      margin: 0 0 14px;
+      font-size: clamp(2.8rem, 4.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 0.5rem;
     }
 
     .profile-specialty {
-      color: var(--ed-pink-dark);
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      margin-bottom: 1.4rem;
+      color: var(--color-primary);
+      margin-bottom: 1.25rem;
     }
 
-    .profile-rating {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: white;
-      padding: 10px 16px;
-      border-radius: 50px;
-      box-shadow: 0 8px 24px rgba(73,53,107,.08);
-      color: var(--ed-text);
-      font-size: .83rem;
-      font-weight: 700;
-      margin-bottom: 1.6rem;
-    }
-
-    .profile-rating .stars {
-      color: #f5a623;
-      letter-spacing: 2px;
-      font-size: 1rem;
-    }
-
-    .profile-info > p {
-      font-size: 1.08rem;
-      line-height: 1.85;
-      color: var(--ed-muted);
-      margin: 0 0 2rem;
-    }
-
-    .hero-actions {
+    /* Meta Badges Row */
+    .profile-meta-row {
       display: flex;
-      align-items: center;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--color-border);
     }
-
-    .hero-secondary {
-      color: var(--ed-purple);
-      text-decoration: none;
-      font-size: .9rem;
-      font-weight: 700;
-      padding: 14px 10px;
-    }
-
-    .hero-secondary:hover {
-      color: var(--ed-pink-dark);
-    }
-
-    /* ABOUT */
-
-    .ed-about {
-      padding: 110px 0;
-      background: #fff;
-    }
-
-    .ed-about-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 7rem;
-      align-items: center;
-    }
-
-    .ed-about-visual {
-      position: relative;
-      padding: 20px;
-    }
-
-    .ed-image-main {
-      position: relative;
-      overflow: hidden;
-      border-radius: 35px 35px 35px 100px;
-      box-shadow: 0 30px 70px rgba(73,53,107,.14);
-    }
-
-    .ed-image-main img {
-      width: 100%;
-      height: 570px;
-      display: block;
-      object-fit: cover;
-    }
-
-    .ed-floating-card {
-      position: absolute;
-      right: -15px;
-      bottom: 10px;
-      background: white;
-      padding: 1.4rem 1.7rem;
-      border-radius: 18px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+    .meta-chip {
       display: flex;
-      flex-direction: column;
-      min-width: 180px;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--color-text);
+      font-weight: 600;
+    }
+    .meta-chip i {
+      color: var(--color-primary);
+      font-size: 1.1rem;
     }
 
-    .ed-floating-number {
-      color: var(--ed-pink);
-      font-family: var(--ed-heading);
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .ed-floating-label {
-      color: var(--ed-muted);
-      font-size: .75rem;
-      margin-top: 7px;
-    }
-
-    .ed-about-content .ed-lead {
-      color: var(--ed-text);
-      font-size: 1.2rem;
+    .profile-bio {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
       line-height: 1.8;
-    }
-
-    .ed-info-list {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .ed-info-item {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .ed-info-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, rgba(241,123,172,.15), rgba(117,191,242,.15));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .ed-info-icon svg {
-      width: 23px;
-      height: 23px;
-      fill: var(--ed-purple);
-    }
-
-    .ed-info-item strong,
-    .ed-info-item span {
-      display: block;
-    }
-
-    .ed-info-item strong {
-      color: var(--ed-text);
-      margin-bottom: 3px;
-    }
-
-    .ed-info-item span {
-      color: var(--ed-muted);
-      font-size: .9rem;
-      line-height: 1.5;
-    }
-
-    /* SERVICES */
-
-    .ed-services {
-      padding: 110px 0;
-      background: var(--ed-bg);
-    }
-
-    .ed-service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .ed-service-card {
-      position: relative;
-      padding: 2.5rem;
-      background: white;
-      border: 1px solid var(--ed-border);
-      border-radius: 25px;
-      overflow: hidden;
-      transition: .35s ease;
-    }
-
-    .ed-service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 55px rgba(73,53,107,.1);
-    }
-
-    .ed-service-featured {
-      background: linear-gradient(145deg, #fff, #fff3f8);
-      border-color: rgba(241,123,172,.3);
-    }
-
-    .ed-service-number {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.7rem;
-      color: rgba(73,53,107,.12);
-      font-size: 3.5rem;
-      font-weight: 700;
-    }
-
-    .ed-service-icon {
-      width: 65px;
-      height: 65px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(241,123,172,.15), rgba(117,191,242,.15));
       margin-bottom: 2rem;
     }
 
-    .ed-service-icon svg {
-      width: 30px;
-      height: 30px;
-      fill: var(--ed-purple);
-    }
-
-    .ed-service-card h3 {
-      color: var(--ed-text);
-      font-family: var(--ed-heading);
-      font-size: 1.5rem;
-      margin: 0 0 1rem;
-    }
-
-    .ed-service-card p {
-      color: var(--ed-muted);
-      line-height: 1.75;
-      margin: 0 0 1.8rem;
-    }
-
-    .ed-service-link {
-      color: var(--ed-pink-dark);
-      font-size: .85rem;
-      font-weight: 700;
-    }
-
-    /* GALLERY */
-
-    .ed-gallery {
-      padding: 110px 0;
-      background: #fff;
-    }
-
-    .ed-gallery-heading {
+    .profile-cta-group {
       display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 3rem;
-      margin-bottom: 4rem;
+      gap: 1.25rem;
+      flex-wrap: wrap;
     }
 
-    .ed-gallery-heading h2 {
-      font-family: var(--ed-heading);
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      color: var(--ed-text);
-      margin: 0;
+    /* Section Pad */
+    .detail-section {
+      padding: 4.5rem 0;
+    }
+    .detail-section.alt-bg {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
     }
 
-    .ed-gallery-heading p {
-      max-width: 400px;
-      color: var(--ed-muted);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .ed-gallery-grid {
-      display: grid;
-      grid-template-columns: 1.4fr .8fr .8fr;
-      grid-template-rows: 270px 270px;
-      gap: 15px;
-    }
-
-    .ed-gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-      background: var(--ed-soft);
-    }
-
-    .ed-gallery-large {
-      grid-row: span 2;
-    }
-
-    .ed-gallery-wide {
-      grid-column: span 2;
-    }
-
-    .ed-gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .7s ease;
-    }
-
-    .ed-gallery-item:hover img {
-      transform: scale(1.07);
-    }
-
-    .ed-gallery-overlay {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 2rem 1.5rem 1.3rem;
-      color: white;
-      background: linear-gradient(transparent, rgba(20,15,30,.7));
-    }
-
-    .ed-gallery-overlay span {
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    /* STATS */
-
-    .ed-stats {
-      padding: 5rem 0;
-      background: var(--ed-purple);
-    }
-
-    .ed-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .ed-stat {
+    .section-head-center {
       text-align: center;
-      padding: 1.5rem;
-      border-right: 1px solid rgba(255,255,255,.15);
+      max-width: 750px;
+      margin: 0 auto 3rem;
+    }
+    .section-head-center h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .section-head-center p {
+      color: var(--color-text-light);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin: 0;
     }
 
-    .ed-stat:last-child {
-      border-right: none;
-    }
-
-    .ed-stat strong {
-      display: block;
-      color: white;
-      font-family: var(--ed-heading);
-      font-size: 3.5rem;
-      line-height: 1;
-      margin-bottom: .7rem;
-    }
-
-    .ed-stat span {
-      color: rgba(255,255,255,.7);
-      font-size: .8rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    /* BOOKING PROCESS */
-
-    .ed-process {
-      padding: 110px 0;
-      background: var(--ed-soft);
-    }
-
-    .ed-process-grid {
+    /* 4 Trust Highlights Grid */
+    .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      position: relative;
-      align-items: stretch;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
     }
-
-    .ed-process-item {
-      position: relative;
-      padding: 2rem 1rem;
+    .pillar-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s, border-color 0.3s;
     }
-
-    .ed-process-number {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-primary);
+    }
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: white;
-      color: var(--ed-pink-dark);
-      border: 1px solid rgba(241,123,172,.3);
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .pillar-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 1.7rem;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
     }
-
-    .ed-process-line {
-      position: absolute;
-      top: 30px;
-      left: 75px;
-      right: -25px;
-      height: 1px;
-      background: rgba(73,53,107,.12);
-    }
-
-    .ed-process-item:last-child .ed-process-line {
-      display: none;
-    }
-
-    .ed-process-item h3 {
-      color: var(--ed-text);
-      font-family: var(--ed-heading);
-      font-size: 1.2rem;
-      margin: 0 0 .8rem;
-    }
-
-    .ed-process-item p {
-      color: var(--ed-muted);
-      line-height: 1.7;
-      font-size: .95rem;
+    .pillar-card p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
       margin: 0;
     }
 
-    /* REVIEWS */
-
-    .ed-reviews {
-      padding: 110px 0;
-      background: white;
+    /* About Split Section */
+    .about-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text-col h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .about-text-col p {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
 
-    .ed-review-grid {
+    .specs-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .spec-item {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .spec-label {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .spec-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .about-img-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+      border: 6px solid var(--color-bg);
+      position: relative;
+    }
+    .about-img-frame img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Packages Grid */
+    .packages-tier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .package-tier-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .package-tier-card:hover {
+      transform: translateY(-8px);
+    }
+    .package-tier-card.featured {
+      border: 2px solid var(--color-primary);
+      box-shadow: 0 15px 35px rgba(201, 42, 88, 0.15);
+    }
+    .package-tier-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-primary);
+      color: white;
+      padding: 0.35rem 1.5rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .package-tier-name {
+      font-family: var(--font-magic);
+      font-size: 1.85rem;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+    .package-tier-price {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .package-tier-duration {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.75rem;
+      font-weight: 600;
+    }
+    .package-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      flex-grow: 1;
+    }
+    .package-feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+    }
+    .package-feature-list li i {
+      color: var(--color-primary);
+      font-size: 0.9rem;
+    }
+
+    /* Gallery Grid */
+    .gallery-tri-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
-
-    .ed-review-card {
-      background: var(--color-surface);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: var(--ed-shadow);
-      position: relative;
+    .gallery-img-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 280px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+    .gallery-img-box img {
+      width: 100%;
       height: 100%;
-      display: flex;
-      flex-direction: column;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-img-box:hover img {
+      transform: scale(1.05);
     }
 
-    .ed-review-highlight {
-      background: linear-gradient(145deg, #fff1f7, #eef8ff);
-      transform: translateY(-15px);
-    }
-
-    .ed-review-stars {
-      color: #f5a623;
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
-    }
-
-    .ed-review-card > p {
-      color: var(--ed-text);
-      line-height: 1.8;
-      font-size: 1rem;
-      margin: 0 0 2rem;
-    }
-
-    .ed-review-author {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-    }
-
-    .ed-review-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--ed-purple);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .ed-review-author strong,
-    .ed-review-author span {
-      display: block;
-    }
-
-    .ed-review-author strong {
-      color: var(--ed-text);
-      font-size: .9rem;
-    }
-
-    .ed-review-author span {
-      color: var(--ed-muted);
-      font-size: .75rem;
-      margin-top: 3px;
-    }
-
-    /* EVENT TYPES */
-
-    .ed-events {
-      padding: 110px 0;
-      background: var(--ed-bg);
-    }
-
-    .ed-events-grid {
+    /* Reviews Grid */
+    .reviews-tri-grid {
       display: grid;
-      grid-template-columns: 1fr .8fr;
-      gap: 6rem;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
-
-    .ed-event-tags {
+    .review-box {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 2rem;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
     }
-
-    .ed-event-tags span {
-      padding: 10px 17px;
-      border-radius: 50px;
-      background: white;
-      border: 1px solid rgba(73,53,107,.1);
-      color: var(--ed-purple);
-      font-size: .8rem;
+    .review-stars {
+      color: #f39c12;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
     }
-
-    .ed-events-visual {
-      min-height: 420px;
-      border-radius: 40px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(241,123,172,.9), transparent 35%),
-        linear-gradient(135deg, #75bff2, #49356b);
+    .review-quote {
+      font-size: 1.05rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 1rem;
+    }
+    .reviewer-initial {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(201, 42, 88, 0.12);
+      color: var(--color-primary);
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3rem;
+      font-size: 1.1rem;
+    }
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .reviewer-event {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
     }
 
-    .ed-event-card {
-      background: var(--color-surface);
-      padding: 3rem 2.5rem;
-      border-radius: 20px;
+    /* Final CTA */
+    .cta-banner-section {
+      background: #C92A58 !important;
+      padding: 5rem 0;
       text-align: center;
-      box-shadow: var(--ed-shadow);
-      border-top: 5px solid var(--ed-pink);
-      transition: .4s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
     }
-
-    .ed-event-small {
-      display: block;
-      color: var(--ed-pink-dark);
-      font-size: .7rem;
-      letter-spacing: 2px;
-      margin-bottom: 1.5rem;
+    .cta-banner-section h2 {
+      font-family: var(--font-magic);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      margin-bottom: 1rem;
     }
-
-    .ed-event-card strong {
-      display: block;
-      color: var(--ed-text);
-      font-family: var(--ed-heading);
-      font-size: 2.2rem;
-      line-height: 1.1;
-    }
-
-    .ed-event-card-line {
-      width: 55px;
-      height: 3px;
-      background: var(--ed-pink);
-      margin: 2rem 0;
-    }
-
-    .ed-event-card > span:last-child {
-      color: var(--ed-muted);
-      font-size: .8rem;
+    .cta-banner-section p {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
       line-height: 1.6;
     }
 
-    /* BOOKING CTA */
-
-    .ed-booking-info {
-      padding: 100px 0;
-      background: white;
-    }
-
-    .ed-booking-box {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr auto;
-      align-items: center;
-      gap: 3rem;
-      padding: 4rem;
-      border-radius: 35px;
-      background: linear-gradient(135deg, #fff0f6, #edf8ff);
-    }
-
-    .ed-booking-copy h2 {
-      font-size: clamp(2rem, 4vw, 3.3rem);
-    }
-
-    .ed-booking-copy p {
-      color: var(--ed-muted);
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0;
-    }
-
-    .ed-booking-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .ed-booking-detail {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(73,53,107,.1);
-    }
-
-    .ed-booking-detail span,
-    .ed-booking-detail strong {
-      display: block;
-    }
-
-    .ed-booking-detail span {
-      color: var(--ed-muted);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-
-    .ed-booking-detail strong {
-      color: var(--ed-text);
-      font-size: .95rem;
-    }
-
-    .ed-book-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      text-decoration: none;
-      background: var(--ed-purple);
-      color: white;
-      padding: 1.1rem 1.7rem;
-      border-radius: 50px;
-      font-weight: 600;
-      white-space: nowrap;
-      transition: .3s ease;
-    }
-
-    .ed-book-button:hover {
-      background: var(--ed-pink-dark);
-      transform: translateY(-3px);
-    }
-
-    /* FINAL CTA */
-
-    .ed-final-cta {
-      position: relative;
-      overflow: hidden;
-      padding: 115px 0;
-      text-align: center;
-      background: var(--ed-purple);
-    }
-
-    .ed-final-cta .ed-eyebrow {
-      color: #ffb3d1;
-    }
-
-    .ed-final-cta h2 {
-      color: white;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .ed-final-cta h2 span {
-      color: #ff9fc6;
-    }
-
-    .ed-final-cta p {
-      max-width: 580px;
-      margin: 0 auto 2.5rem;
-      color: rgba(255,255,255,.7);
-      line-height: 1.8;
-    }
-
-    .ed-final-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      text-decoration: none;
-      background: white;
-      color: var(--ed-purple);
-      padding: 15px 27px;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: .3s ease;
-    }
-
-    .ed-final-button:hover {
-      background: var(--ed-pink);
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    .ed-final-shape {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(2px);
-      opacity: .25;
-      pointer-events: none;
-    }
-
-    .ed-shape-one {
-      width: 350px;
-      height: 350px;
-      background: var(--ed-pink);
-      top: -180px;
-      left: -100px;
-    }
-
-    .ed-shape-two {
-      width: 300px;
-      height: 300px;
-      background: var(--ed-blue);
-      right: -100px;
-      bottom: -150px;
-    }
-
-    /* REVEAL ANIMATION */
-
-    .ed-reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .ed-reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RTL */
-
-    [dir="rtl"] .ed-service-number {
-      right: auto;
-      left: 1.7rem;
-    }
-
-    [dir="rtl"] .ed-floating-card {
-      right: auto;
-      left: -15px;
-    }
-
-    [dir="rtl"] .hero-floating-note {
-      left: auto;
-      right: -5px;
-    }
-
-    [dir="rtl"] .ed-process-line {
-      left: -25px;
-      right: 75px;
-    }
-
-    [dir="rtl"] .ed-stat {
-      border-right: none;
-      border-left: 1px solid rgba(255,255,255,.15);
-    }
-
-    [dir="rtl"] .ed-stat:last-child {
-      border-left: none;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 1000px) {
-      .profile-layout {
-        gap: 3rem;
-      }
-
-      .profile-image-frame {
-        height: 440px;
-      }
-
-      .ed-about-grid,
-      .ed-events-grid {
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-profile-grid {
         grid-template-columns: 1fr;
-        gap: 4rem;
-      }
-
-      .ed-service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .ed-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .ed-stat:nth-child(2) {
-        border-right: none;
-      }
-
-      [dir="rtl"] .ed-stat:nth-child(2) {
-        border-left: none;
-      }
-
-      .ed-process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      position: relative;
-      align-items: stretch;
-    }
-
-      .ed-review-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .ed-review-highlight {
-        transform: none;
-      }
-
-      .ed-booking-box {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .ed-book-button {
-        width: fit-content;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .ed-container {
-        width: min(100% - 28px, 1180px);
-      }
-
-      .ent-detail-hero {
-        min-height: auto;
-        padding: 120px 0 75px;
-      }
-
-      .profile-layout {
-        grid-template-columns: 1fr;
-        gap: 3rem;
         text-align: center;
       }
-
-      .profile-image-frame {
-        width: min(100%, 400px);
+      .profile-img-frame {
+        max-width: 420px;
         height: 420px;
+        margin: 0 auto;
       }
-
-      .hero-floating-note {
-        left: 0;
-        bottom: 20px;
+      .profile-details {
+        align-items: center;
       }
-
-      [dir="rtl"] .hero-floating-note {
-        right: 0;
+      .profile-meta-row {
+        justify-content: center;
       }
-
-      .profile-info {
-        max-width: 100%;
+      .profile-cta-group {
+        justify-content: center;
       }
-
-      .profile-info h1 {
-      font-family: var(--font-magic);
-      font-size: clamp(3.6rem, 6vw, 5.8rem);
-      font-weight: 600;
-      line-height: 1;
-      color: var(--ed-purple);
-      margin-top: 1.5rem;
-      }
-
-      .ed-gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 230px 180px 180px;
-      }
-
-      .ed-gallery-large {
-        grid-column: span 2;
-        grid-row: auto;
-      }
-
-      .ed-gallery-wide {
-        grid-column: span 2;
-      }
-
-      .ed-stat {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,.15);
-      }
-
-      .ed-stat:nth-child(2) {
-        border-bottom: 1px solid rgba(255,255,255,.15);
-      }
-
-      .ed-stat:nth-child(3),
-      .ed-stat:nth-child(4) {
-        border-bottom: none;
-      }
-
-      .ed-process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      position: relative;
-      align-items: stretch;
-    }
-
-      .ed-process-line {
-        display: none;
-      }
-
-      .ed-booking-box {
+      .about-split-grid {
         grid-template-columns: 1fr;
-        padding: 2rem;
-        gap: 2rem;
+        text-align: center;
       }
-
-      .ed-book-button {
-        width: 100%;
+      .specs-list {
+        text-align: left;
       }
-
-      .ed-events-visual {
-        min-height: 320px;
-        padding: 1.5rem;
+      .about-img-frame {
+        max-width: 500px;
+        margin: 0 auto;
       }
-
-      .ed-event-card {
-      background: var(--color-surface);
-      padding: 3rem 2.5rem;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: var(--ed-shadow);
-      border-top: 5px solid var(--ed-pink);
-      transition: .4s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-      .ed-final-cta {
-        padding: 80px 0;
+      .gallery-tri-grid {
+        grid-template-columns: 1fr;
       }
     }
-
-    @media (max-width: 420px) {
-      .profile-image-frame {
-        height: 350px;
-      }
-
-      .hero-floating-note {
-        padding: 10px 12px;
-      }
-
-      .profile-rating {
-        font-size: .75rem;
-      }
-
-      .ed-gallery-grid {
-        grid-template-rows: 210px 150px 150px;
-      }
-
-      .ed-stat strong {
-        font-size: 2.7rem;
-      }
-
-      .ed-stat span {
-        font-size: .65rem;
-        letter-spacing: 1px;
-      }
-
-      .ed-review-card {
-      background: var(--color-surface);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: var(--ed-shadow);
-      position: relative;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-
-      .ed-reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  
-    /* REDESIGNED SECTIONS CSS */
-    .ed-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .ed-reveal.is-visible { opacity: 1; transform: translateY(0); }
-    
-    .ed-section { padding: 100px 0; background: var(--color-surface); }
-    .ed-section.alt-bg { background: var(--color-bg); }
-    
-    .ed-eyebrow { display: inline-block; color: var(--color-primary); font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
-    
-    .ed-heading { font-family: var(--font-magic, 'Playfair Display'); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: normal; color: var(--color-text); }
-    .ed-heading span.pink-text { color: var(--color-primary) !important; -webkit-text-fill-color: var(--color-primary) !important; background: none !important; }
-    .ed-heading span.blue-text { color: #3895c8 !important; -webkit-text-fill-color: #3895c8 !important; background: none !important; }
-    
-    /* Service Cards */
-    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .service-card { background: var(--color-surface); padding: 3rem 2rem; border-radius: 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid #3895c8; transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; overflow: hidden; }
-    .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-top-color: var(--color-primary); }
-    .service-card .icon { width: 80px; height: 80px; background: rgba(56, 149, 200, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; transition: background 0.4s; }
-    .service-card:hover .icon { background: rgba(218, 47, 95, 0.1); }
-    .service-card h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); }
-    .service-card p { color: var(--color-text-light); line-height: 1.7; font-size: 1.05rem; }
-    
-    /* Process Animation */
-    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 4rem; position: relative; }
-    .process-item { text-align: center; position: relative; z-index: 2; padding: 2rem 1rem; background: var(--color-surface); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-    .process-num { width: 60px; height: 60px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: -40px auto 1.5rem; box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3); }
-    .process-item h3 { font-size: 1.25rem; font-family: var(--font-heading); margin-bottom: 0.5rem; }
-    .process-item p { color: var(--color-text-light); font-size: 0.95rem; line-height: 1.6; }
-    
-    /* Stats */
-    .stat-wrap { background: linear-gradient(135deg, var(--color-primary), #B7245C); border-radius: 30px; padding: 4rem 2rem; color: white; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; box-shadow: 0 20px 40px rgba(218, 47, 95, 0.2); }
-    .stat-box strong { display: block; font-family: var(--font-magic); font-size: 4rem; line-height: 1; margin-bottom: 0.5rem; font-weight: normal; }
-    .stat-box span { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; opacity: 0.9; }
-    
-    /* Reviews */
-    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-    .review-card { background: var(--color-surface); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
-    .review-stars { color: #f5a623; margin-bottom: 1rem; font-size: 1.2rem; letter-spacing: 2px; }
-    .review-card p { font-size: 1.1rem; line-height: 1.7; color: var(--color-text); margin-bottom: 1.5rem; font-style: italic; }
-    .reviewer-info { display: flex; align-items: center; gap: 1rem; }
-    .reviewer-avatar { width: 50px; height: 50px; background: #3895c8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
-    .reviewer-info strong { display: block; color: var(--color-text); }
-    .reviewer-info span { font-size: 0.85rem; color: var(--color-text-light); }
-    
-    /* Event Tags */
-    .event-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-    .event-tags span { padding: 0.8rem 1.5rem; background: white; border: 2px solid #3895c8; border-radius: 50px; color: #3895c8; font-weight: bold; font-size: 0.95rem; transition: all 0.3s; }
-    .event-tags span:hover { background: #3895c8; color: white; transform: translateY(-3px); }
-    
-    /* CTA */
-    .cta-blue-btn { background: #3895c8; color: white; padding: 1.25rem 3rem; font-size: 1.2rem; font-weight: bold; border-radius: 50px; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 10px 20px rgba(56, 149, 200, 0.3); }
-    .cta-blue-btn:hover { background: #26749e; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(56, 149, 200, 0.4); color: white; }
-    
-    .final-cta-box { background: white; border: 4px solid var(--color-bg); padding: 5rem 3rem; border-radius: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
-
-</style>
-  <link rel="icon" type="image/png" href="assets/logoooo.png">
+  </style>
 </head>
 
 <body>
-
-  <!-- DYNAMIC NAVBAR -->
+  <!-- Dynamic Navbar -->
   <div id="navbar"></div>
 
-  <!-- 1. ENTERTAINER HERO -->
-  <section class="ent-detail-hero">
-    <div class="ed-container profile-layout">
+  <!-- 1. HERO PROFILE SECTION -->
+  <section class="detail-hero">
+    <div class="container">
+      
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+        <a href="entertainers.html">Entertainers</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i>
+        <span id="breadcrumb-current" style="color: var(--color-primary); font-weight: 600;">Elias Thorne</span>
+      </div>
 
-      <div class="profile-image-wrap">
-        <div class="profile-image-frame">
-          <img
-            id="ent-img"
-            src="assets/images/pro_magician.jpg"
-            alt="Elias the magician"
-          >
+      <div class="hero-profile-grid">
+        
+        <!-- Left Column: Portrait Frame with Trust Badges -->
+        <div class="profile-img-container">
+          <div class="float-badge-top">
+            <i class="fa-solid fa-star"></i>
+            <span id="ent-rating-badge">4.95 Rating (1,200+ Shows)</span>
+          </div>
+          
+          <div class="profile-img-frame">
+            <img id="ent-img" src="assets/images/magician_portrait_1790843004983.jpg" alt="Entertainer Portrait">
+            <script>
+              (function() {
+                try {
+                  var p = new URLSearchParams(window.location.search);
+                  var id = (p.get("id") || p.get("name") || window.location.hash.replace("#", "") || "elias").toLowerCase().trim();
+                  var quickMap = {
+                    "jojo": "assets/images/service_circus_juggler.jpg",
+                    "lily": "assets/images/princess_portrait_1790843055244.jpg",
+                    "elias": "assets/images/magician_portrait_1790843004983.jpg",
+                    "barnaby": "assets/images/pro_silly_clown.jpg",
+                    "sarah": "assets/images/service_face_painting.jpg",
+                    "rex": "assets/images/service_mascot.jpg",
+                    "david": "assets/images/pro_grand_stage.jpg",
+                    "max": "assets/images/performer_superhero.jpg",
+                    "captain_ray": "assets/images/performer_superhero.jpg",
+                    "captain_leo": "assets/images/performer_superhero.jpg",
+                    "emma": "assets/images/service_puppet_show.jpg",
+                    "chloe": "assets/images/service_balloon_twisting.jpg",
+                    "arthur": "assets/images/about_art_of_magic.jpg",
+                    "bella": "assets/images/performer_fairy.jpg",
+                    "tommy": "assets/images/clown_party_1790842566084.jpg",
+                    "dj_spark": "assets/images/theme_music.jpg",
+                    "elena": "assets/images/about_kids_birthday.jpg",
+                    "giggles": "assets/images/pro_clown_blog.jpg",
+                    "steve": "assets/images/superhero_party_1790842695325.jpg",
+                    "mia": "assets/images/service_bubble_show.jpg",
+                    "the_great_z": "assets/images/pro_classic_magic.jpg",
+                    "aurora": "assets/images/sparkle_party.jpg"
+                  };
+                  for (var k in quickMap) {
+                    if (id.indexOf(k) !== -1 || k.indexOf(id) !== -1) {
+                      document.getElementById("ent-img").src = quickMap[k];
+                      break;
+                    }
+                  }
+                } catch(e) {}
+              })();
+            </script>
+          </div>
+
+          <div class="float-badge-bottom">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>100% DBS Vetted &amp; £5M Insured</span>
+          </div>
         </div>
 
-        <div class="hero-floating-note">
-          <div class="hero-note-icon">
-            <svg viewBox="0 0 24 24" style="width: 20px; fill: var(--color-primary);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <!-- Right Column: Profile Info & Booking CTAs -->
+        <div class="profile-details">
+          <div class="verified-tag">
+            <i class="fa-solid fa-circle-check"></i> Verified Magiqo Performer
           </div>
+
+          <h1 class="profile-title-name" id="ent-name">
+            <span class="text-pink">Elias</span> <span class="text-blue">Thorne</span>
+          </h1>
+
+          <div class="profile-specialty" id="ent-title">
+            Master Magician &amp; Grand Illusionist
+          </div>
+
+          <div class="profile-meta-row">
+            <div class="meta-chip">
+              <i class="fa-solid fa-star" style="color: #f39c12;"></i>
+              <span id="meta-rating">4.95 / 5.0 Rating</span>
+            </div>
+            <div class="meta-chip">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span id="meta-shows">1,200+ Completed Shows</span>
+            </div>
+            <div class="meta-chip">
+              <i class="fa-solid fa-clock"></i>
+              <span id="meta-exp">12 Years Experience</span>
+            </div>
+            <div class="meta-chip">
+              <i class="fa-solid fa-tag"></i>
+              <span id="meta-price">$250 / hr</span>
+            </div>
+          </div>
+
+          <p class="profile-bio" id="ent-description">
+            Elias Thorne is Magiqo's premier illusionist, renowned for high-energy sleight of hand, interactive mind reading, and jaw-dropping levitations that leave children gasping in awe and parents thoroughly entertained.
+          </p>
+
+          <div class="profile-cta-group">
+            <a href="booking.html?id=elias" id="hero-book-btn" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-calendar-plus"></i> Book This Entertainer &rarr;
+            </a>
+            <a href="#packages-section" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-gift"></i> View Packages
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FOUR PERFORMANCE PILLARS -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon" style="background: rgba(201, 42, 88, 0.1); color: var(--color-primary);">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3>100% Interactive Magic</h3>
+          <p>Children participate directly in tricks, hold props, and become the stars of the performance.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon" style="background: rgba(56, 149, 200, 0.1); color: #3895c8;">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>Enhanced DBS Certified</h3>
+          <p>Fully background screened, safeguarding trained, and backed by £5M public liability insurance.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon" style="background: rgba(46, 204, 113, 0.1); color: #2ecc71;">
+            <i class="fa-solid fa-child-reaching"></i>
+          </div>
+          <h3>Age-Adaptive Scripts</h3>
+          <p>Every routine is customized for toddlers, kids, or tweens to guarantee maximum laughter and attention.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon" style="background: rgba(243, 156, 18, 0.1); color: #f39c12;">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <h3>Full Production Included</h3>
+          <p>Arrives with theatrical costumes, certified props, and a professional wireless sound system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ABOUT THE ENTERTAINER (SPLIT SECTION) -->
+  <section class="detail-section alt-bg">
+    <div class="container">
+      <div class="about-split-grid">
+        
+        <div class="about-text-col">
+          <div class="verified-tag">The Performer Behind The Magic</div>
+          <h2>
+            <span class="text-pink">Creating memories</span><br>
+            <span class="text-blue">they'll never forget.</span>
+          </h2>
+          <p id="about-story-p1">
+            With over a decade of stage and private party experience, our entertainer commands the room with effortless warmth, spontaneous comedy, and unbelievable talent.
+          </p>
+          <p id="about-story-p2">
+            Every celebration begins with a special VIP moment for the birthday star, followed by high-octane entertainment that keeps every guest captivated from beginning to end.
+          </p>
+
+          <div class="specs-list">
+            <div class="spec-item">
+              <span class="spec-label">Target Audience</span>
+              <span class="spec-value" id="spec-ages">Ages 4 - 12 Years</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Setup Time</span>
+              <span class="spec-value">20 Mins Prior to Party</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Travel Range</span>
+              <span class="spec-value" id="spec-location">London &amp; Home Counties</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Contingency</span>
+              <span class="spec-value">Magiqo Backup Guarantee</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-img-frame">
+          <img id="about-ent-img" src="assets/images/pro_grand_stage.jpg" alt="Performance in Action">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SIGNATURE PACKAGES AVAILABLE FOR THIS ENTERTAINER -->
+  <section class="detail-section" id="packages-section">
+    <div class="container">
+      <div class="section-head-center">
+        <h2><span class="text-pink">Available</span> <span class="text-blue">Packages</span></h2>
+        <p>Choose from our crafted party formats, all fully customized to your entertainer's specialty.</p>
+      </div>
+
+      <div class="packages-tier-grid">
+        
+        <!-- Package 1 -->
+        <div class="package-tier-card">
           <div>
-            <strong>Made for memorable moments</strong>
-            <span>Entertainment for your celebration</span>
+            <h3 class="package-tier-name">Spark Experience</h3>
+            <div class="package-tier-price">$199</div>
+            <div class="package-tier-duration">45 Minutes Duration</div>
+            <ul class="package-feature-list">
+              <li><i class="fa-solid fa-check"></i> High-Energy Interactive Show</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated Birthday Star Crowning</li>
+              <li><i class="fa-solid fa-check"></i> Group Photo Moments &amp; Stickers</li>
+              <li><i class="fa-solid fa-check"></i> Portable Sound System Provided</li>
+            </ul>
           </div>
-        </div>
-      </div>
-
-      <div class="profile-info">
-        <span class="ed-eyebrow">MEET YOUR ENTERTAINER</span>
-
-        <h1 id="ent-name">Elias</h1>
-
-        <div class="profile-specialty" id="ent-title">
-          Master Magician &amp; Illusionist
-        </div>
-
-        <div class="profile-rating">
-          <span class="stars" aria-label="5 out of 5 stars"></span>
-          <span>5.0/5 · 120+ Reviews</span>
-        </div>
-
-        <p id="ent-description">
-          Bring the wonder of true magic to your child's special day.
-          Elias blends mind-bending illusions, playful comedy and
-          interactive performances to create an experience for
-          children and families.
-        </p>
-
-        <div class="hero-actions">
-          <a href="booking.html?id=elias" id="hero-book-btn" class="ed-btn">
-            Check Availability <span aria-hidden="true">→</span>
-          </a>
-
-          <a href="#ent-about" class="hero-secondary">
-            Discover the Experience ↓
+          <a href="booking.html?id=elias&package=spark" id="pkg-btn-1" class="btn btn-outline btn-full">
+            Book Spark Package
           </a>
         </div>
-      </div>
 
-    </div>
-  </section>
-
-
-  
-  <!-- 2. ABOUT THE ENTERTAINER -->
-  <section class="ed-section alt-bg ed-reveal" id="ent-about">
-    <div class="ed-container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-        
-        <div>
-          <span class="ed-eyebrow">Meet The Entertainer</span>
-          <h2 class="ed-heading">
-            <span class="pink-text">Creating moments</span><br>
-            <span class="blue-text">people remember.</span>
-          </h2>
-          <p style="font-size: 1.25rem; color: var(--color-text); line-height: 1.8; margin-bottom: 1.5rem;">
-            Elias brings energy, personality, and unforgettable entertainment to every celebration. His performances are meticulously designed to keep children completely engaged while giving parents a chance to sit back and actually enjoy the party.
-          </p>
-          <p style="font-size: 1.1rem; color: var(--color-text-light); line-height: 1.7;">
-            From highly interactive magical illusions to hilarious physical comedy, every single appearance is carefully tailored to the specific audience, venue, and vibe of your celebration.
-          </p>
-        </div>
-        
-        <div style="position: relative; padding: 2rem;">
-           <img src="assets/images/pro_magician.jpg" alt="Elias Performing" style="width: 100%; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); border: 8px solid white;">
-           <div style="position: absolute; bottom: -10px; right: 0px; background: var(--color-primary); color: white; padding: 1.5rem 2rem; border-radius: 20px; box-shadow: 0 15px 30px rgba(218, 47, 95, 0.3); text-align: center;">
-              <div style="font-family: var(--font-magic); font-size: 2.5rem; line-height: 1;">10+</div>
-              <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; margin-top: 5px;">Years of Magic</div>
-           </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. SERVICES / EXPERIENCES -->
-  <section class="ed-section ed-reveal">
-    <div class="ed-container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="ed-eyebrow">The Experience</span>
-        <h2 class="ed-heading">
-          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">What you</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">can book</span>
-        </h2>
-        <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.6;">
-          Choose the performance style that perfectly matches the energy of your celebration. Each experience is fully adaptable.
-        </p>
-      </div>
-      
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="icon">
-             <svg viewBox="0 0 24 24" style="width:35px; fill:#3895c8;"><path d="M12 3 3 8l9 5 7-3.89V15h2V8z"/><path d="M5 11v5c0 2 3.13 5 7 5s7-3 7-5v-5l-7 4z"/></svg>
+        <!-- Package 2 (Featured) -->
+        <div class="package-tier-card featured">
+          <div class="package-tier-badge">Most Popular</div>
+          <div>
+            <h3 class="package-tier-name">Magic Adventure</h3>
+            <div class="package-tier-price">$299</div>
+            <div class="package-tier-duration">90 Minutes Duration</div>
+            <ul class="package-feature-list">
+              <li><i class="fa-solid fa-check"></i> Complete Grand Show &amp; Illusions</li>
+              <li><i class="fa-solid fa-check"></i> Balloon Animal Sculpting for All</li>
+              <li><i class="fa-solid fa-check"></i> Musical Games &amp; Dance Contests</li>
+              <li><i class="fa-solid fa-check"></i> VIP Birthday Coronation Ceremony</li>
+              <li><i class="fa-solid fa-check"></i> Magiqo Commemorative Magic Gift</li>
+            </ul>
           </div>
-          <h3>Interactive Show</h3>
-          <p>A lively, high-energy performance where the children become the actual stars of the magic, not just spectators.</p>
+          <a href="booking.html?id=elias&package=adventure" id="pkg-btn-2" class="btn btn-primary btn-full">
+            Book Magic Adventure
+          </a>
         </div>
-        
-        <div class="service-card" style="border-top-color: var(--color-primary); box-shadow: 0 15px 35px rgba(218,47,95,0.08);">
-          <div class="icon" style="background: rgba(218, 47, 95, 0.1);">
-             <svg viewBox="0 0 24 24" style="width:35px; fill:var(--color-primary);"><path d="m12 2 2.4 6.1L21 10.5l-5.2 4.1L17 21l-5-3.3L7 21l1.2-6.4L3 10.5l6.6-2.4z"/></svg>
+
+        <!-- Package 3 -->
+        <div class="package-tier-card">
+          <div>
+            <h3 class="package-tier-name">Grand Spectacle</h3>
+            <div class="package-tier-price">$449</div>
+            <div class="package-tier-duration">2 Hours Duration</div>
+            <ul class="package-feature-list">
+              <li><i class="fa-solid fa-check"></i> Extended 2-Hour Immersive Experience</li>
+              <li><i class="fa-solid fa-check"></i> Show + Balloon Art + Glitter Tattoos</li>
+              <li><i class="fa-solid fa-check"></i> Mini Disco Sound &amp; Party Lighting</li>
+              <li><i class="fa-solid fa-check"></i> Cake Cutting &amp; Gift Presentation MC</li>
+              <li><i class="fa-solid fa-check"></i> Deluxe Keepsake Magic Box for Host</li>
+            </ul>
           </div>
-          <h3>Signature Performance</h3>
-          <p>A complete, breathtaking entertainment experience built around grand illusions and the personality of your celebration.</p>
+          <a href="booking.html?id=elias&package=spectacle" id="pkg-btn-3" class="btn btn-outline btn-full">
+            Book Grand Spectacle
+          </a>
         </div>
-        
-        <div class="service-card">
-          <div class="icon">
-             <svg viewBox="0 0 24 24" style="width:35px; fill:#3895c8;"><path d="M12 2a5 5 0 0 0-5 5c0 3.5 5 8 5 8s5-4.5 5-8a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"/><path d="M5 16c-2 1-3 2.5-3 4 0 2 4.5 2 10 2s10 0 10-2c0-1.5-1-3-3-4"/></svg>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. LIVE MOMENTS GALLERY -->
+  <section class="detail-section alt-bg">
+    <div class="container">
+      <div class="section-head-center">
+        <h2><span class="text-pink">Moments In</span> <span class="text-blue">Action</span></h2>
+        <p>A genuine glimpse into the energy, laughter, and wonder generated at every celebration.</p>
+      </div>
+
+      <div class="gallery-tri-grid">
+        <div class="gallery-img-box">
+          <img id="gallery-img-1" src="assets/images/interactive_party_show.jpg" alt="Party Action">
+        </div>
+        <div class="gallery-img-box">
+          <img id="gallery-img-2" src="assets/images/about_art_of_magic.jpg" alt="Live Illusion">
+        </div>
+        <div class="gallery-img-box">
+          <img id="gallery-img-3" src="assets/images/family_holiday_party.jpg" alt="Celebration Smile">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. VERIFIED PARENT REVIEWS -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="section-head-center">
+        <h2><span class="text-pink">Verified</span> <span class="text-blue">Parent Reviews</span></h2>
+        <p>Read what parents have shared after experiencing our five-star entertainment.</p>
+      </div>
+
+      <div class="reviews-tri-grid">
+        <div class="review-box">
+          <div>
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote" id="review-quote-1">
+              "The children were completely mesmerized for the entire hour! Even the adults couldn't look away from the incredible tricks. Best party investment we've ever made."
+            </p>
           </div>
-          <h3>Meet & Memories</h3>
-          <p>Finish the experience with dedicated time for personal interactions, autographs, and memorable photo opportunities.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. GALLERY -->
-  <section class="ed-section alt-bg ed-reveal">
-    <div class="ed-container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
-        <span class="ed-eyebrow">Moments In Action</span>
-        <h2 class="ed-heading">
-          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">See the</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">magic unfold</span>
-        </h2>
-        <p style="font-size: 1.15rem; color: var(--color-text-light);">A genuine glimpse into the energy, excitement, and pure joy that happens behind every single performance.</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3;">
-           <img src="assets/images/pro_classic_magic.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
-        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3;">
-           <img src="assets/images/about_art_of_magic.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
-        <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3;">
-           <img src="assets/images/pro_hero_party.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. STATS -->
-  <section class="ed-section ed-reveal">
-    <div class="ed-container">
-      <div class="stat-wrap">
-        <div class="stat-box">
-          <strong>10+</strong>
-          <span>Years Experience</span>
-        </div>
-        <div class="stat-box">
-          <strong>500+</strong>
-          <span>Events Completed</span>
-        </div>
-        <div class="stat-box">
-          <strong>5.0</strong>
-          <span>Average Rating</span>
-        </div>
-        <div class="stat-box">
-          <strong>120+</strong>
-          <span>Happy Reviews</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. PROCESS -->
-  <section class="ed-section alt-bg ed-reveal">
-    <div class="ed-container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="ed-eyebrow">How It Works</span>
-        <h2 class="ed-heading">
-          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">From booking</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">to celebration</span>
-        </h2>
-        <p style="font-size: 1.15rem; color: var(--color-text-light);">We keep the entire process simple and stress-free so you can focus entirely on enjoying your child's special day.</p>
-      </div>
-      
-      <div class="process-grid">
-        <div style="position: absolute; top: 30px; left: 10%; right: 10%; height: 4px; background: rgba(56, 149, 200, 0.2); z-index: 1;"></div>
-        
-        <div class="process-item" style="animation-delay: 0.1s;">
-          <div class="process-num">1</div>
-          <h3>Tell us about it</h3>
-          <p>Share your date, location, event type, and the kind of experience you are dreaming of.</p>
-        </div>
-        <div class="process-item" style="animation-delay: 0.3s;">
-          <div class="process-num" style="background: #3895c8; box-shadow: 0 5px 15px rgba(56,149,200,0.3);">2</div>
-          <h3>Choose experience</h3>
-          <p>Select the package and performance style that perfectly suits your celebration's needs.</p>
-        </div>
-        <div class="process-item" style="animation-delay: 0.5s;">
-          <div class="process-num" style="background: #ff9800; box-shadow: 0 5px 15px rgba(255,152,0,0.3);">3</div>
-          <h3>Confirm booking</h3>
-          <p>Review the details securely, complete payment, and receive your instant confirmation.</p>
-        </div>
-        <div class="process-item" style="animation-delay: 0.7s;">
-          <div class="process-num">4</div>
-          <h3>Enjoy the moment</h3>
-          <p>Your entertainer arrives fully prepared to turn your party into a magical, memorable experience.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. REVIEWS -->
-  <section class="ed-section ed-reveal">
-    <div class="ed-container">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="ed-eyebrow">Real Experiences</span>
-        <h2 class="ed-heading">
-          <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">What families</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">are saying</span>
-        </h2>
-      </div>
-      
-      <div class="review-grid">
-        <div class="review-card">
-          <div class="review-stars"></div>
-          <p>"The children were completely engaged from the beginning. The performance made the birthday feel incredibly special. Elias is a true professional!"</p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">A</div>
+          <div class="reviewer-meta">
+            <div class="reviewer-initial">S</div>
             <div>
-              <strong>Ananya R.</strong>
-              <span>Birthday Celebration</span>
+              <div class="reviewer-name">Sarah Jenkins</div>
+              <div class="reviewer-event">7th Birthday Party • London</div>
             </div>
           </div>
         </div>
-        <div class="review-card" style="border: 2px solid var(--color-primary); transform: translateY(-15px); box-shadow: 0 20px 40px rgba(218,47,95,0.08);">
-          <div class="review-stars"></div>
-          <p>"Everything felt effortless. The performance was fun, interactive, and perfectly suited to the children. We will absolutely be booking again next year!"</p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar" style="background: var(--color-primary);">K</div>
+
+        <div class="review-box">
+          <div>
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote" id="review-quote-2">
+              "Punctual, professional, and endlessly charismatic. Our daughter felt like an absolute VIP on her special day. We'll be re-booking next year without hesitation!"
+            </p>
+          </div>
+          <div class="reviewer-meta">
+            <div class="reviewer-initial">M</div>
             <div>
-              <strong>Karthik M.</strong>
-              <span>Family Event</span>
+              <div class="reviewer-name">Marcus Thornton</div>
+              <div class="reviewer-event">5th Birthday Party • Surrey</div>
             </div>
           </div>
         </div>
-        <div class="review-card">
-          <div class="review-stars"></div>
-          <p>"A wonderful experience from booking to the final photo. The kids are still talking about the magic show. Thank you for making it so easy!"</p>
-          <div class="reviewer-info">
-            <div class="reviewer-avatar" style="background: #ff9800;">S</div>
+
+        <div class="review-box">
+          <div>
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-quote" id="review-quote-3">
+              "Controlling a room of twenty hyper 6-year-olds seems impossible, but they had every single child giggling and participating. Absolutely brilliant show."
+            </p>
+          </div>
+          <div class="reviewer-meta">
+            <div class="reviewer-initial">E</div>
             <div>
-              <strong>Sneha P.</strong>
-              <span>Birthday Party</span>
+              <div class="reviewer-name">Emily Watson</div>
+              <div class="reviewer-event">6th Birthday Party • Kent</div>
             </div>
           </div>
         </div>
@@ -1636,386 +934,1009 @@
     </div>
   </section>
 
-  <!-- 8. EVENTS -->
-  <section class="ed-section alt-bg ed-reveal">
-    <div class="ed-container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-        
-        <div>
-          <span class="ed-eyebrow">Made for your moment</span>
-          <h2 class="ed-heading">
-            <span class="blue-text">One entertainer.</span><br>
-            <span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary); background: none;">So many</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8; background: none;">celebrations</span>
-          </h2>
-          <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 2rem;">
-            Whether you're planning an intimate living room birthday or a massive community celebration in a hall, the experience is fully adapted to fit your unique event perfectly.
-          </p>
-          <div class="event-tags">
-            <span>Birthday Parties</span>
-            <span>Family Gatherings</span>
-            <span>School Events</span>
-            <span>Festivals</span>
-            <span>Private Events</span>
-          </div>
-        </div>
-        
-        <div style="background: var(--color-surface); padding: 3rem; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-left: 8px solid #3895c8; position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-           <div style="position: absolute; top: -20px; right: 20px; background: #ff9800; color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; transform: rotate(5deg);">100% Adaptable</div>
-           <h3 style="font-family: var(--font-heading); font-size: 2rem; color: var(--color-text); margin-bottom: 1.5rem;">Designed around your celebration.</h3>
-           <ul style="list-style: none; padding: 0; margin: 0; font-size: 1.1rem; color: var(--color-text-light);">
-             <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><span style="color: #3895c8; font-size: 1.5rem;"></span> Tailored to the exact age group</li>
-             <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><span style="color: #3895c8; font-size: 1.5rem;"></span> Adjustable for any venue size</li>
-             <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><span style="color: #3895c8; font-size: 1.5rem;"></span> Flexible performance duration</li>
-           </ul>
-        </div>
-        
-      </div>
+  <!-- 7. FINAL BOOKING CTA BANNER -->
+  <section class="cta-banner-section">
+    <div class="container text-center">
+      <h2><span style="color: #FFFFFF !important;">Ready to Make Magic Happen?</span></h2>
+      <p id="cta-banner-p">
+        Lock in your date with our top-rated entertainer before calendar slots fill up.
+      </p>
+      <a href="booking.html?id=elias" id="final-cta-btn" class="btn btn-white btn-lg">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Book With <span id="cta-ent-name">Elias Thorne</span> Now
+      </a>
     </div>
   </section>
 
   <!-- Dynamic Footer -->
-
-
-  <!-- DYNAMIC FOOTER -->
   <div id="footer"></div>
 
-
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <script src="js/theme.js"></script>
   <script src="js/rtl.js"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
 
+    <!-- Comprehensive Entertainer Profile Resolver -->
   <script>
-    /* ENTERTAINER DATA */
-
-    const entertainerData = {
-      "elias": {
-        name: "Elias",
-        title: "Master Magician & Illusionist",
-        img: "assets/images/pro_magician.jpg",
-        description:
-          "Bring the wonder of true magic to your child's special day. Elias blends mind-bending illusions, playful comedy and interactive performances to create an experience for children and families."
+    const entertainersDatabase = {
+  "elias": {
+    "name": "Elias Thorne",
+    "firstName": "Elias",
+    "lastName": "Thorne",
+    "title": "Master Magician & Grand Illusionist",
+    "img": "assets/images/magician_portrait_1790843004983.jpg",
+    "secondaryImg": "assets/images/pro_grand_stage.jpg",
+    "rating": "4.95",
+    "shows": "1,200+",
+    "exp": "12 Years Experience",
+    "price": "$250 / hr",
+    "location": "London & Nationwide",
+    "ages": "Ages 4 - 12 Years",
+    "bio": "Elias Thorne is Magiqo's premier illusionist, renowned for high-energy sleight of hand, interactive mind reading, and jaw-dropping levitations that leave children gasping in awe and parents thoroughly entertained.",
+    "storyP1": "With over 12 years of professional stage and party magic, Elias commands room attention with effortless warmth, spontaneous comedy, and mind-boggling illusions that baffle audiences of all ages.",
+    "storyP2": "From the opening spell to the signature birthday child levitation, Elias makes the birthday boy or girl the absolute star of the celebration with their own magic wand and official apprentice certificate.",
+    "reviews": [
+      {
+        "quote": "Elias the Magician was absolutely phenomenal. The kids were completely mesmerized for the entire hour. Best birthday party ever!",
+        "name": "Sarah Jenkins",
+        "event": "7th Birthday Party \u2022 London"
       },
-
-      "lily": {
-        name: "Lily",
-        title: "Princess Performer",
-        img: "assets/images/pro_princess.jpg",
-        description:
-          "Make your celebration feel like a fairytale with Lily. Her character-led appearances bring imaginative play, warm interactions and memorable moments to special events."
+      {
+        "quote": "Elias held the attention of 25 seven-year-olds without breaking a sweat. The parents were just as amazed as the children!",
+        "name": "Marcus Thornton",
+        "event": "8th Birthday Party \u2022 Surrey"
       },
-
-      "barnaby": {
-        name: "Barnaby",
-        title: "Classic Clown",
-        img: "assets/images/pro_silly_clown.jpg",
-        description:
-          "Barnaby brings playful comedy, lively interactions and cheerful entertainment to celebrations, creating a welcoming experience for children and families."
-      },
-
-      "sarah": {
-        name: "Sarah",
-        title: "Face Painter",
-        img: "assets/images/pro_hero_party.jpg",
-        description:
-          "Sarah adds colour and creativity to special events with imaginative face painting designed to make every young guest feel part of the celebration."
-      },
-
-      "rex": {
-        name: "Rex",
-        title: "Mascot Actor",
-        img: "assets/images/service_mascot.jpg",
-        description:
-          "Rex brings a character to life with playful appearances, interactive moments and photo opportunities for guests at family celebrations."
-      },
-
-      "david": {
-        name: "David",
-        title: "Stage Illusionist",
-        img: "assets/images/hero_magician_1790831867453.jpg",
-        description:
-          "David creates a sense of wonder through stage illusions and audience interaction, bringing a distinctive performance to special events."
-      },
-
-      "jojo": {
-        name: "Jojo",
-        title: "Comedy & Acrobatics",
-        img: "assets/images/pro_magician.jpg",
-        description:
-          "Jojo combines comedy and energetic movement to create a lively entertainment experience for audiences at family events and celebrations."
-      },
-
-      "captain_ray": {
-        name: "Captain Ray",
-        title: "Superhero Performer",
-        img: "https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        description:
-          "Captain Ray brings imaginative superhero adventures to celebrations through character interactions, playful activities and memorable photo moments."
-      },
-
-      "emma": {
-        name: "Emma",
-        title: "Puppeteer",
-        img: "assets/images/pro_classic_magic.jpg",
-        description:
-          "Emma creates engaging storytelling experiences through puppetry, character voices and interactive moments for young audiences."
-      },
-
-      "chloe": {
-        name: "Chloe",
-        title: "Balloon Artist",
-        img: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        description:
-          "Chloe brings colour and creativity to events through balloon artistry, adding playful details and keepsake moments to celebrations."
-      },
-
-      "arthur": {
-        name: "Arthur",
-        title: "Mentalist",
-        img: "assets/images/about_art_of_magic.jpg",
-        description:
-          "Arthur delivers a thought-provoking performance with audience participation and surprising moments designed to spark curiosity."
-      },
-
-      "bella": {
-        name: "Bella",
-        title: "Fairy Godmother",
-        img: "assets/images/pro_princess.jpg",
-        description:
-          "Bella adds a fairytale touch to special celebrations with character interactions, imaginative storytelling and photo opportunities."
-      },
-
-      "tommy": {
-        name: "Tommy",
-        title: "Slapstick Clown",
-        img: "https://images.unsplash.com/photo-1464047736614-af63643285bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        description:
-          "Tommy brings playful humour and expressive comedy to family events, creating light-hearted entertainment for children and adults."
-      },
-
-      "dj_spark": {
-        name: "DJ Spark",
-        title: "Kids Party DJ",
-        img: "assets/images/pro_hero_party.jpg",
-        description:
-          "DJ Spark brings music and interactive party energy to celebrations, helping guests enjoy a lively atmosphere."
-      },
-
-      "elena": {
-        name: "Elena",
-        title: "Storyteller",
-        img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        description:
-          "Elena brings stories to life through expressive storytelling, audience participation and imaginative journeys for young guests."
-      },
-
-      "giggles": {
-        name: "Giggles",
-        title: "Face Painting Clown",
-        img: "assets/images/pro_silly_clown.jpg",
-        description:
-          "Giggles combines colourful face painting with playful character interactions to add a creative touch to family celebrations."
-      },
-
-      "steve": {
-        name: "Steve",
-        title: "Dino Mascot",
-        img: "assets/images/service_mascot.jpg",
-        description:
-          "Steve brings a dinosaur character to life with playful appearances and photo opportunities for children and families."
-      },
-
-      "mia": {
-        name: "Mia",
-        title: "Glitter Tattoos",
-        img: "https://images.unsplash.com/photo-1508214751196-bfdd4ca401fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        description:
-          "Mia adds sparkle to events with creative glitter tattoo designs and fun activity moments for young guests."
-      },
-
-      "the_great_z": {
-        name: "The Great Z",
-        title: "Close-up Magician",
-        img: "assets/images/pro_magician.jpg",
-        description:
-          "The Great Z brings close-up magic and surprising interactive moments to celebrations, creating a personal performance for guests."
-      },
-
-      "aurora": {
-        name: "Aurora",
-        title: "Ice Princess",
-        img: "assets/images/pro_princess.jpg",
-        description:
-          "Aurora brings a winter-inspired fairytale character to celebrations through imaginative interactions, storytelling and memorable moments."
+      {
+        "quote": "Every trick was interactive, funny, and clean. Elias is a true master of his craft. Highly recommend!",
+        "name": "David Miller",
+        "event": "6th Birthday Party \u2022 Kent"
       }
-    };
+    ],
+    "gallery": [
+      "assets/images/interactive_party_show.jpg",
+      "assets/images/about_art_of_magic.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  },
+  "jojo": {
+    "name": "Jojo The Juggler",
+    "firstName": "Jojo",
+    "lastName": "The Juggler",
+    "title": "Circus Juggler, Acrobat & Clown",
+    "img": "assets/images/service_circus_juggler.jpg",
+    "secondaryImg": "assets/images/clown_party_1790842566084.jpg",
+    "rating": "4.8",
+    "shows": "920+",
+    "exp": "10 Years Experience",
+    "price": "$195 / hr",
+    "location": "Greater London & South East",
+    "ages": "Ages 3 - 10 Years",
+    "bio": "Jojo brings dazzling circus flair, hilarious slapstick comedy, and world-class juggling with balls, clubs, and spinning plates. Kids don't just watch\u2014they jump right into the circus ring!",
+    "storyP1": "Trained at the international circus academy, Jojo combines jaw-dropping balance acts with nonstop slapstick comedy, turning living rooms and gardens into vibrant big-top arenas.",
+    "storyP2": "Every child gets to try spinning their own plates and balancing peacock feathers, concluding with a hilarious coronation where the birthday child leads the circus parade.",
+    "reviews": [
+      {
+        "quote": "Jojo had 20 kids rolling on the floor laughing within 3 minutes! The plate spinning workshop was an absolute hit.",
+        "name": "Claire Davies",
+        "event": "5th Birthday Party \u2022 Essex"
+      },
+      {
+        "quote": "So energetic, patient, and delightfully funny. Even the shyest children were up and participating in no time.",
+        "name": "Liam O'Connor",
+        "event": "6th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Jojo is simply spectacular. The juggling stunts are top tier and the comedy is wholesome and hilarious.",
+        "name": "Hannah Brooks",
+        "event": "7th Birthday Party \u2022 Hertfordshire"
+      }
+    ],
+    "gallery": [
+      "assets/images/service_circus_juggler.jpg",
+      "assets/images/clown_party_1790842566084.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "lily": {
+    "name": "Princess Lily",
+    "firstName": "Princess",
+    "lastName": "Lily",
+    "title": "Royal Fairytale Singer & Performer",
+    "img": "assets/images/princess_portrait_1790843055244.jpg",
+    "secondaryImg": "assets/images/princess_party_1790842645232.jpg",
+    "rating": "5.0",
+    "shows": "850+",
+    "exp": "8 Years Experience",
+    "price": "$210 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 3 - 8 Years",
+    "bio": "Princess Lily turns every celebration into a royal kingdom. Featuring live vocal performances, fairytale storytelling, and a heartfelt royal coronation ceremony for the birthday child.",
+    "storyP1": "Trained in musical theatre, Princess Lily arrives in hand-stitched museum-quality royal gowns, singing beloved fairytale anthems that bring pure wonder to young dreamers.",
+    "storyP2": "Her signature coronation includes a sparkling tiara crowning, royal decree reading, and princess etiquette lessons filled with laughter and enchanting dances.",
+    "reviews": [
+      {
+        "quote": "Princess Lily was magical. Her singing voice gave everyone goosebumps, and my daughter cried happy tears when she was crowned!",
+        "name": "Emma Richardson",
+        "event": "4th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "From her gorgeous costume to her gentle warmth with all the girls and boys, Lily made our daughter's fairytale dream come true.",
+        "name": "Sophie Taylor",
+        "event": "5th Birthday Party \u2022 Berkshire"
+      },
+      {
+        "quote": "Unbelievably authentic. The kids truly believed she stepped straight out of their favorite movie.",
+        "name": "Jessica White",
+        "event": "6th Birthday Party \u2022 Surrey"
+      }
+    ],
+    "gallery": [
+      "assets/images/princess_portrait_1790843055244.jpg",
+      "assets/images/princess_party_1790842645232.jpg",
+      "assets/images/sparkle_party.jpg"
+    ]
+  },
+  "barnaby": {
+    "name": "Barnaby The Clown",
+    "firstName": "Barnaby",
+    "lastName": "The Clown",
+    "title": "Classic Comedy Clown & Slapstick",
+    "img": "assets/images/pro_silly_clown.jpg",
+    "secondaryImg": "assets/images/clown_party_1790842566084.jpg",
+    "rating": "4.8",
+    "shows": "620+",
+    "exp": "9 Years Experience",
+    "price": "$180 / hr",
+    "location": "London & South East",
+    "ages": "Ages 3 - 9 Years",
+    "bio": "Barnaby delivers pure, good-hearted slapstick comedy, balloon animals, and playful games. Gentle, funny, and guaranteed to have toddlers and young kids rolling with laughter.",
+    "storyP1": "Barnaby specializes in gentle, charming physical humor that never overwhelms younger children, creating an environment of immediate trust and infectious giggles.",
+    "storyP2": "Featuring custom sculpted balloon pets for every single attendee and a grand comedy magic finale starring the birthday host.",
+    "reviews": [
+      {
+        "quote": "Barnaby was wonderfully gentle with the younger kids and hilarious for the older ones. Truly a classic clown!",
+        "name": "Rachel Adams",
+        "event": "4th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The balloon animals were incredible and the magic tricks were so silly the parents were laughing just as hard.",
+        "name": "Peter Green",
+        "event": "5th Birthday Party \u2022 Kent"
+      },
+      {
+        "quote": "Everyone in the room was in stitches. Barnaby's comic timing is unbeatable.",
+        "name": "Hannah Wright",
+        "event": "5th Birthday \u2022 Essex"
+      }
+    ],
+    "gallery": [
+      "assets/images/pro_silly_clown.jpg",
+      "assets/images/clown_party_1790842566084.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "sarah": {
+    "name": "Sarah Face Art",
+    "firstName": "Sarah",
+    "lastName": "Face Art",
+    "title": "Master Face Painter & Glitter Artist",
+    "img": "assets/images/service_face_painting.jpg",
+    "secondaryImg": "assets/images/sparkle_party.jpg",
+    "rating": "4.9",
+    "shows": "740+",
+    "exp": "7 Years Experience",
+    "price": "$175 / hr",
+    "location": "London & Nationwide",
+    "ages": "All Ages",
+    "bio": "Sarah transforms children into fantastical creatures, superheroes, and shimmering butterflies using certified hypoallergenic, FDA-approved cosmetic face paints and eco-glitter.",
+    "storyP1": "A professional makeup artist and illustrator, Sarah paints lightning-fast, museum-grade designs that delight both children and parents.",
+    "storyP2": "Includes biodegradable glitter bars, temporary festival tattoos, and custom design requests for any party theme imaginable.",
+    "reviews": [
+      {
+        "quote": "Sarah's face painting is pure art! Every single child looked like they walked out of a movie set.",
+        "name": "Natalie Cole",
+        "event": "6th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Lightning fast and stunningly detailed. She painted 20 kids with time to spare for glitter touch-ups!",
+        "name": "Chloe Bennett",
+        "event": "5th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "Hypoallergenic paints that washed off easily before bed with no irritation whatsoever. Highly recommended!",
+        "name": "Mark Roberts",
+        "event": "7th Birthday \u2022 Kent"
+      }
+    ],
+    "gallery": [
+      "assets/images/service_face_painting.jpg",
+      "assets/images/sparkle_party.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  },
+  "rex": {
+    "name": "Rex Character Lead",
+    "firstName": "Rex",
+    "lastName": "Character Lead",
+    "title": "Friendly Mascot & Game Lead",
+    "img": "assets/images/service_mascot.jpg",
+    "secondaryImg": "assets/images/superhero_party_1790842695325.jpg",
+    "rating": "4.9",
+    "shows": "510+",
+    "exp": "6 Years Experience",
+    "price": "$190 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 2 - 7 Years",
+    "bio": "Rex brings beloved mascot personalities to life with energetic dance games, warm high-fives, and unforgettable photo sessions that young children adore.",
+    "storyP1": "Accompanied by a dedicated party coordinator, Rex guides children through fun parachute games, bubble dances, and gentle warm hugs.",
+    "storyP2": "Ensures every child gets quality 1-on-1 time with their favorite character for timeless photos.",
+    "reviews": [
+      {
+        "quote": "Our 3-year-old was thrilled beyond words! The mascot costume was immaculate and the host was fantastic.",
+        "name": "Gemma Harris",
+        "event": "3rd Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Rex brought so much joy and energy. The parachute games had all the little ones laughing nonstop.",
+        "name": "Daniel Cooper",
+        "event": "4th Birthday \u2022 Hertfordshire"
+      },
+      {
+        "quote": "Brilliant handler and character performer. The photo moments will be cherished forever.",
+        "name": "Samantha Green",
+        "event": "3rd Birthday \u2022 Essex"
+      }
+    ],
+    "gallery": [
+      "assets/images/service_mascot.jpg",
+      "assets/images/superhero_party_1790842695325.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "david": {
+    "name": "David The Illusionist",
+    "firstName": "David",
+    "lastName": "The Illusionist",
+    "title": "Grand Stage Illusionist & Mentalist",
+    "img": "assets/images/pro_grand_stage.jpg",
+    "secondaryImg": "assets/images/about_art_of_magic.jpg",
+    "rating": "5.0",
+    "shows": "980+",
+    "exp": "14 Years Experience",
+    "price": "$260 / hr",
+    "location": "Nationwide UK",
+    "ages": "Ages 5 - 14 Years",
+    "bio": "David delivers theater-caliber stage illusions, mind reading, and clean psychological mysteries that captivate older children, tweens, and family gatherings alike.",
+    "storyP1": "David brings grand theatrical props, impossible escapes, and modern mind reading that makes adults question reality.",
+    "storyP2": "Includes an exclusive junior magician mini-workshop where guests learn a jaw-dropping trick to keep forever.",
+    "reviews": [
+      {
+        "quote": "David blew everyone's minds\u2014including the adults! Simply world-class entertainment.",
+        "name": "Mark Henderson",
+        "event": "10th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "A true stage show in our local hall. The levitation illusion left all the children speechless.",
+        "name": "Claire Vance",
+        "event": "9th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "David is sophisticated, witty, and exceptionally talented. Our guests are still talking about it.",
+        "name": "Robert Shaw",
+        "event": "11th Birthday \u2022 London"
+      }
+    ],
+    "gallery": [
+      "assets/images/pro_grand_stage.jpg",
+      "assets/images/about_art_of_magic.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "max": {
+    "name": "Captain Leo",
+    "firstName": "Captain",
+    "lastName": "Leo",
+    "title": "Action Hero Training & Stunts",
+    "img": "assets/images/performer_superhero.jpg",
+    "secondaryImg": "assets/images/superhero_party_1790842695325.jpg",
+    "rating": "4.95",
+    "shows": "880+",
+    "exp": "8 Years Experience",
+    "price": "$220 / hr",
+    "location": "London & Nationwide",
+    "ages": "Ages 4 - 10 Years",
+    "bio": "Captain Leo takes children through an action-packed superhero bootcamp with obstacle courses, agility drills, teamwork games, and heroic oath ceremonies.",
+    "storyP1": "Trained martial artist and stunt performer, Captain Leo enters with explosive energy and guides kids through certified hero training.",
+    "storyP2": "Concludes with an official graduation ceremony where every child is awarded their superhero badge and cape certificate.",
+    "reviews": [
+      {
+        "quote": "The kids were completely engaged running through the obstacle courses. Captain Leo is an incredible role model!",
+        "name": "Tom Bradley",
+        "event": "6th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The hero academy games were perfectly paced and every child felt powerful and celebrated.",
+        "name": "Karen Price",
+        "event": "7th Birthday \u2022 Berkshire"
+      },
+      {
+        "quote": "Best superhero performer we have ever booked. Top energy from start to finish!",
+        "name": "James Sullivan",
+        "event": "5th Birthday \u2022 London"
+      }
+    ],
+    "gallery": [
+      "assets/images/performer_superhero.jpg",
+      "assets/images/superhero_party_1790842695325.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  },
+  "captain_ray": {
+    "name": "Captain Ray",
+    "firstName": "Captain",
+    "lastName": "Ray",
+    "title": "Hero Academy Coach & Stunts",
+    "img": "assets/images/performer_superhero.jpg",
+    "secondaryImg": "assets/images/superhero_party_1790842695325.jpg",
+    "rating": "4.9",
+    "shows": "880+",
+    "exp": "8 Years Experience",
+    "price": "$220 / hr",
+    "location": "London & Nationwide",
+    "ages": "Ages 4 - 10 Years",
+    "bio": "Captain Ray delivers action-packed superhero training courses, superhero games, and high-energy interactive fun for all brave young heroes.",
+    "storyP1": "A full theatrical hero experience with agility drills, villain-stopping games, and teamwork missions.",
+    "storyP2": "Finishes with an authentic hero graduation ceremony and memorable photo ops.",
+    "reviews": [
+      {
+        "quote": "Captain Ray brought so much enthusiasm! The kids talked about hero training for weeks.",
+        "name": "Laura Palmer",
+        "event": "7th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Every child got a superhero medal and felt like an absolute champion. Spectacular party!",
+        "name": "Simon Cox",
+        "event": "6th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "Fantastic discipline and hilarious comedy mixed together. All the parents were thrilled.",
+        "name": "Angela Reed",
+        "event": "8th Birthday \u2022 Kent"
+      }
+    ],
+    "gallery": [
+      "assets/images/performer_superhero.jpg",
+      "assets/images/superhero_party_1790842695325.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  },
+  "emma": {
+    "name": "Emma The Puppeteer",
+    "firstName": "Emma",
+    "lastName": "The Puppeteer",
+    "title": "Master Puppeteer & Interactive Storyteller",
+    "img": "assets/images/service_puppet_show.jpg",
+    "secondaryImg": "assets/images/about_kids_birthday.jpg",
+    "rating": "4.8",
+    "shows": "610+",
+    "exp": "8 Years Experience",
+    "price": "$190 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 2 - 8 Years",
+    "bio": "Emma brings a vibrant cast of puppet friends to life in interactive musical adventures that have toddlers and young children fully spellbound.",
+    "storyP1": "Featuring a custom tabletop puppet theater, hand-crafted fuzzy characters, and catchy interactive songs.",
+    "storyP2": "Children get to meet the puppets up close and participate in funny puppet voice conversations.",
+    "reviews": [
+      {
+        "quote": "Emma's puppet show had every single toddler giggling in complete harmony. Truly gifted performer.",
+        "name": "Helen Martin",
+        "event": "3rd Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The puppet characters were so vibrant and witty! Perfect for our 4-year-old's party.",
+        "name": "Lucy Davis",
+        "event": "4th Birthday \u2022 Essex"
+      },
+      {
+        "quote": "Emma engaged every child effortlessly. Her warmth and vocal versatility are amazing.",
+        "name": "Paul Foster",
+        "event": "3rd Birthday \u2022 Surrey"
+      }
+    ],
+    "gallery": [
+      "assets/images/service_puppet_show.jpg",
+      "assets/images/about_kids_birthday.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "chloe": {
+    "name": "Chloe Balloon Sculptor",
+    "firstName": "Chloe",
+    "lastName": "Balloon Sculptor",
+    "title": "Master Balloon Sculptor & Entertainer",
+    "img": "assets/images/service_balloon_twisting.jpg",
+    "secondaryImg": "assets/images/family_holiday_party.jpg",
+    "rating": "4.9",
+    "shows": "790+",
+    "exp": "7 Years Experience",
+    "price": "$185 / hr",
+    "location": "London & South East",
+    "ages": "All Ages",
+    "bio": "Chloe twists wearable balloon hats, life-sized superheroes, magical unicorn wands, and playful balloon animals at lightning speed.",
+    "storyP1": "A master balloon artist who combines lively interactive comedy with jaw-dropping sculptural skill.",
+    "storyP2": "Guarantees every child receives multiple custom balloon creations to take home.",
+    "reviews": [
+      {
+        "quote": "Chloe created balloon sculptures I didn't even know were possible! The kids were ecstatic.",
+        "name": "Benjamin Scott",
+        "event": "6th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Unbelievable speed and creativity. The giant balloon crowns were the hit of the day!",
+        "name": "Olivia Moore",
+        "event": "5th Birthday \u2022 Kent"
+      },
+      {
+        "quote": "Chloe was friendly, super energetic, and kept all 25 kids thoroughly delighted.",
+        "name": "Jonathan Hall",
+        "event": "7th Birthday \u2022 London"
+      }
+    ],
+    "gallery": [
+      "assets/images/service_balloon_twisting.jpg",
+      "assets/images/family_holiday_party.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "arthur": {
+    "name": "Arthur The Mind Reader",
+    "firstName": "Arthur",
+    "lastName": "The Mind Reader",
+    "title": "Junior Mind Reader & Mentalist",
+    "img": "assets/images/about_art_of_magic.jpg",
+    "secondaryImg": "assets/images/pro_classic_magic.jpg",
+    "rating": "5.0",
+    "shows": "460+",
+    "exp": "6 Years Experience",
+    "price": "$210 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 6 - 13 Years",
+    "bio": "Arthur astounds young minds with intuitive mind reading, prediction tricks, and clever psychological mysteries designed especially for sharp, curious kids.",
+    "storyP1": "Arthur turns audience members into mind readers, having them accurately guess secretly chosen numbers, colors, and mystery cards.",
+    "storyP2": "Combines lighthearted mystery with intelligent humor that makes older kids and tweens feel respected and amazed.",
+    "reviews": [
+      {
+        "quote": "Arthur had 15 eight-year-olds completely stumped and leaning forward in disbelief. Brilliant performer!",
+        "name": "Clara Evans",
+        "event": "8th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Not a corny trick in the whole routine. Sophisticated, hilarious, and genuinely mystifying.",
+        "name": "George Turner",
+        "event": "9th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "Our son wants to become a mentalist now! Arthur was courteous, punctual, and extraordinarily talented.",
+        "name": "Victoria King",
+        "event": "10th Birthday \u2022 Kent"
+      }
+    ],
+    "gallery": [
+      "assets/images/about_art_of_magic.jpg",
+      "assets/images/pro_classic_magic.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "bella": {
+    "name": "Bella Fairy Godmother",
+    "firstName": "Bella",
+    "lastName": "Fairy Godmother",
+    "title": "Fairy Godmother & Enchanted Storyteller",
+    "img": "assets/images/performer_fairy.jpg",
+    "secondaryImg": "assets/images/sparkle_party.jpg",
+    "rating": "4.9",
+    "shows": "670+",
+    "exp": "7 Years Experience",
+    "price": "$205 / hr",
+    "location": "London & South East",
+    "ages": "Ages 3 - 8 Years",
+    "bio": "Bella sprinkles enchanted fairy dust, leads sparkling wishing ceremonies, and guides children on mystical woodland adventures with illuminated fairy wings.",
+    "storyP1": "Arriving with illuminated fairy wings and a crystal wand, Bella creates an atmosphere of pure warmth, kindness, and gentle wonder.",
+    "storyP2": "Every child crafts their own enchanted wishing stone and joins the woodland fairy circle dance.",
+    "reviews": [
+      {
+        "quote": "Bella was like a real angel in our garden. The wishing ceremony made my daughter feel so cherished.",
+        "name": "Emily Watson",
+        "event": "4th Birthday Party \u2022 Surrey"
+      },
+      {
+        "quote": "Gentle, radiant, and wonderful with shy children. The fairy wings lit up our living room!",
+        "name": "Rachel Morris",
+        "event": "5th Birthday \u2022 London"
+      },
+      {
+        "quote": "A completely magical experience. Every girl and boy was enchanted from start to finish.",
+        "name": "Anthony Clark",
+        "event": "4th Birthday \u2022 Essex"
+      }
+    ],
+    "gallery": [
+      "assets/images/performer_fairy.jpg",
+      "assets/images/sparkle_party.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  },
+  "tommy": {
+    "name": "Tommy Slapstick Humorist",
+    "firstName": "Tommy",
+    "lastName": "Slapstick Humorist",
+    "title": "Slapstick Comedy & Party Games Lead",
+    "img": "assets/images/clown_party_1790842566084.jpg",
+    "secondaryImg": "assets/images/pro_silly_clown.jpg",
+    "rating": "4.7",
+    "shows": "540+",
+    "exp": "7 Years Experience",
+    "price": "$175 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 4 - 10 Years",
+    "bio": "Tommy brings non-stop belly laughs with runaway props, classic banana-peel comedy, silly dance-offs, and high-energy party games.",
+    "storyP1": "Tommy knows exactly how to get a whole room of children laughing out loud together within sixty seconds.",
+    "storyP2": "Features hilarious tug-of-war challenges, musical freeze dancing, and Tommy's famous runaway pie trick.",
+    "reviews": [
+      {
+        "quote": "Tommy had the entire room in stitches! The parents were laughing just as hard as the kids.",
+        "name": "Gary Mitchell",
+        "event": "6th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Pure, unadulterated fun. Tommy's energy never flagged for a single minute.",
+        "name": "Fiona Adams",
+        "event": "7th Birthday \u2022 Kent"
+      },
+      {
+        "quote": "Best party host we have had. The kids had an absolute blast running through his silly games.",
+        "name": "David Lloyd",
+        "event": "5th Birthday \u2022 Surrey"
+      }
+    ],
+    "gallery": [
+      "assets/images/clown_party_1790842566084.jpg",
+      "assets/images/pro_silly_clown.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "dj_spark": {
+    "name": "DJ Spark",
+    "firstName": "DJ",
+    "lastName": "Spark",
+    "title": "Kids Party DJ & High-Energy MC",
+    "img": "assets/images/theme_music.jpg",
+    "secondaryImg": "assets/images/interactive_party_show.jpg",
+    "rating": "4.8",
+    "shows": "810+",
+    "exp": "9 Years Experience",
+    "price": "$225 / hr",
+    "location": "London & Nationwide",
+    "ages": "Ages 5 - 13 Years",
+    "bio": "DJ Spark transforms your venue into an electrifying kids dance club with professional lighting rigs, bubble machines, and chart-topping dance choreography.",
+    "storyP1": "Equipped with club-grade LED lighting, wireless microphones, and kid-safe hit playlists, Spark turns any party into a festival.",
+    "storyP2": "Hosts glow-stick limbo competitions, crowd karaoke, and thrilling dance battles with prizes for all.",
+    "reviews": [
+      {
+        "quote": "DJ Spark had 30 nine-year-olds bouncing and singing along for two solid hours. Absolutely stellar!",
+        "name": "Melanie Carter",
+        "event": "9th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The lighting setup and sound were festival quality. Spark is a master MC who kept everyone hyped.",
+        "name": "Craig Hughes",
+        "event": "10th Birthday \u2022 Essex"
+      },
+      {
+        "quote": "Our daughter said it was the best day of her life. DJ Spark is worth every penny!",
+        "name": "Beatrice Young",
+        "event": "8th Birthday \u2022 Surrey"
+      }
+    ],
+    "gallery": [
+      "assets/images/theme_music.jpg",
+      "assets/images/interactive_party_show.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  },
+  "elena": {
+    "name": "Elena Magical Storyteller",
+    "firstName": "Elena",
+    "lastName": "Magical Storyteller",
+    "title": "Magical Storyteller & Folk Musician",
+    "img": "assets/images/about_kids_birthday.jpg",
+    "secondaryImg": "assets/images/princess_party_1790842645232.jpg",
+    "rating": "4.9",
+    "shows": "730+",
+    "exp": "8 Years Experience",
+    "price": "$185 / hr",
+    "location": "London & South East",
+    "ages": "Ages 2 - 7 Years",
+    "bio": "Elena weaves captivating folk tales with acoustic folk instruments, gentle puppetry, and interactive story journeys that spark deep childhood imagination.",
+    "storyP1": "Elena brings along sensory story props, bell chimes, and soft velvet tapestries that envelop children in a tranquil fairy world.",
+    "storyP2": "Kids actively participate as story characters, creating wind sounds, animal calls, and finding the hidden magical treasure.",
+    "reviews": [
+      {
+        "quote": "Elena has a soothing, enchanting presence. Even our rowdiest toddler was sitting quietly, eyes wide in wonder.",
+        "name": "Joanne Bailey",
+        "event": "3rd Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Beautiful acoustic singing and gentle stories. A welcome, calm breath of fresh air for our celebration.",
+        "name": "Michael Bennett",
+        "event": "4th Birthday \u2022 Kent"
+      },
+      {
+        "quote": "Truly wholesome entertainment. Elena is a genuine storyteller of the highest order.",
+        "name": "Sarah Collins",
+        "event": "5th Birthday \u2022 Berkshire"
+      }
+    ],
+    "gallery": [
+      "assets/images/about_kids_birthday.jpg",
+      "assets/images/princess_party_1790842645232.jpg",
+      "assets/images/sparkle_party.jpg"
+    ]
+  },
+  "giggles": {
+    "name": "Giggles Face Painting Clown",
+    "firstName": "Giggles",
+    "lastName": "Face Painting Clown",
+    "title": "Face Painting Clown & Balloon Modeler",
+    "img": "assets/images/pro_clown_blog.jpg",
+    "secondaryImg": "assets/images/service_face_painting.jpg",
+    "rating": "5.0",
+    "shows": "690+",
+    "exp": "8 Years Experience",
+    "price": "$190 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 3 - 9 Years",
+    "bio": "Giggles combines gentle comedy, lightning-fast balloon twisting, and sparkling face painting for an all-in-one entertainment feast that toddlers and kids adore.",
+    "storyP1": "A brightly dressed, smile-inducing performer who gently warms up children with silly feather duster tricks before painting masterpieces.",
+    "storyP2": "Every child gets custom face art and a wearable balloon sculpture created right before their eyes.",
+    "reviews": [
+      {
+        "quote": "Giggles was an absolute delight! The face painting was gorgeous and the balloon animals were so sturdy.",
+        "name": "Claire Richardson",
+        "event": "5th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "So warm and gentle. None of the younger kids were scared of the clown makeup at all\u2014they loved her!",
+        "name": "Trevor Scott",
+        "event": "4th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "Two hours of nonstop joy. Giggles managed everything with a warm smile and great professionalism.",
+        "name": "Linda Edwards",
+        "event": "6th Birthday \u2022 Essex"
+      }
+    ],
+    "gallery": [
+      "assets/images/pro_clown_blog.jpg",
+      "assets/images/service_face_painting.jpg",
+      "assets/images/clown_party_1790842566084.jpg"
+    ]
+  },
+  "steve": {
+    "name": "Steve Action Games Host",
+    "firstName": "Steve",
+    "lastName": "Action Games Host",
+    "title": "Hero Bootcamp & Action Games Coach",
+    "img": "assets/images/superhero_party_1790842695325.jpg",
+    "secondaryImg": "assets/images/performer_superhero.jpg",
+    "rating": "4.9",
+    "shows": "580+",
+    "exp": "6 Years Experience",
+    "price": "$195 / hr",
+    "location": "London & Nationwide",
+    "ages": "Ages 5 - 12 Years",
+    "bio": "Coach Steve leads high-octane sports obstacle relays, dodgeball tournaments, nerf tag battles, and collaborative field day games with boundless enthusiasm.",
+    "storyP1": "Former youth sports instructor Steve brings pop-up obstacle courses, cones, parachutes, and whistles to get everyone moving.",
+    "storyP2": "Emphasizes sportsmanship, high energy teamwork, and ensures every single child crosses the finish line a winner.",
+    "reviews": [
+      {
+        "quote": "Coach Steve tire out 20 energetic boys and girls while keeping everyone smiling and safe. Phenomenal party!",
+        "name": "Paul Harrison",
+        "event": "8th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The obstacle course was brilliantly designed and the team relay races were a riot. Highly recommend Steve!",
+        "name": "Rebecca Ward",
+        "event": "7th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "Steve was fantastic at including children of all athletic abilities. Truly top-class host.",
+        "name": "Jason Phillips",
+        "event": "9th Birthday \u2022 Kent"
+      }
+    ],
+    "gallery": [
+      "assets/images/superhero_party_1790842695325.jpg",
+      "assets/images/performer_superhero.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "mia": {
+    "name": "Mia Bubble Specialist",
+    "firstName": "Mia",
+    "lastName": "Bubble Specialist",
+    "title": "Giant Bubble Specialist & Wonder Artist",
+    "img": "assets/images/service_bubble_show.jpg",
+    "secondaryImg": "assets/images/family_holiday_party.jpg",
+    "rating": "4.9",
+    "shows": "640+",
+    "exp": "7 Years Experience",
+    "price": "$195 / hr",
+    "location": "London & Home Counties",
+    "ages": "All Ages",
+    "bio": "Mia creates jaw-dropping giant smoke-filled bubbles, rainbow bubble sculptures, and puts children inside real life-sized bubbles for the ultimate photo moment.",
+    "storyP1": "Using secret eco-friendly bubble formulas, Mia constructs shimmering bubbles larger than cars that gently float through gardens and halls.",
+    "storyP2": "The grand finale features the famous 'Child Inside a Bubble' stunt, where every guest steps inside an iridescent bubble column.",
+    "reviews": [
+      {
+        "quote": "Standing inside a real giant bubble was something my daughter will never forget! Mia is fantastic.",
+        "name": "Jessica Wright",
+        "event": "5th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The bubble tricks with smoke and fire-safe foam were mesmerizing. Parents were just as enthralled as kids.",
+        "name": "Brian Cox",
+        "event": "6th Birthday \u2022 Berkshire"
+      },
+      {
+        "quote": "So clean, beautiful, and visually spectacular. The outdoor lawn was filled with hundreds of giant bubbles!",
+        "name": "Caroline Lewis",
+        "event": "4th Birthday \u2022 Surrey"
+      }
+    ],
+    "gallery": [
+      "assets/images/service_bubble_show.jpg",
+      "assets/images/family_holiday_party.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "the_great_z": {
+    "name": "The Great Z",
+    "firstName": "The Great",
+    "lastName": "Z",
+    "title": "Close-up Card Conjurer & Sleight of Hand",
+    "img": "assets/images/pro_classic_magic.jpg",
+    "secondaryImg": "assets/images/pro_grand_stage.jpg",
+    "rating": "4.9",
+    "shows": "820+",
+    "exp": "11 Years Experience",
+    "price": "$230 / hr",
+    "location": "London & South East",
+    "ages": "Ages 6 - 14 Years",
+    "bio": "The Great Z performs impossible close-up card miracles, coin vanishings right in children's open palms, and mind-boggling rope restorations.",
+    "storyP1": "An award-winning close-up magician of the Magic Circle, The Great Z performs inches away from spectators with zero smoke or mirrors.",
+    "storyP2": "Includes a private masterclass where the birthday child learns an impossible card secret to amaze their friends at school.",
+    "reviews": [
+      {
+        "quote": "The Great Z did tricks right in my son's hands that defied all logic. An absolute genius!",
+        "name": "Stuart Barnes",
+        "event": "9th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "Unbelievable close-up technique and charismatic showmanship. Adults and kids were totally spellbound.",
+        "name": "Patricia King",
+        "event": "11th Birthday \u2022 Kent"
+      },
+      {
+        "quote": "Classy, witty, and astonishing. The Great Z elevated our family party into a premier event.",
+        "name": "Howard Bell",
+        "event": "10th Birthday \u2022 London"
+      }
+    ],
+    "gallery": [
+      "assets/images/pro_classic_magic.jpg",
+      "assets/images/pro_grand_stage.jpg",
+      "assets/images/interactive_party_show.jpg"
+    ]
+  },
+  "aurora": {
+    "name": "Princess Aurora",
+    "firstName": "Princess",
+    "lastName": "Aurora",
+    "title": "Snow & Frost Princess Storyteller",
+    "img": "assets/images/sparkle_party.jpg",
+    "secondaryImg": "assets/images/princess_portrait_1790843055244.jpg",
+    "rating": "5.0",
+    "shows": "950+",
+    "exp": "9 Years Experience",
+    "price": "$215 / hr",
+    "location": "London & Home Counties",
+    "ages": "Ages 3 - 9 Years",
+    "bio": "Princess Aurora brings winter magic and fairytale elegance to life with live vocal performances, snowflake dances, and an enchanting royal coronation ceremony.",
+    "storyP1": "Dressed in an illuminated shimmering winter gown, Aurora sings iconic fairytale anthems and leads gentle royal etiquette lessons.",
+    "storyP2": "Every child receives a sparkling snowflake tiara and takes part in the magical coronation circle.",
+    "reviews": [
+      {
+        "quote": "Princess Aurora made our little girl's winter wonderland dreams come true! Her live vocals are stunning.",
+        "name": "Catherine Price",
+        "event": "5th Birthday Party \u2022 London"
+      },
+      {
+        "quote": "The coronation was so emotional and sweet. Aurora has the voice and grace of a true fairytale princess.",
+        "name": "Darren Walker",
+        "event": "6th Birthday \u2022 Surrey"
+      },
+      {
+        "quote": "Every single child was spellbound. Aurora is the gold standard for princess entertainment.",
+        "name": "Natalie Foster",
+        "event": "4th Birthday \u2022 Essex"
+      }
+    ],
+    "gallery": [
+      "assets/images/sparkle_party.jpg",
+      "assets/images/princess_portrait_1790843055244.jpg",
+      "assets/images/family_holiday_party.jpg"
+    ]
+  }
+};
 
+    // Aliases registration
+    entertainersDatabase["captain_ray"] = entertainersDatabase["captain_ray"];
+    entertainersDatabase["captain ray"] = entertainersDatabase["captain_ray"];
+    entertainersDatabase["captain_leo"] = entertainersDatabase["max"];
+    entertainersDatabase["captain leo"] = entertainersDatabase["max"];
+    entertainersDatabase["leo"] = entertainersDatabase["max"];
+    entertainersDatabase["dj spark"] = entertainersDatabase["dj_spark"];
+    entertainersDatabase["the great z"] = entertainersDatabase["the_great_z"];
+    entertainersDatabase["princess lily"] = entertainersDatabase["lily"];
+    entertainersDatabase["princess aurora"] = entertainersDatabase["aurora"];
+    entertainersDatabase["elias thorne"] = entertainersDatabase["elias"];
+    entertainersDatabase["jojo the juggler"] = entertainersDatabase["jojo"];
+    entertainersDatabase["bubble_mia"] = entertainersDatabase["mia"];
+    entertainersDatabase["bubble mia"] = entertainersDatabase["mia"];
 
-    /* DYNAMIC PROFILE */
+    function resolveEntertainer(rawId) {
+      if (!rawId) return { key: "elias", data: entertainersDatabase["elias"] };
+      
+      const clean = rawId.toLowerCase().trim();
+      if (entertainersDatabase[clean]) {
+        return { key: clean, data: entertainersDatabase[clean] };
+      }
+      
+      const norm = clean.replace(/[^a-z0-9]/g, "");
+      if (entertainersDatabase[norm]) {
+        return { key: norm, data: entertainersDatabase[norm] };
+      }
+      
+      for (const key in entertainersDatabase) {
+        const knorm = key.replace(/[^a-z0-9]/g, "");
+        if (knorm === norm || (knorm.length > 2 && norm.includes(knorm)) || (norm.length > 2 && knorm.includes(norm))) {
+          return { key: key, data: entertainersDatabase[key] };
+        }
+      }
+      
+      for (const key in entertainersDatabase) {
+        const ent = entertainersDatabase[key];
+        const nameNorm = ent.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+        if (nameNorm.includes(norm) || norm.includes(nameNorm)) {
+          return { key: key, data: ent };
+        }
+      }
+      
+      return { key: "elias", data: entertainersDatabase["elias"] };
+    }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    function applyEntertainerProfile() {
       const params = new URLSearchParams(window.location.search);
-      const requestedId = (params.get("id") || "elias").toLowerCase();
+      const rawId = params.get("id") || params.get("name") || window.location.hash.replace("#", "") || "elias";
+      const resolved = resolveEntertainer(rawId);
+      const data = resolved.data;
+      const key = resolved.key;
 
-      const id = Object.prototype.hasOwnProperty.call(
-        entertainerData,
-        requestedId
-      ) ? requestedId : "elias";
+      // Update Page Meta
+      document.title = `${data.name} - ${data.title} | Magiqo`;
+      const metaDesc = document.getElementById("page-desc");
+      if (metaDesc) metaDesc.content = `Book ${data.name}, ${data.title} for magical children celebrations with Magiqo.`;
+      
+      const breadcrumb = document.getElementById("breadcrumb-current");
+      if (breadcrumb) breadcrumb.textContent = data.name;
 
-      const data = entertainerData[id];
+      // Portrait Image
+      const imgEl = document.getElementById("ent-img");
+      if (imgEl) {
+        imgEl.src = data.img;
+        imgEl.alt = `${data.name} - ${data.title}`;
+      }
 
+      // Rating badge
+      const ratingBadge = document.getElementById("ent-rating-badge");
+      if (ratingBadge) ratingBadge.textContent = `★ ${data.rating} Rating (${data.shows} Shows)`;
+
+      // Title & Name with split styling
       const nameEl = document.getElementById("ent-name");
+      if (nameEl) {
+        nameEl.innerHTML = `<span class="text-pink">${data.firstName}</span> <span class="text-blue">${data.lastName}</span>`;
+      }
+      
       const titleEl = document.getElementById("ent-title");
-      const imageEl = document.getElementById("ent-img");
-      const aboutImageEl = document.getElementById("about-ent-img");
-      const descriptionEl = document.getElementById("ent-description");
-      const bookingNameEl = document.getElementById("booking-entertainer-name");
-
-      if (nameEl) nameEl.textContent = data.name;
       if (titleEl) titleEl.textContent = data.title;
 
-      if (imageEl) {
-        imageEl.src = data.img;
-        imageEl.alt = data.name + " - " + data.title;
+      // Meta row
+      const metaRating = document.getElementById("meta-rating");
+      if (metaRating) metaRating.textContent = `${data.rating} / 5.0 Rating`;
+      const metaShows = document.getElementById("meta-shows");
+      if (metaShows) metaShows.textContent = `${data.shows} Completed Shows`;
+      const metaExp = document.getElementById("meta-exp");
+      if (metaExp) metaExp.textContent = data.exp;
+      const metaPrice = document.getElementById("meta-price");
+      if (metaPrice) metaPrice.textContent = data.price;
+
+      // Bio
+      const descEl = document.getElementById("ent-description");
+      if (descEl) descEl.textContent = data.bio;
+
+      // About Section
+      const p1 = document.getElementById("about-story-p1");
+      if (p1 && data.storyP1) p1.textContent = data.storyP1;
+      const p2 = document.getElementById("about-story-p2");
+      if (p2 && data.storyP2) p2.textContent = data.storyP2;
+      const agesEl = document.getElementById("spec-ages");
+      if (agesEl && data.ages) agesEl.textContent = data.ages;
+      const locEl = document.getElementById("spec-location");
+      if (locEl && data.location) locEl.textContent = data.location;
+
+      const aboutImg = document.getElementById("about-ent-img");
+      if (aboutImg && data.secondaryImg) {
+        aboutImg.src = data.secondaryImg;
+        aboutImg.alt = `${data.name} Live Performance`;
       }
 
-      if (aboutImageEl) {
-        aboutImageEl.src = data.img;
-        aboutImageEl.alt = data.name + " performing";
+      // Reviews
+      if (data.reviews && data.reviews.length >= 3) {
+        const q1 = document.getElementById("review-quote-1");
+        const q2 = document.getElementById("review-quote-2");
+        const q3 = document.getElementById("review-quote-3");
+        if (q1) q1.textContent = `"${data.reviews[0].quote}"`;
+        if (q2) q2.textContent = `"${data.reviews[1].quote}"`;
+        if (q3) q3.textContent = `"${data.reviews[2].quote}"`;
       }
 
-      if (descriptionEl) {
-        descriptionEl.textContent = data.description;
+      // Gallery Images
+      if (data.gallery && data.gallery.length >= 3) {
+        const g1 = document.getElementById("gallery-img-1");
+        const g2 = document.getElementById("gallery-img-2");
+        const g3 = document.getElementById("gallery-img-3");
+        if (g1) g1.src = data.gallery[0];
+        if (g2) g2.src = data.gallery[1];
+        if (g3) g3.src = data.gallery[2];
       }
 
-      if (bookingNameEl) {
-        bookingNameEl.textContent = data.name;
-      }
+      // Booking Links
+      const bookingUrl = `booking.html?id=${encodeURIComponent(key)}`;
+      const heroBookBtn = document.getElementById("hero-book-btn");
+      if (heroBookBtn) heroBookBtn.href = bookingUrl;
+      const finalCtaBtn = document.getElementById("final-cta-btn");
+      if (finalCtaBtn) finalCtaBtn.href = bookingUrl;
+      const ctaName = document.getElementById("cta-ent-name");
+      if (ctaName) ctaName.textContent = data.name;
 
-      document.title = data.name + " - " + data.title + " | Magiqo";
+      const pkg1 = document.getElementById("pkg-btn-1");
+      if (pkg1) pkg1.href = `booking.html?id=${encodeURIComponent(key)}&package=spark`;
+      const pkg2 = document.getElementById("pkg-btn-2");
+      if (pkg2) pkg2.href = `booking.html?id=${encodeURIComponent(key)}&package=adventure`;
+      const pkg3 = document.getElementById("pkg-btn-3");
+      if (pkg3) pkg3.href = `booking.html?id=${encodeURIComponent(key)}&package=spectacle`;
+    }
 
-      const bookingUrl = "booking.html?id=" + encodeURIComponent(id);
+    // Execute immediately so there is zero flash of default content
+    applyEntertainerProfile();
 
-      ["hero-book-btn", "ent-book-btn", "final-book-btn"].forEach((buttonId) => {
-        const button = document.getElementById(buttonId);
-        if (button) button.href = bookingUrl;
-      });
-    });
-
-
-    /* SCROLL REVEAL (Replaced with Motion One) */
-  </script>
-
-  <!-- Framer Motion (Motion One for Vanilla JS) -->
-  <script type="module">
-    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
-    document.addEventListener("DOMContentLoaded", () => {
-      // 1. Clean up old CSS-based scroll reveal to prevent conflicts
-      const oldReveals = document.querySelectorAll(".ed-reveal");
-      oldReveals.forEach(el => {
-        el.classList.remove("ed-reveal");
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-        el.style.transition = 'none';
-      });
-
-      // 2. Initial Opacity Setup for new animations
-      // Select the specific text blocks and profile items
-      const fadeElements = document.querySelectorAll('.ed-heading, .ed-eyebrow, .profile-image-wrap, .profile-text');
-      fadeElements.forEach(el => el.style.opacity = '0');
-
-      // Setup About Section Grid children
-      const aboutGrid = document.querySelector('#ent-about > div > div');
-      if (aboutGrid) {
-         Array.from(aboutGrid.children).forEach(child => child.style.opacity = '0');
-      }
-
-      // Setup component grids
-      const grids = document.querySelectorAll('.service-grid, .stat-wrap, .process-grid, .review-grid, div[style*="grid-template-columns: repeat(auto-fit"]');
-      grids.forEach(grid => {
-        Array.from(grid.children).forEach(child => child.style.opacity = '0');
-      });
-
-      // 3. Animations on Scroll
-      
-      // Hero Section (Profile Layout)
-      inView(".ent-detail-hero", () => {
-        const img = document.querySelector(".profile-image-wrap");
-        const text = document.querySelector(".profile-text");
-        if(img) animate(img, { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
-        if(text) animate(text, { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
-      });
-
-      // General Headings
-      document.querySelectorAll(".ed-heading, .ed-eyebrow").forEach(heading => {
-        inView(heading, () => animate(heading, { opacity: [0, 1], y: [30, 0] }, { duration: 0.8, easing: "ease-out" }));
-      });
-
-      // About Section Split Layout
-      if (aboutGrid) {
-        inView(aboutGrid, () => {
-          const children = Array.from(aboutGrid.children);
-          if(children.length >= 2) {
-             animate(children[0], { opacity: [0, 1], x: [-100, 0] }, { duration: 0.8, easing: "ease-out" });
-             animate(children[1], { opacity: [0, 1], x: [100, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.2 });
-          }
-        });
-      }
-
-      // Component Grids (Services, Stats, Process, Gallery, Reviews)
-      grids.forEach(grid => {
-        inView(grid, () => {
-          const children = Array.from(grid.children);
-          children.forEach((child, index) => {
-            let xOffset = 0; let yOffset = 50;
-            // Alternating left and right for outer items
-            if (children.length > 2) {
-              if (index % 3 === 0) { xOffset = -50; yOffset = 0; } 
-              else if (index % 3 === 2) { xOffset = 50; yOffset = 0; }
-            }
-            animate(child, { opacity: [0, 1], x: [xOffset, 0], y: [yOffset, 0] }, { duration: 0.8, easing: "ease-out", delay: 0.1 * index });
-          });
-        });
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get('id');
-      
-      const entertainers = {
-        elias: {
-          name: "Elias the Magician",
-          title: "Master Magician & Illusionist",
-          img: "assets/images/pro_magician.jpg"
-        },
-        max: {
-          name: "Max the Action Hero",
-          title: "Superhero Performer",
-          img: "https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=600&auto=format&fit=crop"
-        },
-        mia: {
-          name: "Princess Mia",
-          title: "Royal Princess Performer",
-          img: "assets/images/pro_princess.jpg"
-        }
-      };
-      
-      if (id && entertainers[id]) {
-        const ent = entertainers[id];
-        const nameEl = document.getElementById('ent-name');
-        const titleEl = document.getElementById('ent-title');
-        const imgEl = document.getElementById('ent-img');
-        
-        if (nameEl) nameEl.textContent = ent.name;
-        if (titleEl) titleEl.textContent = ent.title;
-        if (imgEl) {
-          imgEl.src = ent.img;
-          imgEl.alt = ent.name;
-        }
-      }
-    });
+    // Also run on DOM ready and window events
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyEntertainerProfile);
+    }
+    window.addEventListener('load', applyEntertainerProfile);
+    window.addEventListener('popstate', applyEntertainerProfile);
   </script>
 </body>
 </html>

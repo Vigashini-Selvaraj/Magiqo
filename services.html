@@ -20,20 +20,21 @@
     }
 
     .section-pad {
-      padding: 6rem 0;
+      padding: 4.5rem 0;
     }
 
     .sec-title {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
     }
     .sec-title h2 {
       font-family: var(--font-magic);
       font-size: clamp(2.5rem, 4vw, 3.5rem);
       margin-bottom: 1rem;
-      background: var(--gradient-heading);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+      color: var(--color-text);
     }
     .sec-title p {
       color: var(--color-text-light);
@@ -70,9 +71,10 @@
       font-size: clamp(3rem, 5vw, 5rem);
       margin-bottom: 1.5rem;
       line-height: 1.1;
-      background: var(--gradient-heading);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+      color: var(--color-text);
     }
     .hero-text-side p {
       font-size: 1.25rem;
@@ -174,6 +176,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 2rem;
+      align-items: stretch;
     }
     .service-card {
       background: var(--color-surface);
@@ -182,7 +185,9 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
       text-decoration: none;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       border: 1px solid var(--color-border);
     }
     .service-card:hover {
@@ -193,6 +198,7 @@
     .service-img-wrap {
       height: 200px;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .service-img-wrap img {
       width: 100%;
@@ -206,6 +212,9 @@
     .service-info {
       padding: 1.5rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
     .service-info h3 {
       font-family: var(--font-heading);
@@ -213,6 +222,11 @@
       color: var(--color-text);
       margin-bottom: 0.5rem;
       transition: color 0.3s;
+      min-height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.3;
     }
     .service-card:hover .service-info h3 {
       color: var(--color-primary);
@@ -220,7 +234,13 @@
     .service-info p {
       color: var(--color-text-light);
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.8rem;
+      line-height: 1.4;
     }
     .service-btn {
       color: var(--color-primary);
@@ -228,6 +248,8 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-top: auto;
+      display: inline-block;
     }
 
     /* 3. Discover the Experience (Zigzag Layout) */
@@ -274,22 +296,63 @@
     }
     .zigzag-icon svg { width: 24px; height: 24px; fill: currentColor; }
 
+    @media (max-width: 992px) {
+      .zigzag-row, .zigzag-row:nth-child(even) {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        margin-bottom: 3.5rem !important;
+      }
+      .zigzag-img {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+      }
+      .zigzag-img img {
+        width: 100% !important;
+        height: 280px !important;
+        object-fit: cover !important;
+      }
+      .zigzag-text {
+        width: 100% !important;
+        flex: none !important;
+        padding: 0.5rem 0 !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .zigzag-row {
+        gap: 1.25rem !important;
+        margin-bottom: 2.5rem !important;
+      }
+      .zigzag-img img {
+        height: 220px !important;
+      }
+      .zigzag-text h3 {
+        font-size: 1.7rem !important;
+      }
+      .zigzag-text p {
+        font-size: 0.95rem !important;
+      }
+    }
+
     /* 4. Signature Packages (Redesigned Dark Premium) */
     .pricing-wrapper {
       background: var(--color-surface);
-      padding: 6rem 0;
+      padding: 4.5rem 0;
       color: var(--color-text);
     }
     .pricing-wrapper .sec-title h2 {
-      background: var(--gradient-heading);
-      -webkit-background-clip: text;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+      color: var(--color-text);
     }
     .pricing-wrapper .sec-title p { color: var(--color-text-light); }
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2.5rem;
-      align-items: center;
+      align-items: stretch;
     }
     .pricing-card {
       background: var(--color-bg);
@@ -299,20 +362,22 @@
       border: 1px solid var(--color-border);
       position: relative;
       transition: transform 0.4s, box-shadow 0.4s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .pricing-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px var(--color-shadow); }
     .pricing-card.featured {
       background: rgba(210, 75, 118, 0.05);
       border: 2px solid var(--color-primary);
-      transform: scale(1.05);
       box-shadow: 0 0 30px rgba(210, 75, 118, 0.2);
     }
-    .pricing-card.featured:hover { transform: scale(1.05) translateY(-10px); }
+    .pricing-card.featured:hover { transform: translateY(-10px); box-shadow: 0 20px 40px var(--color-shadow); }
     .pricing-card.featured::before {
       content: 'Most Popular';
       position: absolute;
       top: -16px; left: 50%; transform: translateX(-50%);
-      background: var(--gradient-heading); color: white;
+      background: var(--color-primary); color: white;
       padding: 0.5rem 2rem; border-radius: var(--radius-pill);
       font-weight: bold; font-size: 0.9rem;
       box-shadow: 0 5px 15px rgba(218, 47, 95, 0.3);
@@ -320,9 +385,12 @@
     .price-title { font-family: var(--font-magic); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 0.5rem; }
     .price-amount { font-size: 3.5rem; font-weight: 800; color: var(--color-accent); margin-bottom: 0.5rem; line-height: 1; }
     .price-duration { color: var(--color-text-light); margin-bottom: 2rem; font-weight: bold; font-size: 1.1rem; }
-    .price-features { list-style: none; margin-bottom: 2.5rem; text-align: left; }
+    .price-features { list-style: none; margin-bottom: 2.5rem; text-align: left; flex-grow: 1; }
     .price-features li { padding: 0.85rem 0; border-bottom: 1px solid var(--color-border); color: var(--color-text); display: flex; align-items: flex-start; gap: 0.75rem; }
     .price-features li svg { width: 20px; height: 20px; fill: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
+    .pricing-card .btn {
+      margin-top: auto;
+    }
 
     /* 5. Occasions (Image Overlay Reveal) */
     .occ-grid {
@@ -407,7 +475,7 @@
 
     /* 8. CTA */
     .cta-section {
-      background: #D24B76;
+      background: #C92A58 !important;
       padding: 6rem 0;
       text-align: center;
       color: white;
@@ -419,8 +487,39 @@
     @media (max-width: 992px) {
       .hero-container { flex-direction: column; text-align: center; }
       .hero-floating-badge { left: 50%; transform: translateX(-50%); bottom: -20px; }
-      .pricing-card.featured { transform: scale(1); }
       .pricing-card.featured:hover { transform: translateY(-5px); }
+      .zigzag-row, .zigzag-row:nth-child(even) {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        margin-bottom: 3.5rem !important;
+      }
+      .zigzag-img {
+        width: 100% !important;
+        flex: none !important;
+      }
+      .zigzag-img img {
+        width: 100% !important;
+        height: 260px !important;
+        object-fit: cover !important;
+      }
+      .zigzag-text {
+        width: 100% !important;
+        flex: none !important;
+        padding: 0 !important;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .zigzag-img img {
+        height: 210px !important;
+      }
+      .zigzag-text h3 {
+        font-size: 1.6rem !important;
+      }
+      .zigzag-text p {
+        font-size: 1rem !important;
+      }
     }
   </style>
   <link rel="icon" type="image/png" href="assets/logoooo.png">
@@ -434,9 +533,9 @@
   <section class="service-hero">
     <div class="container hero-container">
       <div class="hero-text-side">
-        <h1><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Unforgettable</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Magic Awaits.</span></h1>
+        <h1><span class="text-pink">Unforgettable</span> <span class="text-blue">Magic Awaits.</span></h1>
         <p>From mesmerizing stage illusionists to joyful mascots, discover the perfect entertainment to make your child's celebration truly extraordinary.</p>
-        <a href="#explore" class="btn btn-primary" style="padding: 1.25rem 3rem; font-size: 1.125rem;">Explore All Services</a>
+        <a href="#explore" class="btn btn-primary btn-lg">Explore All Services</a>
       </div>
       <div class="hero-image-side">
         <img src="assets/images/pro_services_hero.jpg" alt="Magical Entertainment">
@@ -449,7 +548,7 @@
   <section id="explore" class="section-pad" style="background: var(--color-bg);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Explore</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Our Entertainment</span></h2>
+        <h2><span class="text-pink">Explore</span> <span class="text-blue">Our Entertainment</span></h2>
         <p>Browse our extensive roster of magical services. Search, filter, or sort to find the perfect fit.</p>
       </div>
       
@@ -472,132 +571,148 @@
       </div>
 
       <div class="services-grid" id="servicesGrid">
-        <!-- 20 Services -->
+        <!-- 16 Unique Premium Services -->
         <a href="service_detail.html" class="service-card" data-title="Grand Stage Magician" data-category="magic">
-          <div class="service-img-wrap"><img src="assets/images/pro_grand_stage.jpg" alt="Stage Magician"></div>
+          <div class="service-img-wrap"><img src="assets/images/pro_grand_stage.jpg" alt="Grand Stage Magician"></div>
           <div class="service-info">
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 5-12 • 45-60 min</span>
             <h3>Grand Stage Magician</h3>
-            <p>A full 45-minute stage illusion show.</p>
+            <p>Full-scale theatrical illusion show with disappearing acts, comedy banter, and stage levitation.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Friendly Mascots" data-category="characters">
           <div class="service-img-wrap"><img src="assets/images/service_mascot.jpg" alt="Party Mascot"></div>
           <div class="service-info">
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 1-6 • 45 min</span>
             <h3>Friendly Mascots</h3>
-            <p>Huggable, joyful character appearances.</p>
+            <p>Huggable, joyful character visits with energetic dancing, high-fives, and memorable group photos.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Royal Princess Visit" data-category="characters">
-          <div class="service-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Royal Princess"></div>
+          <div class="service-img-wrap"><img src="assets/images/princess_portrait_1790843055244.jpg" alt="Royal Princess"></div>
           <div class="service-info">
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 3-8 • 60-90 min</span>
             <h3>Royal Princess Visit</h3>
-            <p>Sing-alongs and royal coronations.</p>
+            <p>Enchanting live sing-alongs, fairytale tea parties, and an authentic royal coronation ceremony.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Action Superhero" data-category="characters">
-          <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Superhero"></div>
+          <div class="service-img-wrap"><img src="assets/images/performer_superhero.jpg" alt="Superhero Performer"></div>
           <div class="service-info">
-            <h3>Action Superhero</h3>
-            <p>Superhero training and action games.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 4-10 • 60 min</span>
+            <h3>Action Superhero Training</h3>
+            <p>Hero boot camp with agility obstacle courses, dynamic superhero posing, and heroic graduation badges.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Classic Clown" data-category="characters">
-          <div class="service-img-wrap"><img src="assets/images/pro_silly_clown.jpg" alt="Classic Clown"></div>
+          <div class="service-img-wrap"><img src="assets/images/clown_party_1790842566084.jpg" alt="Classic Clown"></div>
           <div class="service-info">
-            <h3>Classic Clown</h3>
-            <p>Slapstick comedy and endless laughs.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 2-7 • 45-60 min</span>
+            <h3>Classic Comedy Clown</h3>
+            <p>Gentle, slapstick family comedy with juggling mishaps, silly sound effects, and nonstop giggles.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Face Painting Pro" data-category="activities">
-          <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1542841791-c990be44358a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Face Painting"></div>
+          <div class="service-img-wrap"><img src="assets/images/service_face_painting.jpg" alt="Face Painting Pro"></div>
           <div class="service-info">
-            <h3>Face Painting Pro</h3>
-            <p>Transforming faces into art.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">All Ages • 60-120 min</span>
+            <h3>Face Painting & Glitter Art</h3>
+            <p>Cosmetic-grade, hypoallergenic transformation art: shimmering butterflies, wild tigers, and superheroes.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Balloon Twisting" data-category="activities">
-          <div class="service-img-wrap"><img src="assets/images/pro_silly_clown.jpg" alt="Balloon Twisting"></div>
+          <div class="service-img-wrap"><img src="assets/images/service_balloon_twisting.jpg" alt="Balloon Twisting Art"></div>
           <div class="service-info">
-            <h3>Balloon Twisting</h3>
-            <p>Swords, dogs, and crazy hats!</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">All Ages • 60 min</span>
+            <h3>Sculpted Balloon Art</h3>
+            <p>Vibrant wearable hats, wearable wings, animal favorites, and flowers handcrafted live before the guests.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Interactive Puppet Show" data-category="magic">
-          <div class="service-img-wrap"><img src="assets/images/pro_classic_magic.jpg" alt="Puppet Show"></div>
+          <div class="service-img-wrap"><img src="assets/images/service_puppet_show.jpg" alt="Puppet Show"></div>
           <div class="service-info">
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 2-6 • 45 min</span>
             <h3>Interactive Puppet Show</h3>
-            <p>Engaging stories for toddlers.</p>
+            <p>Charming wooden portable theater with lovable puppet characters, catchy songs, and audience dialogue.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Close-Up Magician" data-category="magic">
-          <div class="service-img-wrap"><img src="assets/images/pro_magician.jpg" alt="Close-up Magic"></div>
+          <div class="service-img-wrap"><img src="assets/images/magician_portrait_1790843004983.jpg" alt="Close-up Magic"></div>
           <div class="service-info">
-            <h3>Close-Up Magician</h3>
-            <p>Strolling magic for older kids.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 7-14 • 60 min</span>
+            <h3>Close-Up Strolling Magic</h3>
+            <p>Mind-bending card artistry, coin vanishes, and impossible mind-reading performed inches away.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
-        <a href="service_detail.html" class="service-card" data-title="High-Energy Party Host" data-category="activities">
-          <div class="service-img-wrap"><img src="assets/images/pro_services_hero.jpg" alt="Party Host"></div>
+        <a href="service_detail.html" class="service-card" data-title="Giant Bubble Show" data-category="activities">
+          <div class="service-img-wrap"><img src="assets/images/service_bubble_show.jpg" alt="Giant Bubble Show"></div>
           <div class="service-info">
-            <h3>High-Energy Party Host</h3>
-            <p>Running games and keeping energy high.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">All Ages • 45-60 min</span>
+            <h3>Giant Bubble Wonder Show</h3>
+            <p>Iridescent room-sized bubbles, smoke-filled spheres, and putting each child completely inside a bubble!</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Magic Workshop" data-category="magic">
-          <div class="service-img-wrap"><img src="assets/images/pro_classic_magic.jpg" alt="Magic Workshop"></div>
+          <div class="service-img-wrap"><img src="assets/images/about_art_of_magic.jpg" alt="Magic Workshop"></div>
           <div class="service-info">
-            <h3>Magic Workshop</h3>
-            <p>Teaching kids their first magic tricks.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 6-12 • 60 min</span>
+            <h3>Junior Magicians Workshop</h3>
+            <p>Hands-on coaching where young apprentices learn secret sleights and receive a real Magiqo wand kit.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Enchanted Storyteller" data-category="characters">
-          <div class="service-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Storytelling"></div>
+          <div class="service-img-wrap"><img src="assets/images/princess_party_1790842645232.jpg" alt="Storytelling"></div>
           <div class="service-info">
-            <h3>Enchanted Storyteller</h3>
-            <p>Immersive tales and adventures.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 3-7 • 45 min</span>
+            <h3>Fairytale Quest Storyteller</h3>
+            <p>Immersive interactive drama and treasure hunts where the kids become the brave heroes of the story.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Master Illusionist" data-category="magic">
-          <div class="service-img-wrap"><img src="assets/images/about_art_of_magic.jpg" alt="Illusionist"></div>
+          <div class="service-img-wrap"><img src="assets/images/magic_show_party_1790842468826.jpg" alt="Illusionist"></div>
           <div class="service-info">
-            <h3>Master Illusionist</h3>
-            <p>Levitation and grand spectacles.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 6-14 • 60-90 min</span>
+            <h3>Grand Master Illusionist</h3>
+            <p>Large-scale stage wizardry, optical mysteries, and jaw-dropping suspense for milestone birthdays.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Fairy Godmother" data-category="characters">
-          <div class="service-img-wrap"><img src="assets/images/pro_princess.jpg" alt="Fairy Godmother"></div>
+          <div class="service-img-wrap"><img src="assets/images/performer_fairy.jpg" alt="Fairy Godmother"></div>
           <div class="service-info">
-            <h3>Fairy Godmother</h3>
-            <p>Granting wishes and spreading dust.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 2-6 • 45-60 min</span>
+            <h3>Fairy Godmother Wish Day</h3>
+            <p>Glimmering gowns, light-up fairy wings, enchanted wishing dust, and personalized royal blessings.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Comedy Juggler" data-category="activities">
-          <div class="service-img-wrap"><img src="assets/images/pro_magician.jpg" alt="Juggler"></div>
+          <div class="service-img-wrap"><img src="assets/images/service_circus_juggler.jpg" alt="Comedy Juggler"></div>
           <div class="service-info">
-            <h3>Comedy Juggler</h3>
-            <p>Balls, clubs, and hilarious drops.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">All Ages • 45-60 min</span>
+            <h3>Circus Comedy Juggler</h3>
+            <p>High-energy juggling with rings, clubs, and comedy balance tricks that keep crowds on their feet.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
         <a href="service_detail.html" class="service-card" data-title="Glitter Tattoos" data-category="activities">
-          <div class="service-img-wrap"><img src="assets/images/pro_hero_party.jpg" alt="Glitter Tattoos"></div>
+          <div class="service-img-wrap"><img src="assets/images/theme_music.jpg" alt="Party Disco and Tattoos"></div>
           <div class="service-info">
-            <h3>Glitter Tattoos</h3>
-            <p>Sparkly waterproof body art.</p>
+            <span class="pill-badge" style="font-size: 0.75rem; margin-bottom: 0.5rem; width: fit-content;">Ages 4-12 • 60-90 min</span>
+            <h3>Mini Disco & Glitter Tattoos</h3>
+            <p>Vibrant club lighting, child-safe DJ party anthems, dance-off competitions, and sparkling tattoos.</p>
             <span class="service-btn">View Details →</span>
           </div>
         </a>
@@ -610,40 +725,40 @@
   <section class="section-pad" style="background: var(--color-surface);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Discover</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">the Experience</span></h2>
-        <p>What makes a MAGIQO performance truly unique.</p>
+        <h2><span class="text-pink">Discover</span> <span class="text-blue">the Experience</span></h2>
+        <p>What makes every Magiqo children's celebration truly magical and stress-free.</p>
       </div>
       
       <div class="zigzag-row">
-        <div class="zigzag-img"><img src="assets/images/pro_hero_party.jpg" alt="Interactive"></div>
+        <div class="zigzag-img"><img src="assets/images/interactive_party_show.jpg" alt="100% Interactive Entertainment"></div>
         <div class="zigzag-text">
           <div class="zigzag-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="var(--color-primary)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <h3>100% Interactive</h3>
-          <p style="font-size: 1.125rem; color: var(--color-text-light); line-height: 1.8;">We don't just perform for the children; we perform WITH them. Every child gets a chance to participate, laugh, and be a part of the magical unfolding story.</p>
+          <h3 style="color: var(--color-text); font-size: 1.75rem; margin-bottom: 1rem;">100% Interactive & Engaging</h3>
+          <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.8;">We don't just perform for children; we perform WITH them. Every child gets a chance to participate in magic tricks, join games, and feel celebrated as the star of the show.</p>
         </div>
       </div>
       
       <div class="zigzag-row">
-        <div class="zigzag-img"><img src="assets/images/pro_princess.jpg" alt="Premium Quality"></div>
+        <div class="zigzag-img"><img src="assets/images/princess_party_1790842645232.jpg" alt="Museum Quality Costumes"></div>
         <div class="zigzag-text">
           <div class="zigzag-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm1-11h-2v3H8v2h3v3h2v-3h3v-2h-3V8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="var(--color-secondary)"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm1-11h-2v3H8v2h3v3h2v-3h3v-2h-3V8z"/></svg>
           </div>
-          <h3>Premium Quality</h3>
-          <p style="font-size: 1.125rem; color: var(--color-text-light); line-height: 1.8;">Our characters look like they stepped right out of a movie set. No cheap wigs or low-quality fabrics—only museum-quality costumes and props.</p>
+          <h3 style="color: var(--color-text); font-size: 1.75rem; margin-bottom: 1rem;">Authentic Costumes & Props</h3>
+          <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.8;">Our characters look like they stepped straight out of a movie screen. From bespoke tailored gowns to theatrical sound equipment, we spare no detail in crafting authentic magic.</p>
         </div>
       </div>
 
       <div class="zigzag-row">
-        <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Stress Free"></div>
+        <div class="zigzag-img"><img src="assets/images/kids_clapping_party_1790917531872.jpg" alt="Stress-Free Parents"></div>
         <div class="zigzag-text">
           <div class="zigzag-icon">
-            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="var(--color-primary)"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
           </div>
-          <h3>Stress-Free Parents</h3>
-          <p style="font-size: 1.125rem; color: var(--color-text-light); line-height: 1.8;">We handle the entertainment from start to finish, so you can actually sit back, enjoy a conversation, and watch your child have the time of their life.</p>
+          <h3 style="color: var(--color-text); font-size: 1.75rem; margin-bottom: 1rem;">100% Stress-Free for Parents</h3>
+          <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.8;">Our seasoned performers command room attention and coordinate seamless party flow, allowing parents to relax, mingle, take pictures, and actually enjoy the special day.</p>
         </div>
       </div>
     </div>
@@ -653,8 +768,8 @@
   <section class="pricing-wrapper">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Our</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Signature Packages</span></h2>
-        <p>Curated bundles for the perfect celebration length.</p>
+        <h2><span class="text-pink">Our</span> <span class="text-blue">Signature Packages</span></h2>
+        <p>Thoughtfully designed bundles for parties of any size and celebration length.</p>
       </div>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -665,23 +780,24 @@
             <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 1 Professional Entertainer</li>
             <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Interactive Magic Show</li>
             <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Happy Birthday Ceremony</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Photo Opportunities</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Photo Opportunities & Stickers</li>
           </ul>
-          <a href="booking.html" class="btn btn-outline" style="width: 100%; padding: 1rem; border-color: var(--color-primary); color: var(--color-text);">Book The Spark</a>
+          <a href="booking.html" class="btn btn-outline btn-full">Book The Spark</a>
         </div>
         
         <div class="pricing-card featured">
+          <div class="featured-badge" style="position: absolute; top: 15px; right: 20px; background: var(--color-primary); color: white; padding: 4px 12px; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Most Popular</div>
           <h3 class="price-title">The Magic</h3>
           <div class="price-amount">$299</div>
           <div class="price-duration">90 Minutes</div>
           <ul class="price-features">
             <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 1 Professional Entertainer</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Interactive Magic Show</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Balloon Twisting</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Party Games & Music</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Special Gift Box</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Full Interactive Stage Show</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Sculpted Balloon Animals for All</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Music, Party Games & Dances</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Deluxe Birthday Child Keepsake</li>
           </ul>
-          <a href="booking.html" class="btn btn-primary" style="width: 100%; padding: 1rem;">Book The Magic</a>
+          <a href="booking.html" class="btn btn-primary btn-full">Book The Magic</a>
         </div>
         
         <div class="pricing-card">
@@ -690,12 +806,12 @@
           <div class="price-duration">2 Hours</div>
           <ul class="price-features">
             <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> 2 Professional Entertainers</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Grand Magic Show & Face Paint</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Balloon Twisting & Games</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Mini Disco Setup</li>
-            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Premium Gift Box</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Grand Magic Show & Face Painting</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Balloon Art & Interactive Games</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Mini Disco Sound & Lighting Rig</li>
+            <li><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Premium VIP Magiqo Gift Box</li>
           </ul>
-          <a href="booking.html" class="btn btn-outline" style="width: 100%; padding: 1rem; border-color: var(--color-primary); color: var(--color-text);">Book The Spectacle</a>
+          <a href="booking.html" class="btn btn-outline btn-full">Book The Spectacle</a>
         </div>
       </div>
     </div>
@@ -705,74 +821,76 @@
   <section class="section-pad" style="background: var(--color-surface);">
     <div class="container">
       <div class="sec-title">
-        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Perfect For</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Every Occasion</span></h2>
-        <p>Hover to discover how we make every event special.</p>
+        <h2><span class="text-pink">Perfect For</span> <span class="text-blue">Every Occasion</span></h2>
+        <p>From intimate backyard birthdays to school auditoriums, we customize for every setting.</p>
       </div>
       <div class="occ-grid" style="margin-bottom: 5rem;">
         <div class="occ-card">
-          <img src="assets/images/pro_memory.jpg" alt="Birthdays">
+          <img src="assets/images/about_kids_birthday.jpg" alt="Children Birthday Parties">
           <div class="occ-overlay">
-            <h4>Birthdays</h4>
-            <p>Making them the absolute star of the day with customized themes and personalized magic.</p>
+            <h4>Birthday Milestones</h4>
+            <p>Making them the absolute star of the celebration with customized magic, interactive games, and crowning rituals.</p>
           </div>
         </div>
         <div class="occ-card">
-          <img src="assets/images/pro_gallery_alt.jpg" alt="Schools">
+          <img src="assets/images/pro_grand_stage.jpg" alt="School Assemblies and Events">
           <div class="occ-overlay">
-            <h4>School Events</h4>
-            <p>Large scale fun that engages full classrooms and assemblies safely and reliably.</p>
+            <h4>School & Community</h4>
+            <p>High-energy stage performances that capture 50-300 students with educational themes and clean humor.</p>
           </div>
         </div>
         <div class="occ-card">
-          <img src="assets/images/pro_about_hero.jpg" alt="Corporate">
+          <img src="assets/images/family_holiday_party.jpg" alt="Family Gatherings and Holidays">
           <div class="occ-overlay">
-            <h4>Family Gatherings</h4>
-            <p>Keeping the little ones fully entertained with high-energy games while adults relax.</p>
+            <h4>Family & Holiday Fetes</h4>
+            <p>Keeping kids thoroughly engaged with dynamic games, balloon art, and magic while adults converse and dine.</p>
           </div>
         </div>
       </div>
 
-      <div class="sec-title" style="margin-top: 6rem;">
-        <h2><span style="color: var(--color-primary); -webkit-text-fill-color: var(--color-primary);">Why Families</span> <span style="color: #3895c8; -webkit-text-fill-color: #3895c8;">Choose Us</span></h2>
-        <p>Hover over the cards below to see why we're the best.</p>
+      <div class="sec-title" style="margin-top: 4rem;">
+        <h2><span class="text-pink">Why Families</span> <span class="text-blue">Choose Us</span></h2>
+        <p>Explore what makes Magiqo the UK's most trusted children's entertainment platform.</p>
       </div>
       
       <div class="accordion-container">
-        <div class="acc-item" style="background-image: url('assets/images/pro_hero_party.jpg');">
+        <div class="acc-item" style="background-image: url('assets/images/magiqo_background_check.jpg');">
           <div class="acc-overlay"></div>
           <div class="acc-content">
-            <h4>Vetted & Safe</h4>
-            <p>Fully background checked professionals, giving you complete peace of mind when we arrive at your door.</p>
+            <h4>100% Vetted & Safe</h4>
+            <p>Every entertainer carries enhanced DBS checks, certified child-safety training, and £5M insurance.</p>
           </div>
         </div>
-        <div class="acc-item" style="background-image: url('https://images.unsplash.com/photo-1608889476561-6242cfdbf622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');">
+        <div class="acc-item" style="background-image: url('assets/images/magiqo_insured.jpg');">
           <div class="acc-overlay"></div>
           <div class="acc-content">
-            <h4>Highly Reliable</h4>
-            <p>We never cancel. We always show up on time, fully prepared, and ready to perform at our absolute best.</p>
+            <h4>Ironclad Reliability</h4>
+            <p>We provide a 100% On-Time Performer Guarantee with emergency performer backup across all covered cities.</p>
           </div>
         </div>
-        <div class="acc-item" style="background-image: url('assets/images/pro_princess.jpg');">
+        <div class="acc-item" style="background-image: url('assets/images/kids_clapping_party_1790917531872.jpg');">
           <div class="acc-overlay"></div>
           <div class="acc-content">
-            <h4>Pure Joy</h4>
-            <p>Over 10,000 5-star reviews from happy parents across the country who trusted us with their memories.</p>
+            <h4>Pure Childhood Joy</h4>
+            <p>Over 12,000 parties hosted and a 4.95/5 verified parent satisfaction rating across the UK.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 8. Let the Magic Begin (CTA - Color from home2) -->
+  <!-- 8. Let the Magic Begin CTA -->
   <section class="cta-section">
     <div class="container text-center">
-      <div class="sec-title" style="margin-bottom: 2rem;">
-        <h2 style="color: white !important; -webkit-text-fill-color: white !important; background: none !important;">Let the Magic Begin</h2>
+      <div class="sec-title" style="margin-bottom: 1.5rem;">
+        <h2 style="color: #FFFFFF !important; -webkit-text-fill-color: initial !important; background: none !important; font-size: clamp(2.5rem, 5vw, 3.5rem);">Let the Magic Begin</h2>
       </div>
-      <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.6; color: rgba(255,255,255,0.9);">
-        Secure your child's favorite entertainer before our calendar fills up completely. Let's create an unforgettable celebration together.
+      <p style="font-size: 1.25rem; max-width: 650px; margin: 0 auto 3rem; line-height: 1.7; color: rgba(255,255,255,0.95);">
+        Secure your child's favorite entertainer before prime weekend slots sell out. Let's make this year's party their favorite memory ever!
       </p>
-      <a href="packages.html" class="btn btn-animated" style="background: white; color: #da2f5f; padding: 1.25rem 4rem; font-size: 1.25rem; font-weight: bold; border-radius: var(--radius-pill); text-decoration: none; display: inline-block;">Book Your Party Now</a>
+      <a href="packages.html" class="btn btn-white btn-lg">
+        <i class="fa-solid fa-wand-sparkles"></i> Book Your Party Now
+      </a>
     </div>
   </section>
 
@@ -864,12 +982,7 @@
   <script type="module">
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Initial Opacity Setup
-      const fadeElements = document.querySelectorAll('.sec-title, .page-header h1, .page-header p, .hero-text-side, .hero-image-side, .zigzag-img, .zigzag-text');
-      fadeElements.forEach(el => el.style.opacity = '0');
-
       const grids = document.querySelectorAll('#servicesGrid, .pricing-grid, .occ-grid, .accordion-container, div[style*="display: grid"]');
-      grids.forEach(grid => Array.from(grid.children).forEach(child => child.style.opacity = '0'));
 
       // 2. Animations on Scroll
       
